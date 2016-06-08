@@ -3,10 +3,13 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  
+  //'vladivostok':            'https://rawgit.com/angular/vladivostok/master/build/src'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,7 +22,6 @@ const barrels: string[] = [
   '@angular/common',
   '@angular/compiler',
   '@angular/http',
-  '@angular/router',
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
 
@@ -30,6 +32,8 @@ const barrels: string[] = [
   'app',
   'app/shared',
   /** @cli-barrel */
+  //'@angular/vladivostok',
+  'vladivostok',
 ];
 
 const cliSystemConfigPackages: any = {};
@@ -44,6 +48,8 @@ declare var System: any;
 System.config({
   map: {
     '@angular': 'vendor/@angular',
+    
+    'vladivostok': 'vendor/vladivostok/build/src',
     'rxjs': 'vendor/rxjs',
     'main': 'main.js'
   },
