@@ -8,9 +8,12 @@ import { Observable } from 'rxjs';
     moduleId: module.id,
     template: `<h2>{{ (mission | async)?.name}}</h2>
     <a [routerLink]="['/missions/',id,'/edit']">Edit</a>
-     <div *ngIf="(mission | async)?.description">{{ (mission | async)?.description}}
-    <div *ngIf="(mission | async)?.startDate && (mission | async)?.endDate">    {{ (mission | async)?.startDate}} - 
-        {{ (mission | async)?.endDate}}</div>
+    <div class="content">
+        <div *ngIf="(mission | async)?.description">{{ (mission | async)?.description}}</div>
+        <div *ngIf="(mission | async)?.startDate && (mission | async)?.endDate">
+            {{ (mission | async)?.startDate}} - {{ (mission | async)?.endDate}}
+        </div>
+    </div>
     `,
     directives: [ ROUTER_DIRECTIVES ],
     

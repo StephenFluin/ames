@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
     template: `<h2>Edit <a [routerLink]="['/missions/',id]">{{ mission?.name }}</a></h2>
      <form *ngIf="mission" (submit)="save()">
         <label><input [(ngModel)]="mission.name" placeholder="name"></label>
-        <label><input [(ngModel)]="mission.description" placeholder="description"></label>
+        <label><textarea [(ngModel)]="mission.description" placeholder="description"></textarea></label>
        <!-- <div *ngIf="mission.startDate && mission.endDate">
             {{ mission.startDate}} - {{ mission.endDate}}
         </div>-->
@@ -44,6 +44,7 @@ export class MissionEditComponent {
     save() {
         console.log("saving from component",this.mission);
         this.missionService.save(this.mission);
+        this.router.navigate(['../../'], {relativeTo:this.route});
     }
     delete() {
         this.missionService.delete(this.mission);

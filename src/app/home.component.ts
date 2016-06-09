@@ -11,13 +11,8 @@ export class SubComponent {
 
 @Component({
     moduleId: module.id,
-    template: `Just hold on, we're going home.
-    
-   <p [innerHTML]="content">Let's bind this.</p>
-   {{content}}
-   <p></p>
-   <div>safe thing:</div>
-   <div><subcomponent></subcomponent></div>
+    template: `<p>Angular is great, but we're only successful because of our awesome community. This site is designed to help you find Experts, join a Group, or take on a Mission to help Angular.</p>
+
     `,
     directives: [SubComponent]
     
@@ -26,9 +21,5 @@ export class HomeComponent implements OnInit {
     content : string;
     
     ngOnInit() {
-        this.content = `<strong>Hi!</strong>
-        <script   src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-        That got squelched!
-        <subcomponent></subcomponent>`;
     }
 }

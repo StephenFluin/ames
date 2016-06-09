@@ -1,2 +1,8 @@
-h2 { display: inline }
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+h2 { display: inline; margin-left:16px; }
 label { display: block;}
+p, nav, form, .grid, .content { padding:16px; }
