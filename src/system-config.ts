@@ -3,13 +3,17 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-  
-  //'vladivostok':            'https://rawgit.com/angular/vladivostok/master/build/src'
+  /*
+  'firebase': 'vendor/firebase/lib/firebase-web.js',
+  'angularfire2': 'vendor/angularfire2',*/
 };
 
 /** User packages configuration. */
 const packages: any = {
-  
+  /*angularfire2: {
+    defaultExtension: 'js',
+    main: 'angularfire2.js'
+  }*/
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,6 +25,7 @@ const barrels: string[] = [
   '@angular/core',
   '@angular/common',
   '@angular/compiler',
+  '@angular/router',
   '@angular/http',
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
@@ -32,8 +37,6 @@ const barrels: string[] = [
   'app',
   'app/shared',
   /** @cli-barrel */
-  //'@angular/vladivostok',
-  'vladivostok',
 ];
 
 const cliSystemConfigPackages: any = {};
@@ -48,8 +51,6 @@ declare var System: any;
 System.config({
   map: {
     '@angular': 'vendor/@angular',
-    
-    'vladivostok': 'vendor/vladivostok/build/src',
     'rxjs': 'vendor/rxjs',
     'main': 'main.js'
   },
