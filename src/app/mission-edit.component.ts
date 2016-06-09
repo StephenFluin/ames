@@ -9,10 +9,11 @@ import { Observable } from 'rxjs';
     template: `<h2>Edit <a [routerLink]="['/missions/',id]">{{ mission?.name }}</a></h2>
      <form *ngIf="mission" (submit)="save()">
         <label><input [(ngModel)]="mission.name" placeholder="name"></label>
-        <label></label>
+        <label><input [(ngModel)]="mission.description" placeholder="description"></label>
        <!-- <div *ngIf="mission.startDate && mission.endDate">
             {{ mission.startDate}} - {{ mission.endDate}}
         </div>-->
+        <button type="submit">save</button>
     </form>
     `,
     directives: [ ROUTER_DIRECTIVES ],
@@ -27,7 +28,11 @@ export class MissionEditComponent {
         // Why is this an observable vs an object? :(
         route.params.subscribe(params => {
             this.id = params['id']; 
-             missionService.getMission(this.id).subscribe(mission => this.mission = mission);
+             missionService.getMission(this.id).subscribe(mission => {
+                 this.mission = mission;
+                 this.mission.$key = this.id;
+                 
+            });
         }, params => {
             console.log("error", params);
         }, () => {
@@ -36,7 +41,8 @@ export class MissionEditComponent {
     }
     
     save() {
-        //this.missionService.save(mission);
+        console.log("saving from component",this.mission);
+        this.missionService.save(this.mission);
     }
     
 }

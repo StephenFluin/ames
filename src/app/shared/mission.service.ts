@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Mission } from '../models';
 import { Observable } from 'rxjs';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 @Injectable()
 export class MissionService {
@@ -20,13 +20,21 @@ export class MissionService {
         return this.list;
         
     }
-    getMission(key) : Observable<Mission> {
-        return this.af.database.object('/missions/' + key);
+    getMission(key) : FirebaseObjectObservable<Mission> {
+        let missionObserver : FirebaseObjectObservable<any> = this.af.database.object('/missions/' + key);
+        return missionObserver;
     }
     new(mission : Mission) {
         this.items.push(mission);
     }
+    
+    // This method is a giant hack. HERE BE DRAGONS
+    // I manually remove the key (which I need so I know where to write to),
+    // and then add it back
     save(mission : Mission) {
-        this.af.database.object('/missions/' + mission.$key).update(mission);
+        let key = mission.$key;
+        delete mission.$key;
+        this.af.database.object('/missions/' + key).update(mission);
+        mission.$key = key;
     }
 }
