@@ -37,4 +37,12 @@ export class MissionService {
         this.af.database.object('/missions/' + key).update(mission);
         mission.$key = key;
     }
+    
+    delete(mission : Mission) {
+        let key = mission.$key;
+        if(key) {
+            this.af.database.object('/missions/' + key).remove();
+        }
+        
+    }
 }

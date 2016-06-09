@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
+import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import { Mission } from './models';
 import { MissionService } from './shared/mission.service';
 import { Observable } from 'rxjs';
@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
             {{ mission.startDate}} - {{ mission.endDate}}
         </div>-->
         <button type="submit">save</button>
+        <div style="font-size:10px;margin:32px 0">(<span style="color:red;" (click)="delete()">delete</span>)</div>
     </form>
     `,
     directives: [ ROUTER_DIRECTIVES ],
@@ -24,7 +25,7 @@ export class MissionEditComponent {
     // Note that this doesn't match the detail component
     mission : Mission;
     
-    constructor(private route : ActivatedRoute, private missionService : MissionService) {
+    constructor(private route : ActivatedRoute, private router: Router, private missionService : MissionService) {
         // Why is this an observable vs an object? :(
         route.params.subscribe(params => {
             this.id = params['id']; 
@@ -43,6 +44,12 @@ export class MissionEditComponent {
     save() {
         console.log("saving from component",this.mission);
         this.missionService.save(this.mission);
+    }
+    delete() {
+        this.missionService.delete(this.mission);
+        this.router.navigate(['../../'], {relativeTo:this.route});
+        
+        
     }
     
 }
