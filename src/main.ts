@@ -6,13 +6,14 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/routes';
 
 
-//import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
+import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AmesAppComponent, provideRouter(routes));
-
-//FIREBASE_PROVIDERS,
-//  defaultFirebase('https://project-1912052061267295165.firebaseio.com/')
+bootstrap(AmesAppComponent, [
+  provideRouter(routes),
+  FIREBASE_PROVIDERS,
+  defaultFirebase('https://project-1912052061267295165.firebaseio.com/')
+]);

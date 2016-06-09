@@ -6,30 +6,37 @@ import { Observable } from 'rxjs';
 
 @Component({
     moduleId: module.id,
-    template: `<h2>{{ (mission | async)?.name}}</h2>
-    <a [routerLink]="['/missions/',id,'/edit']">Edit</a>
-     
-    <div *ngIf="(mission | async)?.startDate && (mission | async)?.endDate">    {{ (mission | async)?.startDate}} - 
-        {{ (mission | async)?.endDate}}</div>
+    template: `<h2>Edit <a [routerLink]="['/missions/',id]">{{ mission?.name }}</a></h2>
+     <form *ngIf="mission" (submit)="save()">
+        <label><input [(ngModel)]="mission.name" placeholder="name"></label>
+        <label></label>
+       <!-- <div *ngIf="mission.startDate && mission.endDate">
+            {{ mission.startDate}} - {{ mission.endDate}}
+        </div>-->
+    </form>
     `,
     directives: [ ROUTER_DIRECTIVES ],
     
 })
-export class MissionDetailComponent {
+export class MissionEditComponent {
     id : string;
-    // Should this be an observable or a real mission? I kind of want to remove it from the observable to make template cleaner
-    mission : Observable<Mission>;
+    // Note that this doesn't match the detail component
+    mission : Mission;
     
     constructor(private route : ActivatedRoute, private missionService : MissionService) {
         // Why is this an observable vs an object? :(
         route.params.subscribe(params => {
             this.id = params['id']; 
-            this.mission = missionService.getMission(this.id);
+             missionService.getMission(this.id).subscribe(mission => this.mission = mission);
         }, params => {
             console.log("error", params);
         }, () => {
             console.log("finished");
         });
+    }
+    
+    save() {
+        //this.missionService.save(mission);
     }
     
 }
