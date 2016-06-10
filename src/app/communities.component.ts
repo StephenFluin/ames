@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
     `,
     
 })
-export class GroupsComponent {
+export class CommunitiesComponent {
     
 }

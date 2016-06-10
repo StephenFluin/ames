@@ -5,7 +5,7 @@ import {MissionListComponent} from './missions/mission-list.component';
 import {MissionDetailComponent} from './missions/mission-detail.component';
 import {MissionEditComponent} from './missions/mission-edit.component';
 import {ExpertsComponent} from './experts.component';
-import {GroupsComponent} from './groups.component';
+import {CommunitiesComponent} from './communities.component';
 import {LoginComponent} from './login.component';
 import {ResourcesComponent} from './resources/resources.component';
 import {ResourcesNewComponent} from './resources/resources-new.component';
@@ -30,8 +30,8 @@ export const routes: RouterConfig = [
         component: ExpertsComponent
     },
     { 
-        path: '/groups',
-        component: GroupsComponent
+        path: '/communities',
+        component: CommunitiesComponent
     },
     {
         path: '/login',

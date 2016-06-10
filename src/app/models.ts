@@ -24,5 +24,24 @@ export class Mission {
 
 export class Expert {
     $key: string;
-    name: string;
+    bio: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    pictureUrl: string;
+    webpageUrl: string;
+    resumeUrl: string;
+    twitter: string;
+    linkedin: string;
+    city: string;
+    country: string;
+    
+    isGDE: boolean;
+    isConsultant: boolean;
+    isEducator: boolean;
+    
+    languages : string[];
+    missions: string[];
+    communities: string[];
+    
 }
