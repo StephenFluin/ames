@@ -15,5 +15,5 @@ if (environment.production) {
 bootstrap(AmesAppComponent, [
   provideRouter(routes),
   FIREBASE_PROVIDERS,
-  defaultFirebase('https://project-1912052061267295165.firebaseio.com/')
+  defaultFirebase('https://ames.firebaseio.com/'),
 ]);

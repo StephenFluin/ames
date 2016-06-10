@@ -1,0 +1,35 @@
+<style>
+  md-input { display:block;margin:32px 0;}
+  select {
+    height:32px;
+    margin: 16px 0;
+  }
+ </style>
+ <h2>Submit a New Resource</h2>
+ <p>Want to add a resource to our Angular 2 listings?  Submit your information here, we'll review and give you a head's up when we add it to the list.</p>
+<form (submit)="submit()">
+  <select (change)="selectCategory($event.target.value)">
+    <option>Select a Category</option>
+    
+    <option 
+      *ngFor="let category of categories | async" 
+      [selected]="category == selectedCategory">
+      {{category}} 
+    </option>
+  </select>
+  <select [(ngModel)]="submission.selectedSubcategory" *ngIf="subCategories | async">
+    <option 
+      *ngFor="let subcategory of subCategories | async"
+      [selected]="subcategory == selectedSubcategory">
+      {{subcategory}}
+    </option>
+  </select>
+  
+  <md-input [(ngModel)]="submission.name" placeholder="Your Name"></md-input>
+  <md-input [(ngModel)]="submission.email" placeholder="Email" type="email"></md-input>
+  <md-input [(ngModel)]="submission.companyName" placeholder="Company Name"></md-input>
+  <md-input [(ngModel)]="submission.title" placeholder="Product / Listing Title"></md-input>
+  <md-input [(ngModel)]="submission.url" placeholder="Product URL" type="url"></md-input>
+  <md-input [(ngModel)]="submission.notes" placeholder="Any other notes?"></md-input>
+  <button md-raised-button color="primary" type="submit">Submit Resource</button>
+</form>

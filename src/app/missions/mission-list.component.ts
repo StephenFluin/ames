@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
-import { MissionService } from './shared/mission.service';
-import { AuthService } from './shared/auth.service';
-import { Mission } from './models';
+import { MissionService } from '../shared/mission.service';
+import { AuthService } from '../shared/auth.service';
+import { Mission } from '../models';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -33,7 +33,8 @@ export class MissionListComponent implements OnInit {
         this.missionService.new(this.newMission);
         this.newMission = new Mission();
         
-        this.router.navigate(['../../'], {relativeTo:this.route});
+        // Take the user to their mission
+        this.router.navigate(['./'], {relativeTo:this.route});
     }
     
 }

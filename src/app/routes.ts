@@ -1,11 +1,14 @@
 import {RouterConfig} from '@angular/router';
 import {HomeComponent} from './home.component';
-import {MissionsComponent} from './missions.component';
-import {MissionListComponent} from './mission-list.component';
-import {MissionDetailComponent} from './mission-detail.component';
-import {MissionEditComponent} from './mission-edit.component';
+import {MissionsComponent} from './missions/missions.component';
+import {MissionListComponent} from './missions/mission-list.component';
+import {MissionDetailComponent} from './missions/mission-detail.component';
+import {MissionEditComponent} from './missions/mission-edit.component';
 import {ExpertsComponent} from './experts.component';
 import {GroupsComponent} from './groups.component';
+import {LoginComponent} from './login.component';
+import {ResourcesComponent} from './resources/resources.component';
+import {ResourcesNewComponent} from './resources/resources-new.component';
 
 export const routes: RouterConfig = [
     {
@@ -29,5 +32,18 @@ export const routes: RouterConfig = [
     { 
         path: '/groups',
         component: GroupsComponent
-    }
+    },
+    {
+        path: '/login',
+        component: LoginComponent
+    },
+    {
+        path: '/resources',
+        component: ResourcesComponent
+    },
+    
+    {
+        path: '/resources/new',
+        component: ResourcesNewComponent
+    },
 ];
