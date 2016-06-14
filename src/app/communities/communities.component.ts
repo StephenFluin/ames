@@ -1,21 +1,26 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Community } from '../shared/models';
+
+import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
     moduleId: module.id,
-    template: `Communities!
+    template: `<h2>Communities</h2>
     
-    <div *ngFor="let community of communities" class="card">
+    <div *ngFor="let community of communities | async" class="card">
         <section>
             <div>{{community.icon}}</div>
-            <div>{{community.name}}</div>
-            <div>{{community.city}}, {{community.state}}</div>
+            <div><strong>{{community.name}}</strong></div>
+            <div>{{community.location}}</div>
         </section>
         <section>
-            <div>Organizer</div>
-            <div>{{ (community.organizer)?.name}}</div>
+            <div>Organizer:</div>
+            <div>{{ community.organizer}}</div>
         </section>
         <section>
-            <div>Members</div>
+            <div>Members:</div>
         </section>
         <section *ngIf="auth.isAdmin">
             <button md-button-raised (click)="edit(community)">Edit</button>
@@ -29,39 +34,14 @@ export class CommunitiesComponent {
     communities;
     auth;
     
-    constructor() {
-        this.communities = 
-        [
-            {
-                icon: "people",
-                name: "City Angular Meetup",
-                city: "San Jose",
-                state: "CA",
-                organizer: "aaronfrost",
-                members: ["aaronfrost"]
-            },
-            {
-                icon: "message",
-                name: "Angular Community",
-                city: "San Jose",
-                state: "CA",
-                organizer: "aaronfrost",
-                members: ["aaronfrost"]
-            },
-            {
-                icon: "message",
-                name: "Angular Gitter",
-                city: "San Jose",
-                state: "CA",
-                organizer: "johnpapa",
-                members: ["aaronfrost", "johnpapa"]
-            },
-        ];
-        
+    constructor(private router: Router, private communityService : FirebaseService<Community>) {
+        communityService.setup('/communities/', Community);
+        this.communities = communityService.getList();
+        this.communities.subscribe(next => console.log(next), error => console.log(error), () => console.log('finished'));
         this.auth = {isAdmin: true};
     }
     
     edit(community) {
-        
+        this.router.navigate(['/communities/',community.$key,'/edit']);
     }
 }

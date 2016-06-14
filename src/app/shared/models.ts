@@ -45,3 +45,16 @@ export class Expert {
     communities: string[];
     
 }
+
+export class Community {
+    $key : string;
+    icon: string;;
+    name: string;
+    type: string;
+    description: string;
+    location: string;
+    state: string;
+    organizer: string;
+    members: string[];
+    span: string;
+}

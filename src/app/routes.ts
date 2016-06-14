@@ -9,6 +9,8 @@ import {CommunitiesComponent} from './communities/communities.component';
 import {LoginComponent} from './login.component';
 import {ResourcesComponent} from './resources/resources.component';
 import {ResourcesNewComponent} from './resources/resources-new.component';
+import {CommunityEditComponent} from './communities/community-edit.component';
+
 
 export const routes: RouterConfig = [
     {
@@ -31,7 +33,11 @@ export const routes: RouterConfig = [
     },
     { 
         path: '/communities',
-        component: CommunitiesComponent
+        component: CommunitiesComponent,
+    },
+    {
+        path: '/communities/:id/edit',
+        component: CommunityEditComponent
     },
     {
         path: '/login',

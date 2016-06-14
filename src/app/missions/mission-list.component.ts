@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import { MissionService } from '../shared/mission.service';
 import { AuthService } from '../shared/auth.service';
-import { Mission } from '../models';
+import { Mission } from '../shared/models';
 import { Observable } from 'rxjs';
 
 @Component({

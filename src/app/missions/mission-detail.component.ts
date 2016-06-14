@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
-import { Mission } from '../models';
+import { Mission } from '../shared/models';
 import { MissionService } from '../shared/mission.service';
 import { Observable } from 'rxjs';
 
