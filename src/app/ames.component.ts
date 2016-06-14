@@ -15,4 +15,7 @@ import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 })
 export class AmesAppComponent {
   title = 'Ames';
+  constructor() {
+    console.log("constructing component ");
+  }
 }

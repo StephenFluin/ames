@@ -1,19 +1,12 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { bootstrapRender } from '@angular/platform-browser';
 import { enableProdMode } from '@angular/core';
-import { AmesAppComponent, environment } from './app/';
-
-import { provideRouter } from '@angular/router';
-import { routes } from './app/routes';
+import { environment } from './app/';
 
 
-import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AmesAppComponent, [
-  provideRouter(routes),
-  FIREBASE_PROVIDERS,
-  defaultFirebase('https://ames.firebaseio.com/'),
-]);
+bootstrapRender('loader.js');
+
