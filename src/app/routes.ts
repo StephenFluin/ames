@@ -4,7 +4,7 @@ import {MissionsComponent} from './missions/missions.component';
 import {MissionListComponent} from './missions/mission-list.component';
 import {MissionDetailComponent} from './missions/mission-detail.component';
 import {MissionEditComponent} from './missions/mission-edit.component';
-import {ExpertsComponent} from './experts.component';
+import {ExpertsComponent} from './experts/experts.component';
 import {CommunitiesComponent} from './communities/communities.component';
 import {LoginComponent} from './login.component';
 import {ResourcesComponent} from './resources/resources.component';
