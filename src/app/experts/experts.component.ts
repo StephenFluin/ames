@@ -11,12 +11,13 @@ import { FirebaseService } from '../shared/firebase.service';
     
     <div *ngFor="let expert of experts | async" class="card" style="float:left;height:200px;">
         <section>
+            <img [src]="expert.picUrl" style="max-height:100px;max-width:100px;float:left;"/>
             <div>{{expert.firstName}} {{expert.lastName}}</div>
-            <div>{{expert.bio}}</div>
             <div>{{expert.webpage}}</div>
+            <div>{{expert.twitterID}}</div>
         </section>
         <section *ngIf="auth.isAdmin">
-            <button md-button-raised (click)="edit(community)">Edit</button>
+            <button md-button-raised (click)="edit(expert)">Edit</button>
         </section>
     </div>
     
@@ -34,7 +35,7 @@ export class ExpertsComponent {
         this.auth = {isAdmin: true};
     }
     
-    edit(community) {
-        this.router.navigate(['/communities/',community.$key,'/edit']);
+    edit(expert) {
+        this.router.navigate(['/experts/',expert.$key,'/edit']);
     }
 }
