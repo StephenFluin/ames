@@ -36,18 +36,44 @@ export class FirebaseService<T extends HasKey> {
         let TObserver : FirebaseObjectObservable<any> = this.af.database.object(this.endpoint + key);
         return TObserver;
     }
-    new(T : T) {
-        this.items.push(T);
+    new(item : T) : Promise<T> {
+        console.log("Pushing new item into list");
+        let result = this.items.push(item);
+        console.log(result);
+        
+        // Try to do the firebase push
+        // Intercept the FB promise to add $key to the object if successful and resolve
+        // Otherwise reject
+        return new Promise<T>((resolve,reject) => {
+            result.then(success => {
+                item.$key = success.path.u[1];
+                resolve(item);
+            }, failure => {
+                console.log("failure in firebase push",failure);
+                reject(failure);
+            })
+        });
+       
+        
     }
     
     // This method is a giant hack. HERE BE DRAGONS
     // I manually remove the key (which I need so I know where to write to),
     // and then add it back
-    save(item : T) {
-        let key = item.$key;
-        delete item.$key;
-        this.af.database.object(this.endpoint + key).update(item);
-        item.$key = key;
+    save(item : T) : Promise<T> {
+        console.log("Saving key in service");
+        if(item.$key == 'new') {
+            delete item.$key;
+            return this.new(item);
+        } else {
+            let key = item.$key;
+            delete item.$key;
+            this.af.database.object(this.endpoint + key).update(item);
+            item.$key = key;
+            return new Promise<T>((resolve,reject) => {
+                resolve(item);
+            })
+        }
     }
     
     delete(item : T) {

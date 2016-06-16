@@ -23,7 +23,7 @@ export class Mission {
 }
 
 export class Expert {
-    $key: string;
+    $key: string = "new";
     bio: string;
     email: string;
     firstName: string;
