@@ -42,7 +42,6 @@ export class CommunitiesComponent {
     constructor(private router: Router, private communityService : FirebaseService<Community>) {
         communityService.setup('/communities/', Community);
         this.communities = communityService.getList();
-        this.communities.subscribe(next => console.log(next), error => console.log(error), () => console.log('finished'));
         this.auth = {isAdmin: true};
     }
     

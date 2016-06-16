@@ -7,12 +7,6 @@ h2 { display: inline; margin-left:16px; }
 label { display: block;}
 p, nav, form, .grid, .content { padding:16px; }
 
-.card {
-    margin:16px;
-    padding:16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    width:300px;
-}
 .pretty-card {
     margin:16px;
     width:300px;
