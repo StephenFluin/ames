@@ -24,6 +24,7 @@ const materialPkgs:string[] = [
   'button',
   'input',
   'card',
+  'slide-toggle',
 ];
 
 materialPkgs.forEach((pkg) => {
