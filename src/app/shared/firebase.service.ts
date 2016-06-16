@@ -18,7 +18,6 @@ export class FirebaseService<T extends HasKey> {
     }
     
     setup(endpoint : string, type) {
-        console.log("Configuring the generic firebase service with",endpoint,type);
         this.endpoint = endpoint;
         this.items = this.af.database.list(endpoint);
         this.list = this.items.map(rawTSet => 
@@ -28,7 +27,6 @@ export class FirebaseService<T extends HasKey> {
         );
     }
     getList() : Observable<T[]> {
-        console.log("returning the presetup list from " + this.endpoint);
         return this.list;
         
     }

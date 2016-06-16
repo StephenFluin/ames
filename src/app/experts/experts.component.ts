@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 
+import { CommunityLookupPipe } from '../shared/community-lookup.pipe';
+import { RefirebasePipe } from '../shared/refirebase.pipe';
+
 import { Expert } from '../shared/models';
 
 import { FirebaseService } from '../shared/firebase.service';
@@ -15,16 +18,24 @@ import { FirebaseService } from '../shared/firebase.service';
     <p style="clear:both;">
         <button md-raised-button color="primary" (click)="new()">New</button>
     </p>
-    <md-card *ngFor="let expert of experts | async" style="margin:16px;width:300px;float:left;height:200px;">
+    <md-card *ngFor="let expert of experts | async" class="pretty-card">
         <div style="display:flex;">
             <div style="flex-grow:1;">
             
                 <md-card-title>{{expert.firstName}} {{expert.lastName}}</md-card-title>
                 <div>{{expert.webpage}}</div>
                 <md-card-subtitle *ngIf="expert.twitterID">@{{expert.twitterID}}</md-card-subtitle>
+                <div *ngIf="expert.communities">
+                    <h4>Communities</h4>
+                    <div *ngFor="let community of expert.communities | refirebase" >
+                        <div>{{ (community | communityLookup | async)?.name}}</div>
+                    </div>
+                </div>
             </div>
-            <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+            <div>
                 <div [style.background-image]="'url('+expert.picUrl+')'" *ngIf="expert.picUrl" class="background-side-picture"></div>
+            </div>
+            <div class="edit-button">
                 <button *ngIf="auth.isAdmin" md-raised-button (click)="edit(expert)">Edit</button>
             </div>
         </div> 
@@ -32,6 +43,7 @@ import { FirebaseService } from '../shared/firebase.service';
     
     `,
     directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES],
+    pipes: [CommunityLookupPipe, RefirebasePipe],
     
 })
 export class ExpertsComponent {
@@ -41,7 +53,6 @@ export class ExpertsComponent {
     constructor(private router: Router, private expertService : FirebaseService<Expert>) {
         expertService.setup('/experts/', Expert);
         this.experts = expertService.getList();
-        this.experts.subscribe(next => console.log(next), error => console.log(error), () => console.log('finished'));
         this.auth = {isAdmin: true};
     }
     
