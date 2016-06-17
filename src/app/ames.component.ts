@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MissionService } from './shared/mission.service';
 import { FirebaseService } from './shared/firebase.service';
+
+import { ExpertService } from './shared/expert.service';
 import { AuthService } from './shared/auth.service';
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 
@@ -11,7 +13,7 @@ import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
   templateUrl: 'ames.component.html',
   styleUrls: ['ames.component.css'],
   directives: [ROUTER_DIRECTIVES, MD_TOOLBAR_DIRECTIVES],
-  providers: [MissionService, AuthService, FirebaseService],
+  providers: [MissionService, AuthService, FirebaseService, ExpertService],
 })
 export class AmesAppComponent {
   title = 'Ames';

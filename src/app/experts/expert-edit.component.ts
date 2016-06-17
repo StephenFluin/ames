@@ -3,7 +3,7 @@ import { Expert } from '../shared/models';
 import { ExpertFormComponent } from './expert-form.component';
 import { Observable } from 'rxjs/Rx'; // load the full rxjs
 import { ActivatedRoute, Router } from '@angular/router';
-import { FirebaseService } from '../shared/firebase.service';
+import { ExpertService } from '../shared/expert.service';
 
 @Component({
     moduleId: module.id,
@@ -17,31 +17,17 @@ export class ExpertEditComponent {
     expert : Observable<Expert>;
     id : string;
     
-    constructor(private route : ActivatedRoute, private router: Router, private expertService : FirebaseService<Expert>) {
-        expertService.setup('/experts/', Expert);
-        route.params.subscribe(params => {
-            
-            this.id = params['id'];
-            if(this.id == 'new') {
-                this.expert = Observable.create(observer => {
-                    observer.next(new Expert());
-                   
-                });
-            } else {
-                let experts = expertService.getList();
-                this.expert = experts.map( ExpertList => ExpertList.find(expert => expert.$key == this.id));
+    constructor(private route : ActivatedRoute, private router: Router, private expertService : ExpertService) {
+        this.expert = route.params.flatMap( params => {
+            if(params['id'] == "new") {
+                return Observable.of(new Expert());
             }
-            
-            
-        }, params => {
-            console.log("error", params);
-        }, () => {
-            console.log("finished");
+            return expertService.get(params['id'])
         });
     }
     
     processUpdate(expertUpdate : Expert) {
-        this.expertService.save(expertUpdate)
-        .then(success => this.router.navigate(['/experts/']));
+        let x = this.expertService.save(expertUpdate);
+        this.router.navigate(['/experts']);
     }
 }

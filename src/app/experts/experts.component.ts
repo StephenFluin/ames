@@ -11,6 +11,8 @@ import { Expert } from '../shared/models';
 
 import { FirebaseService } from '../shared/firebase.service';
 
+import { ExpertService } from '../shared/expert.service';
+
 @Component({
     moduleId: module.id,
     selector: 'experts-list',
@@ -27,8 +29,8 @@ import { FirebaseService } from '../shared/firebase.service';
                 <md-card-subtitle *ngIf="expert.twitterID">@{{expert.twitterID}}</md-card-subtitle>
                 <div *ngIf="expert.communities">
                     <h4>Communities</h4>
-                    <div *ngFor="let community of expert.communities | refirebase" >
-                        <div>{{ (community | communityLookup | async)?.name}}</div>
+                    <div *ngFor="let community of expert.communities" >
+                        <div>{{ (community | async )?.name }}</div>
                     </div>
                 </div>
             </div>
@@ -50,9 +52,11 @@ export class ExpertsComponent {
     experts;
     auth;
     
-    constructor(private router: Router, private expertService : FirebaseService<Expert>) {
-        expertService.setup('/experts/', Expert);
-        this.experts = expertService.getList();
+    constructor(private router: Router, private expertService : FirebaseService<Expert>, private newExpertService : ExpertService) {
+        
+        //expertService.setup('/experts/', Expert);
+        //this.experts = expertService.getList();
+        this.experts = newExpertService.experts;
         this.auth = {isAdmin: true};
     }
     

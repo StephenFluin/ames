@@ -7,18 +7,14 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 export class MissionService {
     
     items: FirebaseListObservable<Mission[]>;
-    list: Observable<Mission[]>; 
+    public missions: Observable<Mission[]>; 
     constructor(private af: AngularFire) {
         this.items = af.database.list('/missions');
-        this.list = this.items.map(rawMissionSet => 
+        this.missions = this.items.map(rawMissionSet => 
             rawMissionSet.map( rawMissionData => 
                 new Mission(rawMissionData)
             )
         );
-    }
-    getMissionlist() : Observable<Mission[]> {
-        return this.list;
-        
     }
     getMission(key) : FirebaseObjectObservable<Mission> {
         let missionObserver : FirebaseObjectObservable<any> = this.af.database.object('/missions/' + key);
