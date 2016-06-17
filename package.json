@@ -20,7 +20,7 @@
     "@angular/http": "^2.0.0-rc.1",
     "@angular/platform-browser": "^2.0.0-rc.2",
     "@angular/platform-browser-dynamic": "^2.0.0-rc.2",
-    "@angular/router": "^3.0.0-alpha.2",
+    "@angular/router": "^3.0.0-alpha.7",
     "@angular2-material/button": "^2.0.0-alpha.5-2",
     "@angular2-material/card": "^2.0.0-alpha.5-2",
     "@angular2-material/core": "^2.0.0-alpha.5-2",

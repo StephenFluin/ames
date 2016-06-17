@@ -15,46 +15,45 @@ import {CommunityEditComponent} from './communities/community-edit.component';
 
 export const routes: RouterConfig = [
     {
-        path: '/',
+        path: '',
         component: HomeComponent,
-        index: true
     },
     {
-        path: '/missions',
+        path: 'missions',
         component: MissionsComponent,
         children: [
-            {path: '/', component: MissionListComponent, index:true},
+            {path: '', component: MissionListComponent},
             {path: ':id', component: MissionDetailComponent},
             {path: ':id/edit', component: MissionEditComponent},
         ]
     },
     {
-        path: '/experts',
+        path: 'experts',
         component: ExpertsComponent
     },
     {
-        path: '/experts/:id/edit',
+        path: 'experts/:id/edit',
         component: ExpertEditComponent
     },
     { 
-        path: '/communities',
+        path: 'communities',
         component: CommunitiesComponent,
     },
     {
-        path: '/communities/:id/edit',
+        path: 'communities/:id/edit',
         component: CommunityEditComponent
     },
     {
-        path: '/login',
+        path: 'login',
         component: LoginComponent
     },
     {
-        path: '/resources',
+        path: 'resources',
         component: ResourcesComponent
     },
     
     {
-        path: '/resources/new',
+        path: 'resources/new',
         component: ResourcesNewComponent
     },
 ];
