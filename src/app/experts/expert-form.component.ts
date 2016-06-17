@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Rx'; // load the full rxjs
 import { Expert } from '../shared/models';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
+import { PickerComponent } from '../shared/picker.component';
 
 @Component({
     moduleId: module.id,
@@ -18,6 +19,9 @@ import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
         <label>Pic URL <img *ngIf="expert.picUrl" [src]="expert.picUrl" style="max-height:1em;"> <input [(ngModel)]="expert.picUrl"></label>
         <label>Resume URL <input [(ngModel)]="expert.resumeUrl"></label>
         <label>LinkedIn<input [(ngModel)]="expert.linkedIn"></label>
+        <div>Communities</div>
+        <picker [available]="['testing']" [selected]="[]"></picker>
+        
         <label>GDE? <md-slide-toggle [(ngModel)]="expert.isGDE"></md-slide-toggle></label>
         <label>Consultant?<md-slide-toggle [(ngModel)]="expert.ngConsult"></md-slide-toggle></label>
         
@@ -26,7 +30,7 @@ import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;min-width:50%;}'],
-    directives: [ ROUTER_DIRECTIVES, MD_SLIDE_TOGGLE_DIRECTIVES ],
+    directives: [ ROUTER_DIRECTIVES, MD_SLIDE_TOGGLE_DIRECTIVES, PickerComponent ],
     
 })
 export class ExpertFormComponent {
