@@ -22,6 +22,7 @@ import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
         <label>Consultant?<md-slide-toggle [(ngModel)]="expert.ngConsult"></md-slide-toggle></label>
         
         <button type="submit">Save</button>
+        <button (click)="deleteExpert()" type="button">DELETE</button>
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;min-width:50%;}'],
@@ -30,12 +31,18 @@ import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
 })
 export class ExpertFormComponent {
     @Output() update = new EventEmitter<Expert>();
+    @Output() delete = new EventEmitter<Expert>();
     @Input() expert : Expert;
     
     save(savedValue: Expert) {
         console.log("Processing save for", savedValue);
         this.update.emit(savedValue);
         
+        
+    }
+    deleteExpert() {
+        console.log("Trying to delete." ,this.expert);
+        this.delete.emit(this.expert);
         
     }
 }

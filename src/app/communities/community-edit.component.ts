@@ -8,7 +8,7 @@ import { FirebaseService } from '../shared/firebase.service';
 @Component({
     moduleId: module.id,
     selector: 'community-edit',
-    template: `<community-form [community]="community | async"></community-form>
+    template: `<community-form [community]="community | async" (update)="processUpdate($event)" (delete)="delete($event)"></community-form>
     `,
     providers: [],
     directives: [CommunityFormComponent],
@@ -19,17 +19,22 @@ export class CommunityEditComponent {
     id : string;
     
     constructor(private route : ActivatedRoute, private router: Router, private communityService : FirebaseService<Community>) {
-        communityService.setup('/communities/', Community);
-        route.params.subscribe(params => {
-            this.id = params['id'];
-            let communities = communityService.getList();
-            this.community = communities.map( communityList => communityList.find(community => community.$key == this.id));
-            
-            
-        }, params => {
-            console.log("error", params);
-        }, () => {
-            console.log("finished");
+        communityService.setup('/communities/');
+        this.community = route.params.flatMap( params => {
+            if(params['id'] == "new") {
+                return Observable.of(new Community);
+            } else {
+                return communityService.get(params['id']);
+            }
         });
+    }
+    
+    processUpdate(item : Community) {
+        this.communityService.save(item);
+        this.router.navigate(['/communities']);
+    }
+    delete(item : Community) {
+        this.communityService.delete(item);
+        this.router.navigate(['/communities']);
     }
 }

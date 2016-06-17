@@ -47,7 +47,7 @@ export class Expert {
 }
 
 export class Community {
-    $key : string;
+    $key : string = "new";
     icon: string;;
     name: string;
     type: string;

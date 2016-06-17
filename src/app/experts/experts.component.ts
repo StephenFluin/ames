@@ -4,14 +4,12 @@ import { Router } from '@angular/router';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 
-import { CommunityLookupPipe } from '../shared/community-lookup.pipe';
 import { RefirebasePipe } from '../shared/refirebase.pipe';
 
 import { Expert } from '../shared/models';
 
 import { FirebaseService } from '../shared/firebase.service';
-
-import { ExpertService } from '../shared/expert.service';
+import { FireJoinPipe } from '../shared/fire-join.pipe';
 
 @Component({
     moduleId: module.id,
@@ -29,8 +27,8 @@ import { ExpertService } from '../shared/expert.service';
                 <md-card-subtitle *ngIf="expert.twitterID">@{{expert.twitterID}}</md-card-subtitle>
                 <div *ngIf="expert.communities">
                     <h4>Communities</h4>
-                    <div *ngFor="let community of expert.communities" >
-                        <div>{{ (community | async )?.name }}</div>
+                    <div *ngFor="let community of expert.communities | refirebase" >
+                        <div>{{ (community | fireJoin:'/communities/' | async)?.name }}</div>
                     </div>
                 </div>
             </div>
@@ -45,18 +43,17 @@ import { ExpertService } from '../shared/expert.service';
     
     `,
     directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES],
-    pipes: [CommunityLookupPipe, RefirebasePipe],
+    pipes: [RefirebasePipe, FireJoinPipe],
     
 })
 export class ExpertsComponent {
     experts;
     auth;
     
-    constructor(private router: Router, private expertService : FirebaseService<Expert>, private newExpertService : ExpertService) {
+    constructor(private router: Router, private expertService : FirebaseService<Expert>) {
         
-        //expertService.setup('/experts/', Expert);
-        //this.experts = expertService.getList();
-        this.experts = newExpertService.experts;
+        expertService.setup('/experts/');
+        this.experts = expertService.list;
         this.auth = {isAdmin: true};
     }
     

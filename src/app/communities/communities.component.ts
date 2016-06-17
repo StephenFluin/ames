@@ -5,7 +5,7 @@ import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 
 import { RefirebasePipe } from '../shared/refirebase.pipe';
-import { ExpertLookupPipe } from '../shared/expert-lookup.pipe';
+import { FireJoinPipe } from '../shared/fire-join.pipe';
 
 import { Community } from '../shared/models';
 
@@ -23,7 +23,7 @@ import { FirebaseService } from '../shared/firebase.service';
         <md-card-subtitle>{{community.location}}</md-card-subtitle>
  
         <div>Organizer:</div>
-        <div>{{ (community.organizer | expertLookup | async)?.firstName}} {{ (community.organizer | expertLookup | async)?.lastName}}</div>
+        <div>{{ (community.organizer | fireJoin:'/experts/' | async)?.firstName}} {{ (community.organizer | fireJoin:'/experts/' | async)?.lastName}}</div>
         <div class="edit-button">
             <button *ngIf="auth.isAdmin" md-raised-button (click)="edit(community)">Edit</button>
         </div>
@@ -32,7 +32,7 @@ import { FirebaseService } from '../shared/firebase.service';
     
     `,
     directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES],
-    pipes: [ExpertLookupPipe, RefirebasePipe]
+    pipes: [FireJoinPipe, RefirebasePipe]
     
 })
 export class CommunitiesComponent {
@@ -40,8 +40,8 @@ export class CommunitiesComponent {
     auth;
     
     constructor(private router: Router, private communityService : FirebaseService<Community>) {
-        communityService.setup('/communities/', Community);
-        this.communities = communityService.getList();
+        communityService.setup('/communities/');
+        this.communities = communityService.list;
         this.auth = {isAdmin: true};
     }
     
