@@ -10,19 +10,19 @@ import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
     
     <div *ngIf="selected">
         <div>Current List</div>
-        <div *ngFor="let item of selected">{{item}}  (<span (click)="delete(item)">x</span>)</div>
+        <div *ngFor="let item of selected">{{item.name}}  (<span (click)="delete(item)">x</span>)</div>
     </div>
     <button *ngIf="!showAvailable && available" (click)="showAdd()" type="button">Add New</button>
     <div *ngIf="showAvailable">
         <div>Available list:</div>
-        <div *ngFor="let item of available" (click)="select(item)">{{item}}</div>
+        <div *ngFor="let item of available | async" (click)="select(item)">{{item.name}}</div>
     </div>
     `,
     
 })
 export class PickerComponent {
     @Output() update = new EventEmitter<any[]>();
-    @Input() available : any[];
+    @Input() available : Observable<any[]>;
     @Input() selected : any[];
     
     showAvailable : boolean = false;
