@@ -1,53 +1,42 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
+import { MissionFormComponent } from './mission-form.component';
 import { Mission } from '../shared/models';
-import { MissionService } from '../shared/mission.service';
-import { Observable } from 'rxjs';
+import { FirebaseService } from '../shared/firebase.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
     moduleId: module.id,
-    template: `<h2>Edit <a [routerLink]="['/missions/',id]">{{ mission?.name }}</a></h2>
-     <form *ngIf="mission" (submit)="save()">
-        <label><input [(ngModel)]="mission.name" placeholder="name"></label>
-        <label><textarea [(ngModel)]="mission.description" placeholder="description"></textarea></label>
-       <!-- <div *ngIf="mission.startDate && mission.endDate">
-            {{ mission.startDate}} - {{ mission.endDate}}
-        </div>-->
-        <button type="submit">save</button>
-        <div style="font-size:10px;margin:32px 0">(<span style="color:red;" (click)="delete()">delete</span>)</div>
-    </form>
+    template: `<h2>Edit <a [routerLink]="['/missions/',id]">{{ (mission | async)?.name }}</a></h2>
+     <mission-form [mission]="mission | async" (update)="save($event)" (delete)="delete($event)"></mission-form>
     `,
-    directives: [ ROUTER_DIRECTIVES ],
+    directives: [ ROUTER_DIRECTIVES, MissionFormComponent ],
     
 })
 export class MissionEditComponent {
     id : string;
     // Note that this doesn't match the detail component
-    mission : Mission;
+    mission : Observable<Mission>;
     
-    constructor(private route : ActivatedRoute, private router: Router, private missionService : MissionService) {
-        // Why is this an observable vs an object? :(
-        route.params.subscribe(params => {
-            this.id = params['id']; 
-             missionService.getMission(this.id).subscribe(mission => {
-                 this.mission = mission;
-                 this.mission.$key = this.id;
-                 
-            });
-        }, params => {
-            console.log("error", params);
-        }, () => {
-            console.log("finished");
+    constructor(private route : ActivatedRoute, private router: Router, private missionService : FirebaseService<Mission>) {
+        missionService.setup('/missions/');
+        
+        this.mission = route.params.flatMap( params => {
+            if(params['id'] == "new") {
+                return Observable.of(new Mission());
+            }
+            return missionService.get(params['id']);
         });
+        route.params.subscribe(next => this.id=next['id'], error => console.error(error), () => console.log('finished'));
     }
     
-    save() {
-        console.log("saving from component",this.mission);
-        this.missionService.save(this.mission);
+    save(mission) {
+        console.log("saving from component",mission);
+        this.missionService.save(mission);
         this.router.navigate(['../../'], {relativeTo:this.route});
     }
-    delete() {
-        this.missionService.delete(this.mission);
+    delete(mission) {
+        this.missionService.delete(mission);
         this.router.navigate(['../../'], {relativeTo:this.route});
         
         

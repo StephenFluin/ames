@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
-import { MissionService } from '../shared/mission.service';
+import { FirebaseService } from '../shared/firebase.service';
 import { AuthService } from '../shared/auth.service';
 import { Mission } from '../shared/models';
 import { Observable } from 'rxjs';
@@ -23,10 +23,11 @@ import { Observable } from 'rxjs';
 export class MissionListComponent implements OnInit {
     list : Observable<Mission[]>;
     newMission: Mission;
-    constructor(private missionService : MissionService, private auth : AuthService, private route : ActivatedRoute, private router: Router) {
+    constructor(private missionService : FirebaseService<Mission>, private auth : AuthService, private route : ActivatedRoute, private router: Router) {
     }
     ngOnInit() {
-        this.list = this.missionService.missions;
+        this.missionService.setup('/missions/');
+        this.list = this.missionService.list;
         this.newMission = new Mission();
     }
     createMission() {

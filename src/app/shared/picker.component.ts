@@ -8,7 +8,7 @@ import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
     selector: 'picker',
     template: `
     
-    <div *ngIf="selected">
+    <div *ngIf="selected" style="border:1px solid #CCC;">
         <div>Current List</div>
         <div *ngFor="let item of selected">{{item.name}}  (<span (click)="delete(item)">x</span>)</div>
     </div>
@@ -18,7 +18,7 @@ import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
         <div *ngFor="let item of available | async" (click)="select(item)">{{item.name}}</div>
     </div>
     `,
-    
+
 })
 export class PickerComponent {
     @Output() update = new EventEmitter<any[]>();

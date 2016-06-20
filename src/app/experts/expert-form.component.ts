@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs/Rx'; // load the full rxjs
+import { Observable } from 'rxjs/Rx';
 import { Expert, Community } from '../shared/models';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';

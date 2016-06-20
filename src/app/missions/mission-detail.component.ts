@@ -1,17 +1,22 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
 import { Mission } from '../shared/models';
-import { MissionService } from '../shared/mission.service';
-import { Observable } from 'rxjs';
+import { FirebaseService } from '../shared/firebase.service';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
     moduleId: module.id,
-    template: `<h2>{{ (mission | async)?.name}}</h2>
-    <a [routerLink]="['/missions/',id,'/edit']">Edit</a>
-    <div class="content">
-        <div *ngIf="(mission | async)?.description">{{ (mission | async)?.description}}</div>
-        <div *ngIf="(mission | async)?.startDate && (mission | async)?.endDate">
-            {{ (mission | async)?.startDate}} - {{ (mission | async)?.endDate}}
+    template: `
+    <div *ngIf="mission" >
+        <h2>{{ (mission | async)?.name}}</h2> 
+        
+        <a *ngIf="id" [routerLink]="['/missions/',id,'/edit']">Edit</a>  
+        
+        <div class="content">
+            <div *ngIf="(mission | async)?.description">{{ (mission | async)?.description}}</div>
+            <div *ngIf="(mission | async)?.startDate && (mission | async)?.endDate">
+                {{ (mission | async)?.startDate}} - {{ (mission | async)?.endDate}}
+            </div>
         </div>
     </div>
     `,
@@ -23,16 +28,14 @@ export class MissionDetailComponent {
     // Should this be an observable or a real mission? I kind of want to remove it from the observable to make template cleaner
     mission : Observable<Mission>;
     
-    constructor(private route : ActivatedRoute, private missionService : MissionService) {
-        // Why is this an observable vs an object? :(
-        route.params.subscribe(params => {
-            this.id = params['id']; 
-            this.mission = missionService.getMission(this.id);
-        }, params => {
-            console.log("error", params);
-        }, () => {
-            console.log("finished");
+    constructor(private route : ActivatedRoute, private missionService : FirebaseService<Mission>) {
+        missionService.setup('/missions/');
+        
+        this.mission = route.params.flatMap( params => {
+            return missionService.get(params['id'] )
         });
+        console.log("where is my id?");
+        route.params.subscribe(next => this.id=next['id'], error => console.error(error), () => console.log('finished'));
     }
     
 }

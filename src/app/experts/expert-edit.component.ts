@@ -29,7 +29,7 @@ export class ExpertEditComponent {
     
     processUpdate(expertUpdate : Expert) {
         console.log("Procsesing an update");
-        let x = this.expertService.save(expertUpdate);
+        this.expertService.save(expertUpdate);
         this.router.navigate(['/experts']);
     }
     delete(expert : Expert) {
