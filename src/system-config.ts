@@ -5,7 +5,7 @@
 const map: any = {
   '@angular2-material': 'vendor/@angular2-material',
   
-  'firebase': 'vendor/firebase/lib/firebase-web.js',
+  'firebase': 'vendor/firebase/firebase.js',
   'angularfire2': 'vendor/angularfire2',
 };
 
@@ -48,6 +48,7 @@ const barrels: string[] = [
 
   // Thirdparty barrels.
   'rxjs',
+  'firebase',
 
   // App specific barrels.
   'app',

@@ -18,5 +18,10 @@ bootstrap(AmesAppComponent, [
   //provideForms(),
   provideRouter(routes),
   FIREBASE_PROVIDERS,
-  defaultFirebase('https://ames.firebaseio.com/'),
+  defaultFirebase({
+    apiKey: "AIzaSyCTOFGccvaEedz1Jykckni5T-WP7XixS_o",
+    authDomain: "project-4800661445983438923.firebaseapp.com",
+    databaseURL: "https://project-4800661445983438923.firebaseio.com/",
+    storageBucket: "project-4800661445983438923.appspot.com",
+  }),
 ]);

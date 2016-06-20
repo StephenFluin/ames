@@ -52,7 +52,7 @@ export class FirebaseService<T extends HasKey> {
         let key = item.$key;
         delete item.$key;
         if(key === 'new') {
-            key = this.new(item).key();
+            key = this.new(item).key;
         } else {
             this.af.database.object(this.endpoint + key).update(item);
         }
