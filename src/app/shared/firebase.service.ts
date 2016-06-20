@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Rx';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 class HasKey {
@@ -19,9 +19,9 @@ export class FirebaseService<T extends HasKey> {
         
     }
 
-    setup(endpoint : string) {
+    setup(endpoint : string, query?) {
         this.endpoint = endpoint;
-        this.firebaseList = this.af.database.list(endpoint);
+        this.firebaseList = this.af.database.list(endpoint, query);
         this.list = this.firebaseList.map(rawTSet => 
             rawTSet.map( rawTData => 
                 rawTData
@@ -31,6 +31,7 @@ export class FirebaseService<T extends HasKey> {
     get(key) : Observable<T> {
         let observer : FirebaseObjectObservable<T> = this.af.database.object(this.endpoint + key);
         return observer.map(item => {
+            
             item.$key = key; 
             return item
         });

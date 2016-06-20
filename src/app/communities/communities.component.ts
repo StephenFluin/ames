@@ -40,7 +40,7 @@ export class CommunitiesComponent {
     auth;
     
     constructor(private router: Router, private communityService : FirebaseService<Community>) {
-        communityService.setup('/communities/');
+        communityService.setup('/communities/', {query: {orderByChild: 'name'}});
         this.communities = communityService.list;
         this.auth = {isAdmin: true};
     }

@@ -52,7 +52,7 @@ export class ExpertsComponent {
     
     constructor(private router: Router, private expertService : FirebaseService<Expert>) {
         
-        expertService.setup('/experts/');
+        expertService.setup('/experts/', {query: {orderByChild: 'firstName'}});
         this.experts = expertService.list;
         this.auth = {isAdmin: true};
     }
