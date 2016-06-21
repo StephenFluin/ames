@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Rx';
 import { AuthService } from '../shared/auth.service';
 import { FirebaseObjectObservable } from 'angularfire2';
 
+import { ExpertFormComponent } from '../experts/expert-form.component';
 import { UserProfileFormComponent } from './user-profile-form.component';
 
 @Component({
@@ -10,11 +11,11 @@ import { UserProfileFormComponent } from './user-profile-form.component';
     selector: "user",
     template: `<h2 fraggles="woot">Your Profile</h2>
     <p *ngIf="!(auth | async)?.uid"><button (click)="login()">Login with G</button></p>
-    <p *ngIf="(userData)">user Data: {{ userData  | async | json}}</p>
-    <user-profile [user]="userData | async" (update)="updateUser($event)"></user-profile>
+    Fill out this form: {{userData | async | json}}
+    <expert-form [expert]="userData | async" (update)="updateUser($event)"></expert-form>
     
     `,
-    directives: [UserProfileFormComponent]
+    directives: [UserProfileFormComponent, ExpertFormComponent]
     
 })
 export class UserProfileComponent {

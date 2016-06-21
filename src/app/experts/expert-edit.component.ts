@@ -2,15 +2,17 @@ import { Component } from '@angular/core';
 import { Expert } from '../shared/models';
 import { ExpertFormComponent } from './expert-form.component';
 import { Observable } from 'rxjs/Rx'; // load the full rxjs
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
     moduleId: module.id,
     selector: 'expert-edit',
-    template: `<expert-form [expert]="expert | async" (update)="processUpdate($event)" (delete)="delete($event)"></expert-form>`,
+    template: `
+    <h2> <a [routerLink]="['/experts']">Experts</a> &gt; <span *ngIf="(expert | async)?.$key=='new' && !(expert | async)?.firstName && !(expert | async)?.lastName">New Expert</span>{{(expert | async)?.firstName}} {{(expert | async)?.lastName}}</h2>
+    <expert-form [expert]="expert | async" (update)="processUpdate($event)" (delete)="delete($event)"></expert-form>`,
     providers: [],
-    directives: [ExpertFormComponent],
+    directives: [ExpertFormComponent, ROUTER_DIRECTIVES],
     
 })
 export class ExpertEditComponent {

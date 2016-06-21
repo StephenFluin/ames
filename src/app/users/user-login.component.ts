@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
-
+import { ArrayPipe } from '../shared/array.pipe';
 import { AuthService } from '../shared/auth.service';
 import { FirebaseObjectObservable } from 'angularfire2';
 
@@ -12,8 +12,8 @@ import { FirebaseObjectObservable } from 'angularfire2';
     selector: 'user-login',
     template: `
     <div style="font-size:18px;">
-        <div *ngIf="userData | async">
-            <div (click)="profile()">{{ (userData | async)?.name}}</div>
+        <div *ngFor="let user of userData | async | array">
+            <div (click)="profile()">{{ user.name}}</div>
             <div (click)="logout()" style="font-size:12px">Logout</div>
         </div>
         <div *ngIf="!(userData | async)" (click)="login()">Login</div>   
@@ -21,6 +21,7 @@ import { FirebaseObjectObservable } from 'angularfire2';
     </div>
         `,
     directives: [ ROUTER_DIRECTIVES ],
+    pipes: [ArrayPipe]
     
 })
 export class UserLoginComponent {

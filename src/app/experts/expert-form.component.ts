@@ -10,7 +10,7 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 @Component({
     moduleId: module.id,
     selector: 'expert-form',
-    template: `<h2> <a [routerLink]="['/experts']">Experts</a> &gt; <span *ngIf="expert?.$key=='new' && !expert?.firstName && !expert?.lastName">New Expert</span>{{expert?.firstName}} {{expert?.lastName}}</h2>
+    template: `
     <form *ngIf="expert" (submit)="save(expert)">
         <label>First Name <input name="firstName" [(ngModel)]="expert.firstName"></label>
         <label>Last name <input [(ngModel)]="expert.lastName"></label>

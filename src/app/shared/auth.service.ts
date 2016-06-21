@@ -7,27 +7,29 @@ declare var Zone;
 
 @Injectable()
 export class AuthService {
-    userData : ReplaySubject<any>;
+    userData : Observable<any>;
     updatableUser : FirebaseObjectObservable<any>;
     
     
     constructor(public af: AngularFire, private zone: NgZone) {
         
-        // Hack to get over firebase3 zone issues
-        this.userData = new ReplaySubject(1);
-        this.af.auth.flatMap( authState => {
-            console.log("got the auth data");
-            // If this returns <root> instead of angular, 
-            // we have a problem and need to do this replaysubject stuff
-            console.log(Zone.current.name);
-            this.updatableUser = af.database.object('/users/'+authState.uid);
-            return this.updatableUser;
+        
+        this.userData = this.af.auth.flatMap( authState => {
             
-        }).subscribe(n=> {
-            zone.run(() => {
-                this.userData.next(n);
-            })
-        });
+            // Detect bugs in angularfire's change detection
+            if(Zone.current.name == '<root>') {
+                console.debug("Problem with zone patching!",Zone.current.name);
+            } 
+            
+            if(authState) {
+                this.updatableUser = af.database.object('/users/'+authState.uid);
+                return this.updatableUser;
+            } else {
+                this.updateUser = null;
+                return Observable.of(null);
+                
+            }
+        }).share();
        
         
         

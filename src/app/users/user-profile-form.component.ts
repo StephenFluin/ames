@@ -8,12 +8,11 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     moduleId: module.id,
     selector: 'user-profile',
     template: `
-    <p>User Profile</p>
     <div class="content" *ngIf="user">
-        <div>UID: {{user.$key}}</div>
-        <div>Name: {{user.name}}</div>
-        <input [(ngModel)]="user.name" placeholder="name">
-        <input [(ngModel)]="user.bio" placeholder="bio">
+        <div [title]="user.$key">Developer Type: <span>Standard</span></div>
+        
+        <label>Name <input [(ngModel)]="user.name" placeholder="name" ></label>
+        <label>Bio <input [(ngModel)]="user.bio" placeholder="bio"></label>
         <button type="submit" (click)="save()">save</button>
         
     </div>
@@ -25,10 +24,6 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 export class UserProfileFormComponent {
     @Output() update = new EventEmitter<any>();
     @Input() user : any;
-    
-    constructor() {
-        console.log("user is",this.user);
-    }
     
     save() {
         this.update.emit(this.user);
