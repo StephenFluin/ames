@@ -1,0 +1,20 @@
+{"rules":{
+  "experts": {".read":true,".write":"root.child('admin/'+auth.uid).exists()"},
+  "communities": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
+  "missions": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
+  "resources": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
+  "users": {
+  	".read":true,
+    "$user_id": {
+      // grants write access to the owner of this user account
+      // whose uid must exactly match the key ($user_id)
+      // or any admin
+      ".write": "$user_id === auth.uid || root.child('admin/'+auth.uid).exists()"
+    }
+  },
+  "admin": {
+    // only let admins see or modify admins
+  	".read":"root.child('admin/'+auth.uid).exists()",
+    ".write":"root.child('admin/'+auth.uid).exists()"
+  }
+}}

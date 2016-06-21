@@ -1,34 +1,40 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
+import { FirebaseObjectObservable } from 'angularfire2';
 
-
+import { UserProfileFormComponent } from './user-profile-form.component';
 
 @Component({
     moduleId: module.id,
-    selector: 'user-profile',
-    template: `
-    <p>User Profile</p>
-    <div class="content" *ngIf="user">
-        <div>UID: {{user.$key}}</div>
-        <input [(ngModel)]="user.bio" placeholder="bio">
-        <button type="submit" (click)="save()">save</button>
-        
-    </div>
-        `,
-    styles: ['label input {display:block;margin-bottom:16px;}'],
-    directives: [ ROUTER_DIRECTIVES ],
+    selector: "user",
+    template: `<h2 fraggles="woot">Your Profile</h2>
+    <p *ngIf="!(auth | async)?.uid"><button (click)="login()">Login with G</button></p>
+    <p *ngIf="(userData)">user Data: {{ userData  | async | json}}</p>
+    <user-profile [user]="userData | async" (update)="updateUser($event)"></user-profile>
+    
+    `,
+    directives: [UserProfileFormComponent]
     
 })
 export class UserProfileComponent {
-    @Output() update = new EventEmitter<any>();
-    @Input() user : any;
+    content : string;
+    auth: Observable<any>;
+    userData: Observable<any>;
     
-    constructor() {
-        console.log("user is",this.user);
+    
+    constructor(private authService : AuthService ) {
+        this.auth = authService.af.auth;
+        this.userData = authService.userData;
+        
+        
     }
     
-    save() {
-        this.update.emit(this.user);
+    login() {
+        this.authService.loginGoogle();
+    }
+    updateUser(user) {
+        console.log('updating from home');
+        this.authService.updateUser(user);
     }
 }

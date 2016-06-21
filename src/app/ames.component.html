@@ -1,5 +1,9 @@
-<md-toolbar color="primary" [routerLink]="['/']">
-    <img src="https://angular.io/resources/images/logos/standard/logo-nav.png" style="margin-right:16px;"/> {{title}}
+<md-toolbar color="primary">
+    <div (click)="home()"><!-- [routerLink]="['/']" -->
+      <img src="https://angular.io/resources/images/logos/standard/logo-nav.png" style="margin-right:16px;"/> 
+      {{title}}
+    </div>
+    <div><user-login></user-login></div>
 
 </md-toolbar>
 <nav>

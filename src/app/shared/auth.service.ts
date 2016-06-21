@@ -1,13 +1,14 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Mission } from '../shared/models';
 import { Observable, ReplaySubject } from 'rxjs/Rx';
-import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable, AuthProviders, AuthMethods } from 'angularfire2';
 
 declare var Zone;
 
 @Injectable()
 export class AuthService {
     userData : ReplaySubject<any>;
+    updatableUser : FirebaseObjectObservable<any>;
     
     
     constructor(public af: AngularFire, private zone: NgZone) {
@@ -19,7 +20,8 @@ export class AuthService {
             // If this returns <root> instead of angular, 
             // we have a problem and need to do this replaysubject stuff
             console.log(Zone.current.name);
-            return af.database.object('/users/'+authState.uid);
+            this.updatableUser = af.database.object('/users/'+authState.uid);
+            return this.updatableUser;
             
         }).subscribe(n=> {
             zone.run(() => {
@@ -59,8 +61,17 @@ export class AuthService {
             method: AuthMethods.Anonymous
         })
     }
+    logout() {
+        this.af.auth.logout();
+    }
     
     updateUser(user) {
-        //af.database.object('/users/'+authState.uid)
+        console.log("Propagating update back to fb",user);
+        let key = user.$key;
+        let value = user.$value;
+        delete user.$key;
+        delete user.$value;
+        this.updatableUser.update(user);
+        user.$key = key;
     }
 }

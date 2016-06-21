@@ -25,3 +25,10 @@ p, nav, form, .grid, .content { padding:16px; }
     bottom:16px;
     right:16px;
 }
+md-toolbar-row {
+    justify-content: space-between;
+}
+md-toolbar-row>* {
+    display:flex;
+    align-items:center;
+}
