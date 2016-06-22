@@ -9,7 +9,7 @@ declare var Zone;
 export class AuthService {
     userData : Observable<any>;
     updatableUser : FirebaseObjectObservable<any>;
-    
+    isAdmin : Observable<boolean>;
     
     constructor(public af: AngularFire, private zone: NgZone) {
         
@@ -29,14 +29,33 @@ export class AuthService {
                 return Observable.of(null);
                 
             }
-        }).share();
+        });
        
+       // isAdmin should be an observable that sends trues of falses as the users gains or loses admin access
+       // Need to combine two streams. take the stream of auth data, and use it to generate a stream of values
+       // for the /admin/[userid] and then check to see if the user is an admin
+       // TODO: This code currently RUNS for each subscriber, whereas I just want each subscriber to get the latest value
+       // when they start to subscribe, and to get the updates as they come in
+       // .shared() does the latter, but not the former.
+        this.isAdmin =  this.af.auth.flatMap( authState => {
+            console.log("New Auth state!")
+            if(!authState) {
+                return Observable.of(false);
+            } else {
+                console.log("listening on /admin/",authState.uid);
+                return this.af.database.object('/admin/'+authState.uid);
+            }
+        }).map( adminObject => {
+            console.log("Looking in ",adminObject,"for permission");
+            if(adminObject && adminObject.$value === true) {
+                console.log(adminObject);
+                return true;
+            } else {
+                return false;
+            }
+        }).multicast();
+        this.isAdmin.subscribe(next=>console.log("Auth stream play:",next));
         
-        
-    }
-    
-    isAdmin() {
-        return true;
     }
     loginGoogle() {
         this.af.auth.login({
@@ -45,7 +64,6 @@ export class AuthService {
         });
     }
     loginPassword(username : string, password : string) {
-        console.log("Let's login!");
         this.af.auth.login(
             {
                 email: username,

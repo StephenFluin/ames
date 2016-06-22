@@ -4,6 +4,7 @@ import { Expert, Community } from '../shared/models';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
 import { PickerComponent } from '../shared/picker.component';
+import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
@@ -11,9 +12,9 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
     moduleId: module.id,
     selector: 'expert-form',
     template: `
-    <form *ngIf="expert" (submit)="save(expert)">
-        <label>First Name <input name="firstName" [(ngModel)]="expert.firstName"></label>
-        <label>Last name <input [(ngModel)]="expert.lastName"></label>
+    <form *ngIf="expert" (submit)="save(expert)" ngNoForm>
+        <label>Name <input name="name" [(ngModel)]="expert.name" required #spy></label>
+        <div *ngIf="!expert.name && (expert.firstName || expert.lastName ) ">{{expert.firstName}} {{expert.lastName}}</div>
         <label>Twitter <input [(ngModel)]="expert.twitterID"></label>
         <label>Bio <input [(ngModel)]="expert.bio"></label>
         <label>URL<input [(ngModel)]="expert.url"></label>
@@ -25,14 +26,14 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
         <picker [available]="communityList" [selected]="[]" (update)="chooseCommunities($event)"></picker>
         
         <label>GDE? <md-slide-toggle [(ngModel)]="expert.isGDE"></md-slide-toggle></label>
-        <label>Consultant?<md-slide-toggle [(ngModel)]="expert.ngConsult"></md-slide-toggle></label>
+        <label>Consultant? <md-slide-toggle [(ngModel)]="expert.ngConsult"></md-slide-toggle></label>
         
         <button type="submit">Save</button>
         <button (click)="deleteExpert()" type="button">DELETE</button>
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;min-width:50%;}'],
-    directives: [ ROUTER_DIRECTIVES, MD_SLIDE_TOGGLE_DIRECTIVES, PickerComponent ],
+    directives: [ ROUTER_DIRECTIVES, MD_SLIDE_TOGGLE_DIRECTIVES, PickerComponent, REACTIVE_FORM_DIRECTIVES ],
     
 })
 export class ExpertFormComponent {
@@ -49,6 +50,7 @@ export class ExpertFormComponent {
     
     save(savedValue: Expert) {
         console.log("Processing save for", savedValue);
+        event.preventDefault();
         this.update.emit(savedValue);
         
         

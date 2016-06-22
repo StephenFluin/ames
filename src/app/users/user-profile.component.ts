@@ -9,10 +9,9 @@ import { UserProfileFormComponent } from './user-profile-form.component';
 @Component({
     moduleId: module.id,
     selector: "user",
-    template: `<h2 fraggles="woot">Your Profile</h2>
+    template: `<h2>Your Profile</h2>
     <p *ngIf="!(auth | async)?.uid"><button (click)="login()">Login with G</button></p>
-    Fill out this form: {{userData | async | json}}
-    <expert-form [expert]="userData | async" (update)="updateUser($event)"></expert-form>
+    <expert-form [expert]="userData | async" (update)="updateUser($event)" class="contents"></expert-form>
     
     `,
     directives: [UserProfileFormComponent, ExpertFormComponent]

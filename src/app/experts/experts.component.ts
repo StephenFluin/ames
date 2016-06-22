@@ -7,6 +7,7 @@ import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { RefirebasePipe } from '../shared/refirebase.pipe';
 
 import { Expert } from '../shared/models';
+import { AuthService } from '../shared/auth.service';
 
 import { FirebaseService } from '../shared/firebase.service';
 import { FireJoinPipe } from '../shared/fire-join.pipe';
@@ -22,7 +23,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
         <div style="display:flex;">
             <div style="flex-grow:1;">
             
-                <md-card-title>{{expert.firstName}} {{expert.lastName}}</md-card-title>
+                <md-card-title>{{expert.name}}</md-card-title>
                 <div>{{expert.webpage}}</div>
                 <md-card-subtitle *ngIf="expert.twitterID">@{{expert.twitterID}}</md-card-subtitle>
                 <div *ngIf="expert.communities">
@@ -36,7 +37,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
                 <div [style.background-image]="'url('+expert.picUrl+')'" *ngIf="expert.picUrl" class="background-side-picture"></div>
             </div>
             <div class="edit-button">
-                <button *ngIf="auth.isAdmin" md-raised-button (click)="edit(expert)">Edit</button>
+                <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(expert)">Edit</button>
             </div>
         </div> 
     </md-card>
@@ -50,11 +51,11 @@ export class ExpertsComponent {
     experts;
     auth;
     
-    constructor(private router: Router, private expertService : FirebaseService<Expert>) {
+    constructor(private router: Router, private expertService : FirebaseService<Expert>, private authService : AuthService) {
         
         expertService.setup('/experts/', {query: {orderByChild: 'firstName'}});
         this.experts = expertService.list;
-        this.auth = {isAdmin: true};
+        this.auth = authService;
     }
     
     edit(expert) {
