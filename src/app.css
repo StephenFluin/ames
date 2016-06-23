@@ -1,3 +1,12 @@
+/**
+https://coolors.co/app/1b3022-505a5b-f2e9e4-a67db8-7261a3
+Scheme:
+#3D3175
+*/
+*.md-primary  {
+    background-color:#3D3175 !important;
+}
+
 * {
     margin:0;
     padding:0;
@@ -6,6 +15,20 @@
 h2 { display: inline; margin-left:16px; }
 label { display: block;}
 p, nav, form, .grid, .content { padding:16px; }
+
+nav {
+    background-color:rgba(61,49,117,.8);
+    color:white;
+    padding:16px; 
+    margin-bottom:16px;
+}
+nav a {
+    color:white;
+    text-decoration: none;
+    background-color:rgba(255,255,255,.1);
+    padding:16px;
+}
+
 
 .pretty-card {
     margin:16px;
@@ -41,3 +64,8 @@ md-toolbar-row>* {
 .ng-invalid {
   border-left: 5px solid #a94442; /* red */
 }
+input {
+    padding: 6px;
+}
+label input {display:block;margin-bottom:16px;width:100%;}
+form {max-width:800px;}

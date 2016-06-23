@@ -31,7 +31,7 @@ import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
         <button (click)="deleteExpert()" type="button">DELETE</button>
     </form>
         `,
-    styles: ['label input {display:block;margin-bottom:16px;min-width:50%;}'],
+    styles: [],
     directives: [ ROUTER_DIRECTIVES, MD_SLIDE_TOGGLE_DIRECTIVES, PickerComponent, REACTIVE_FORM_DIRECTIVES ],
     
 })

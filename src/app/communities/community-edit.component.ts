@@ -22,8 +22,10 @@ export class CommunityEditComponent {
         communityService.setup('/communities/');
         this.community = route.params.flatMap( params => {
             if(params['id'] == "new") {
+                console.log("returning an empty community.");
                 return Observable.of(new Community);
             } else {
+                console.log("Returning the get of this id.",params['id'],"from",communityService.endpoint);
                 return communityService.get(params['id']);
             }
         });
