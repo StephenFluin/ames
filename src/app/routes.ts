@@ -12,6 +12,7 @@ import {ResourcesComponent} from './resources/resources.component';
 import {ResourcesNewComponent} from './resources/resources-new.component';
 import {CommunityEditComponent} from './communities/community-edit.component';
 import {UserProfileComponent} from './users/user-profile.component';
+import {AdminComponent} from './admin.component';
 
 
 export const routes: RouterConfig = [
@@ -59,5 +60,9 @@ export const routes: RouterConfig = [
     {
         path: 'profile',
         component: UserProfileComponent
+    },
+    {
+        path: 'admin',
+        component: AdminComponent
     },
 ];

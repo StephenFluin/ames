@@ -46,6 +46,7 @@ export class PickerComponent implements OnInit {
     @Input() selected : any[];
     // An array of string keys
     @Input() selectedKeys : any;
+    @Input() selectedObservable : Observable<any>;
     
     @Input() singleMode : boolean = false;
     
@@ -64,25 +65,41 @@ export class PickerComponent implements OnInit {
         }
         // Populate selected if a key list was provided
         if(this.selectedKeys) {
-            let keys = Object.keys(this.selectedKeys);
+           this.processSelectedKeys(this.selectedKeys);
+        } else {
+            console.log("ignoring selectedkeys");
+        }
+        
+        // Could this be made reactive properly?
+        if(this.selectedObservable) {
+            this.selectedObservable.subscribe(n => {
+                this.processSelectedKeys(n);
+            })
+        }
+     }
+     processSelectedKeys(keySource : any) {
+          console.log("using selectedKeys");
+          this.selected = [];
+            let keys = Object.keys(keySource);
             console.log(keys);
             
             this.available.subscribe(list => {
                 list.map(next => {
 
 
-                    if(keys.indexOf(next.$key) > -1) {
+                    if(keys.indexOf(next.$key) > -1 && this.selected.indexOf(next) < 0) {
                         this.selected.push(next);
                     }
                 }) 
             });
-        }
      }
     showAdd() {
         this.showAvailable = true;
     }
     select(item) {
-        this.selected.push(item);
+        if(this.selected.indexOf(item) < 0) {
+            this.selected.push(item);
+        }
         this.update.emit(this.convertToMap(this.selected));
         this.showAvailable = false;
     }
