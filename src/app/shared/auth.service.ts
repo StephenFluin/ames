@@ -45,20 +45,13 @@ export class AuthService {
             } else {
                 return this.af.database.object('/admin/'+authState.uid)
                 .catch((a, b) => {
-                    console.log("caught an error!",a,b);
+                    // This permission error means we aren't an admin
                     return Observable.of(false)
                 });
             }
-        }).map( adminObject => {
-            console.log("Looking in ",adminObject,"for permission");
-            
-            if(adminObject && adminObject['$value'] === true) {
-                console.log(adminObject);
-                return true;
-            } else {
-                return false;
-            }
-        }).cache(1);
+        }).map( adminObject => 
+             (adminObject && adminObject['$value'] === true)
+        ).cache(1);
         
         this.isUser =  this.af.auth.map( authState => !!authState).cache(1);
         

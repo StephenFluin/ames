@@ -9,13 +9,15 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
 
 import { Community } from '../shared/models';
 
+import { AuthService } from '../shared/auth.service';
+
 import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
     moduleId: module.id,
     template: `<h2>Communities</h2>
     <p style="clear:both;">
-        <button md-raised-button color="primary" (click)="new()">New</button>
+        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()">New</button>
     </p>
     
     <md-card *ngFor="let community of communities | async" class="pretty-card">
@@ -39,10 +41,10 @@ export class CommunitiesComponent {
     communities;
     auth;
     
-    constructor(private router: Router, private communityService : FirebaseService<Community>) {
+    constructor(private router: Router, private communityService : FirebaseService<Community>, private authService : AuthService) {
         communityService.setup('/communities/', {query: {orderByChild: 'name'}});
         this.communities = communityService.list;
-        this.auth = {isAdmin: true};
+        this.auth = authService;
     }
     
     edit(community) {
