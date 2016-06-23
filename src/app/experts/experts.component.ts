@@ -16,9 +16,12 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     moduleId: module.id,
     selector: 'experts-list',
     template: `<h2>Experts</h2>
-    <p style="clear:both;">
-        <button md-raised-button color="primary" (click)="new()">New</button>
-    </p>
+    <div style="clear:both;"></div>
+    <div style="clear:both;" class="content">
+        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()">New Expert</button>
+        <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/profile'])">My Profile</button>
+    </div>
+    
     <md-card *ngFor="let expert of experts | async" class="pretty-card">
         <div style="display:flex;">
             <div style="flex-grow:1;">

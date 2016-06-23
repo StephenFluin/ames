@@ -10,6 +10,7 @@ export class AuthService {
     userData : Observable<any>;
     updatableUser : FirebaseObjectObservable<any>;
     isAdmin : Observable<boolean>;
+    isUser: Observable<boolean>;
     
     constructor(public af: AngularFire, private zone: NgZone) {
         
@@ -42,17 +43,25 @@ export class AuthService {
             if(!authState) {
                 return Observable.of(false);
             } else {
-                return this.af.database.object('/admin/'+authState.uid);
+                return this.af.database.object('/admin/'+authState.uid)
+                .catch((a, b) => {
+                    console.log("caught an error!",a,b);
+                    return Observable.of(false)
+                });
             }
         }).map( adminObject => {
             console.log("Looking in ",adminObject,"for permission");
-            if(adminObject && adminObject.$value === true) {
+            
+            if(adminObject && adminObject['$value'] === true) {
                 console.log(adminObject);
                 return true;
             } else {
                 return false;
             }
         }).cache(1);
+        
+        this.isUser =  this.af.auth.map( authState => !!authState).cache(1);
+        
         
     }
     loginGoogle() {

@@ -28,6 +28,8 @@ export class CommunityFormComponent {
     @Output() delete = new EventEmitter<Community>();
     @Input() community : Community;
     
+   
+    
     save() {
         this.update.emit(this.community);
     }
