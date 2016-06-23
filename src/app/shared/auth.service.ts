@@ -37,12 +37,11 @@ export class AuthService {
        // TODO: This code currently RUNS for each subscriber, whereas I just want each subscriber to get the latest value
        // when they start to subscribe, and to get the updates as they come in
        // .shared() does the latter, but not the former.
-        this.isAdmin =  this.af.auth.flatMap( authState => {
-            console.log("New Auth state!")
+        this.isAdmin =  this.af.auth.switchMap( authState => {
+            console.log("New Auth state!",authState)
             if(!authState) {
                 return Observable.of(false);
             } else {
-                console.log("listening on /admin/",authState.uid);
                 return this.af.database.object('/admin/'+authState.uid);
             }
         }).map( adminObject => {
@@ -53,8 +52,7 @@ export class AuthService {
             } else {
                 return false;
             }
-        }).multicast();
-        this.isAdmin.subscribe(next=>console.log("Auth stream play:",next));
+        }).cache(1);
         
     }
     loginGoogle() {
