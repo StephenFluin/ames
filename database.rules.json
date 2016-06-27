@@ -16,5 +16,8 @@
     // only let admins see or modify admins
   	".read":"root.child('admin/'+auth.uid).exists()",
     ".write":"root.child('admin/'+auth.uid).exists()"
-  }
+  },
+  "resource-queue": {
+    "$resource": {".read": "root.child('admin/'+auth.uid).exists()", ".write":"true"}
+  },
 }}

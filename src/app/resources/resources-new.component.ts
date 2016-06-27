@@ -45,17 +45,24 @@ export class ResourcesNewComponent {
     this.submission.selectedCategory = param;
     this.subCategories = this.af.database.list('/resources/' + param)
     .map(items =>
-      items.map( sub => sub.$key)
+      items.map( sub => {
+        if(!this.submission.selectedSubcategory) {
+          this.submission.selectedSubcategory = sub.$key;
+        }
+        return sub.$key})
     );
+    
   }
   
   submit() {
     if(!this.submission.validate() || !this.submission.selectedCategory || !this.submission.selectedSubcategory) {
       alert("Please complete the form before submitting.");
+      console.log(this.submission.title,this.submission.url,this.submission.selectedCategory,this.submission.selectedSubcategory);
     } else {
       this.af.database.list('/resource-queue/')
         .push(this.submission);
       this.submission = new Submission();
+      this.selectCategory('Education');
     }
       
   }
@@ -64,17 +71,19 @@ export class ResourcesNewComponent {
 
 
 class Submission {
-  name : string;
+  /*name : string;*/
   selectedCategory : string;
   selectedSubcategory: string;
-  email : string;
-  companyName : string;
+  /*email : string;
+  companyName : string;*/
   title : string;
   url : string;
-  notes : string;
-  rev: boolean;
+  desc : string;
+  /*notes : string;*/
+  rev: boolean = true;
   
   constructor() {
+    /*
     this.name = "Stephen Fluin";
     this.selectedCategory = "Community";
     this.selectedSubcategory = "Groups";
@@ -83,15 +92,13 @@ class Submission {
     this.title = "Angularistas";
     this.url = "https://angular.io";
     this.notes = "These are notes";
-    this.rev = false;
+    this.rev = false;*/
   }
   
   validate() : boolean {
     return !(
-      !this.name ||
       !this.selectedCategory ||
       !this.selectedSubcategory ||
-      !this.email ||
       !this.title ||
       !this.url);
   }

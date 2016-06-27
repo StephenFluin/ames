@@ -25,11 +25,9 @@
     </option>
   </select>
   
-  <md-input [(ngModel)]="submission.name" placeholder="Your Name"></md-input>
-  <md-input [(ngModel)]="submission.email" placeholder="Email" type="email"></md-input>
-  <md-input [(ngModel)]="submission.companyName" placeholder="Company Name"></md-input>
-  <md-input [(ngModel)]="submission.title" placeholder="Product / Listing Title"></md-input>
-  <md-input [(ngModel)]="submission.url" placeholder="Product URL" type="url"></md-input>
-  <md-input [(ngModel)]="submission.notes" placeholder="Any other notes?"></md-input>
+  <md-input [(ngModel)]="submission.title" placeholder="Title"></md-input>
+  <md-input [(ngModel)]="submission.url" placeholder=" URL" type="url"></md-input>
+  
+  <md-input [(ngModel)]="submission.desc" placeholder="Description"></md-input>
   <button md-raised-button color="primary" type="submit">Submit Resource</button>
 </form>

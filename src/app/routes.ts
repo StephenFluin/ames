@@ -10,6 +10,7 @@ import {CommunitiesComponent} from './communities/communities.component';
 import {LoginComponent} from './login.component';
 import {ResourcesComponent} from './resources/resources.component';
 import {ResourcesNewComponent} from './resources/resources-new.component';
+import {ResourceQueueComponent} from './resources/resource-queue.component'
 import {CommunityEditComponent} from './communities/community-edit.component';
 import {UserProfileComponent} from './users/user-profile.component';
 import {AdminComponent} from './admin.component';
@@ -56,6 +57,10 @@ export const routes: RouterConfig = [
     {
         path: 'resources/new',
         component: ResourcesNewComponent
+    },
+    {
+        path: 'resources/queue',
+        component: ResourceQueueComponent
     },
     {
         path: 'profile',
