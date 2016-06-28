@@ -24,6 +24,7 @@ declare var prompt;
     <div style="display:flex;">
         <div *ngFor="let sub of category | refirebase" style="margin-left:16px;margin-bottom:32px;">
             <h4>{{sub.$key}}</h4>
+            <h4><button (click)="setSubcategoryPriority(category.$key, sub.$key,subPriority)">SetPriority</button><input [(ngModel)]="subPriority"></h4>
             <div *ngFor="let resource of sub.resources | refirebase" style="margin-left:16px;">
                 <a target="_blank" [href]="resource.url">{{resource.title}}</a> 
                 <span *ngIf="!resource.rev">(Awaiting Approval!)</span>
@@ -46,6 +47,13 @@ export class ResourcesComponent {
     //this.af.database.object('/resources/'+category);
     console.log(firebase.database().ref('/resources/'+category));
     firebase.database().ref('/resources/'+category).setPriority(priority);
+    this.priority = null;
+    
+  }
+  setSubcategoryPriority(category, subcategory, priority: number) {
+    //this.af.database.object('/resources/'+category);
+    console.log(firebase.database().ref('/resources/'+category+'/'+subcategory));
+    firebase.database().ref('/resources/'+category+'/'+subcategory).setPriority(priority);
     this.priority = null;
     
   }
