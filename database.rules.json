@@ -18,6 +18,7 @@
     ".write":"root.child('admin/'+auth.uid).exists()"
   },
   "resource-queue": {
-    "$resource": {".read": "root.child('admin/'+auth.uid).exists()", ".write":"true"}
-  },
+    ".read": "root.child('admin/'+auth.uid).exists()",
+    "$resource": {".write":"true"}
+  }
 }}

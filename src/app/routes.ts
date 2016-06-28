@@ -9,8 +9,9 @@ import {ExpertEditComponent} from './experts/expert-edit.component';
 import {CommunitiesComponent} from './communities/communities.component';
 import {LoginComponent} from './login.component';
 import {ResourcesComponent} from './resources/resources.component';
-import {ResourcesNewComponent} from './resources/resources-new.component';
-import {ResourceQueueComponent} from './resources/resource-queue.component'
+import {ResourceEditComponent} from './resources/resource-edit.component';
+import {ResourceQueueComponent} from './resources/resource-queue.component';
+import {ResourceNewComponent} from './resources/resource-new.component';
 import {CommunityEditComponent} from './communities/community-edit.component';
 import {UserProfileComponent} from './users/user-profile.component';
 import {AdminComponent} from './admin.component';
@@ -56,11 +57,15 @@ export const routes: RouterConfig = [
     },
     {
         path: 'resources/new',
-        component: ResourcesNewComponent
+        component: ResourceNewComponent
     },
     {
         path: 'resources/queue',
         component: ResourceQueueComponent
+    },
+    {
+        path: 'resources/:category/:subcategory/:id',
+        component: ResourceEditComponent
     },
     {
         path: 'profile',
