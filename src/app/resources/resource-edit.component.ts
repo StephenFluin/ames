@@ -11,63 +11,82 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
     template: `<h2>Edit Resource</h2>
      <resource-form [resource]="resource | async" (update)="save($event)" (delete)="delete($event)"></resource-form>
     `,
-    directives: [ ROUTER_DIRECTIVES, ResourceFormComponent ],
-    
+    directives: [ROUTER_DIRECTIVES, ResourceFormComponent],
+
 })
 export class ResourceEditComponent {
-    id : string;
-    resource : Observable<any>;
-    
-    constructor(private route : ActivatedRoute, private router: Router, private resourceService : FirebaseService<Resource>, private af : AngularFire) {
-        
-        
-        this.resource = route.params.flatMap( params => {
-            if(params['id'] === "new") {
-                console.log("Generating a new resource");
+    id: string;
+    resource: Observable<any>;
+
+    // Needs these to move / delete nodes appropriately between categories
+    originalCategory: string;
+    originalSubcategory: string;
+
+    constructor(private route: ActivatedRoute, private router: Router, private resourceService: FirebaseService<Resource>, private af: AngularFire) {
+
+
+        this.resource = route.params.flatMap(params => {
+            if (params['id'] === "new") {
                 return Observable.of({});
             }
-            resourceService.setup('/resources/'+params["category"]+'/'+params["subcategory"]+'/resources/');
-            console.log("bound to",'/resources/'+params["category"]+'/'+params["subcategory"]+'/resources/');
+            resourceService.setup('/resources/' + params["category"] + '/' + params["subcategory"] + '/resources/');
+            console.log("bound to", '/resources/' + params["category"] + '/' + params["subcategory"] + '/resources/');
             return resourceService.get(params['id']).map(resource => {
-                resource.category = params['category'];
-                resource.subcategory = params['subcategory'];
-                console.log("Resolving a resource that looks like",resource)
+                this.originalCategory = resource.category = params['category'];
+                this.originalSubcategory = resource.subcategory = params['subcategory'];
                 return resource;
             });
         });
-        route.params.subscribe(next => this.id=next['id'], error => console.error(error), () => console.log('finished'));
     }
-    
+
     /**
      * Edit might need to handle an update to an existing resource, or the moving between endpoints
      */
     save(resource) {
-        console.log("saving from component",resource);
-        
         let category = resource.category;
-        let subcategory = resource.category;
+        let subcategory = resource.subcategory;
         let key = resource.$key;
-        if(category && subcategory && key) {
+
+        // We can only update if we have all 3
+        if (category && subcategory && key) {
             delete resource.category;
             delete resource.subcategory;
-            delete resource.$key;
-            //this.resourceService.delete(resource);
-            console.log(resource);
-            this.af.database.object(`/resources/${category}/${subcategory}/resources/${key}`)
-            .update(resource);
+
+            // Did it change?
+            if(category != this.originalCategory || subcategory != this.originalSubcategory) {
+                this.resourceService.delete(resource);
+
+                delete resource.$key;
+
+                let result = this.af.database.list(`/resources/${category}/${subcategory}/resources/`)
+                .push(resource);
+                console.log(result.key);
+                
+                key = resource.$key = result.key;
+            } else {
+                this.resourceService.save(resource);// No need to delete, let's just update safely!
+            }
+            
+
+
+            resource.category = category;
+            resource.subcategory = subcategory;
+            
+
             this.router.navigate([`/resources/${category}/${subcategory}/${key}`]);
         } else {
             this.router.navigate([`/resources/`]);
-            
+
         }
-        
-        
+
+
     }
-    delete(mission) {
-        this.resourceService.delete(mission);
-        this.router.navigate(['../../'], {relativeTo:this.route});
+    delete(item) {
         
-        
+        this.resourceService.delete(item);
+        this.router.navigate(['/resources'], { relativeTo: this.route });
+
+
     }
-    
+
 }

@@ -11,7 +11,7 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
     template: `<h2>Resource Queue</h2>
     <div class="content">
         <div *ngFor="let submission of submissions | async">
-            <h3>{{submission.title}} ({{submission.selectedCategory}} / {{submission.selectedSubcategory}})</h3>
+            <h3>{{submission.title}} ({{submission.category}} / {{submission.subcategory}})</h3>
             <p><a [href]="submission.url">{{submission.url}}</a></p>
             <p>{{submission.desc}}</p>
             <button (click)="accept(submission)">accept</button> <button (click)="reject(submission)">reject</button>
@@ -31,10 +31,10 @@ export class ResourceQueueComponent implements OnInit {
     ngOnInit() { }
     
     accept(submission) {
-        let master = this.af.database.list('/resources/' + submission.selectedCategory + "/" + submission.selectedSubcategory + "/resources/");
+        let master = this.af.database.list('/resources/' + submission.category + "/" + submission.subcategory + "/resources/");
         let key = submission.$key;
-        delete submission.selectedCategory;
-        delete submission.selectedSubcategory;
+        delete submission.category;
+        delete submission.subcategory;
         delete submission.$key;
         master.push(submission);
         this.submissions.remove(key);

@@ -20,11 +20,7 @@ import { Resource } from '../shared/models';
     margin: 16px 0;
   }
  </style>
- <h2>Submit a New Resource</h2>
- <p>Want to add a resource to our Angular 2 listings?  Submit your information here, we'll review and give you a head's up when we add it to the list.</p>
 <form (submit)="submit()">
-{{resource | json}} <br/>
-{{resource.category}} / {{resource.subcategory}}<br/>
   <select (change)="selectCategory($event.target.value)" [ngModel]="resource.category">
     <option>Select a Category</option>
     
@@ -47,6 +43,7 @@ import { Resource } from '../shared/models';
   
   <md-input [(ngModel)]="resource.desc" placeholder="Description"></md-input>
   <button md-raised-button color="primary" type="submit">Submit Resource</button>
+  <button *ngIf="resource && resource.$key && resource.$key != 'new'" (click)="deleteItem()" type="button">Delete</button>
 </form>
   
   `, 
@@ -88,7 +85,7 @@ export class ResourceFormComponent {
   
   selectCategory(categoryName) {
     console.log("Selecting " , categoryName);
-    //this.resource.category = categoryName;
+    this.resource.category = categoryName;
     this.subCategories = this.af.database.list('/resources/' + categoryName)
     .map(items =>
       items.map( sub => {
@@ -101,6 +98,9 @@ export class ResourceFormComponent {
   }
   submit() {
     this.update.emit(this.resource);
+  }
+  deleteItem() {
+    this.delete.emit(this.resource);
   }
   
 }

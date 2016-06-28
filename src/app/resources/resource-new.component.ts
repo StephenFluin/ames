@@ -23,7 +23,7 @@ import { ResourceFormComponent } from './resource-form.component'
  </style>
  <h2>Submit a New Resource</h2>
  <p>Want to add a resource to our Angular 2 listings?  Submit your information here, we'll review and give you a head's up when we add it to the list.</p>
- <resource-form [resource]="{}" (update)="save($event)" (delete)="delete($event)"></resource-form>
+ <resource-form [resource]="resource" (update)="save($event)"></resource-form>
   
   `,
     directives: [...MD_BUTTON_DIRECTIVES, ...MD_TOOLBAR_DIRECTIVES, ...MD_INPUT_DIRECTIVES, ResourceFormComponent],
@@ -35,9 +35,15 @@ export class ResourceNewComponent {
     constructor(private af: AngularFire) {}
 
     save(item: Resource) {
-        this.af.database.list('/resource-queue/')
-            .push(item);
-        this.resource = new Resource();
+        console.log("new resource submission",item);
+        if(item.validate()) {
+            delete item.$key;
+            this.af.database.list('/resource-queue/')
+                .push(item);
+            this.resource = new Resource();
+        } else {
+            console.warn('Invalid submission');
+        }
     }
 
 

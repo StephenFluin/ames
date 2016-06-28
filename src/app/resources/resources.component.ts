@@ -20,6 +20,7 @@ declare var prompt;
 <p>
     <a [routerLink]="['/resources/new']">Submit a New Resource</a>
 </p>
+<p *ngIf="auth.isAdmin | async"> <a [routerLink]="['/resources/queue']">Manage the Queue</a></p>
 <div *ngFor="let category of data | async" style="margin-left:16px;clear:both;">
     <h3>{{category.$key}}</h3>
     <div *ngIf="auth.isAdmin | async"> <button (click)="setCategoryPriority(category.$key,priority)">SetPriority</button><input [(ngModel)]="priority"/></div>
