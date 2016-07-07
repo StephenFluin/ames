@@ -42,6 +42,10 @@ nav a {
     height:80px;
     background-size:cover;
     background-position:center center;
+    background-repeat: no-repeat;
+}
+.background-side-picture.contain {
+    background-size:contain;
 }
 
 .edit-button {

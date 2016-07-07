@@ -90,5 +90,7 @@ export class Event {
     end: number;
     author: string;
     community: string;
+    
+    leads: string[];
     speakers: string[];
 }

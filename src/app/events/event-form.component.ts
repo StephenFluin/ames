@@ -53,6 +53,10 @@ export class EventFormComponent {
     // Take a new emitted list of keys
     chooseLeads(list : string[]) {
         console.log("Lead List is now ",list);
-        //this.event.communities = list;
+        this.event.leads = list;
+    }
+     chooseSpeakers(list : string[]) {
+        console.log("Speakers List is now ",list);
+        this.event.speakers = list;
     }
 }

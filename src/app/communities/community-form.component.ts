@@ -24,9 +24,7 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
         </select>
         {{community.organizer}}
         </label>
-        <label>Span<input [(ngModel)]="community.span"></label>
         <label>URL<input [(ngModel)]="community.url"></label>
-        <label>Type<input [(ngModel)]="community.type"></label>
         <button type="submit">Save</button>
         <button (click)="deleteCommunity()" type="button">DELETE</button>
     </form>

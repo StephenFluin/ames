@@ -19,7 +19,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     <div style="clear:both;"></div>
     <div style="clear:both;" class="content">
         <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()">New Event</button>
-        <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/profile'])">My Profile</button>
+        <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/profile'])">Submit Event (Not Implemented)</button>
     </div>
     
     <md-card *ngFor="let event of events | async" class="pretty-card">
@@ -27,6 +27,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
             <div style="flex-grow:1;">
             
                 <md-card-title>{{event.name}}</md-card-title>
+                <div>{{event.startDate | date:"MM/dd"}} - {{event.endDate | date:"MM/dd"}}</div>
                 <div>{{event.location}}</div>
                 <md-card-subtitle *ngIf="event.twitterID">@{{event.twitterID}}</md-card-subtitle>
                 <div *ngIf="event.communities">
@@ -37,7 +38,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
                 </div>
             </div>
             <div>
-                <div [style.background-image]="'url('+event.logoUrl+')'" *ngIf="event.logoUrl" class="background-side-picture"></div>
+                <div [style.background-image]="'url('+event.logoUrl+')'" *ngIf="event.logoUrl" class="background-side-picture contain"></div>
             </div>
             <div class="edit-button">
                 <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(event)">Edit</button>
