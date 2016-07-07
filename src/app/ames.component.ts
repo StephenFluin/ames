@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { ROUTER_DIRECTIVES, Router, NavigationEnd } from '@angular/router';
 import { FirebaseService } from './shared/firebase.service';
 import { UserLoginComponent } from './users/user-login.component';
 
@@ -23,6 +23,8 @@ import {ResourceNewComponent} from './resources/resource-new.component';
 import {CommunityEditComponent} from './communities/community-edit.component';
 import {UserProfileComponent} from './users/user-profile.component';
 import {AdminComponent} from './admin.component';
+
+declare var ga : any;
 
 @Component({
   moduleId: module.id,
@@ -54,9 +56,21 @@ export class AmesAppComponent {
   title = 'Ames';
   
   
-  constructor(private router : Router ) {}
+  constructor(private router : Router ) {
+    router.events.filter(e => e instanceof NavigationEnd).subscribe( (n:NavigationEnd) => {
+      // Log analytics here
+      console.log(n.urlAfterRedirects);
+      
+      ga('send', 'pageview', n.urlAfterRedirects);
+    });
+    
+    
+  }
   // Remove if/when https://github.com/angular/angular/issues/8357 is fixed 
   home() {
     this.router.navigate(['/']);
   }
+  
+ 
+  
 }
