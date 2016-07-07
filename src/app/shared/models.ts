@@ -48,7 +48,7 @@ export class Expert {
 
 export class Community {
     $key: string = "new";
-    icon: string;;
+    icon: string;
     name: string;
     type: string;
     description: string;
@@ -83,3 +83,12 @@ export class Resource {
     }
 }
 
+export class Event {
+    $key: string = "new";
+    name: string;
+    start: number;
+    end: number;
+    author: string;
+    community: string;
+    speakers: string[];
+}

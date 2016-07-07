@@ -1,5 +1,7 @@
 {"rules":{
+  // Anyone can read, admins can write
   "experts": {".read":true,".write":"root.child('admin/'+auth.uid).exists()"},
+  "events": {".read":true,".write":"root.child('admin/'+auth.uid).exists()"},
   "communities": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
   "missions": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
   "resources": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
