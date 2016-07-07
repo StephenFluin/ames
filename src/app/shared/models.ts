@@ -8,18 +8,18 @@ export class Mission {
     description: string;
     startDate: number;
     endDate: number;
-    
+
     constructor(rawSource?) {
-        if(rawSource) {
+        if (rawSource) {
             this.$key = rawSource.$key ? rawSource.$key : '';
             this.name = rawSource.name;
             this.description = rawSource.description;
             this.startDate = rawSource.startDate;
             this.endDate = rawSource.endDate;
-            
+
         }
     }
-    
+
 }
 
 export class Expert {
@@ -35,20 +35,20 @@ export class Expert {
     linkedin: string;
     city: string;
     country: string;
-    
+
     isGDE: boolean;
     isConsultant: boolean;
     isEducator: boolean;
-    
-    languages : string[];
+
+    languages: string[];
     missions: string[];
     communities: string[];
-    
+
 }
 
 export class Community {
-    $key : string = "new";
-    icon: string;;
+    $key: string = "new";
+    icon: string;
     name: string;
     type: string;
     description: string;
@@ -57,4 +57,14 @@ export class Community {
     organizer: string;
     members: string[];
     span: string;
+}
+
+export class Event {
+    $key: string = "new";
+    name: string;
+    start: number;
+    end: number;
+    author: string;
+    community: string;
+    speakers: string[];
 }

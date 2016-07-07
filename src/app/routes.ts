@@ -6,6 +6,8 @@ import {MissionDetailComponent} from './missions/mission-detail.component';
 import {MissionEditComponent} from './missions/mission-edit.component';
 import {ExpertsComponent} from './experts/experts.component';
 import {ExpertEditComponent} from './experts/expert-edit.component';
+import {EventsComponent} from './events/events.component';
+import {EventEditComponent} from './events/event-edit.component';
 import {CommunitiesComponent} from './communities/communities.component';
 import {LoginComponent} from './login.component';
 import {ResourcesComponent} from './resources/resources.component';
@@ -25,9 +27,9 @@ export const routes: RouterConfig = [
         path: 'missions',
         component: MissionsComponent,
         children: [
-            {path: '', component: MissionListComponent},
-            {path: ':id', component: MissionDetailComponent},
-            {path: ':id/edit', component: MissionEditComponent},
+            { path: '', component: MissionListComponent },
+            { path: ':id', component: MissionDetailComponent },
+            { path: ':id/edit', component: MissionEditComponent },
         ]
     },
     {
@@ -38,7 +40,15 @@ export const routes: RouterConfig = [
         path: 'experts/:id/edit',
         component: ExpertEditComponent
     },
-    { 
+    {
+        path: 'events',
+        component: EventsComponent
+    },
+    {
+        path: 'events/:id/edit',
+        component: EventEditComponent
+    },
+    {
         path: 'communities',
         component: CommunitiesComponent,
     },
