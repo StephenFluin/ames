@@ -27,7 +27,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
             <div style="flex-grow:1;">
             
                 <md-card-title>{{event.name}}</md-card-title>
-                <div>{{event.webpage}}</div>
+                <div>{{event.location}}</div>
                 <md-card-subtitle *ngIf="event.twitterID">@{{event.twitterID}}</md-card-subtitle>
                 <div *ngIf="event.communities">
                     <h4>Communities</h4>
@@ -37,7 +37,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
                 </div>
             </div>
             <div>
-                <div [style.background-image]="'url('+event.picUrl+')'" *ngIf="event.picUrl" class="background-side-picture"></div>
+                <div [style.background-image]="'url('+event.logoUrl+')'" *ngIf="event.logoUrl" class="background-side-picture"></div>
             </div>
             <div class="edit-button">
                 <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(event)">Edit</button>

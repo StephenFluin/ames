@@ -13,18 +13,18 @@ import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
     template: `
     <form *ngIf="event" (submit)="save(event)" ngNoForm>
         <label>Name <input name="name" [(ngModel)]="event.name" required #spy></label>
-        <label>Twitter <input [(ngModel)]="event.twitterID"></label>
-        <label>Bio <input [(ngModel)]="event.bio"></label>
-        <label>URL<input [(ngModel)]="event.url"></label>
-        <label>Blog UR L<input [(ngModel)]="event.blogUrl"></label>
-        <label>Pic URL <img *ngIf="event.picUrl" [src]="event.picUrl" style="max-height:1em;"> <input [(ngModel)]="event.picUrl"></label>
-        <label>Resume URL <input [(ngModel)]="event.resumeUrl"></label>
-        <label>LinkedIn <input [(ngModel)]="event.linkedIn"></label>
-        <div>Communities</div>
-        <picker [list]="'/communities/'" [order]="'firstName'" [selectedKeys]="event.communities" (update)="chooseCommunity($event)"></picker>
+        <label>Description <input [(ngModel)]="event.description"></label>
         
-        <label>GDE? <md-slide-toggle [(ngModel)]="event.isGDE"></md-slide-toggle></label>
-        <label>Consultant? <md-slide-toggle [(ngModel)]="event.ngConsult"></md-slide-toggle></label>
+        <label>URL <input [(ngModel)]="event.url"></label>
+        <label>Address/Location <input [(ngModel)]="event.location"></label>
+        
+        <label>Start Date<input [(ngModel)]="event.startDate" type="date"></label>
+        <label>End Date<input [(ngModel)]="event.endDate" type="date"></label>
+        <label>Logo URL <img *ngIf="event.logoUrl" [src]="event.logoUrl" style="max-height:1em;"> <input [(ngModel)]="event.logoUrl"></label>
+        <div>Leads</div>
+        <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="event.leads" (update)="chooseLeads($event)"></picker>
+        <div>Speakers</div>
+        <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="event.speakers" (update)="chooseSpeakers($event)"></picker>
         
         <button type="submit">Save</button>
         <button (click)="deleteEvent()" type="button">DELETE</button>
@@ -40,7 +40,6 @@ export class EventFormComponent {
     @Input() event : Event;
     
     save(savedValue: Event) {
-        console.log("Processing save for", savedValue);
         event.preventDefault();
         this.update.emit(savedValue);
         
@@ -52,8 +51,8 @@ export class EventFormComponent {
         
     }
     // Take a new emitted list of keys
-    chooseCommunity(list : string[]) {
-        console.log("Community List is now ",list);
+    chooseLeads(list : string[]) {
+        console.log("Lead List is now ",list);
         //this.event.communities = list;
     }
 }
