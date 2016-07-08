@@ -3,7 +3,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
     moduleId: module.id,
-    template: `<h2><a [routerLink]="['/missions/']">Missions</a> - </h2>
+    template: `
     <router-outlet></router-outlet>
     `,
     directives: [ ROUTER_DIRECTIVES ],

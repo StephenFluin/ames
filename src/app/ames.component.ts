@@ -19,7 +19,7 @@ import {LoginComponent} from './login.component';
 import {ResourcesComponent} from './resources/resources.component';
 import {ResourceEditComponent} from './resources/resource-edit.component';
 import {ResourceQueueComponent} from './resources/resource-queue.component';
-import {ResourceNewComponent} from './resources/resource-new.component';
+import {ResourceSubmitComponent} from './resources/resource-submit.component';
 import {CommunityEditComponent} from './communities/community-edit.component';
 import {UserProfileComponent} from './users/user-profile.component';
 import {AdminComponent} from './admin.component';
@@ -45,7 +45,7 @@ declare var ga : any;
     ResourcesComponent,
     ResourceEditComponent,
     ResourceQueueComponent,
-    ResourceNewComponent,
+    ResourceSubmitComponent,
     CommunityEditComponent,
     UserProfileComponent,
     AdminComponent,
@@ -58,13 +58,9 @@ export class AmesAppComponent {
   
   constructor(private router : Router ) {
     router.events.filter(e => e instanceof NavigationEnd).subscribe( (n:NavigationEnd) => {
-      // Log analytics here
-      console.log(n.urlAfterRedirects);
-      
+      // Log analytics here      
       ga('send', 'pageview', n.urlAfterRedirects);
     });
-    
-    
   }
   // Remove if/when https://github.com/angular/angular/issues/8357 is fixed 
   home() {

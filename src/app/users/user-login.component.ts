@@ -13,7 +13,7 @@ import { FirebaseObjectObservable } from 'angularfire2';
     template: `
     <div style="font-size:18px;">
         <div *ngFor="let user of userData | async | array">
-            <div (click)="profile()">{{ user.name}}</div>
+            <div (click)="profile()"><span *ngIf="auth.isAdmin | async" class="adminIcon"></span>{{ user.name}}</div>
             <div (click)="logout()" style="font-size:12px">Logout</div>
         </div>
         <div *ngIf="!(userData | async)" (click)="login()">Login</div>   
@@ -25,23 +25,21 @@ import { FirebaseObjectObservable } from 'angularfire2';
     
 })
 export class UserLoginComponent {
-    auth: Observable<any>;
     userData: Observable<any>;
     
     
-    constructor(private authService : AuthService, private router : Router ) {
-        this.auth = authService.af.auth;
-        this.userData = authService.userData;
+    constructor(private auth : AuthService, private router : Router ) {
+        this.userData = auth.userData;
         
         
     }
     
     login() {
-        this.authService.loginGoogle();
+        this.auth.loginGoogle();
     }
     logout() {
         console.log("Logging out.");
-        this.authService.logout();
+        this.auth.logout();
     }
     profile() {
         this.router.navigate(['/profile']);

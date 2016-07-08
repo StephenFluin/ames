@@ -18,11 +18,11 @@ declare var prompt;
   template: `
   <h2>Resources</h2>
 <p>
-    <a [routerLink]="['/resources/new']">Submit a New Resource</a>
+    <a [routerLink]="['/resources/submit']">Submit a New Resource</a>
 </p>
 <div class="content">
   <fieldset *ngIf="auth.isAdmin | async" class="content">
-    <legend>Admin</legend>
+    <legend><span class="adminIcon"></span>Admin</legend>
     <div><a [routerLink]="['/resources/queue']">Manage the Queue</a></div>
     <label><input type="checkbox" [(ngModel)]="priorityMode">Priority Management Mode</label>
   </fieldset>

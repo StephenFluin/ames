@@ -29,7 +29,7 @@ import { ResourceFormComponent } from './resource-form.component'
     directives: [...MD_BUTTON_DIRECTIVES, ...MD_TOOLBAR_DIRECTIVES, ...MD_INPUT_DIRECTIVES, ResourceFormComponent],
     pipes: [RefirebasePipe]
 })
-export class ResourceNewComponent {
+export class ResourceSubmitComponent {
     resource: Resource = new Resource();
 
     constructor(private af: AngularFire) {}
@@ -38,7 +38,7 @@ export class ResourceNewComponent {
         console.log("new resource submission",item);
         if(item.validate()) {
             delete item.$key;
-            this.af.database.list('/resource-queue/')
+            this.af.database.list('/queues/resources')
                 .push(item);
             this.resource = new Resource();
         } else {

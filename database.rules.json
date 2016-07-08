@@ -19,8 +19,13 @@
   	".read":"root.child('admin/'+auth.uid).exists()",
     ".write":"root.child('admin/'+auth.uid).exists()"
   },
-  "resource-queue": {
+  "queues": {
+    // Anyone can write to a new queue item, only admins can read or modify
     ".read": "root.child('admin/'+auth.uid).exists()",
-    "$resource": {".write":"true"}
+    "$queueType": {
+       "$post": {
+         ".write": "!data.exists() || root.child('admin/'+auth.uid).exists() "
+       }
+    }
   }
 }}

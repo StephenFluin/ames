@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
@@ -17,7 +17,8 @@ import { FirebaseService } from '../shared/firebase.service';
     moduleId: module.id,
     template: `<h2>Communities</h2>
     <p style="clear:both;">
-        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()">New</button>
+        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()"><span class="adminIcon"></span>New Community</button>
+        <button *ngIf="auth.isUser | async" md-raised-button color="primary" [routerLink]="['/communities/submit']">Submit Community</button>
     </p>
     
     <md-card *ngFor="let community of communities | async" class="pretty-card">
@@ -33,7 +34,7 @@ import { FirebaseService } from '../shared/firebase.service';
     </md-card>
     
     `,
-    directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES],
+    directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, ROUTER_DIRECTIVES],
     pipes: [FireJoinPipe, RefirebasePipe]
     
 })

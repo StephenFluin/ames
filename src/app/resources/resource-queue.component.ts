@@ -23,7 +23,7 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
 export class ResourceQueueComponent implements OnInit {
     submissions : FirebaseListObservable<any[]>;
     constructor(private af : AngularFire) { 
-        this.submissions = this.af.database.list('/resource-queue');
+        this.submissions = this.af.database.list('/queues/resources');
         
 
     }

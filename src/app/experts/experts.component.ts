@@ -18,7 +18,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     template: `<h2>Experts</h2>
     <div style="clear:both;"></div>
     <div style="clear:both;" class="content">
-        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()">New Expert</button>
+        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()"><span class="adminIcon"></span>New Expert</button>
         <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/profile'])">My Profile</button>
     </div>
     

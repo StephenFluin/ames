@@ -8,7 +8,8 @@ import { FirebaseService } from '../shared/firebase.service';
 @Component({
     moduleId: module.id,
     selector: 'community-edit',
-    template: `<community-form [community]="community | async" (update)="processUpdate($event)" (delete)="delete($event)"></community-form>
+    template: `
+    <community-form [community]="community | async" (update)="processUpdate($event)" (delete)="delete($event)"></community-form>
     `,
     providers: [],
     directives: [CommunityFormComponent],

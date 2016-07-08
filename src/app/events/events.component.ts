@@ -18,8 +18,8 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     template: `<h2>Events</h2>
     <div style="clear:both;"></div>
     <div style="clear:both;" class="content">
-        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()">New Event</button>
-        <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/profile'])">Submit Event (Not Implemented)</button>
+        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()"><span class="adminIcon"></span>New Event</button>
+        <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/events/submit'])">Submit Event</button>
     </div>
     
     <md-card *ngFor="let event of events | async" class="pretty-card">
@@ -57,7 +57,7 @@ export class EventsComponent {
     
     constructor(private router: Router, private eventService : FirebaseService<Event>, private authService : AuthService) {
         
-        eventService.setup('/events/', {query: {orderByChild: 'firstName'}});
+        eventService.setup('/events/', {query: {orderByChild: 'startDate'}});
         this.events = eventService.list;
         this.auth = authService;
     }

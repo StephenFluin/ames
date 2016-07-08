@@ -79,3 +79,26 @@ label input[type="checkbox"] {
     margin-right:16px;
 }
 form {max-width:800px;}
+
+.adminIcon {
+    background-image: url('https://angular.io/resources/images/logos/angular2/angular.svg');
+    width:1em;
+    height:.8em;
+    display:inline-block;
+    background-size:contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+@media only screen and (max-device-width : 480px) {
+    nav a {
+        margin:4px;
+        padding:4px;
+        display:block;
+    }
+    .pretty-card {
+        margin:4px;
+        width: calc( 100% - 8px);
+    }
+}

@@ -13,14 +13,14 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 @Component({
     moduleId: module.id,
     selector: 'community-form',
-    template: `<h2> <a [routerLink]="['/communities']">Communities</a> &gt; {{community?.name}}</h2>
+    template: `
     <form *ngIf="community" (submit)="save()" ngNoForm>
         <label>Name <input [(ngModel)]="community.name"></label>
         <label>Description <input [(ngModel)]="community.description"></label>
         <label>Location <input [(ngModel)]="community.location"></label>
         <label>Organizer 
         <select [(ngModel)]="community.organizer" (change)="change($event)">
-            <option *ngFor="let expert of experts | async" [value]="expert.$key">{{expert.name}}</option>
+            <option *ngFor="let developer of developers | async" [value]="developer.$key">{{developer.name}}</option>
         </select>
         {{community.organizer}}
         </label>
@@ -39,10 +39,10 @@ export class CommunityFormComponent {
     @Input() community : Community;
     
     
-    experts : Observable<Expert[]>;
+    developers : Observable<Expert[]>;
     
     constructor(private expertService : FirebaseService<Expert>, private af : AngularFire) {
-        this.experts = this.af.database.list('/experts/', {query: {orderByChild: 'firstName'}});
+        this.developers = this.af.database.list('/users/', {query: {orderByChild: 'name'}});
     }
     ngOnInit() {}
    
