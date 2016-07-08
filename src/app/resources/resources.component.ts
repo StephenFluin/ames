@@ -20,14 +20,20 @@ declare var prompt;
 <p>
     <a [routerLink]="['/resources/new']">Submit a New Resource</a>
 </p>
-<p *ngIf="auth.isAdmin | async"> <a [routerLink]="['/resources/queue']">Manage the Queue</a></p>
+<div class="content">
+  <fieldset *ngIf="auth.isAdmin | async" class="content">
+    <legend>Admin</legend>
+    <div><a [routerLink]="['/resources/queue']">Manage the Queue</a></div>
+    <label><input type="checkbox" [(ngModel)]="priorityMode">Priority Management Mode</label>
+  </fieldset>
+</div>
 <div *ngFor="let category of data | async" style="margin-left:16px;clear:both;">
     <h3>{{category.$key}}</h3>
-    <div *ngIf="auth.isAdmin | async"> <button (click)="setCategoryPriority(category.$key,priority)">SetPriority</button><input [(ngModel)]="priority"/></div>
+    <div *ngIf="priorityMode && (auth.isAdmin | async)"> <button (click)="setCategoryPriority(category.$key,priority)">SetPriority</button><input [(ngModel)]="priority"/></div>
     <div style="display:flex;">
         <div *ngFor="let sub of category | refirebase" style="margin-left:16px;margin-bottom:32px;">
             <h4>{{sub.$key}}</h4>
-            <h4 *ngIf="auth.isAdmin | async"><button (click)="setSubcategoryPriority(category.$key, sub.$key,subPriority)">SetPriority</button><input [(ngModel)]="subPriority"></h4>
+            <h4 *ngIf="priorityMode && (auth.isAdmin | async)"><button (click)="setSubcategoryPriority(category.$key, sub.$key,subPriority)">SetPriority</button><input [(ngModel)]="subPriority"></h4>
             <div *ngFor="let resource of sub.resources | refirebase" style="margin-left:16px;">
                 <a target="_blank" [href]="resource.url">{{resource.title}}</a> <a [routerLink]="['/resources/',category.$key,'/',sub.$key,'/',resource.$key]" *ngIf="auth.isAdmin | async"><svg style="width:12px;height:12px" viewBox="0 0 24 24">
     <path fill="#000000" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />

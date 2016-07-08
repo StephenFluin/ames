@@ -73,4 +73,9 @@ input {
     padding: 6px;
 }
 label input {display:block;margin-bottom:16px;width:100%;}
+label input[type="checkbox"] {
+    display: inline;
+    width: auto;
+    margin-right:16px;
+}
 form {max-width:800px;}
