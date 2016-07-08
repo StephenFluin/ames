@@ -4,6 +4,7 @@ import {MissionsComponent} from './missions/missions.component';
 import {MissionListComponent} from './missions/mission-list.component';
 import {MissionDetailComponent} from './missions/mission-detail.component';
 import {MissionEditComponent} from './missions/mission-edit.component';
+import {DevelopersComponent} from './experts/developers.component';
 import {ExpertsComponent} from './experts/experts.component';
 import {ExpertEditComponent} from './experts/expert-edit.component';
 import {EventsComponent} from './events/events.component';
@@ -35,6 +36,7 @@ export const routes: RouterConfig = [
             { path: ':id/edit', component: MissionEditComponent },
         ]
     },
+    { path: 'developers', component: DevelopersComponent },
     { path: 'experts', component: ExpertsComponent },
     { path: 'experts/:id/edit', component: ExpertEditComponent },
     { path: 'events', component: EventsComponent },

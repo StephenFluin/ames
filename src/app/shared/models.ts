@@ -39,6 +39,7 @@ export class Expert {
     isGDE: boolean;
     isConsultant: boolean;
     isEducator: boolean;
+    isExpert : boolean;
 
     languages: string[];
     missions: string[];
