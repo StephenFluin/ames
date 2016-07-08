@@ -26,9 +26,9 @@ import { FirebaseService } from '../shared/firebase.service';
         <md-card-subtitle>{{community.location}}</md-card-subtitle>
  
         <div>Organizer:</div>
-        <div>{{ (community.organizer | fireJoin:'/experts/' | async)?.firstName}} {{ (community.organizer | fireJoin:'/experts/' | async)?.lastName}}</div>
+        <div>{{ (community.organizer | fireJoin:'/users/' | async)?.name}}</div>
         <div class="edit-button">
-            <button *ngIf="auth.isAdmin" md-raised-button (click)="edit(community)">Edit</button>
+            <button *ngIf="(auth.isAdmin | async) || (auth.uid | async)==community.organizer" md-raised-button (click)="edit(community)">Edit</button>
         </div>
 
     </md-card>

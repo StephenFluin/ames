@@ -2,10 +2,16 @@
   // Anyone can read, admins can write
   "experts": {".read":true,".write":"root.child('admin/'+auth.uid).exists()"},
   "events": {".read":true,".write":"root.child('admin/'+auth.uid).exists()"},
-  "communities": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
+  "communities": {
+    ".read": true,
+    "$community": {
+      ".write":"root.child('admin/'+auth.uid).exists() || data.child('organizer').val() === auth.uid"
+    }
+  },
   "missions": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
   "resources": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
   "users": {
+    // All user information is public!
   	".read":true,
     "$user_id": {
       // grants write access to the owner of this user account

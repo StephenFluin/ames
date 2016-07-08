@@ -12,6 +12,7 @@ export class AuthService {
     updatableUser : FirebaseObjectObservable<any>;
     isAdmin : Observable<boolean>;
     isUser: Observable<boolean>;
+    uid: Observable<string>;
     
     constructor(public af: AngularFire, private zone: NgZone, private router : Router) {
         
@@ -51,6 +52,14 @@ export class AuthService {
         ).cache(1);
         
         this.isUser =  this.af.auth.map( authState => !!authState).cache(1);
+        
+        this.uid = this.af.auth.switchMap( authState => {
+            if(!authState) {
+                return Observable.of(null);
+            } else {
+                return Observable.of(authState.uid);
+            }
+        }).cache(1);
         
         
     }
