@@ -13,6 +13,7 @@ import { AuthService } from '../shared/auth.service';
 import { AngularFire } from 'angularfire2';
 import { FirebaseService } from '../shared/firebase.service';
 import { FireJoinPipe } from '../shared/fire-join.pipe';
+import { SortPipe } from '../shared/utility-pipes.pipe';
 
 @Component({
     moduleId: module.id,
@@ -49,7 +50,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     
     `,
     directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, ROUTER_DIRECTIVES],
-    pipes: [RefirebasePipe, FireJoinPipe],
+    pipes: [RefirebasePipe, FireJoinPipe ,SortPipe],
     
 })
 export class ExpertsComponent {

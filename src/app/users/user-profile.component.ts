@@ -26,6 +26,7 @@ export class UserProfileComponent {
         this.authService.loginGoogle();
     }
     updateUser(user) {
+        console.debug("About to update user from profile component with",this.authService);
         this.authService.updateUser(user);
     }
 }

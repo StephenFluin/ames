@@ -27,7 +27,7 @@ export class AuthService {
                 this.updatableUser = af.database.object('/users/'+authState.uid);
                 return this.updatableUser;
             } else {
-                this.updateUser = null;
+                this.updatableUser = null;
                 return Observable.of(null);
                 
             }
