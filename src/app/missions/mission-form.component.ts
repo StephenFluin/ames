@@ -7,7 +7,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     moduleId: module.id,
     selector: 'mission-form',
     template: `
-    <form *ngIf="mission" (submit)="save()">
+    <form *ngIf="mission" (submit)="save()" ngNoForm>
         <label><input [(ngModel)]="mission.name" placeholder="name"></label>
         <label><textarea [(ngModel)]="mission.description" placeholder="description"></textarea></label>
        <!-- <div *ngIf="mission.startDate && mission.endDate">
@@ -27,7 +27,10 @@ export class MissionFormComponent {
     @Input() mission : Mission;
     
     save() {
+        
+        event.preventDefault();
         this.update.emit(this.mission);
+        
     }
     deleteThis() {
         this.delete.emit(this.mission);

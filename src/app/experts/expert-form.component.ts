@@ -40,7 +40,7 @@ import { AuthService } from '../shared/auth.service';
     </form>
         `,
     styles: [],
-    directives: [ ROUTER_DIRECTIVES, MD_SLIDE_TOGGLE_DIRECTIVES, PickerComponent, REACTIVE_FORM_DIRECTIVES ],
+    directives: [ ROUTER_DIRECTIVES, MD_SLIDE_TOGGLE_DIRECTIVES, PickerComponent ],
     
 })
 export class ExpertFormComponent {

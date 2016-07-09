@@ -29,7 +29,7 @@ import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
     </md-card>
     <form *ngIf="auth.isAdmin | async" (submit)="createMission()" style="clear:both;">
        <span class="adminIcon"></span> New Mission
-        <input placeholder="name" [(ngModel)]="newMission.name"> 
+        <input placeholder="name" name="name" [(ngModel)]="newMission.name"> 
         <button type="submit">Create</button>  
     </form>
     `,
