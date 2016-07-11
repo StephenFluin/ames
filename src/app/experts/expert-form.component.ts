@@ -14,7 +14,7 @@ import { AuthService } from '../shared/auth.service';
     selector: 'expert-form',
     template: `
     <form *ngIf="expert" (submit)="save(expert)" ngNoForm>
-        <label>Name <input name="name" [(ngModel)]="expert.name" required #spy></label>
+        <label>Name <input name="name" [(ngModel)]="expert.name"></label>
         <div *ngIf="!expert.name && (expert.firstName || expert.lastName ) ">{{expert.firstName}} {{expert.lastName}}</div>
         <label>Twitter <input [(ngModel)]="expert.twitterID"></label>
         <label>Bio <input [(ngModel)]="expert.bio"></label>
@@ -28,7 +28,6 @@ import { AuthService } from '../shared/auth.service';
         
         <fieldset class="content" style="padding:32px;" *ngIf="auth.isAdmin | async">
             <legend><span class="adminIcon"></span>Admin</legend>
-            
             <label>GDE? <md-slide-toggle [(ngModel)]="expert.isGDE"></md-slide-toggle></label>
             <label>Consultant? <md-slide-toggle [(ngModel)]="expert.isConsultant"></md-slide-toggle></label>
             <label>Expert? <md-slide-toggle [(ngModel)]="expert.isExpert"></md-slide-toggle></label>

@@ -1,3 +1,4 @@
+/*
 import {
   beforeEachProviders,
   describe,
@@ -20,3 +21,4 @@ describe('App: Ames', () => {
     expect(app.title).toEqual('ames works!');
   }));
 });
+*/
