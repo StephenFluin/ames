@@ -16,37 +16,39 @@ export class AuthService {
     
     constructor(public af: AngularFire, private zone: NgZone, private router : Router) {
         
-        
+        console.debug("is there a problem with zone patching!",Zone.current.name);
         this.userData = this.af.auth.flatMap( authState => {
-            
-            // Detect bugs in angularfire's change detection
-            if(Zone.current.name == '<root>') {
-                console.debug("Problem with zone patching!",Zone.current.name);
-            } 
-            
-            if(authState) {
-                this.updatableUser = af.database.object('/users/'+authState.uid);
-                return this.updatableUser;
-            } else {
-                this.updatableUser = null;
-                return Observable.of(null);
+            // Overcome angularfire's zone smashing
+            return zone.run((): Observable<any> => {
+                if(authState) {
+                    this.updatableUser = af.database.object('/users/'+authState.uid);
+                    return this.updatableUser;
+                } else {
+                    this.updatableUser = null;
+                    return Observable.of(null);
+                    
+                }
                 
-            }
-        });
+            });
+            
+        }).cache(1);
        
        // isAdmin should be an observable that sends trues of falses as the users gains or loses admin access
        // Need to combine two streams. take the stream of auth data, and use it to generate a stream of values
        // for the /admin/[userid] and then check to see if the user is an admin
         this.isAdmin =  this.af.auth.switchMap( authState => {
-            if(!authState) {
-                return Observable.of(false);
-            } else {
-                return this.af.database.object('/admin/'+authState.uid)
-                .catch((a, b) => {
-                    // This permission error means we aren't an admin
-                    return Observable.of(false)
-                });
-            }
+            // Overcome angularfire's zone smashing
+            return zone.run((): Observable<boolean> => {
+                if(!authState) {
+                    return Observable.of(false);
+                } else {
+                    return this.af.database.object('/admin/'+authState.uid)
+                    .catch((a, b) => {
+                        // This permission error means we aren't an admin
+                        return Observable.of(false)
+                    });
+                }
+            });
         }).map( adminObject => 
              (adminObject && adminObject['$value'] === true)
         ).cache(1);

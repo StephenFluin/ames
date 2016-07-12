@@ -66,8 +66,6 @@ export class PickerComponent implements OnInit {
         // Populate selected if a key list was provided
         if(this.selectedKeys) {
            this.processSelectedKeys(this.selectedKeys);
-        } else {
-            console.log("ignoring selectedkeys");
         }
         
         // Could this be made reactive properly?
