@@ -25,7 +25,7 @@ import { SortPipe } from '../shared/utility-pipes.pipe';
         <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/profile'])">My Profile</button>
     </div>
     
-    <md-card *ngFor="let expert of experts | async" class="pretty-card">
+    <md-card *ngFor="let expert of experts | async" class="pretty-card" [routerLink]="['/experts/',expert.$key]">
         <div style="display:flex;">
             <div style="flex-grow:1;">
             
@@ -43,7 +43,7 @@ import { SortPipe } from '../shared/utility-pipes.pipe';
                 <div [style.background-image]="'url('+(expert.observable | async)?.picUrl+')'" *ngIf="(expert.observable | async)?.picUrl" class="background-side-picture"></div>
             </div>
             <div class="edit-button">
-                <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(expert)">Edit</button>
+                <button *ngIf="(auth.isAdmin | async) || expert.$key === (auth.uid | async)" md-raised-button (click)="edit(expert)">Edit</button>
             </div>
         </div> 
     </md-card>
@@ -59,9 +59,7 @@ export class ExpertsComponent {
     
     constructor(private router: Router, private expertService : FirebaseService<Expert>, private authService : AuthService, private af : AngularFire) {
         this.experts = af.database.list('/experts/').map(list => {
-            console.log("processing a new list",list);
             list.forEach(item => {
-                console.log("Processing a new expert",item);
                 item.observable = af.database.object('/users/'+item.$key); 
             });
             return list;

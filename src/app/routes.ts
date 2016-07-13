@@ -6,13 +6,16 @@ import {MissionDetailComponent} from './missions/mission-detail.component';
 import {MissionEditComponent} from './missions/mission-edit.component';
 import {DevelopersComponent} from './experts/developers.component';
 import {ExpertsComponent} from './experts/experts.component';
+import {ExpertViewComponent} from './experts/expert-view.component';
 import {ExpertEditComponent} from './experts/expert-edit.component';
 import {EventsComponent} from './events/events.component';
 import {EventSubmitComponent} from './events/event-submit.component';
 import {EventEditComponent} from './events/event-edit.component';
+import {EventViewComponent} from './events/event-view.component';
 import {CommunitiesComponent} from './communities/communities.component';
 import {CommunitySubmitComponent} from './communities/community-submit.component';
 import {CommunityEditComponent} from './communities/community-edit.component';
+import {CommunityViewComponent} from './communities/community-view.component';
 import {LoginComponent} from './login.component';
 import {ResourcesComponent} from './resources/resources.component';
 import {ResourceEditComponent} from './resources/resource-edit.component';
@@ -38,12 +41,15 @@ export const routes: RouterConfig = [
     },
     { path: 'developers', component: DevelopersComponent },
     { path: 'experts', component: ExpertsComponent },
+    { path: 'experts/:id', component: ExpertViewComponent },
     { path: 'experts/:id/edit', component: ExpertEditComponent },
     { path: 'events', component: EventsComponent },
     { path: 'events/submit', component: EventSubmitComponent },
+    { path: 'events/:id', component: EventViewComponent },
     { path: 'events/:id/edit', component: EventEditComponent },
     { path: 'communities', component: CommunitiesComponent, },
-    { path: 'communities/:submit', component: CommunitySubmitComponent },
+    { path: 'communities/submit', component: CommunitySubmitComponent },
+    { path: 'communities/:id', component: CommunityViewComponent, },
     { path: 'communities/:id/edit', component: CommunityEditComponent },
     { path: 'login', component: LoginComponent },
     { path: 'resources', component: ResourcesComponent },

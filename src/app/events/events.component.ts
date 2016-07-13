@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
@@ -22,7 +22,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
         <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/events/submit'])">Submit Event</button>
     </div>
     
-    <md-card *ngFor="let event of events | async" class="pretty-card">
+    <md-card *ngFor="let event of events | async" class="pretty-card" [routerLink]="['/events/',event.$key]">
         <div style="display:flex;">
             <div style="flex-grow:1;">
             
@@ -47,7 +47,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     </md-card>
     
     `,
-    directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES],
+    directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, ROUTER_DIRECTIVES],
     pipes: [RefirebasePipe, FireJoinPipe],
     
 })

@@ -21,7 +21,7 @@ import { FirebaseService } from '../shared/firebase.service';
         <button *ngIf="auth.isUser | async" md-raised-button color="primary" [routerLink]="['/communities/submit']">Submit Community</button>
     </p>
     
-    <md-card *ngFor="let community of communities | async" class="pretty-card">
+    <md-card *ngFor="let community of communities | async" class="pretty-card" [routerLink]="['/communities/',community.$key]">
         <md-card-title>{{community.icon}} {{community.name}}</md-card-title>
         <md-card-subtitle>{{community.location}}</md-card-subtitle>
  
