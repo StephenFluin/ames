@@ -20,7 +20,7 @@ import { Resource } from '../shared/models';
     margin: 16px 0;
   }
  </style>
-<form (submit)="submit()">
+<form (submit)="submit()" ngNoForm>
   <select (change)="selectCategory($event.target.value)" [ngModel]="resource.category">
     <option>Select a Category</option>
     
@@ -97,6 +97,7 @@ export class ResourceFormComponent {
     
   }
   submit() {
+    event.preventDefault();
     this.update.emit(this.resource);
   }
   deleteItem() {

@@ -9,8 +9,9 @@ import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import {  routes } from './routes';
 
 @AppModule({
-    modules: [BrowserModule, FormsModule],
-    directives: [ROUTER_DIRECTIVES],
+    // Add RouterModule
+    modules: [BrowserModule, FormsModule, FormsModule],
+    directives: [],
     pipes: [],
     providers: [
       provideRouter(routes),
@@ -21,6 +22,7 @@ import {  routes } from './routes';
         databaseURL: "https://project-4800661445983438923.firebaseio.com/",
         storageBucket: "project-4800661445983438923.appspot.com",
       })
+      
     ],
     precompile: [AmesAppComponent],  
   })

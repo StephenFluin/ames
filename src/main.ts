@@ -18,6 +18,7 @@ if (environment.production) {
   enableProdMode();
 }
 
+// TODO platformBrowserDynamic()
 bootstrapModule(MyAppModule, browserDynamicPlatform());
 /*
 bootstrap(AmesAppComponent, {
