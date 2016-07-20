@@ -13,8 +13,11 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
        <!-- <div *ngIf="mission.startDate && mission.endDate">
             {{ mission.startDate}} - {{ mission.endDate}}
         </div>-->
-        <button type="submit">save</button>
-        <div style="font-size:10px;margin:32px 0">(<span style="color:red;" (click)="deleteThis()">delete</span>)</div>
+        
+        <div class="options">
+            <span (click)="deleteThis()" class="delete">delete</span>
+            <button md-raised-button color="primary" type="submit" >Save</button>
+        </div>
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;}'],

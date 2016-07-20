@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Expert } from '../shared/models';
 import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
+import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
@@ -20,19 +21,20 @@ class HasKey {
     moduleId: module.id,
     selector: 'picker',
     template: `
-    <div style="border:1px solid #CCC;">
-        <div *ngIf="selected" style="margin:16px;">
-            <div><strong>Current:</strong></div>
-            <div *ngFor="let item of selected" style="margin:0 16px;">{{item.name}}  (<span (click)="delete(item)">x</span>)</div>
-            <div *ngIf="selected.length == 0">(None currently selected)</div>
-        </div>
-        <button *ngIf="!showAvailable && available && (!singleMode || selected.length < 1 )" (click)="showAdd()" type="button">New</button>
-        <div *ngIf="showAvailable" style="margin:16px;">
-            <div><strong>Choose From:</strong></div>
-            <div *ngFor="let item of available | async" (click)="select(item)" style="margin:0 16px;">{{item.name}}</div>
-        </div>
+    <div *ngIf="selected" style="margin:16px;">
+        <div><strong>Current:</strong></div>
+        <div *ngFor="let item of selected" style="margin:0 16px;">{{item.name}}  (<span (click)="delete(item)">x</span>)</div>
+        <div *ngIf="selected.length == 0">(None currently selected)</div>
+    </div>
+    <div style="text-align:right;">
+        <button *ngIf="!showAvailable && available && (!singleMode || selected.length < 1 )" (click)="showAdd()" type="button" md-raised-button>Add</button>
+    </div>
+    <div *ngIf="showAvailable" style="margin:16px;">
+        <div><strong>Choose From:</strong></div>
+        <div *ngFor="let item of available | async" (click)="select(item)" style="margin:0 16px;">{{item.name}}</div>
     </div>
     `,
+    directives: [MD_BUTTON_DIRECTIVES],
 
 })
 export class PickerComponent implements OnInit {

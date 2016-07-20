@@ -56,7 +56,7 @@ export class AmesAppComponent {
   title = 'Ames';
   
   
-  constructor(private router : Router ) {
+  constructor(private router : Router, private auth : AuthService ) {
     router.events.filter(e => e instanceof NavigationEnd).subscribe( (n:NavigationEnd) => {
       // Log analytics here      
       ga('send', 'pageview', n.urlAfterRedirects);

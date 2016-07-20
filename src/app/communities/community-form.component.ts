@@ -25,8 +25,11 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
         {{community.organizer}}
         </label>
         <label>URL<input [(ngModel)]="community.url"></label>
-        <button type="submit">Save</button>
-        <button (click)="deleteCommunity()" type="button">DELETE</button>
+        
+        <div class="options">
+            <span (click)="deleteThis()" class="delete">delete</span>
+            <button md-raised-button color="primary" type="submit" >Save</button>
+        </div>
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;}'],
@@ -54,7 +57,7 @@ export class CommunityFormComponent {
         this.update.emit(this.community);
         
     }
-    deleteCommunity() {
+    deleteThis() {
         this.delete.emit(this.community);
     }
 }

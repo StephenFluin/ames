@@ -42,8 +42,11 @@ import { Resource } from '../shared/models';
   <md-input [(ngModel)]="resource.url" placeholder=" URL" type="url"></md-input>
   
   <md-input [(ngModel)]="resource.desc" placeholder="Description"></md-input>
-  <button md-raised-button color="primary" type="submit">Submit Resource</button>
-  <button *ngIf="resource && resource.$key && resource.$key != 'new'" (click)="deleteItem()" type="button">Delete</button>
+  
+  <div class="options">
+      <span *ngIf="resource && resource.$key && resource.$key != 'new'" (click)="deleteThis()" class="delete">delete</span>
+      <button md-raised-button color="primary" type="submit" >Save</button>
+  </div>
 </form>
   
   `, 
@@ -100,7 +103,7 @@ export class ResourceFormComponent {
     event.preventDefault();
     this.update.emit(this.resource);
   }
-  deleteItem() {
+  deleteThis() {
     this.delete.emit(this.resource);
   }
   

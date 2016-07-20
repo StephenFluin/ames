@@ -27,7 +27,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
             <div style="flex-grow:1;">
             
                 <md-card-title>{{event.name}}</md-card-title>
-                <div>{{event.startDate | date:"MM/dd"}} - {{event.endDate | date:"MM/dd"}}</div>
+                <div>{{event.startDate | date:"MMM d"}} - {{event.endDate | date:"MMM d"}}</div>
                 <div>{{event.location}}</div>
                 <md-card-subtitle *ngIf="event.twitterID">@{{event.twitterID}}</md-card-subtitle>
                 <div *ngIf="event.communities">

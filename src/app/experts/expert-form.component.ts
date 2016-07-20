@@ -16,26 +16,29 @@ import { AuthService } from '../shared/auth.service';
     <form *ngIf="expert" (submit)="save(expert)" ngNoForm>
         <label>Name <input name="name" [(ngModel)]="expert.name"></label>
         <div *ngIf="!expert.name && (expert.firstName || expert.lastName ) ">{{expert.firstName}} {{expert.lastName}}</div>
-        <label>Twitter <input [(ngModel)]="expert.twitterID"></label>
-        <label>Bio <input [(ngModel)]="expert.bio"></label>
-        <label>URL<input [(ngModel)]="expert.url"></label>
-        <label>Blog URL<input [(ngModel)]="expert.blogUrl"></label>
-        <label>Pic URL <img *ngIf="expert.picUrl" [src]="expert.picUrl" style="max-height:1em;"> <input [(ngModel)]="expert.picUrl"></label>
-        <label>Resume URL <input [(ngModel)]="expert.resumeUrl"></label>
-        <label>LinkedIn <input [(ngModel)]="expert.linkedIn"></label>
+        <label>Twitter <input name="twitter" [(ngModel)]="expert.twitterID"></label>
+        <label>Bio <input name="bio" [(ngModel)]="expert.bio"></label>
+        <label>URL<input name="url" [(ngModel)]="expert.url"></label>
+        <label>Blog URL<input name="blogUrl" [(ngModel)]="expert.blogUrl"></label>
+        <label>Pic URL <img *ngIf="expert.picUrl" [src]="expert.picUrl" style="max-height:1em;"> <input name="picUrl" [(ngModel)]="expert.picUrl"></label>
+        <label>Resume URL <input name="resumeUrl" [(ngModel)]="expert.resumeUrl"></label>
+        <label>LinkedIn <input name="linkedIn" [(ngModel)]="expert.linkedIn"></label>
         <div>Communities</div>
         <picker [list]="'/communities/'" [order]="'firstName'" [selectedKeys]="expert.communities" (update)="chooseCommunities($event)"></picker>
         
         <fieldset class="content" style="padding:32px;" *ngIf="auth.isAdmin | async">
             <legend><span class="adminIcon"></span>Admin</legend>
-            <label>GDE? <md-slide-toggle [(ngModel)]="expert.isGDE"></md-slide-toggle></label>
+            <label>GDE? <md-slide-toggle name="isGDE" [(ngModel)]="expert.isGDE"></md-slide-toggle></label>
             <label>Consultant? <md-slide-toggle [(ngModel)]="expert.isConsultant"></md-slide-toggle></label>
             <label>Expert? <md-slide-toggle [(ngModel)]="expert.isExpert"></md-slide-toggle></label>
         </fieldset>
             
         
-        <button type="submit">Save</button>
-        <button (click)="deleteExpert()" type="button">DELETE</button>
+
+        <div class="options">
+            <span (click)="deleteThis()" class="delete">delete</span>
+            <button md-raised-button color="primary" type="submit" >Save</button>
+        </div>
     </form>
         `,
     styles: [],
@@ -54,7 +57,7 @@ export class ExpertFormComponent {
         this.update.emit(savedValue);
     }
 
-    deleteExpert() {
+    deleteThis() {
         this.delete.emit(this.expert);
     }
     

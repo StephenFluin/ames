@@ -26,8 +26,10 @@ nav {
 nav a {
     color:white;
     text-decoration: none;
-    background-color:rgba(255,255,255,.1);
-    padding:16px;
+    padding:16px 16px 16px 0px;
+}
+nav a:hover {
+    color: #CCC;
 }
 
 
@@ -36,7 +38,15 @@ nav a {
     width:300px;
     float:left;
     height:200px;
+    cursor: pointer;
 }
+.pretty-card:hover {
+ background-color:rgba(61,49,117,.1);   
+}
+.pretty-card md-card-title {
+    min-height:64px;
+}
+
 .background-side-picture {
     width:80px;
     height:80px;
@@ -72,14 +82,27 @@ md-toolbar-row>* {
 input {
     padding: 6px;
 }
-label input {display:block;margin-bottom:16px;width:100%;}
+picker {border:1px solid #CCC;}
+label input,label picker {
+    display:block;
+    margin-bottom:16px;
+    margin-top:4px;
+    width:100%;
+    font-weight:300;
+    padding:8px;
+    font-size:14px;
+    background-color: #FAFAFA;border:1px solid #CCC;
+}
+
 label input[type="checkbox"] {
     display: inline;
     width: auto;
     margin-right:16px;
 }
 form {max-width:800px;}
-
+form .options {text-align:right;margin:16px 0}
+form .options button {margin-left:16px;}
+form .options .delete {cursor: pointer;}
 .adminIcon {
     background-image: url('https://angular.io/resources/images/logos/angular2/angular.svg');
     width:1em;
@@ -88,8 +111,12 @@ form {max-width:800px;}
     background-size:contain;
     background-position: center center;
     background-repeat: no-repeat;
+    margin-right:.5em;
 }
 
+user-login {
+    text-align:right;
+}
 
 @media only screen and (max-device-width : 480px) {
     nav a {

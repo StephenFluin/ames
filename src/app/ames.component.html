@@ -12,5 +12,7 @@
   <a [routerLink]="['/missions']">Missions</a>
   <a [routerLink]="['/experts']">Experts</a>
   <a [routerLink]="['/resources']">Resources</a>
+
+  <a *ngIf="auth.isAdmin | async" [routerLink]="['/admin']"><span class="adminIcon"></span>Admin</a>
 </nav>
 <router-outlet></router-outlet>

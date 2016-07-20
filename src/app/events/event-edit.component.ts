@@ -9,7 +9,6 @@ import { FirebaseService } from '../shared/firebase.service';
     moduleId: module.id,
     selector: 'event-edit',
     template: `
-    <h2> <a [routerLink]="['/events']">Events</a> &gt; <span *ngIf="(event | async)?.$key=='new' && !(event | async)?.firstName && !(event | async)?.lastName">New Event</span>{{(event | async)?.firstName}} {{(event | async)?.lastName}}</h2>
     <event-form [event]="event | async" (update)="processUpdate($event)" (delete)="delete($event)"></event-form>`,
     providers: [],
     directives: [EventFormComponent, ROUTER_DIRECTIVES],
