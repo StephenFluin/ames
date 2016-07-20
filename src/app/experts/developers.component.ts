@@ -47,19 +47,19 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     `,
     directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES],
     pipes: [RefirebasePipe, FireJoinPipe],
-    
+
 })
 export class DevelopersComponent {
     experts;
     auth;
-    
-    constructor(private router: Router, private expertService : FirebaseService<Expert>, private authService : AuthService, private af : AngularFire) {
+
+    constructor(private router: Router, private expertService: FirebaseService<Expert>, private authService: AuthService, private af: AngularFire) {
         this.experts = af.database.list('/users/');
-        
+
         this.auth = authService;
     }
-    
+
     edit(expert) {
-        this.router.navigate(['/experts/',expert.$key,'/edit']);
+        this.router.navigate(['/experts/', expert.$key, '/edit']);
     }
 }

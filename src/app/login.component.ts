@@ -19,12 +19,12 @@ import { AuthService } from './shared/auth.service';
     
     
     `,
-    
+
 })
 export class LoginComponent {
     constructor(private auth: AuthService) {
     }
-    
+
     loginGoogle() {
         this.auth.loginGoogle();
     }
@@ -34,5 +34,5 @@ export class LoginComponent {
     loginAnonymous() {
         this.auth.loginAnonymous();
     }
-    
+
 }

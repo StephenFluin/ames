@@ -50,31 +50,31 @@ import { SortPipe } from '../shared/utility-pipes.pipe';
     
     `,
     directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, ROUTER_DIRECTIVES],
-    pipes: [RefirebasePipe, FireJoinPipe ,SortPipe],
-    
+    pipes: [RefirebasePipe, FireJoinPipe, SortPipe],
+
 })
 export class ExpertsComponent {
     experts;
     auth;
-    
-    constructor(private router: Router, private expertService : FirebaseService<Expert>, private authService : AuthService, private af : AngularFire) {
+
+    constructor(private router: Router, private expertService: FirebaseService<Expert>, private authService: AuthService, private af: AngularFire) {
         this.experts = af.database.list('/experts/').map(list => {
             list.forEach(item => {
-                item.observable = af.database.object('/users/'+item.$key); 
+                item.observable = af.database.object('/users/' + item.$key);
             });
             return list;
         });
-        
+
         // I need to convert from:
         // Observable<{key:boolean}[]> to Observable<Expert[]> 
-        
-        
-        
+
+
+
         //this.experts = expertService.list;
         this.auth = authService;
     }
-    
+
     edit(expert) {
-        this.router.navigate(['/experts/',expert.$key,'/edit']);
+        this.router.navigate(['/experts/', expert.$key, '/edit']);
     }
 }

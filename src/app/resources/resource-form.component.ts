@@ -11,7 +11,7 @@ import { Resource } from '../shared/models';
 @Component({
   moduleId: module.id,
   selector: 'resource-form',
-  template:  `
+  template: `
   
   <style>
   md-input { display:block;margin:32px 0;}
@@ -49,55 +49,55 @@ import { Resource } from '../shared/models';
   </div>
 </form>
   
-  `, 
-  directives: [ ...MD_BUTTON_DIRECTIVES, ...MD_TOOLBAR_DIRECTIVES, ...MD_INPUT_DIRECTIVES ],
-  pipes: [ RefirebasePipe ]
+  `,
+  directives: [...MD_BUTTON_DIRECTIVES, ...MD_TOOLBAR_DIRECTIVES, ...MD_INPUT_DIRECTIVES],
+  pipes: [RefirebasePipe]
 })
 export class ResourceFormComponent {
   @Output() update = new EventEmitter<Resource>();
   @Output() delete = new EventEmitter<Resource>();
-  @Input() resource : Resource;
-  
-  data : Observable<any[]>;
+  @Input() resource: Resource;
+
+  data: Observable<any[]>;
   categories: Observable<any[]>;
   subCategories: Observable<any[]>;
 
-  
+
   constructor(private af: AngularFire) {
     console.log("In the form component");
     this.data = af.database.list('/resources/');
-    this.categories = this.data.map((items) =>
-    {
-      return items.map( (item ) => {
+    this.categories = this.data.map((items) => {
+      return items.map((item) => {
         return item.$key;
       })
     });
   }
-  
+
   ngOnChanges() {
-    if(!this.resource) {
+    if (!this.resource) {
       console.log("no resource. making one up!");
       this.resource = new Resource();
-    } else if(this.resource.category) {
+    } else if (this.resource.category) {
       this.selectCategory(this.resource.category);
     } else {
       console.log("resource has no category")
       console.log(this.resource);
     }
   }
-  
+
   selectCategory(categoryName) {
-    console.log("Selecting " , categoryName);
+    console.log("Selecting ", categoryName);
     this.resource.category = categoryName;
     this.subCategories = this.af.database.list('/resources/' + categoryName)
-    .map(items =>
-      items.map( sub => {
-        if(!this.resource.subcategory) {
-          this.resource.subcategory = sub.$key;
-        }
-        return sub.$key})
-    );
-    
+      .map(items =>
+        items.map(sub => {
+          if (!this.resource.subcategory) {
+            this.resource.subcategory = sub.$key;
+          }
+          return sub.$key
+        })
+      );
+
   }
   submit() {
     event.preventDefault();
@@ -106,5 +106,5 @@ export class ResourceFormComponent {
   deleteThis() {
     this.delete.emit(this.resource);
   }
-  
+
 }

@@ -33,29 +33,29 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;}'],
-    directives: [ ROUTER_DIRECTIVES, PickerComponent ],
-    
+    directives: [ROUTER_DIRECTIVES, PickerComponent],
+
 })
 export class CommunityFormComponent {
     @Output() update = new EventEmitter<Community>();
     @Output() delete = new EventEmitter<Community>();
-    @Input() community : Community;
-    
-    
-    developers : Observable<Expert[]>;
-    
-    constructor(private expertService : FirebaseService<Expert>, private af : AngularFire) {
-        this.developers = this.af.database.list('/users/', {query: {orderByChild: 'name'}});
+    @Input() community: Community;
+
+
+    developers: Observable<Expert[]>;
+
+    constructor(private expertService: FirebaseService<Expert>, private af: AngularFire) {
+        this.developers = this.af.database.list('/users/', { query: { orderByChild: 'name' } });
     }
-    ngOnInit() {}
-   
+    ngOnInit() { }
+
     change(event) {
-        console.log('communityorg change',event)
+        console.log('communityorg change', event)
     }
     save() {
         event.preventDefault();
         this.update.emit(this.community);
-        
+
     }
     deleteThis() {
         this.delete.emit(this.community);

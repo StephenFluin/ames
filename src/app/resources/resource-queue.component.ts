@@ -21,15 +21,15 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
     `
 })
 export class ResourceQueueComponent implements OnInit {
-    submissions : FirebaseListObservable<any[]>;
-    constructor(private af : AngularFire) { 
+    submissions: FirebaseListObservable<any[]>;
+    constructor(private af: AngularFire) {
         this.submissions = this.af.database.list('/queues/resources');
-        
+
 
     }
 
     ngOnInit() { }
-    
+
     accept(submission) {
         let master = this.af.database.list('/resources/' + submission.category + "/" + submission.subcategory + "/resources/");
         let key = submission.$key;
@@ -38,11 +38,11 @@ export class ResourceQueueComponent implements OnInit {
         delete submission.$key;
         master.push(submission);
         this.submissions.remove(key);
-        
+
     }
     reject(submission) {
         let key = submission.$key;
-        
+
         this.submissions.remove(key);
     }
 

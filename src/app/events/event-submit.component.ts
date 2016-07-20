@@ -12,17 +12,17 @@ import { AngularFire } from 'angularfire2';
     <p>Thanks for submitting an event. If it meets our quality guidelines, we'd be happy to add it!</p>
     <event-form [event]="event" (update)="processUpdate($event)"></event-form>`,
     directives: [EventFormComponent],
-    
+
 })
 export class EventSubmitComponent {
-    event : Event;
-    id : string;
-    
-    constructor(private af : AngularFire, private router: Router) {
-       this.event = new Event();
+    event: Event;
+    id: string;
+
+    constructor(private af: AngularFire, private router: Router) {
+        this.event = new Event();
     }
-    
-    processUpdate(item : Event) {
+
+    processUpdate(item: Event) {
         delete item.$key;
         this.af.database.list('/queues/events/')
             .push(item);

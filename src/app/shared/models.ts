@@ -39,7 +39,7 @@ export class Expert {
     isGDE: boolean;
     isConsultant: boolean;
     isEducator: boolean;
-    isExpert : boolean;
+    isExpert: boolean;
 
     languages: string[];
     missions: string[];
@@ -91,7 +91,7 @@ export class Event {
     end: number;
     author: string;
     community: string;
-    
+
     leads: string[];
     speakers: string[];
 }

@@ -26,19 +26,19 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     providers: [],
     pipes: [FireJoinPipe],
     directives: [],
-    
+
 })
 export class CommunityViewComponent {
-    community : Community;
-    
-    constructor(private route : ActivatedRoute, private communityService : FirebaseService<Community>) {
+    community: Community;
+
+    constructor(private route: ActivatedRoute, private communityService: FirebaseService<Community>) {
         communityService.setup('/communities/');
-        
+
         // This calls .subscribe so we don't rely on the template for unrolling 
         // the observable (which requires 2 components)
-       route.params.subscribe( params =>
+        route.params.subscribe(params =>
             communityService.get(params['id']).subscribe((community) => {
-                 this.community = community;
+                this.community = community;
             })
         );
     }

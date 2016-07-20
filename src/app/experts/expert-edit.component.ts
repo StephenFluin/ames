@@ -14,40 +14,40 @@ import { AngularFire } from 'angularfire2';
     <expert-form [expert]="expert | async" (update)="processUpdate($event)" (delete)="delete($event)"></expert-form>`,
     providers: [],
     directives: [ExpertFormComponent, ROUTER_DIRECTIVES],
-    
+
 })
 export class ExpertEditComponent {
-    expert : Observable<Expert>;
-    id : string;
-    
-    constructor(private route : ActivatedRoute, private router: Router, private expertService : FirebaseService<Expert>, private af : AngularFire) {
+    expert: Observable<Expert>;
+    id: string;
+
+    constructor(private route: ActivatedRoute, private router: Router, private expertService: FirebaseService<Expert>, private af: AngularFire) {
         expertService.setup('/users/');
-        this.expert = route.params.flatMap( params => {
-            if(params['id'] == "new") {
+        this.expert = route.params.flatMap(params => {
+            if (params['id'] == "new") {
                 return Observable.of(new Expert());
             }
             return expertService.get(params['id']);
         });
     }
-    
-    processUpdate(expertUpdate : Expert) {
+
+    processUpdate(expertUpdate: Expert) {
         this.expertService.save(expertUpdate);
         let expertStatus = this.af.database.object("/experts/" + expertUpdate.$key);
         try {
-            if(expertUpdate.isExpert) {
+            if (expertUpdate.isExpert) {
                 console.log("set expert status to true");
                 expertStatus.set(true);
             } else {
                 console.log("delete expert status");
                 expertStatus.remove();
             }
-        } catch( ex) {
+        } catch (ex) {
             console.error(ex);
         }
-        
+
         this.router.navigate(['/experts']);
     }
-    delete(expert : Expert) {
+    delete(expert: Expert) {
         this.expertService.delete(expert);
         this.router.navigate(['/experts']);
     }

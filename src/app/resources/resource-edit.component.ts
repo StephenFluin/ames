@@ -53,25 +53,25 @@ export class ResourceEditComponent {
             delete resource.subcategory;
 
             // Did it change?
-            if(category != this.originalCategory || subcategory != this.originalSubcategory) {
+            if (category != this.originalCategory || subcategory != this.originalSubcategory) {
                 this.resourceService.delete(resource);
 
                 delete resource.$key;
 
                 let result = this.af.database.list(`/resources/${category}/${subcategory}/resources/`)
-                .push(resource);
+                    .push(resource);
                 console.log(result.key);
-                
+
                 key = resource.$key = result.key;
             } else {
                 this.resourceService.save(resource);// No need to delete, let's just update safely!
             }
-            
+
 
 
             resource.category = category;
             resource.subcategory = subcategory;
-            
+
 
             this.router.navigate([`/resources/${category}/${subcategory}/${key}`]);
         } else {
@@ -82,7 +82,7 @@ export class ResourceEditComponent {
 
     }
     delete(item) {
-        
+
         this.resourceService.delete(item);
         this.router.navigate(['/resources'], { relativeTo: this.route });
 

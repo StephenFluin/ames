@@ -13,30 +13,30 @@ import { FirebaseService } from '../shared/firebase.service';
     `,
     providers: [],
     directives: [CommunityFormComponent],
-    
+
 })
 export class CommunityEditComponent {
-    community : Observable<Community>;
-    id : string;
-    
-    constructor(private route : ActivatedRoute, private router: Router, private communityService : FirebaseService<Community>) {
+    community: Observable<Community>;
+    id: string;
+
+    constructor(private route: ActivatedRoute, private router: Router, private communityService: FirebaseService<Community>) {
         communityService.setup('/communities/');
-        this.community = route.params.flatMap( params => {
-            if(params['id'] == "new") {
+        this.community = route.params.flatMap(params => {
+            if (params['id'] == "new") {
                 console.log("returning an empty community.");
                 return Observable.of(new Community);
             } else {
-                console.log("Returning the get of this id.",params['id'],"from",communityService.endpoint);
+                console.log("Returning the get of this id.", params['id'], "from", communityService.endpoint);
                 return communityService.get(params['id']);
             }
         });
     }
-    
-    processUpdate(item : Community) {
+
+    processUpdate(item: Community) {
         this.communityService.save(item);
         this.router.navigate(['/communities']);
     }
-    delete(item : Community) {
+    delete(item: Community) {
         this.communityService.delete(item);
         this.router.navigate(['/communities']);
     }

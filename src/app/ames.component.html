@@ -1,18 +1,20 @@
 <md-toolbar color="primary">
-    <div (click)="home()"> <!-- [routerLink]="['/']" -->
-      <img src="https://angular.io/resources/images/logos/standard/logo-nav.png" style="margin-right:16px;"/> 
-      {{title}}
+    <div (click)="home()">
+        <!-- [routerLink]="['/']" -->
+        <img src="https://angular.io/resources/images/logos/standard/logo-nav.png" style="margin-right:16px;" /> {{title}}
     </div>
-    <div><user-login></user-login></div>
+    <div>
+        <user-login></user-login>
+    </div>
 
 </md-toolbar>
 <nav>
-  <a [routerLink]="['/communities']">Communities</a>
-  <a [routerLink]="['/events']">Events</a>
-  <a [routerLink]="['/missions']">Missions</a>
-  <a [routerLink]="['/experts']">Experts</a>
-  <a [routerLink]="['/resources']">Resources</a>
+    <a [routerLink]="['/communities']">Communities</a>
+    <a [routerLink]="['/events']">Events</a>
+    <a [routerLink]="['/missions']">Missions</a>
+    <a [routerLink]="['/experts']">Experts</a>
+    <a [routerLink]="['/resources']">Resources</a>
 
-  <a *ngIf="auth.isAdmin | async" [routerLink]="['/admin']"><span class="adminIcon"></span>Admin</a>
+    <a *ngIf="auth.isAdmin | async" [routerLink]="['/admin']"><span class="adminIcon"></span>Admin</a>
 </nav>
 <router-outlet></router-outlet>

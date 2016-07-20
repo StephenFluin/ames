@@ -32,11 +32,11 @@ import { ResourceFormComponent } from './resource-form.component'
 export class ResourceSubmitComponent {
     resource: Resource = new Resource();
 
-    constructor(private af: AngularFire) {}
+    constructor(private af: AngularFire) { }
 
     save(item: Resource) {
-        console.log("new resource submission",item);
-        if(item.validate()) {
+        console.log("new resource submission", item);
+        if (item.validate()) {
             delete item.$key;
             this.af.database.list('/queues/resources')
                 .push(item);

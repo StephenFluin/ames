@@ -21,19 +21,19 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;}'],
-    directives: [ ROUTER_DIRECTIVES ],
-    
+    directives: [ROUTER_DIRECTIVES],
+
 })
 export class MissionFormComponent {
     @Output() update = new EventEmitter<Mission>();
     @Output() delete = new EventEmitter<Mission>();
-    @Input() mission : Mission;
-    
+    @Input() mission: Mission;
+
     save() {
-        
+
         event.preventDefault();
         this.update.emit(this.mission);
-        
+
     }
     deleteThis() {
         this.delete.emit(this.mission);

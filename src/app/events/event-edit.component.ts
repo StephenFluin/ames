@@ -12,28 +12,28 @@ import { FirebaseService } from '../shared/firebase.service';
     <event-form [event]="event | async" (update)="processUpdate($event)" (delete)="delete($event)"></event-form>`,
     providers: [],
     directives: [EventFormComponent, ROUTER_DIRECTIVES],
-    
+
 })
 export class EventEditComponent {
-    event : Observable<Event>;
-    id : string;
-    
-    constructor(private route : ActivatedRoute, private router: Router, private eventService : FirebaseService<Event>) {
+    event: Observable<Event>;
+    id: string;
+
+    constructor(private route: ActivatedRoute, private router: Router, private eventService: FirebaseService<Event>) {
         eventService.setup('/events/');
-        this.event = route.params.flatMap( params => {
-            if(params['id'] == "new") {
+        this.event = route.params.flatMap(params => {
+            if (params['id'] == "new") {
                 return Observable.of(new Event());
             }
             return eventService.get(params['id'])
         });
     }
-    
-    processUpdate(eventUpdate : Event) {
+
+    processUpdate(eventUpdate: Event) {
         console.log("Procsesing an update");
         this.eventService.save(eventUpdate);
         this.router.navigate(['/events']);
     }
-    delete(event : Event) {
+    delete(event: Event) {
         console.log("Processing delete");
         this.eventService.delete(event);
         this.router.navigate(['/events']);

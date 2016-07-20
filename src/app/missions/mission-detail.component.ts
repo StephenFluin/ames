@@ -22,22 +22,22 @@ import { Observable } from 'rxjs/Rx';
         </div>
     </div>
     `,
-    directives: [ ROUTER_DIRECTIVES ],
-    
+    directives: [ROUTER_DIRECTIVES],
+
 })
 export class MissionDetailComponent {
-    id : string;
+    id: string;
     // Should this be an observable or a real mission? I kind of want to remove it from the observable to make template cleaner
-    mission : Observable<Mission>;
-    
-    constructor(private route : ActivatedRoute, private missionService : FirebaseService<Mission>, private auth : AuthService) {
+    mission: Observable<Mission>;
+
+    constructor(private route: ActivatedRoute, private missionService: FirebaseService<Mission>, private auth: AuthService) {
         missionService.setup('/missions/');
-        
-        this.mission = route.params.flatMap( params => {
-            return missionService.get(params['id'] )
+
+        this.mission = route.params.flatMap(params => {
+            return missionService.get(params['id'])
         });
         console.log("where is my id?");
-        route.params.subscribe(next => this.id=next['id'], error => console.error(error), () => console.log('finished'));
+        route.params.subscribe(next => this.id = next['id'], error => console.error(error), () => console.log('finished'));
     }
-    
+
 }

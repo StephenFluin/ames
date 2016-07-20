@@ -24,19 +24,19 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     providers: [],
     pipes: [FireJoinPipe],
     directives: [],
-    
+
 })
 export class EventViewComponent {
-    event : Event;
-    
-    constructor(private route : ActivatedRoute, private eventService : FirebaseService<Event>) {
+    event: Event;
+
+    constructor(private route: ActivatedRoute, private eventService: FirebaseService<Event>) {
         eventService.setup('/events/');
-        
+
         // This calls .subscribe so we don't rely on the template for unrolling 
         // the observable (which requires 2 components)
-       route.params.subscribe( params =>
+        route.params.subscribe(params =>
             eventService.get(params['id']).subscribe((event) => {
-                 this.event = event;
+                this.event = event;
             })
         );
     }

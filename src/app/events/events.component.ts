@@ -49,23 +49,23 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     `,
     directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, ROUTER_DIRECTIVES],
     pipes: [RefirebasePipe, FireJoinPipe],
-    
+
 })
 export class EventsComponent {
     events;
     auth;
-    
-    constructor(private router: Router, private eventService : FirebaseService<Event>, private authService : AuthService) {
-        
-        eventService.setup('/events/', {query: {orderByChild: 'startDate'}});
+
+    constructor(private router: Router, private eventService: FirebaseService<Event>, private authService: AuthService) {
+
+        eventService.setup('/events/', { query: { orderByChild: 'startDate' } });
         this.events = eventService.list;
         this.auth = authService;
     }
-    
+
     edit(event) {
-        this.router.navigate(['/events/',event.$key,'/edit']);
+        this.router.navigate(['/events/', event.$key, '/edit']);
     }
-    
+
     new() {
         this.router.navigate(['/events/new/edit']);
     }

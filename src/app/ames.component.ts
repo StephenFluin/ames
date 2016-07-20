@@ -24,49 +24,49 @@ import {CommunityEditComponent} from './communities/community-edit.component';
 import {UserProfileComponent} from './users/user-profile.component';
 import {AdminComponent} from './admin.component';
 
-declare var ga : any;
+declare var ga: any;
 
 @Component({
-  moduleId: module.id,
-  selector: 'ames-app',
-  templateUrl: 'ames.component.html',
-  directives: [ROUTER_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, UserLoginComponent],
-  providers: [AuthService, FirebaseService],
-  precompile: [
-    HomeComponent,
-    MissionsComponent,
-    MissionListComponent,
-    MissionDetailComponent,
-    MissionEditComponent,
-    ExpertsComponent,
-    ExpertEditComponent,
-    CommunitiesComponent,
-    LoginComponent,
-    ResourcesComponent,
-    ResourceEditComponent,
-    ResourceQueueComponent,
-    ResourceSubmitComponent,
-    CommunityEditComponent,
-    UserProfileComponent,
-    AdminComponent,
-    
-  ],
+    moduleId: module.id,
+    selector: 'ames-app',
+    templateUrl: 'ames.component.html',
+    directives: [ROUTER_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, UserLoginComponent],
+    providers: [AuthService, FirebaseService],
+    precompile: [
+        HomeComponent,
+        MissionsComponent,
+        MissionListComponent,
+        MissionDetailComponent,
+        MissionEditComponent,
+        ExpertsComponent,
+        ExpertEditComponent,
+        CommunitiesComponent,
+        LoginComponent,
+        ResourcesComponent,
+        ResourceEditComponent,
+        ResourceQueueComponent,
+        ResourceSubmitComponent,
+        CommunityEditComponent,
+        UserProfileComponent,
+        AdminComponent,
+
+    ],
 })
 export class AmesAppComponent {
-  title = 'Ames';
-  
-  
-  constructor(private router : Router, private auth : AuthService ) {
-    router.events.filter(e => e instanceof NavigationEnd).subscribe( (n:NavigationEnd) => {
-      // Log analytics here      
-      ga('send', 'pageview', n.urlAfterRedirects);
-    });
-  }
-  // Remove if/when https://github.com/angular/angular/issues/8357 is fixed 
-  home() {
-    this.router.navigate(['/']);
-  }
-  
- 
-  
+    title = 'Ames';
+
+
+    constructor(private router: Router, private auth: AuthService) {
+        router.events.filter(e => e instanceof NavigationEnd).subscribe((n: NavigationEnd) => {
+            // Log analytics here      
+            ga('send', 'pageview', n.urlAfterRedirects);
+        });
+    }
+    // Remove if/when https://github.com/angular/angular/issues/8357 is fixed 
+    home() {
+        this.router.navigate(['/']);
+    }
+
+
+
 }

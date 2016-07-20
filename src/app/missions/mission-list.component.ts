@@ -34,12 +34,12 @@ import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
     </form>
     `,
     directives: [ROUTER_DIRECTIVES, MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES],
-    
+
 })
 export class MissionListComponent implements OnInit {
-    list : Observable<Mission[]>;
+    list: Observable<Mission[]>;
     newMission: Mission;
-    constructor(private missionService : FirebaseService<Mission>, private auth : AuthService, private route : ActivatedRoute, private router: Router) {
+    constructor(private missionService: FirebaseService<Mission>, private auth: AuthService, private route: ActivatedRoute, private router: Router) {
     }
     ngOnInit() {
         this.missionService.setup('/missions/');
@@ -49,13 +49,13 @@ export class MissionListComponent implements OnInit {
     createMission() {
         this.missionService.new(this.newMission);
         this.newMission = new Mission();
-        
+
         // Take the user to their mission
-        this.router.navigate(['./'], {relativeTo:this.route});
+        this.router.navigate(['./'], { relativeTo: this.route });
     }
-    
+
     edit(mission) {
-        this.router.navigate(["/missions/",mission.$key,'/edit'])
+        this.router.navigate(["/missions/", mission.$key, '/edit'])
     }
-    
+
 }

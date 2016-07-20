@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Rx';
 import { RefirebasePipe } from '../shared/refirebase.pipe';
 import { AuthService } from '../shared/auth.service';
 
-declare var firebase : any;
+declare var firebase: any;
 declare var prompt;
 
 @Component({
@@ -43,31 +43,31 @@ declare var prompt;
         </div>
     </div> 
 </div>`,
-  directives: [ ...MD_BUTTON_DIRECTIVES, ...MD_TOOLBAR_DIRECTIVES, ...MD_INPUT_DIRECTIVES, ...ROUTER_DIRECTIVES ],
-  pipes: [ RefirebasePipe ]
+  directives: [...MD_BUTTON_DIRECTIVES, ...MD_TOOLBAR_DIRECTIVES, ...MD_INPUT_DIRECTIVES, ...ROUTER_DIRECTIVES],
+  pipes: [RefirebasePipe]
 })
 export class ResourcesComponent {
-  data : Observable<any[]>;
-  priority : number;
-  
-  constructor(private af: AngularFire, private auth : AuthService) {
+  data: Observable<any[]>;
+  priority: number;
+
+  constructor(private af: AngularFire, private auth: AuthService) {
     this.data = af.database.list('/resources').share();
-   
+
   }
   setCategoryPriority(category, priority: number) {
     //this.af.database.object('/resources/'+category);
-    console.log(firebase.database().ref('/resources/'+category));
-    firebase.database().ref('/resources/'+category).setPriority(priority);
+    console.log(firebase.database().ref('/resources/' + category));
+    firebase.database().ref('/resources/' + category).setPriority(priority);
     this.priority = null;
-    
+
   }
   setSubcategoryPriority(category, subcategory, priority: number) {
     //this.af.database.object('/resources/'+category);
-    console.log(firebase.database().ref('/resources/'+category+'/'+subcategory));
-    firebase.database().ref('/resources/'+category+'/'+subcategory).setPriority(priority);
+    console.log(firebase.database().ref('/resources/' + category + '/' + subcategory));
+    firebase.database().ref('/resources/' + category + '/' + subcategory).setPriority(priority);
     this.priority = null;
-    
+
   }
-  
-  
+
+
 }

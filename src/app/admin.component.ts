@@ -41,7 +41,7 @@ export class AdminComponent {
 
     update(adminList) {
         console.log("new Admin list", adminList);
-         if (adminList) {
+        if (adminList) {
             delete adminList.$key;
             console.log("saving on admin page", adminList);
             this.admins.set(adminList);

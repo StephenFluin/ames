@@ -37,21 +37,21 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
     providers: [],
     pipes: [FireJoinPipe],
     directives: [],
-    
+
 })
 export class ExpertViewComponent {
-    expert : Expert;
-    
-    
-    constructor(private route : ActivatedRoute, private expertService : FirebaseService<Expert>) {
+    expert: Expert;
+
+
+    constructor(private route: ActivatedRoute, private expertService: FirebaseService<Expert>) {
         expertService.setup('/users/');
-        
-        
+
+
         // This calls .subscribe so we don't rely on the template for unrolling 
         // the observable (which requires 2 components)
-       route.params.subscribe( params =>
+        route.params.subscribe(params =>
             expertService.get(params['id']).subscribe((expert) => {
-                 this.expert = expert;
+                this.expert = expert;
             })
         );
     }

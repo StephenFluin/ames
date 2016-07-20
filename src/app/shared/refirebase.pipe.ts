@@ -15,19 +15,19 @@ import { Pipe, PipeTransform } from '@angular/core';
  * And turn it into
  * [{$key:"a",name:"myName","description":"myDescription"},{$key:"b",name:"myName","description":"myDescription"}]
  */
-@Pipe({name: 'refirebase'})
+@Pipe({ name: 'refirebase' })
 export class RefirebasePipe implements PipeTransform {
     transform(value: any, args?: any[]): any[] {
-        if(value) {
+        if (value) {
             let keys = Object.keys(value);
             let output = [];
             keys.forEach(key => {
                 let arrayItem = value[key];
-                
+
                 // Support firebase "true" key arrays
-                if(arrayItem == true) {
+                if (arrayItem == true) {
                     output.push(key);
-                } else if(key != "$key") {
+                } else if (key != "$key") {
                     arrayItem.$key = key;
                     output.push(arrayItem);
                 }

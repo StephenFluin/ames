@@ -20,20 +20,20 @@ import { FirebaseObjectObservable } from 'angularfire2';
              
     </div>
         `,
-    directives: [ ROUTER_DIRECTIVES ],
+    directives: [ROUTER_DIRECTIVES],
     pipes: [ArrayPipe]
-    
+
 })
 export class UserLoginComponent {
     userData: Observable<any>;
-    
-    
-    constructor(private auth : AuthService, private router : Router ) {
+
+
+    constructor(private auth: AuthService, private router: Router) {
         this.userData = auth.userData;
-        
-        
+
+
     }
-    
+
     login() {
         this.auth.loginGoogle();
     }

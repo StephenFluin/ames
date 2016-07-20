@@ -36,20 +36,20 @@ import { FirebaseService } from '../shared/firebase.service';
     `,
     directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, ROUTER_DIRECTIVES],
     pipes: [FireJoinPipe, RefirebasePipe]
-    
+
 })
 export class CommunitiesComponent {
     communities;
     auth;
-    
-    constructor(private router: Router, private communityService : FirebaseService<Community>, private authService : AuthService) {
-        communityService.setup('/communities/', {query: {orderByChild: 'name'}});
+
+    constructor(private router: Router, private communityService: FirebaseService<Community>, private authService: AuthService) {
+        communityService.setup('/communities/', { query: { orderByChild: 'name' } });
         this.communities = communityService.list;
         this.auth = authService;
     }
-    
+
     edit(community) {
-        this.router.navigate(['/communities/',community.$key,'/edit']);
+        this.router.navigate(['/communities/', community.$key, '/edit']);
     }
     new() {
         this.router.navigate(['/communities/new/edit']);
