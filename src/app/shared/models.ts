@@ -8,6 +8,7 @@ export class Mission {
     description: string;
     startDate: number;
     endDate: number;
+    participants: string[];
 
     constructor(rawSource?) {
         if (rawSource) {

@@ -15,7 +15,6 @@ import { AuthService } from '../shared/auth.service';
     template: `
     <form *ngIf="expert" (submit)="save(expert)" ngNoForm>
         <label>Name <input name="name" [(ngModel)]="expert.name"></label>
-        <div *ngIf="!expert.name && (expert.firstName || expert.lastName ) ">{{expert.firstName}} {{expert.lastName}}</div>
         <label>Twitter <input name="twitter" [(ngModel)]="expert.twitterID"></label>
         <label>Bio <input name="bio" [(ngModel)]="expert.bio"></label>
         <label>URL<input name="url" [(ngModel)]="expert.url"></label>
@@ -24,7 +23,7 @@ import { AuthService } from '../shared/auth.service';
         <label>Resume URL <input name="resumeUrl" [(ngModel)]="expert.resumeUrl"></label>
         <label>LinkedIn <input name="linkedIn" [(ngModel)]="expert.linkedIn"></label>
         <div>Communities</div>
-        <picker [list]="'/communities/'" [order]="'firstName'" [selectedKeys]="expert.communities" (update)="chooseCommunities($event)"></picker>
+        <picker [list]="'/communities/'" [order]="'name'" [selectedKeys]="expert.communities" (update)="chooseCommunities($event)"></picker>
         
         <fieldset class="content" style="padding:32px;" *ngIf="auth.isAdmin | async">
             <legend><span class="adminIcon"></span>Admin</legend>

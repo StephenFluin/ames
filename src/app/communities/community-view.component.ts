@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
 import { FireJoinPipe } from '../shared/fire-join.pipe';
 
+import { RefirebasePipe } from '../shared/refirebase.pipe';
+
 
 /**
  * Render a view of a community here
@@ -18,13 +20,17 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
         <p><strong>Location:</strong> {{community.location}}</p>
         <p><strong>Organizer:</strong> {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
         <p><a [href]="community.url">{{community.url}}</a></p>
+        <p>Participants:</p>
+        <div *ngFor="let developer of community.members | refirebase">
+            {{(developer | fireJoin:'/users/' | async)?.name}}
+        </div>
     </div>
     <div *ngIf="!community">
         <p>Community not found.</p>
     </div>
     `,
     providers: [],
-    pipes: [FireJoinPipe],
+    pipes: [FireJoinPipe, RefirebasePipe],
     directives: [],
 
 })

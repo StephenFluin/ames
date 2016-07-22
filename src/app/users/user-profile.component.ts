@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { AuthService } from '../shared/auth.service';
 import { ExpertFormComponent } from '../experts/expert-form.component';
@@ -20,7 +21,7 @@ export class UserProfileComponent {
     auth: Observable<any>;
     userData: Observable<any>;
     
-    constructor(private authService : AuthService ) {
+    constructor(private authService : AuthService, private router : Router ) {
         this.auth = authService.af.auth;
         this.userData = authService.userData;
     }
@@ -29,7 +30,7 @@ export class UserProfileComponent {
         this.authService.loginGoogle();
     }
     updateUser(user) {
-        console.debug("About to update user from profile component with",this.authService);
         this.authService.updateUser(user);
+        this.router.navigate(['/']);
     }
 }

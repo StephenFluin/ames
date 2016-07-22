@@ -6,8 +6,8 @@ import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
-class HasKey {
-    $key : string;
+interface HasKey {
+    $key: string;
 }
 
 /**
@@ -41,63 +41,68 @@ export class PickerComponent implements OnInit {
     // Send back a firebase style object with {key=>true,key2=>true}
     @Output() update = new EventEmitter<any>();
     // Name of Firebase endpoint that has the options
-    @Input() list : string;
-    @Input() order : string;
-    
+    @Input() list: string;
+    @Input() order: string;
+
     // An array of objects (auto-genned from selectedKeys if not provided)
-    @Input() selected : any[];
+    @Input() selected: any[];
     // An array of string keys
-    @Input() selectedKeys : any;
-    @Input() selectedObservable : Observable<any>;
-    
-    @Input() singleMode : boolean = false;
-    
-    showAvailable : boolean = false;
-    
+    @Input() selectedKeys: any;
+    @Input() selectedObservable: Observable<any>;
+
+    @Input() singleMode: boolean = false;
+
+    showAvailable: boolean = false;
+
     available: Observable<HasKey[]>;
-    
-    constructor(private af : AngularFire) {
-        
+
+    constructor(private af: AngularFire) {
+
     }
     ngOnInit() {
         // retreive the configuration for available options and lookup in fb
-        this.available = this.af.database.list(this.list, {query: {orderByChild: this.order}});
-        if(!this.selected) {
+        this.available = this.af.database.list(this.list, { query: { orderByChild: this.order } }).cache(1);
+        if (!this.selected) {
             this.selected = [];
         }
         // Populate selected if a key list was provided
-        if(this.selectedKeys) {
-           this.processSelectedKeys(this.selectedKeys);
+        if (this.selectedKeys) {
+            this.processSelectedKeys(this.selectedKeys);
         }
-        
+
         // Could this be made reactive properly?
-        if(this.selectedObservable) {
+        if (this.selectedObservable) {
             this.selectedObservable.subscribe(n => {
                 this.processSelectedKeys(n);
             })
         }
-     }
-     processSelectedKeys(keySource : any) {
-          console.log("using selectedKeys");
-          this.selected = [];
-            let keys = Object.keys(keySource);
-            console.log(keys);
-            
-            this.available.subscribe(list => {
-                list.map(next => {
+    }
+    processSelectedKeys(keySource: any) {
+        //console.log("using selectedKeys");
+        
+        let keys = Object.keys(keySource);
+        console.log(keys);
+
+        this.available.subscribe(list => {
+            this.selected = [];
+            //console.log("just got a list out!");
+            list.map(next => {
 
 
-                    if(keys.indexOf(next.$key) > -1 && this.selected.indexOf(next) < 0) {
-                        this.selected.push(next);
-                    }
-                }) 
-            });
-     }
+                if (keys.indexOf(next.$key) > -1 && this.selected.indexOf(next) < 0) {
+                    this.selected.push(next);
+                    //console.log("Adding ", next['name'], " to selected object.");
+                } else {
+                    //console.log("not adding ", next['name'] , " to selected object.");
+                }
+            })
+        });
+    }
     showAdd() {
         this.showAvailable = true;
     }
     select(item) {
-        if(this.selected.indexOf(item) < 0) {
+        if (this.selected.indexOf(item) < 0) {
             this.selected.push(item);
         }
         this.update.emit(this.convertToMap(this.selected));
@@ -107,17 +112,17 @@ export class PickerComponent implements OnInit {
         let pos = this.selected.indexOf(item);
         this.selected.splice(pos, 1);
         this.update.emit(this.convertToMap(this.selected));
-        
+
     }
-    convertToMap(list : any[]) {
+    convertToMap(list: any[]) {
         let result = {};
-        console.log("Turning ",list," into a map of keys.");
-        for(let item of list) {
+        console.log("Turning ", list, " into a map of keys.");
+        for (let item of list) {
             result[item.$key] = true;
         }
-        console.log("I created:",result);
+        console.log("I created:", result);
         return result;
     }
-    
+
 
 }

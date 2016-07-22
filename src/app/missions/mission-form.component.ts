@@ -1,7 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs/Rx'; // load the full rxjs
-import { Mission } from '../shared/models';
+import { Observable } from 'rxjs/Rx';
+import { Mission, Expert } from '../shared/models';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { PickerComponent } from '../shared/picker.component';
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
     moduleId: module.id,
@@ -13,6 +15,13 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
        <!-- <div *ngIf="mission.startDate && mission.endDate">
             {{ mission.startDate}} - {{ mission.endDate}}
         </div>-->
+        <label>Organizer 
+        <select [(ngModel)]="mission.organizer">
+            <option *ngFor="let developer of developers | async" [value]="developer.$key">{{developer.name}}</option>
+        </select>
+        </label>
+        <div>Participants</div>
+        <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="mission.participants" (update)="chooseParticipants($event)"></picker>
         
         <div class="options">
             <span (click)="deleteThis()" class="delete">delete</span>
@@ -21,7 +30,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;}'],
-    directives: [ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, PickerComponent],
 
 })
 export class MissionFormComponent {
@@ -29,13 +38,20 @@ export class MissionFormComponent {
     @Output() delete = new EventEmitter<Mission>();
     @Input() mission: Mission;
 
-    save() {
+    developers: Observable<Expert[]>;
 
+    constructor(private af: AngularFire) {
+        this.developers = this.af.database.list('/users/', { query: { orderByChild: 'name' } });
+    }
+    save() {
         event.preventDefault();
         this.update.emit(this.mission);
 
     }
     deleteThis() {
         this.delete.emit(this.mission);
+    }
+    chooseParticipants(list : string[]) {
+        this.mission.participants = list;
     }
 }

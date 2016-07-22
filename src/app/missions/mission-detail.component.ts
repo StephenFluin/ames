@@ -4,40 +4,51 @@ import { ROUTER_DIRECTIVES, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
 import { Mission } from '../shared/models';
 import { FirebaseService } from '../shared/firebase.service';
+
+import { FireJoinPipe } from '../shared/fire-join.pipe';
+import { RefirebasePipe } from '../shared/refirebase.pipe';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
     moduleId: module.id,
     template: `
     <div *ngIf="mission" >
-        <h2>{{ (mission | async)?.name}}</h2> 
+        <h2>{{ mission.name}}</h2> 
         
-        <a *ngIf="auth.isAdmin | async" [routerLink]="['/missions/',id,'/edit']">Edit</a>  
+        <a *ngIf="auth.isAdmin | async" [routerLink]="['/missions/',mission.$key,'/edit']">Edit</a>  
         
         <div class="content">
-            <div *ngIf="(mission | async)?.description">{{ (mission | async)?.description}}</div>
-            <div *ngIf="(mission | async)?.startDate && (mission | async)?.endDate">
-                {{ (mission | async)?.startDate}} - {{ (mission | async)?.endDate}}
+            <div *ngIf="mission.description">{{ mission.description}}</div>
+            <div *ngIf="!mission.description"><em>No mission details are currently available.</em></div>
+            <div *ngIf="mission.startDate && mission.endDate">
+                {{ mission.startDate}} - {{ mission.endDate}}
             </div>
+            <div>Organizer: {{(mission.organizer |  fireJoin:'/users/' | async)?.name }}</div>
+            Participants:
+            <div *ngFor="let developer of mission.participants | refirebase">
+                {{(developer | fireJoin:'/users/' | async)?.name}}
+            </div>
+            
         </div>
     </div>
     `,
     directives: [ROUTER_DIRECTIVES],
+    pipes: [FireJoinPipe, RefirebasePipe],
 
 })
 export class MissionDetailComponent {
-    id: string;
-    // Should this be an observable or a real mission? I kind of want to remove it from the observable to make template cleaner
-    mission: Observable<Mission>;
+    // Should this be an observable or a real mission I kind of want to remove it from the observable to make template cleaner
+    mission: Mission;
 
     constructor(private route: ActivatedRoute, private missionService: FirebaseService<Mission>, private auth: AuthService) {
         missionService.setup('/missions/');
 
-        this.mission = route.params.flatMap(params => {
-            return missionService.get(params['id'])
+        route.params.subscribe(params => {
+            missionService.get(params['id'])
+            .subscribe(next => {
+                this.mission = next;
+            });
         });
-        console.log("where is my id?");
-        route.params.subscribe(next => this.id = next['id'], error => console.error(error), () => console.log('finished'));
     }
 
 }
