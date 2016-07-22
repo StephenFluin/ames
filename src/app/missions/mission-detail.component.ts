@@ -37,7 +37,6 @@ import { Observable } from 'rxjs/Rx';
 
 })
 export class MissionDetailComponent {
-    // Should this be an observable or a real mission I kind of want to remove it from the observable to make template cleaner
     mission: Mission;
 
     constructor(private route: ActivatedRoute, private missionService: FirebaseService<Mission>, private auth: AuthService) {

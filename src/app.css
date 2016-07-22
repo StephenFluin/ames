@@ -111,7 +111,7 @@ form .options .delete {cursor: pointer;}
     background-size:contain;
     background-position: center center;
     background-repeat: no-repeat;
-    margin-right:.5em;
+    margin-right:.1em;
 }
 
 user-login {

@@ -10,16 +10,21 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
  */
 @Component({
     moduleId: module.id,
-    selector: 'expert-view',
+    selector: 'expert-detail',
     template: `
-    <div *ngIf="expert" class="content" style="display:flex;">
-        <div style="display:flex;flex-direction:column;    justify-content: center;
+    <style>
+    .segmented-view div{
+        margin-bottom:32px;
+    }
+    </style>
+    <div *ngIf="expert" class="content" style="display:flex;width:100%;justify-content:space-around;">
+        <div style="flex-grow:1;display:flex;flex-direction:column;    justify-content: center;
     align-items: center;">
             <img [src]="expert.picUrl" style="max-height:150px;max-width:150px;">
             <div style="font-size:2em;font-weight:bold;">{{expert.name }}</div>
             <div> {{expert.location}}</div>
         </div>
-        <div>
+        <div style="flex-grow:2;" class="segmented-view">
             <div>{{expert.bio}}</div>
             {{expert.resumeUrl}}
             <div *ngIf="expert.twitterID"><a [href]="'https://twitter.com/'+expert.twitterID">@{{expert.twitterID}}</a></div>
@@ -45,7 +50,6 @@ export class ExpertViewComponent {
 
     constructor(private route: ActivatedRoute, private expertService: FirebaseService<Expert>) {
         expertService.setup('/users/');
-
 
         // This calls .subscribe so we don't rely on the template for unrolling 
         // the observable (which requires 2 components)
