@@ -3,7 +3,6 @@ import { Community } from '../shared/models';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
 import { FireJoinPipe } from '../shared/fire-join.pipe';
-
 import { RefirebasePipe } from '../shared/refirebase.pipe';
 
 
@@ -21,7 +20,8 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
         <p><strong>Organizer:</strong> {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
         <p><a [href]="community.url">{{community.url}}</a></p>
         <p>Participants:</p>
-        <div *ngFor="let developer of community.members | refirebase">
+        <div *ngFor="let developer of community.members | refirebase" class="content" style="display:flex;align-items:center">
+            <img *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" style="max-height:32px;max-width:32px;margin-right:8px;"/> 
             {{(developer | fireJoin:'/users/' | async)?.name}}
         </div>
     </div>

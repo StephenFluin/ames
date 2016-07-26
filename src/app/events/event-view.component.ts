@@ -16,6 +16,11 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
         <img [src]="event.logoUrl" style="max-height:50px;max-width:50px;">
         <h2>{{event.name }}</h2>
         <div><strong>Location:</strong> {{event.location}}</div>
+        <p>Speakers:</p>
+        <div *ngFor="let developer of event.speakers | refirebase" class="content" style="display:flex;align-items:center">
+            <img *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" style="max-height:32px;max-width:32px;margin-right:8px;"/> 
+            {{(developer | fireJoin:'/users/' | async)?.name}}
+        </div>
     </div>
     <div *ngIf="!event">
         <p>Event not found.</p>
