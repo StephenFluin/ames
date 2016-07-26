@@ -117,6 +117,16 @@ form .options .delete {cursor: pointer;}
 user-login {
     text-align:right;
 }
+user-login a {
+    color:white;
+    text-decoration: none;
+}
+user-login button {
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
 @media only screen and (max-device-width : 480px) {
     nav a {

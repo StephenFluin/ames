@@ -14,7 +14,6 @@ import { FirebaseService } from './shared/firebase.service';
     template: `
     <h2>Manage Administrators</h2>
     <form *ngIf="auth.isAdmin | async">
-    {{admins | async | json}}
         <picker
             [list]="'/users'"
             [selectedObservable]="admins"
@@ -34,9 +33,6 @@ export class AdminComponent {
 
     constructor(private auth: AuthService, private adminService: FirebaseService<any>, private af: AngularFire) {
         this.admins = af.database.object('/admin/');
-
-
-
     }
 
     update(adminList) {
