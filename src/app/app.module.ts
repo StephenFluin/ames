@@ -41,7 +41,7 @@ import {AdminComponent} from './admin.component';
     declarations: [AmesAppComponent, 
     HomeComponent, MissionsComponent, MissionListComponent, MissionDetailComponent, MissionEditComponent, DevelopersComponent, ExpertsComponent, ExpertViewComponent, ExpertEditComponent, EventsComponent, EventSubmitComponent, EventEditComponent, EventViewComponent, CommunitiesComponent, CommunitySubmitComponent, CommunityEditComponent, CommunityViewComponent, LoginComponent, ResourcesComponent, ResourceEditComponent, ResourceQueueComponent, ResourceSubmitComponent, UserProfileComponent, UserProfileShortComponent, AdminComponent, 
     ],
-    imports: [BrowserModule, RouterModule],
+    imports: [BrowserModule, RouterModule, FormsModule],
     entryComponents: [AmesAppComponent],
     providers: [
       provideRouter(routes),
