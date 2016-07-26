@@ -1,6 +1,5 @@
-import { bootstrap, browserDynamicPlatform } from '@angular/platform-browser-dynamic';
-import { bootstrapModule, ApplicationRef } from '@angular/core';
-import { enableProdMode } from '@angular/core';
+import { bootstrap, platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { ApplicationRef, enableProdMode } from '@angular/core';
 import { AmesAppComponent, environment } from './app/';
 import { MyAppModule } from './app/app.module';
 //import { FORM_DIRECTIVES, FORM_PROVIDERS } from '@angular/forms';
@@ -18,8 +17,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-// TODO platformBrowserDynamic()
-bootstrapModule(MyAppModule, browserDynamicPlatform());
+platformBrowserDynamic().bootstrapModule(MyAppModule);
 /*
 bootstrap(AmesAppComponent, {
     directives: [ROUTER_DIRECTIVES],

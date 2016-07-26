@@ -32,25 +32,7 @@ declare var ga: any;
     templateUrl: 'ames.component.html',
     directives: [ROUTER_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, UserLoginComponent],
     providers: [AuthService, FirebaseService],
-    precompile: [
-        HomeComponent,
-        MissionsComponent,
-        MissionListComponent,
-        MissionDetailComponent,
-        MissionEditComponent,
-        ExpertsComponent,
-        ExpertEditComponent,
-        CommunitiesComponent,
-        LoginComponent,
-        ResourcesComponent,
-        ResourceEditComponent,
-        ResourceQueueComponent,
-        ResourceSubmitComponent,
-        CommunityEditComponent,
-        UserProfileComponent,
-        AdminComponent,
-
-    ],
+    
 })
 export class AmesAppComponent {
     title = 'Ames';
