@@ -22,6 +22,7 @@ import {ResourceEditComponent} from './resources/resource-edit.component';
 import {ResourceQueueComponent} from './resources/resource-queue.component';
 import {ResourceSubmitComponent} from './resources/resource-submit.component';
 import {UserProfileComponent} from './users/user-profile.component';
+import {UserProfileShortComponent} from './users/user-profile-short.component';
 import {AdminComponent} from './admin.component';
 
 
@@ -57,5 +58,6 @@ export const routes: RouterConfig = [
     { path: 'resources/queue', component: ResourceQueueComponent },
     { path: 'resources/:category/:subcategory/:id', component: ResourceEditComponent },
     { path: 'profile', component: UserProfileComponent },
+    { path: 'profile-short', component: UserProfileShortComponent },
     { path: 'admin', component: AdminComponent },
 ];

@@ -32,6 +32,13 @@ export class AuthService {
             });
             
         }).cache(1);
+
+        // Detect missing user data and forward to quick-profile
+        this.userData.subscribe( authState => {
+            if(authState != null && !authState.name) {
+                this.router.navigate(['/profile-short']);
+            }
+        });
        
        // isAdmin should be an observable that sends trues of falses as the users gains or loses admin access
        // Need to combine two streams. take the stream of auth data, and use it to generate a stream of values
@@ -62,6 +69,8 @@ export class AuthService {
                 return Observable.of(authState.uid);
             }
         }).cache(1);
+
+        
         
         
     }
@@ -71,7 +80,7 @@ export class AuthService {
             method: AuthMethods.Popup,
         });
         
-        this.router.navigate(['/profile'])
+        
     }
     loginPassword(username : string, password : string) {
         this.af.auth.login(
@@ -95,6 +104,9 @@ export class AuthService {
         this.af.auth.logout();
     }
     
+    /**
+     * Take a firebase user (with $key) and use angularfire to update
+     */
     updateUser(user) {
         console.log("Propagating update back to fb",user);
         let key = user.$key;
