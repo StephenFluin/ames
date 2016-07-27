@@ -83,7 +83,7 @@ input {
     padding: 6px;
 }
 picker {border:1px solid #CCC;}
-label input,label picker, label textarea {
+label input,label picker, label textarea, label select {
     display:block;
     margin-bottom:16px;
     margin-top:4px;

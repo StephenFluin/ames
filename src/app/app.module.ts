@@ -22,6 +22,7 @@ import {EventsComponent} from './events/events.component';
 import {EventSubmitComponent} from './events/event-submit.component';
 import {EventEditComponent} from './events/event-edit.component';
 import {EventViewComponent} from './events/event-view.component';
+
 import {CommunitiesComponent} from './communities/communities.component';
 import {CommunitySubmitComponent} from './communities/community-submit.component';
 import {CommunityEditComponent} from './communities/community-edit.component';
@@ -35,11 +36,16 @@ import {UserProfileComponent} from './users/user-profile.component';
 import {UserProfileShortComponent} from './users/user-profile-short.component';
 import {AdminComponent} from './admin.component';
 
+// Non Routed
+import {ExpertContentComponent} from './experts/expert-content.component';
+
 
 @NgModule({
     // Add RouterModule
     declarations: [AmesAppComponent, 
-    HomeComponent, MissionsComponent, MissionListComponent, MissionDetailComponent, MissionEditComponent, DevelopersComponent, ExpertsComponent, ExpertViewComponent, ExpertEditComponent, EventsComponent, EventSubmitComponent, EventEditComponent, EventViewComponent, CommunitiesComponent, CommunitySubmitComponent, CommunityEditComponent, CommunityViewComponent, LoginComponent, ResourcesComponent, ResourceEditComponent, ResourceQueueComponent, ResourceSubmitComponent, UserProfileComponent, UserProfileShortComponent, AdminComponent, 
+    HomeComponent, MissionsComponent, MissionListComponent, MissionDetailComponent, MissionEditComponent, DevelopersComponent, ExpertsComponent, ExpertViewComponent, ExpertEditComponent, EventsComponent, EventSubmitComponent, EventEditComponent, EventViewComponent, CommunitiesComponent, CommunitySubmitComponent, CommunityEditComponent, CommunityViewComponent, LoginComponent, ResourcesComponent, ResourceEditComponent, ResourceQueueComponent, ResourceSubmitComponent, UserProfileComponent, UserProfileShortComponent, AdminComponent,
+    // Non routed components
+    ExpertContentComponent
     ],
     imports: [BrowserModule, RouterModule, FormsModule],
     entryComponents: [AmesAppComponent],

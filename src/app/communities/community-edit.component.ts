@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Community } from '../shared/models';
 import { CommunityFormComponent } from './community-form.component';
-import { Observable } from 'rxjs/Rx'; // load the full rxjs
+import { Observable } from 'rxjs/Rx';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
 

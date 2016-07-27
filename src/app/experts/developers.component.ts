@@ -21,7 +21,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
         <h2><span class="adminIcon"></span>All Developers</h2>
         <div style="clear:both;"></div>
         
-        <md-card *ngFor="let expert of experts | async" class="pretty-card">
+        <md-card *ngFor="let expert of experts | async" class="pretty-card" [routerLink]="['/experts/',expert.$key]">
             <div style="display:flex;">
                 <div style="flex-grow:1;">
                 

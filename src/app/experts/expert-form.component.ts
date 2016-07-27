@@ -5,8 +5,8 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
 import { PickerComponent } from '../shared/picker.component';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
-
 import { AuthService } from '../shared/auth.service';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 
 @Component({
@@ -25,12 +25,39 @@ import { AuthService } from '../shared/auth.service';
         <div>Communities</div>
         <picker [list]="'/communities/'" [order]="'name'" [selectedKeys]="expert.communities" (update)="chooseCommunities($event)"></picker>
         
+        <fieldset class="content" style="padding:32px;">
+            <legend>Content</legend>
+            <style>
+            expert-content:hover {background-color: #DDD;display:block;}</style>
+            <expert-content *ngFor="let content of expert.content | refirebase" [content]="content" (click)="editContent(content)"></expert-content>
+            <h3>New/Edit</h3>
+            <div>
+                <label>
+                    Type
+                    <select [(ngModel)]="newContent.type">
+                        <option>Presentation</option>
+                        <option>Blog Post</option>
+                        <option>Other</option>
+                    </select>
+                </label>
+
+                        
+                <label>Title <input placeholder="Content Title" [(ngModel)]="newContent.title"></label>
+                <label>URL <input placeholder="URL"[(ngModel)]="newContent.url"></label>
+                <div class="options">
+                    <button md-raised-button color="primary" type="button" (click)="createContent();">Create</button>
+                </div>
+            </div>
+
+        </fieldset>
+
         <fieldset class="content" style="padding:32px;" *ngIf="auth.isAdmin | async">
             <legend><span class="adminIcon"></span>Admin</legend>
             <label>GDE? <md-slide-toggle name="isGDE" [(ngModel)]="expert.isGDE"></md-slide-toggle></label>
             <label>Consultant? <md-slide-toggle [(ngModel)]="expert.isConsultant"></md-slide-toggle></label>
             <label>Expert? <md-slide-toggle [(ngModel)]="expert.isExpert"></md-slide-toggle></label>
         </fieldset>
+
             
         
 
@@ -48,8 +75,10 @@ export class ExpertFormComponent {
     @Output() update = new EventEmitter<Expert>();
     @Output() delete = new EventEmitter<Expert>();
     @Input() expert : Expert;
+
+    newContent: {type: string,title: string,url: string, $key?: string} = {type:null,title:null,url:null};
     
-    constructor(private auth : AuthService) { }
+    constructor(private auth : AuthService, private af : AngularFire) { }
     
     save(savedValue: Expert) {
         event.preventDefault();
@@ -64,6 +93,26 @@ export class ExpertFormComponent {
     chooseCommunities(list : string[]) {
         console.log("Community List is now ",list);
         this.expert.communities = list;
+    }
+
+    createContent() {
+        
+        if(this.newContent.$key) {
+            let contentObject = this.af.database.object('/users/' + this.expert.$key + '/content/' + this.newContent.$key);
+            let key = this.newContent.$key;
+            delete this.newContent.$key;
+            contentObject.update(this.newContent);
+            this.newContent.$key = key;
+        } else {
+            let contentList = this.af.database.list('/users/' + this.expert.$key + "/content/");
+            contentList.push(this.newContent);
+            this.newContent = {title:null,type:null,url:null};
+        }
+    }
+
+    editContent(content) {
+        console.log(content);
+        this.newContent = content;
     }
     
     

@@ -17,22 +17,31 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
         margin-bottom:32px;
     }
     </style>
-    <div *ngIf="expert" class="content" style="display:flex;width:100%;justify-content:space-around;">
-        <div style="flex-grow:1;display:flex;flex-direction:column;    justify-content: center;
-    align-items: center;">
-            <img [src]="expert.picUrl" style="max-height:150px;max-width:150px;">
-            <div style="font-size:2em;font-weight:bold;">{{expert.name }}</div>
-            <div> {{expert.location}}</div>
+    <div *ngIf="expert">
+        <div class="content" style="display:flex;width:100%;justify-content:space-around;">
+            <div style="flex-grow:1;display:flex;flex-direction:column;    justify-content: center;
+        align-items: center;">
+                <img [src]="expert.picUrl" style="max-height:150px;max-width:150px;">
+                <div style="font-size:2em;font-weight:bold;">{{expert.name }}</div>
+                <div> {{expert.location}}</div>
+            </div>
+            <div style="flex-grow:2;" class="segmented-view">
+                <div>{{expert.bio}}</div>
+                {{expert.resumeUrl}}
+                <div *ngIf="expert.twitterID"><a [href]="'https://twitter.com/'+expert.twitterID">@{{expert.twitterID}}</a></div>
+
+                <div *ngIf="expert.url"><a [href]="expert.url">{{expert.url}}</a></div>
+                <div *ngIf="expert.isConsultant">Consultant</div>
+                <div *ngIf="expert.isGDE">GDE</div>
+
+            </div>
         </div>
-        <div style="flex-grow:2;" class="segmented-view">
-            <div>{{expert.bio}}</div>
-            {{expert.resumeUrl}}
-            <div *ngIf="expert.twitterID"><a [href]="'https://twitter.com/'+expert.twitterID">@{{expert.twitterID}}</a></div>
-
-            <div *ngIf="expert.url"><a [href]="expert.url">{{expert.url}}</a></div>
-            <div *ngIf="expert.isConsultant">Consultant</div>
-            <div *ngIf="expert.isGDE">GDE</div>
-
+        <div>
+            <h2>Content</h2>
+            <p *ngIf="!expert.content">This developer has not yet provided any content.</p>
+            <div class="content">
+                <expert-content *ngFor="let content of expert.content | refirebase" [content]="content"></expert-content>
+            </div>
         </div>
     </div>
     <div *ngIf="!expert">
