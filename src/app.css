@@ -127,6 +127,16 @@ user-login button {
     border: none;
     cursor: pointer;
 }
+img.shield {
+    max-height:64px;
+    max-width:64px;
+    margin-right:8px;
+    /*
+    50% 0%, 100% 16.6%, 92.37379% 78.15%, 50% 100%, 7.62621% 78.15%, 0% 16.6%
+    */
+    -webkit-clip-path: polygon(50% 0%, 100% 16.6%, 92.37379% 78.15%, 50% 100%, 7.62621% 78.15%, 0% 16.6%);
+    clip-path: polygon(50% 0%, 100% 16.6%, 92.37379% 78.15%, 50% 100%, 7.62621% 78.15%, 0% 16.6%);
+}
 
 @media only screen and (max-device-width : 480px) {
     nav a {

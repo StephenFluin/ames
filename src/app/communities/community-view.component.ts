@@ -19,9 +19,9 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
         <p><strong>Location:</strong> {{community.location}}</p>
         <p><strong>Organizer:</strong> {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
         <p><a [href]="community.url">{{community.url}}</a></p>
-        <p>Participants:</p>
+        <p>Members:</p>
         <div *ngFor="let developer of community.members | refirebase" class="content" style="display:flex;align-items:center">
-            <img *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" style="max-height:32px;max-width:32px;margin-right:8px;"/> 
+            <img class="shield" *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" /> 
             {{(developer | fireJoin:'/users/' | async)?.name}}
         </div>
     </div>
