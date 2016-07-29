@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Community } from '../shared/models';
-import { CommunityFormComponent } from './community-form.component';
+
 import { Observable } from 'rxjs/Rx';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
@@ -11,9 +11,6 @@ import { FirebaseService } from '../shared/firebase.service';
     template: `
     <community-form [community]="community | async" (update)="processUpdate($event)" (delete)="delete($event)"></community-form>
     `,
-    providers: [],
-    directives: [CommunityFormComponent],
-
 })
 export class CommunityEditComponent {
     community: Observable<Community>;

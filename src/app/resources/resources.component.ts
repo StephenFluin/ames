@@ -27,11 +27,11 @@ declare var prompt;
     <label><input type="checkbox" [(ngModel)]="priorityMode">Priority Management Mode</label>
   </fieldset>
 </div>
-<div *ngFor="let category of data | async" style="margin-left:16px;clear:both;">
+<div *ngFor="let category of data | async" class="category">
     <h3>{{category.$key}}</h3>
     <div *ngIf="priorityMode && (auth.isAdmin | async)"> <button (click)="setCategoryPriority(category.$key,priority)">SetPriority</button><input [(ngModel)]="priority"/></div>
-    <div style="display:flex;">
-        <div *ngFor="let sub of category | refirebase" style="margin-left:16px;margin-bottom:32px;">
+    <div class="subcategory-list">
+        <div *ngFor="let sub of category | refirebase" class="subcategory">
             <h4>{{sub.$key}}</h4>
             <h4 *ngIf="priorityMode && (auth.isAdmin | async)"><button (click)="setSubcategoryPriority(category.$key, sub.$key,subPriority)">SetPriority</button><input [(ngModel)]="subPriority"></h4>
             <div *ngFor="let resource of sub.resources | refirebase" style="margin-left:16px;">
@@ -43,8 +43,9 @@ declare var prompt;
         </div>
     </div> 
 </div>`,
-  directives: [...MD_BUTTON_DIRECTIVES, ...MD_TOOLBAR_DIRECTIVES, ...MD_INPUT_DIRECTIVES, ...ROUTER_DIRECTIVES],
-  pipes: [RefirebasePipe]
+  styles: [`.category { margin-left:16px;}
+            .subcategory { margin-left:16px;margin-bottom:32px;width:375px; }
+            .subcategory-list {display:flex;flex-wrap:wrap;}`],
 })
 export class ResourcesComponent {
   data: Observable<any[]>;

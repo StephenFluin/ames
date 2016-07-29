@@ -2,9 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Expert, Community } from '../shared/models';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
 import { PickerComponent } from '../shared/picker.component';
-import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
@@ -68,7 +66,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
     </form>
         `,
     styles: [],
-    directives: [ ROUTER_DIRECTIVES, MD_SLIDE_TOGGLE_DIRECTIVES, PickerComponent ],
+    directives: [  PickerComponent ],
     
 })
 export class ExpertFormComponent {

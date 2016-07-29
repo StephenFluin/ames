@@ -1,16 +1,7 @@
 import { Component } from '@angular/core';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router';
-
-import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-
-import { RefirebasePipe } from '../shared/refirebase.pipe';
-import { FireJoinPipe } from '../shared/fire-join.pipe';
-
+import { Router } from '@angular/router';
 import { Community } from '../shared/models';
-
 import { AuthService } from '../shared/auth.service';
-
 import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
@@ -34,8 +25,6 @@ import { FirebaseService } from '../shared/firebase.service';
     </md-card>
     
     `,
-    directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, ROUTER_DIRECTIVES],
-    pipes: [FireJoinPipe, RefirebasePipe]
 
 })
 export class CommunitiesComponent {

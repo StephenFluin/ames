@@ -2,8 +2,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Event, Community } from '../shared/models';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
 import { PickerComponent } from '../shared/picker.component';
 import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
@@ -33,7 +31,7 @@ import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
     </form>
         `,
     styles: [],
-    directives: [ ROUTER_DIRECTIVES, MD_SLIDE_TOGGLE_DIRECTIVES, MD_BUTTON_DIRECTIVES, PickerComponent, REACTIVE_FORM_DIRECTIVES ],
+    
     
 })
 export class EventFormComponent {

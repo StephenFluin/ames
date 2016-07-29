@@ -1,14 +1,20 @@
 import { NgModule, enableProdMode, ApplicationRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { AmesAppComponent } from './ames.component';
-import { FORM_DIRECTIVES, FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ROUTER_DIRECTIVES, provideRouter, RouterModule } from '@angular/router';
 import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
-import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
-import {  routes } from './routes';
+import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
+import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
+import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
+import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
+import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 
+import { routes } from './routes';
 import {RouterConfig} from '@angular/router';
+
 import {HomeComponent} from './home.component';
 import {MissionsComponent} from './missions/missions.component';
 import {MissionListComponent} from './missions/mission-list.component';
@@ -38,16 +44,39 @@ import {AdminComponent} from './admin.component';
 
 // Non Routed
 import {ExpertContentComponent} from './experts/expert-content.component';
+import {RefirebasePipe} from './shared/refirebase.pipe';
+import {FireJoinPipe} from './shared/fire-join.pipe';
+import {PickerComponent} from './shared/picker.component';
+import {CommunityFormComponent} from './communities/community-form.component';
 
+
+
+@NgModule({
+  declarations: [MD_SLIDE_TOGGLE_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, MD_CARD_DIRECTIVES,MD_INPUT_DIRECTIVES],
+  imports: [FormsModule, CommonModule],
+  exports: [MD_SLIDE_TOGGLE_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, MD_CARD_DIRECTIVES,MD_INPUT_DIRECTIVES],
+})
+export class MaterialModule {
+
+}
 
 @NgModule({
     // Add RouterModule
     declarations: [AmesAppComponent, 
     HomeComponent, MissionsComponent, MissionListComponent, MissionDetailComponent, MissionEditComponent, DevelopersComponent, ExpertsComponent, ExpertViewComponent, ExpertEditComponent, EventsComponent, EventSubmitComponent, EventEditComponent, EventViewComponent, CommunitiesComponent, CommunitySubmitComponent, CommunityEditComponent, CommunityViewComponent, LoginComponent, ResourcesComponent, ResourceEditComponent, ResourceQueueComponent, ResourceSubmitComponent, UserProfileComponent, UserProfileShortComponent, AdminComponent,
-    // Non routed components
-    ExpertContentComponent
+    // Screens
+     
+    // Pipes
+    ExpertContentComponent,
+    RefirebasePipe,
+    FireJoinPipe,
+    // Views
+    CommunityFormComponent,
+    PickerComponent,
     ],
-    imports: [BrowserModule, RouterModule, FormsModule],
+    imports: [BrowserModule, RouterModule, FormsModule, 
+      MaterialModule,
+    ],
     entryComponents: [AmesAppComponent],
     providers: [
       provideRouter(routes),

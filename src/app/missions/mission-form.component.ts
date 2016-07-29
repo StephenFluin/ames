@@ -1,9 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Mission, Expert } from '../shared/models';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { PickerComponent } from '../shared/picker.component';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+
+import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
 
 @Component({
     moduleId: module.id,
@@ -30,7 +31,7 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;}'],
-    directives: [ROUTER_DIRECTIVES, PickerComponent],
+    directives: [PickerComponent],
 
 })
 export class MissionFormComponent {
