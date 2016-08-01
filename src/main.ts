@@ -1,10 +1,8 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { enableProdMode } from '@angular/core';
-import { environment } from './app/';
 import { MyAppModule } from './app/app.module';
 
-if (environment.production) {
-  enableProdMode();
-}
-
 platformBrowserDynamic().bootstrapModule(MyAppModule);
+
+// platform browser dynamic - runtime compilation (dynamic compilation in the browser)
+// platform browser - static compilation (also used by platform-browser-dynamic) in browser
+// platform server - run angular without DOM
