@@ -16,7 +16,7 @@ export class CommunityEditComponent {
     community: Observable<Community>;
     id: string;
 
-    constructor(private route: ActivatedRoute, private router: Router, private communityService: FirebaseService<Community>) {
+    constructor(public route: ActivatedRoute, public router: Router, public communityService: FirebaseService<Community>) {
         communityService.setup('/communities/');
         this.community = route.params.flatMap(params => {
             if (params['id'] == "new") {

@@ -18,7 +18,7 @@ export class MissionEditComponent {
     // Note that this doesn't match the detail component
     mission: Observable<Mission>;
 
-    constructor(private route: ActivatedRoute, private router: Router, private missionService: FirebaseService<Mission>) {
+    constructor(public route: ActivatedRoute, public router: Router, public missionService: FirebaseService<Mission>) {
         missionService.setup('/missions/');
 
         this.mission = route.params.flatMap(params => {

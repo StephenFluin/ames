@@ -31,7 +31,7 @@ export class AdminComponent {
     admins: FirebaseObjectObservable<any>;
     newData;
 
-    constructor(private auth: AuthService, private adminService: FirebaseService<any>, private af: AngularFire) {
+    constructor(public auth: AuthService, public adminService: FirebaseService<any>, public af: AngularFire) {
         this.admins = af.database.object('/admin/');
     }
 

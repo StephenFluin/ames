@@ -6,18 +6,19 @@
     "experimentalDecorators": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "noImplicitAny": false,
     "outDir": "../dist/",
     "rootDir": ".",
     "sourceMap": true,
     "target": "es5",
-    "inlineSources": true
+    "inlineSources": true,
+    "skipDefaultLibCheck": true
   },
 
   "files": [
-    "main.ts",
-    "typings.d.ts",
-    "node_modules/angularfire2/firebase3.d.ts"
+    "main-static.ts",
+    
+    "typings.d.ts"
   ]
 }

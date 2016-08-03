@@ -55,7 +55,7 @@ export class EventsComponent {
     events;
     auth;
 
-    constructor(private router: Router, private eventService: FirebaseService<Event>, private authService: AuthService) {
+    constructor(public router: Router, public eventService: FirebaseService<Event>, public authService: AuthService) {
 
         eventService.setup('/events/', { query: { orderByChild: 'startDate' } });
         this.events = eventService.list;

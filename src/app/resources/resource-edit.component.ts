@@ -22,7 +22,7 @@ export class ResourceEditComponent {
     originalCategory: string;
     originalSubcategory: string;
 
-    constructor(private route: ActivatedRoute, private router: Router, private resourceService: FirebaseService<Resource>, private af: AngularFire) {
+    constructor(public route: ActivatedRoute, public router: Router, public resourceService: FirebaseService<Resource>, public af: AngularFire) {
 
 
         this.resource = route.params.flatMap(params => {

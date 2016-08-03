@@ -26,7 +26,7 @@ import { FirebaseObjectObservable } from 'angularfire2';
 })
 export class UserLoginComponent {
     userData: Observable<any>;
-    constructor(private auth: AuthService, private router: Router) {
+    constructor(public auth: AuthService, public router: Router) {
         this.userData = auth.userData;
     }
     login() {

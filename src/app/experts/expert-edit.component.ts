@@ -20,7 +20,7 @@ export class ExpertEditComponent {
     expert: Observable<Expert>;
     id: string;
 
-    constructor(private route: ActivatedRoute, private router: Router, private expertService: FirebaseService<Expert>, private af: AngularFire) {
+    constructor(public route: ActivatedRoute, public router: Router, public expertService: FirebaseService<Expert>, public af: AngularFire) {
         expertService.setup('/users/');
         this.expert = route.params.flatMap(params => {
             if (params['id'] == "new") {

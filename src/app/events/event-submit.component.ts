@@ -18,7 +18,7 @@ export class EventSubmitComponent {
     event: Event;
     id: string;
 
-    constructor(private af: AngularFire, private router: Router) {
+    constructor(public af: AngularFire, public router: Router) {
         this.event = new Event();
     }
 

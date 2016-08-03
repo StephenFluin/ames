@@ -51,7 +51,7 @@ export class ResourcesComponent {
   data: Observable<any[]>;
   priority: number;
 
-  constructor(private af: AngularFire, private auth: AuthService) {
+  constructor(public af: AngularFire, public auth: AuthService) {
     this.data = af.database.list('/resources').share();
 
   }

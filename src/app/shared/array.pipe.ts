@@ -7,7 +7,7 @@ import { FirebaseService } from './firebase.service';
  */
 @Pipe({ name: 'array' })
 export class ArrayPipe implements PipeTransform {
-    constructor(private firebase: FirebaseService<any>) { }
+    constructor(public firebase: FirebaseService<any>) { }
 
     transform(value: any, destination: string): any {
         if (value) {
