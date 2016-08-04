@@ -28,7 +28,9 @@ export class RefirebasePipe implements PipeTransform {
                 if (arrayItem == true) {
                     output.push(key);
                 } else if (key != "$key") {
-                    arrayItem.$key = key;
+                    let newItem = {$key:''};
+                    (<any>Object).assign(newItem, arrayItem);
+                    newItem.$key = key;
                     output.push(arrayItem);
                 }
             });
