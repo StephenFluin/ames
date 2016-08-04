@@ -53,6 +53,7 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+  'ngfactory',
   /** @cli-barrel */
 ];
 
@@ -69,7 +70,7 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
-    'main': 'main.js'
+    'main': 'main-static.js'
   },
   packages: cliSystemConfigPackages
 });

@@ -17,6 +17,12 @@
 
   "files": [
     "main.ts",
-    "typings.d.ts"
-  ]
+    "typings.d.ts",
+    "../node_modules/angularfire2/firebase3.d.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "./ngfactory",
+    "debug": true
+  }
+
 }

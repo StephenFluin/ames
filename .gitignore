@@ -4,6 +4,7 @@
 /dist
 /tmp
 *.ngfactory.ts
+/src/ngfactory
 
 # dependencies
 /node_modules
