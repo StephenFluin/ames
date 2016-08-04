@@ -37,7 +37,7 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
 export class CommunityViewComponent {
     community: Community;
 
-    constructor(private route: ActivatedRoute, private communityService: FirebaseService<Community>) {
+    constructor(public route: ActivatedRoute, public communityService: FirebaseService<Community>) {
         communityService.setup('/communities/');
 
         // This calls .subscribe so we don't rely on the template for unrolling 

@@ -31,7 +31,7 @@ export class CommunitiesComponent {
     communities;
     auth;
 
-    constructor(private router: Router, private communityService: FirebaseService<Community>, private authService: AuthService) {
+    constructor(public router: Router, public communityService: FirebaseService<Community>, public authService: AuthService) {
         communityService.setup('/communities/', { query: { orderByChild: 'name' } });
         this.communities = communityService.list;
         this.auth = authService;

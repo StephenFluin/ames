@@ -4,13 +4,13 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { AmesAppComponent } from './ames.component';
 import { FormsModule } from '@angular/forms';
 import { ROUTER_DIRECTIVES, provideRouter, RouterModule } from '@angular/router';
-import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
+import { AngularFire, FirebaseConfig  } from 'angularfire2';
 
-import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
-import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
-import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
+import { MdSlideToggleModule } from '@angular2-material/slide-toggle';
+import { MdButtonModule } from '@angular2-material/button';
+import { MdToolbarModule } from '@angular2-material/toolbar';
+import { MdCardModule } from '@angular2-material/card';
+import { MdInputModule } from '@angular2-material/input';
 
 import { routes } from './routes';
 import {RouterConfig} from '@angular/router';
@@ -51,14 +51,7 @@ import {CommunityFormComponent} from './communities/community-form.component';
 
 
 
-@NgModule({
-  declarations: [MD_SLIDE_TOGGLE_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, MD_CARD_DIRECTIVES,MD_INPUT_DIRECTIVES],
-  imports: [FormsModule, CommonModule],
-  exports: [MD_SLIDE_TOGGLE_DIRECTIVES, MD_BUTTON_DIRECTIVES, MD_TOOLBAR_DIRECTIVES, MD_CARD_DIRECTIVES,MD_INPUT_DIRECTIVES],
-})
-export class MaterialModule {
 
-}
 
 @NgModule({
     // Add RouterModule
@@ -74,24 +67,27 @@ export class MaterialModule {
     CommunityFormComponent,
     PickerComponent,
     ],
-    imports: [BrowserModule, RouterModule, FormsModule, 
-      MaterialModule,
+    imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule, 
+      MdSlideToggleModule, MdButtonModule, MdToolbarModule, MdCardModule, MdInputModule,
     ],
     entryComponents: [AmesAppComponent],
     providers: [
-      provideRouter(routes),
-      FIREBASE_PROVIDERS,
+      {provide: FirebaseConfig, useValue: {
+         apiKey: "AIzaSyCTOFGccvaEedz1Jykckni5T-WP7XixS_o",
+         authDomain: "project-4800661445983438923.firebaseapp.com",
+         databaseURL: "https://project-4800661445983438923.firebaseio.com/",
+         storageBucket: "project-4800661445983438923.appspot.com",
+      }},
+      AngularFire,
+      /*FIREBASE_PROVIDERS,
       defaultFirebase({
         apiKey: "AIzaSyCTOFGccvaEedz1Jykckni5T-WP7XixS_o",
         authDomain: "project-4800661445983438923.firebaseapp.com",
         databaseURL: "https://project-4800661445983438923.firebaseio.com/",
         storageBucket: "project-4800661445983438923.appspot.com",
-      })
+      })*/
       
-    ],  
+    ],
+    bootstrap: [AmesAppComponent],  
   })
-export class MyAppModule {
-  constructor(private appRef : ApplicationRef) {
-    appRef.bootstrap(AmesAppComponent);
-  }
-}
+export class MyAppModule { }

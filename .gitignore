@@ -3,9 +3,11 @@
 # compiled output
 /dist
 /tmp
+*.ngfactory.ts
 
 # dependencies
 /node_modules
+src/node_modules
 /bower_components
 
 # IDEs and editors

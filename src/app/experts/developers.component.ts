@@ -53,7 +53,7 @@ export class DevelopersComponent {
     experts;
     auth;
 
-    constructor(private router: Router, private expertService: FirebaseService<Expert>, private authService: AuthService, private af: AngularFire) {
+    constructor(public router: Router, public expertService: FirebaseService<Expert>, public authService: AuthService, public af: AngularFire) {
         this.experts = af.database.list('/users/');
 
         this.auth = authService;

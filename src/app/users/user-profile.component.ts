@@ -20,8 +20,9 @@ import { ExpertFormComponent } from '../experts/expert-form.component';
 export class UserProfileComponent {
     auth: Observable<any>;
     userData: Observable<any>;
+    showId: boolean;
     
-    constructor(private authService : AuthService, private router : Router ) {
+    constructor(public authService : AuthService, public router : Router ) {
         this.auth = authService.af.auth;
         this.userData = authService.userData;
     }

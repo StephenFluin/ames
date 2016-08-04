@@ -6,7 +6,7 @@
     "experimentalDecorators": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "noImplicitAny": false,
     "outDir": "../dist/",
     "rootDir": ".",
@@ -17,7 +17,6 @@
 
   "files": [
     "main.ts",
-    "typings.d.ts",
-    "node_modules/angularfire2/firebase3.d.ts"
+    "typings.d.ts"
   ]
 }

@@ -39,7 +39,7 @@ import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 export class MissionListComponent implements OnInit {
     list: Observable<Mission[]>;
     newMission: Mission;
-    constructor(private missionService: FirebaseService<Mission>, private auth: AuthService, private route: ActivatedRoute, private router: Router) {
+    constructor(public missionService: FirebaseService<Mission>, public auth: AuthService, public route: ActivatedRoute, public router: Router) {
     }
     ngOnInit() {
         this.missionService.setup('/missions/');

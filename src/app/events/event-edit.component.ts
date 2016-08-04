@@ -18,7 +18,7 @@ export class EventEditComponent {
     event: Observable<Event>;
     id: string;
 
-    constructor(private route: ActivatedRoute, private router: Router, private eventService: FirebaseService<Event>) {
+    constructor(public route: ActivatedRoute, public router: Router, public eventService: FirebaseService<Event>) {
         eventService.setup('/events/');
         this.event = route.params.flatMap(params => {
             if (params['id'] == "new") {

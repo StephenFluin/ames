@@ -10,7 +10,7 @@ import { AngularFire } from 'angularfire2';
     template: `
     <h2>Submit New Community</h2>
     <p>Thanks for submitting a community. If it meets our quality guidelines, we'd be happy to add it!</p>
-    <community-form [community]="community" (update)="processUpdate($community)"></community-form>`,
+    <community-form [community]="community" (update)="processUpdate($event)"></community-form>`,
     directives: [CommunityFormComponent],
 
 })
@@ -18,7 +18,8 @@ export class CommunitySubmitComponent {
     community: Community;
     id: string;
 
-    constructor(private af: AngularFire, private router: Router) {
+
+    constructor(public af: AngularFire, public router: Router) {
         this.community = new Community();
     }
 

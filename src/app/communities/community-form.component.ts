@@ -45,7 +45,7 @@ export class CommunityFormComponent {
 
     developers: Observable<Expert[]>;
 
-    constructor(private expertService: FirebaseService<Expert>, private af: AngularFire) {
+    constructor(public expertService: FirebaseService<Expert>, public af: AngularFire) {
         this.developers = this.af.database.list('/users/', { query: { orderByChild: 'name' } });
     }
     save() {
