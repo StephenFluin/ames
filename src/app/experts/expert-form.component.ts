@@ -13,16 +13,17 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
     template: `
     <form *ngIf="expert" (submit)="save(expert)" ngNoForm>
         <label>Name <input name="name" [(ngModel)]="expert.name"></label>
-        <label>Twitter <input name="twitter" [(ngModel)]="expert.twitterID"></label>
+        <label>Location <input name="location" [(ngModel)]="expert.location"></label>
         <label>Bio <input name="bio" [(ngModel)]="expert.bio"></label>
-        <label>URL<input name="url" [(ngModel)]="expert.url"></label>
-        <label>Blog URL<input name="blogUrl" [(ngModel)]="expert.blogUrl"></label>
         <label>Pic URL <img *ngIf="expert.picUrl" [src]="expert.picUrl" style="max-height:1em;"> <input name="picUrl" [(ngModel)]="expert.picUrl"></label>
-        <label>Resume URL <input name="resumeUrl" [(ngModel)]="expert.resumeUrl"></label>
-        <label>LinkedIn <input name="linkedIn" [(ngModel)]="expert.linkedIn"></label>
-        <div>Communities</div>
+
+        <label>Website <input name="website" [(ngModel)]="expert.website"></label>
+        <label>Twitter <input name="twitter" [(ngModel)]="expert.twitter"></label>
+        <label>Github Username <input name="github" [(ngModel)]="expert.github"></label>
+        <label>LinkedIn Username <input name="linkedIn" [(ngModel)]="expert.linkedIn"></label>
+        <!--<div>Communities</div>
         <picker [list]="'/communities/'" [order]="'name'" [selectedKeys]="expert.communities" (update)="chooseCommunities($event)"></picker>
-        
+        -->
         <fieldset class="content" style="padding:32px;">
             <legend>Content</legend>
             <style>
@@ -76,7 +77,7 @@ export class ExpertFormComponent {
 
     newContent: {type: string,title: string,url: string, $key?: string} = {type:null,title:null,url:null};
     
-    constructor(private auth : AuthService, private af : AngularFire) { }
+    constructor(public auth : AuthService, public af : AngularFire) { }
     
     save(savedValue: Expert) {
         event.preventDefault();
