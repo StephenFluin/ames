@@ -12,7 +12,8 @@
     "rootDir": ".",
     "sourceMap": true,
     "target": "es5",
-    "inlineSources": true
+    "inlineSources": true,
+    "skipLibCheck": true
   },
 
   "files": [
@@ -23,7 +24,7 @@
   ],
   "angularCompilerOptions": {
     "genDir": "./ngfactory",
-    "debug": true
+    "debug": false
   },
   "typescript.tsdk": "./node_modules/typescript/lib"
 
