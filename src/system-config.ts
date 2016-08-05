@@ -70,7 +70,7 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
-    'main': 'main-static.js'
+    'main': 'main.js'
   },
   packages: cliSystemConfigPackages
 });
