@@ -4,7 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { AmesAppComponent } from './ames.component';
 import { FormsModule } from '@angular/forms';
 import { ROUTER_DIRECTIVES, provideRouter, RouterModule } from '@angular/router';
-import { AngularFire, FirebaseConfig, AngularFireAuth  } from 'angularfire2';
+import { AngularFire, FirebaseConfig, FIREBASE_PROVIDERS  } from 'angularfire2';
 
 import { MdSlideToggleModule } from '@angular2-material/slide-toggle';
 import { MdButtonModule } from '@angular2-material/button';
@@ -79,7 +79,7 @@ import {CommunityFormComponent} from './communities/community-form.component';
          storageBucket: "project-4800661445983438923.appspot.com",
       }},
       AngularFire,
-      AngularFireAuth,
+      FIREBASE_PROVIDERS,
       
     ],
     bootstrap: [AmesAppComponent],  
