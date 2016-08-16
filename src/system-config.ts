@@ -1,1 +1,1 @@
-system-config.jit.ts
+system-config.aot.ts
