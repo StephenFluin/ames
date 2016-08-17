@@ -1,20 +1,34 @@
-<md-toolbar color="primary">
+<header class="nav__header box-shadow">
+  <div class="nav__header-row">
+
     <div (click)="home()">
-        <!-- [routerLink]="['/']" -->
-        <img src="https://angular.io/resources/images/logos/standard/logo-nav.png" style="margin-right:16px;" /> {{title}}
+      <!-- [routerLink]="['/']" -->
+      <img class="nav-logo" src="images/angular-logo-with-text.svg" />
+      <span class="microsite-name font-weight-ligher">{{title}}</span>
     </div>
-    <div>
+
+    <input type="checkbox" id="site-nav-checkbox" class="visuallyhidden">
+
+    <div class="top-nav-wrapper">
+      <label for="site-nav-checkbox"><a class="navigation__link">SITE MENU</a></label>
+      <nav class="top-navigation">
+        <a class="navigation__link" [routerLink]="['/communities']">Communities</a>
+        <a class="navigation__link" [routerLink]="['/events']">Events</a>
+        <a class="navigation__link" [routerLink]="['/missions']">Missions</a>
+        <a class="navigation__link" [routerLink]="['/experts']">Experts</a>
+        <a class="navigation__link" [routerLink]="['/resources']">Resources</a>
+
+        <a class="navigation__link" *ngIf="auth.isAdmin | async" [routerLink]="['/admin']"><span class="adminIcon"></span>Admin</a>
+      </nav>
+
+      <div class="layout-spacer"></div>
+
+      <nav class="top-navigation">
         <user-login></user-login>
+      </nav>
     </div>
 
-</md-toolbar>
-<nav>
-    <a [routerLink]="['/communities']">Communities</a>
-    <a [routerLink]="['/events']">Events</a>
-    <a [routerLink]="['/missions']">Missions</a>
-    <a [routerLink]="['/experts']">Experts</a>
-    <a [routerLink]="['/resources']">Resources</a>
+  </div>
+</header>
 
-    <a *ngIf="auth.isAdmin | async" [routerLink]="['/admin']"><span class="adminIcon"></span>Admin</a>
-</nav>
 <router-outlet></router-outlet>

@@ -13,7 +13,7 @@ declare var ga: any;
     templateUrl: 'ames.component.html',
     directives: [ UserLoginComponent],
     providers: [AuthService, FirebaseService],
-    
+
 })
 export class AmesAppComponent {
     title = 'Ames';
@@ -21,11 +21,11 @@ export class AmesAppComponent {
 
     constructor(public router: Router, public auth: AuthService) {
         router.events.filter(e => e instanceof NavigationEnd).subscribe((n: NavigationEnd) => {
-            // Log analytics here      
+            // Log analytics here
             ga('send', 'pageview', n.urlAfterRedirects);
         });
     }
-    // Remove if/when https://github.com/angular/angular/issues/8357 is fixed 
+    // Remove if/when https://github.com/angular/angular/issues/8357 is fixed
     home() {
         this.router.navigate(['/']);
     }

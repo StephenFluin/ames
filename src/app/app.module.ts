@@ -52,13 +52,12 @@ import {CommunityFormComponent} from './communities/community-form.component';
 
 
 
-
 @NgModule({
     // Add RouterModule
-    declarations: [AmesAppComponent, 
+    declarations: [AmesAppComponent,
     HomeComponent, MissionsComponent, MissionListComponent, MissionDetailComponent, MissionEditComponent, DevelopersComponent, ExpertsComponent, ExpertViewComponent, ExpertEditComponent, EventsComponent, EventSubmitComponent, EventEditComponent, EventViewComponent, CommunitiesComponent, CommunitySubmitComponent, CommunityEditComponent, CommunityViewComponent, LoginComponent, ResourcesComponent, ResourceEditComponent, ResourceQueueComponent, ResourceSubmitComponent, UserProfileComponent, UserProfileShortComponent, AdminComponent,
     // Screens
-     
+
     // Pipes
     ExpertContentComponent,
     RefirebasePipe,
@@ -67,7 +66,7 @@ import {CommunityFormComponent} from './communities/community-form.component';
     CommunityFormComponent,
     PickerComponent,
     ],
-    imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule, 
+    imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule,
       MdSlideToggleModule, MdButtonModule, MdToolbarModule, MdCardModule, MdInputModule,
       AngularFireModule.initializeApp({apiKey: "AIzaSyCTOFGccvaEedz1Jykckni5T-WP7XixS_o",
          authDomain: "project-4800661445983438923.firebaseapp.com",
@@ -77,6 +76,6 @@ import {CommunityFormComponent} from './communities/community-form.component';
     entryComponents: [AmesAppComponent],
     providers: [
     ],
-    bootstrap: [AmesAppComponent],  
+    bootstrap: [AmesAppComponent],
   })
 export class MyAppModule { }

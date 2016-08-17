@@ -11,13 +11,13 @@ import { FirebaseObjectObservable } from 'angularfire2';
     moduleId: module.id,
     selector: 'user-login',
     template: `
-    <div style="font-size:18px;">
+    <div>
         <div *ngFor="let user of userData | async | array">
             <a [routerLink]="['/profile']"><span *ngIf="auth.isAdmin | async" class="adminIcon"></span>{{ user.name }}</a>
             <div (click)="logout()" style="font-size:12px">Logout</div>
         </div>
-        <div *ngIf="!(userData | async)"><button (click)="login()">Login</button></div>   
-             
+
+        <a class="navigation__link"  (click)="login()" *ngIf="!(userData | async)"> Login </a>
     </div>
         `,
     directives: [ROUTER_DIRECTIVES],

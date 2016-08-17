@@ -11,45 +11,8 @@ import { Resource } from '../shared/models';
 @Component({
   moduleId: module.id,
   selector: 'resource-form',
-  template: `
-  
-  <style>
-  md-input { display:block;margin:32px 0;}
-  select {
-    height:32px;
-    margin: 16px 0;
-  }
- </style>
-<form (submit)="submit()" ngNoForm>
-  <select (change)="selectCategory($event.target.value)" [ngModel]="resource.category">
-    <option>Select a Category</option>
-    
-    <option 
-      *ngFor="let category of categories | async" 
-      [selected]="category == resource.category">
-      {{category}} 
-    </option>
-  </select>
-  <select [(ngModel)]="resource.subcategory" *ngIf="subCategories | async">
-    <option 
-      *ngFor="let subcategory of subCategories | async"
-      [selected]="subcategory == resource.subcategory">
-      {{subcategory}}
-    </option>
-  </select>
-  
-  <md-input [(ngModel)]="resource.title" placeholder="Title"></md-input>
-  <md-input [(ngModel)]="resource.url" placeholder=" URL" type="url"></md-input>
-  
-  <md-input [(ngModel)]="resource.desc" placeholder="Description"></md-input>
-  
-  <div class="options">
-      <span *ngIf="resource && resource.$key && resource.$key != 'new'" (click)="deleteThis()" class="delete">delete</span>
-      <button md-raised-button color="primary" type="submit" >Save</button>
-  </div>
-</form>
-  
-  `,
+  templateUrl: 'resource-form.component.html',
+  styleUrls: ['resource-form.component.css']
   directives: [...MD_BUTTON_DIRECTIVES, ...MD_TOOLBAR_DIRECTIVES, ...MD_INPUT_DIRECTIVES],
   pipes: [RefirebasePipe]
 })
