@@ -51,7 +51,7 @@ export class MissionListComponent implements OnInit {
     }
 
     edit(mission) {
-        this.router.navigate(["/missions/", mission.$key, '/edit'])
+        this.router.navigate(["/missions", mission.$key, 'edit'])
     }
 
 }

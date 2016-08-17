@@ -38,7 +38,7 @@ export class CommunitiesComponent {
     }
 
     edit(community) {
-        this.router.navigate(['/communities/', community.$key, '/edit']);
+        this.router.navigate(['/communities', community.$key, 'edit']);
     }
     new() {
         this.router.navigate(['/communities/new/edit']);

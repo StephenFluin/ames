@@ -63,7 +63,7 @@ export class EventsComponent {
     }
 
     edit(event) {
-        this.router.navigate(['/events/', event.$key, '/edit']);
+        this.router.navigate(['/events', event.$key, 'edit']);
     }
 
     new() {

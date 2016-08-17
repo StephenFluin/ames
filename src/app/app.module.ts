@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { AmesAppComponent } from './ames.component';
 import { FormsModule } from '@angular/forms';
-import { ROUTER_DIRECTIVES, provideRouter, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AngularFireModule  } from 'angularfire2';
 
 import { MdSlideToggleModule } from '@angular2-material/slide-toggle';
@@ -13,7 +13,6 @@ import { MdCardModule } from '@angular2-material/card';
 import { MdInputModule } from '@angular2-material/input';
 
 import { routes } from './routes';
-import {RouterConfig} from '@angular/router';
 
 import {HomeComponent} from './home.component';
 import {MissionsComponent} from './missions/missions.component';
