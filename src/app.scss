@@ -5,8 +5,8 @@ Scheme:
 */
 
 // Global Variables
-$color-primary: #ad1457;
-$color-secondary: #880e4f;
+$color-primary: #00838f;
+$color-secondary: #006064;
 $box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
 
 *.md-primary  {
@@ -27,6 +27,10 @@ p, form, .grid, .content { padding:16px; }
 
 .font-weight-ligher {
   font-weight: 300;
+}
+
+.font-weight-bolder {
+  font-weight: 600;
 }
 
 .box-shadow {
@@ -95,7 +99,7 @@ $nav-link-color: #fff;
 }
 
 .nav-logo {
-  margin-top: -5px;
+  margin-top: -8px;
   padding-left: 25px;
 }
 
@@ -143,13 +147,14 @@ $nav-link-color: #fff;
   .nav-logo {
     padding-left: 10px;
   }
-  
+
   .top-nav-wrapper {
     display: block;
     position: absolute;
     right: 0;
     top: 0;
     width: 100%;
+    z-index: 2;
 
     label {
       cursor: pointer;
@@ -196,20 +201,255 @@ $nav-link-color: #fff;
   width: 1px;
 }
 
-// Pretty Card Styles
+// Internal Hero Styles
+.hero-background {
+  background: linear-gradient($color-secondary,$color-primary);
+  color: #fff;
+  margin-bottom: 60px;
+  padding: 40px 0;
+}
+
+.hero-background h2 {
+  font-weight: 300;
+  margin: 40px 0;
+  padding-left: 48px;
+}
+
+.internal-header {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+// Content Wrapper
+.main-content {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 10px;
+}
+
+
+
+// Card Styles
+.card-container ul {
+  display:flex;
+  flex-wrap: wrap;
+  list-style:none;
+}
+
+.card-container li {
+  display: inline;
+  margin:0 auto;
+  text-align: center;
+}
+
 .pretty-card {
-    margin:16px;
-    width:300px;
-    float:left;
-    height:200px;
-    cursor: pointer;
+  display: flex;
+  margin: 13px 1%;
+  padding: 0;
+  width: 250px;
+  z-index: 0;
 }
+
+@media screen and (max-width: 10224px) {
+  .pretty-card {
+    width: 23%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .pretty-card {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .pretty-card {
+    width: 100%;
+  }
+}
+
+.pretty-card .md-card {
+  margin: 0 auto;
+  width: 100%;
+}
+
 .pretty-card:hover {
- background-color:rgba(61,49,117,.1);
+  background: linear-gradient(rgba(255,255,255,0), rgba(227,239,241,0.5));
+
 }
-.pretty-card md-card-title {
-    min-height:64px;
+
+.card-hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  overflow: hidden;
 }
+
+.card-hero-overlay:after {
+  content: '\A';
+  position: absolute;
+  width: 100%;
+  height:100%;
+  top:0; left:0;
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8));
+}
+
+.card-hero {
+  width: 100%;
+}
+
+.card-hero-wrapper .card-overlay-text {
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.card-overlay-text md-card-title {
+  font-size: 20px;
+  color: #fff;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+
+
+.card-overlay-text md-card-subtitle {
+  color: rgba(255,255,255,0.8);
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+md-card-subtitle .material-icons {
+  color: rgba(255,255,255,0.8);
+  display: inline-flex;
+  font-size: 18px;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+.card-info {
+  margin-bottom: 30px;
+}
+
+.card-info md-card-subtitle {
+  text-align: left;
+  margin-left: 15px;
+  margin-bottom: 0;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.card-action {
+  color: $color-primary;
+  margin-left: 15px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.view-more {
+  font-size: 14px;
+  color: $color-primary;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+// START OF PROFILE CARD STYLES
+//
+
+// .pretty-card .md-card {
+//   margin: 0 auto;
+//   width: 100%;
+// }
+//
+// .card-logo {
+//   display: flex;
+//   margin:0 auto;
+// }
+//
+// img.card-logo {
+//   -webkit-clip-path: circle(40px at 40px 40px);
+//   clip-path: circle(40px at 40px 40px);
+//   max-height:80px;
+//   max-width:80px;
+// }
+//
+// .card-organizer {
+//   margin: 0 auto;
+//   margin-bottom: 25px;
+// }
+//
+// .pretty-card md-card-title {
+//   color: #37474F;
+//   font-size: 18px;
+//   font-weight: 400;
+//   margin: 15px 0;
+//   padding-top: 15px;
+// }
+//
+// .pretty-card md-card-subtitle {
+//   font-size: 14px;
+//   font-weight: 400;
+//   margin-bottom: 25px;
+// }
+//
+// .pretty-card h3 {
+//   color: rgba(0, 0, 0, 0.6);
+//   font-size: 14px;
+//   font-weight: 600;
+// }
+//
+// .pretty-card h4 {
+//   color: rgba(0, 0, 0, 0.6);
+//   font-size: 14px;
+//   font-weight: 400;
+// }
+//
+// md-card-subtitle .material-icons {
+//   color: rgba(0, 0, 0, 0.30);
+//   display: inline-flex;
+//   font-size: 20px;
+//   margin-right: 5px;
+//   vertical-align: middle;
+// }
+//
+// .card-action {
+//   border-top: 1px solid $color-primary;
+//   padding: 25px 10px;
+// }
+//
+// .join-button {
+//   background: transparent;
+//   border-radius: 3px;
+//   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+//   border: none;
+//   color: $color-primary;
+//   font-size: 14px;
+//   font-weight: 400;
+//   line-height: 32px;
+//   margin-bottom: 12px;
+//   outline: none;
+//   padding: 4px 16px;
+//   text-decoration: none;
+//   text-transform: uppercase;
+//   width: 95%;
+// }
+//
+// .pretty-card:hover .join-button {
+//   background: $color-primary;
+//   color: #fff;
+// }
+//
+// .learn-more {
+//   color: #00838f;
+//   font-size: 14px;
+//   padding-top: 15px;
+//   text-decoration: none;
+// }
+// END OF PROFILE CARD STYLES
+
+// More Styles
 
 .background-side-picture {
     width:80px;
@@ -267,9 +507,9 @@ form .options {text-align:right;margin:16px 0}
 form .options button {margin-left:16px;}
 form .options .delete {cursor: pointer;}
 .adminIcon {
-    background-image: url('https://angular.io/resources/images/logos/angular2/angular.svg');
-    width:1em;
-    height:.8em;
+    background-image: url('images/angular-shield.svg');
+    width:1.5em;
+    height: 0.9em;
     display:inline-block;
     background-size:contain;
     background-position: center center;

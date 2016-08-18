@@ -21,7 +21,7 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
         <p><a [href]="community.url">{{community.url}}</a></p>
         <p>Members:</p>
         <div *ngFor="let developer of community.members | refirebase" class="content" style="display:flex;align-items:center">
-            <img class="shield" *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" /> 
+            <img class="shield" *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" />
             {{(developer | fireJoin:'/users/' | async)?.name}}
         </div>
     </div>
@@ -40,7 +40,7 @@ export class CommunityViewComponent {
     constructor(public route: ActivatedRoute, public communityService: FirebaseService<Community>) {
         communityService.setup('/communities/');
 
-        // This calls .subscribe so we don't rely on the template for unrolling 
+        // This calls .subscribe so we don't rely on the template for unrolling
         // the observable (which requires 2 components)
         route.params.subscribe(params =>
             communityService.get(params['id']).subscribe((community) => {
