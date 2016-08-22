@@ -48,10 +48,6 @@ import {FireJoinPipe} from './shared/fire-join.pipe';
 import {PickerComponent} from './shared/picker.component';
 import {CommunityFormComponent} from './communities/community-form.component';
 
-
-
-
-
 @NgModule({
     // Add RouterModule
     declarations: [AmesAppComponent, 
@@ -74,8 +70,6 @@ import {CommunityFormComponent} from './communities/community-form.component';
          storageBucket: "project-4800661445983438923.appspot.com",}),
     ],
     entryComponents: [AmesAppComponent],
-    providers: [
-    ],
     bootstrap: [AmesAppComponent],  
   })
 export class MyAppModule { }

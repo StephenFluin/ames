@@ -9,12 +9,12 @@
 
 </md-toolbar>
 <nav>
-    <a [routerLink]="['/communities']">Communities</a>
-    <a [routerLink]="['/events']">Events</a>
-    <a [routerLink]="['/missions']">Missions</a>
-    <a [routerLink]="['/experts']">Experts</a>
-    <a [routerLink]="['/resources']">Resources</a>
+    <a [routerLink]="['/communities']" i18n>Communities</a>
+    <a [routerLink]="['/events']" i18n>Events</a>
+    <a [routerLink]="['/missions']" i18n>Missions</a>
+    <a [routerLink]="['/experts']" i18n>Experts</a>
+    <a [routerLink]="['/resources']" i18n>Resources</a>
 
-    <a *ngIf="auth.isAdmin | async" [routerLink]="['/admin']"><span class="adminIcon"></span>Admin</a>
+    <a *ngIf="auth.isAdmin | async" [routerLink]="['/admin']" i18n><span class="adminIcon"></span>Admin</a>
 </nav>
 <router-outlet></router-outlet>
