@@ -14,9 +14,6 @@ declare var ga: any;
     
 })
 export class AmesAppComponent {
-    title = 'Ames';
-
-
     constructor(public router: Router, public auth: AuthService) {
         router.events.filter(e => e instanceof NavigationEnd).subscribe((n: NavigationEnd) => {
             // Log analytics here      
