@@ -12,9 +12,6 @@ import { AngularFire } from 'angularfire2';
     template: `
     <h2> <a [routerLink]="['/experts']">Experts</a> &gt; <span *ngIf="(expert | async)?.$key=='new' && !(expert | async)?.firstName && !(expert | async)?.lastName">New Expert</span>{{(expert | async)?.firstName}} {{(expert | async)?.lastName}}</h2>
     <expert-form [expert]="expert | async" (update)="processUpdate($event)" (delete)="delete($event)"></expert-form>`,
-    providers: [],
-    directives: [ExpertFormComponent, ROUTER_DIRECTIVES],
-
 })
 export class ExpertEditComponent {
     expert: Observable<Expert>;

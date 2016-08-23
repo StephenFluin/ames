@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Event } from '../shared/models';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
-import { FireJoinPipe } from '../shared/fire-join.pipe';
-
 
 /**
  * Render a view of a event here
@@ -26,9 +24,6 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
         <p>Event not found.</p>
     </div>
     `,
-    providers: [],
-    pipes: [FireJoinPipe],
-    directives: [],
 
 })
 export class EventViewComponent {

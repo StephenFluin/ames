@@ -1,8 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
-import { ArrayPipe } from '../shared/array.pipe';
 import { AuthService } from '../shared/auth.service';
 import { FirebaseObjectObservable } from 'angularfire2';
 
@@ -20,8 +19,6 @@ import { FirebaseObjectObservable } from 'angularfire2';
              
     </div>
         `,
-    directives: [ROUTER_DIRECTIVES],
-    pipes: [ArrayPipe]
 
 })
 export class UserLoginComponent {

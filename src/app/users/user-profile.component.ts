@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { AuthService } from '../shared/auth.service';
-import { ExpertFormComponent } from '../experts/expert-form.component';
 
 @Component({
     moduleId: module.id,
@@ -14,8 +13,6 @@ import { ExpertFormComponent } from '../experts/expert-form.component';
     <expert-form [expert]="userData | async" (update)="updateUser($event)" class="contents"></expert-form>
     
     `,
-    directives: [ExpertFormComponent]
-    
 })
 export class UserProfileComponent {
     auth: Observable<any>;

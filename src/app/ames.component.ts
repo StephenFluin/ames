@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { FirebaseService } from './shared/firebase.service';
-import { UserLoginComponent } from './users/user-login.component';
 
 import { AuthService } from './shared/auth.service';
 
@@ -11,7 +10,6 @@ declare var ga: any;
     moduleId: module.id,
     selector: 'ames-app',
     templateUrl: 'ames.component.html',
-    directives: [ UserLoginComponent],
     providers: [AuthService, FirebaseService],
     
 })

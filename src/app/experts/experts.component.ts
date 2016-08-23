@@ -49,9 +49,6 @@ import { SortPipe } from '../shared/utility-pipes.pipe';
     </md-card>
     
     `,
-    directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, ROUTER_DIRECTIVES],
-    pipes: [RefirebasePipe, FireJoinPipe, SortPipe],
-
 })
 export class ExpertsComponent {
     experts;

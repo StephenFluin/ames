@@ -31,8 +31,6 @@ import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;}'],
-    directives: [PickerComponent],
-
 })
 export class MissionFormComponent {
     @Output() update = new EventEmitter<Mission>();

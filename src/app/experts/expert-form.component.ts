@@ -66,9 +66,6 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
         </div>
     </form>
         `,
-    styles: [],
-    directives: [  PickerComponent ],
-    
 })
 export class ExpertFormComponent {
     @Output() update = new EventEmitter<Expert>();

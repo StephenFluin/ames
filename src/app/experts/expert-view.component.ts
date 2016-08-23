@@ -66,9 +66,6 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
         <p>Expert not found.</p>
     </div>
     `,
-    providers: [],
-    pipes: [FireJoinPipe],
-    directives: [],
 
 })
 export class ExpertViewComponent {

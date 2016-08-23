@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 import { Community } from '../shared/models';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
-import { FireJoinPipe } from '../shared/fire-join.pipe';
-import { RefirebasePipe } from '../shared/refirebase.pipe';
-
 
 /**
  * Render a view of a community here
@@ -29,10 +26,6 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
         <p>Community not found.</p>
     </div>
     `,
-    providers: [],
-    pipes: [FireJoinPipe, RefirebasePipe],
-    directives: [],
-
 })
 export class CommunityViewComponent {
     community: Community;

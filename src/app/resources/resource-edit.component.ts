@@ -11,8 +11,6 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
     template: `<h2>Edit Resource</h2>
      <resource-form [resource]="resource | async" (update)="save($event)" (delete)="delete($event)"></resource-form>
     `,
-    directives: [ROUTER_DIRECTIVES, ResourceFormComponent],
-
 })
 export class ResourceEditComponent {
     id: string;

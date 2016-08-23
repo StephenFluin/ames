@@ -45,8 +45,6 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
         </md-card>
     </div>
     `,
-    directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES],
-    pipes: [RefirebasePipe, FireJoinPipe],
 
 })
 export class DevelopersComponent {

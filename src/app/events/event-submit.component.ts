@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Event } from '../shared/models';
-import { EventFormComponent } from './event-form.component';
 import { Router } from '@angular/router';
 import { AngularFire } from 'angularfire2';
 
@@ -11,8 +10,6 @@ import { AngularFire } from 'angularfire2';
     <h2>Submit New Event</h2>
     <p>Thanks for submitting an event. If it meets our quality guidelines, we'd be happy to add it!</p>
     <event-form [event]="event" (update)="processUpdate($event)"></event-form>`,
-    directives: [EventFormComponent],
-
 })
 export class EventSubmitComponent {
     event: Event;

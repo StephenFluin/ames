@@ -50,8 +50,6 @@ import { Resource } from '../shared/models';
 </form>
   
   `,
-  directives: [...MD_BUTTON_DIRECTIVES, ...MD_TOOLBAR_DIRECTIVES, ...MD_INPUT_DIRECTIVES],
-  pipes: [RefirebasePipe]
 })
 export class ResourceFormComponent {
   @Output() update = new EventEmitter<Resource>();

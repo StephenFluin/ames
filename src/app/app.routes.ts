@@ -1,4 +1,4 @@
-import {RouterConfig} from '@angular/router';
+import {Routes} from '@angular/router';
 import {HomeComponent} from './home.component';
 import {MissionsComponent} from './missions/missions.component';
 import {MissionListComponent} from './missions/mission-list.component';
@@ -26,7 +26,7 @@ import {UserProfileShortComponent} from './users/user-profile-short.component';
 import {AdminComponent} from './admin.component';
 
 
-export const routes: RouterConfig = [
+export const routes: Routes = [
     {
         path: '',
         component: HomeComponent,

@@ -1,9 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Event, Community } from '../shared/models';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import { PickerComponent } from '../shared/picker.component';
-import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
 
 
 @Component({
@@ -30,9 +27,6 @@ import { REACTIVE_FORM_DIRECTIVES } from '@angular/forms';
         </div>
     </form>
         `,
-    styles: [],
-    
-    
 })
 export class EventFormComponent {
     @Output() update = new EventEmitter<Event>();

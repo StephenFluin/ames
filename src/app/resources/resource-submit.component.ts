@@ -25,8 +25,6 @@ import { ResourceFormComponent } from './resource-form.component'
  <resource-form [resource]="resource" (update)="save($event)"></resource-form>
   
   `,
-    directives: [ResourceFormComponent],
-    pipes: [RefirebasePipe]
 })
 export class ResourceSubmitComponent {
     resource: Resource = new Resource();

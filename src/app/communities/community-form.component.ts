@@ -1,12 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Community, Expert } from '../shared/models';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-
-import { PickerComponent } from '../shared/picker.component';
-
 import { FirebaseService } from '../shared/firebase.service';
-
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
@@ -34,7 +29,6 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
     </form>
         `,
     styles: ['label input {display:block;margin-bottom:16px;}'],
-    directives: [ROUTER_DIRECTIVES, PickerComponent],
 
 })
 export class CommunityFormComponent {

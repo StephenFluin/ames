@@ -1,9 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Expert } from '../shared/models';
-import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 interface HasKey {
@@ -34,8 +31,6 @@ interface HasKey {
         <div *ngFor="let item of available | async" (click)="select(item)" style="margin:0 16px;">{{item.name}}</div>
     </div>
     `,
-    directives: [MD_BUTTON_DIRECTIVES],
-
 })
 export class PickerComponent implements OnInit {
     // Send back a firebase style object with {key=>true,key2=>true}

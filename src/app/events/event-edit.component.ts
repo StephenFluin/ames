@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Event } from '../shared/models';
 import { EventFormComponent } from './event-form.component';
 import { Observable } from 'rxjs/Rx'; // load the full rxjs
-import { ActivatedRoute, Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
@@ -10,9 +10,6 @@ import { FirebaseService } from '../shared/firebase.service';
     selector: 'event-edit',
     template: `
     <event-form [event]="event | async" (update)="processUpdate($event)" (delete)="delete($event)"></event-form>`,
-    providers: [],
-    directives: [EventFormComponent, ROUTER_DIRECTIVES],
-
 })
 export class EventEditComponent {
     event: Observable<Event>;

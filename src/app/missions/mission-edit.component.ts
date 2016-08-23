@@ -10,8 +10,6 @@ import { Observable } from 'rxjs/Rx';
     template: `<h2>Edit <a [routerLink]="['/missions/',id]">{{ (mission | async)?.name }}</a></h2>
      <mission-form [mission]="mission | async" (update)="save($event)" (delete)="delete($event)"></mission-form>
     `,
-    directives: [ROUTER_DIRECTIVES, MissionFormComponent],
-
 })
 export class MissionEditComponent {
     id: string;

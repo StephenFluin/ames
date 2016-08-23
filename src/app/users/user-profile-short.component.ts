@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { AuthService } from '../shared/auth.service';
-import { ExpertFormComponent } from '../experts/expert-form.component';
-
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 
@@ -21,8 +19,6 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
     <p *ngIf="!user">We don't yet have any data for your user.</p>
     
     `,
-    directives: [ExpertFormComponent]
-    
 })
 export class UserProfileShortComponent {
     user: Observable<any>;

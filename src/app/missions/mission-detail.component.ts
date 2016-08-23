@@ -32,9 +32,6 @@ import { Observable } from 'rxjs/Rx';
         </div>
     </div>
     `,
-    directives: [ROUTER_DIRECTIVES],
-    pipes: [FireJoinPipe, RefirebasePipe],
-
 })
 export class MissionDetailComponent {
     mission: Mission;

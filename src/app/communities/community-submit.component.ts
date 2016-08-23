@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Community } from '../shared/models';
-import { CommunityFormComponent } from './community-form.component';
 import { Router } from '@angular/router';
 import { AngularFire } from 'angularfire2';
 
@@ -11,8 +10,6 @@ import { AngularFire } from 'angularfire2';
     <h2>Submit New Community</h2>
     <p>Thanks for submitting a community. If it meets our quality guidelines, we'd be happy to add it!</p>
     <community-form [community]="community" (update)="processUpdate($event)"></community-form>`,
-    directives: [CommunityFormComponent],
-
 })
 export class CommunitySubmitComponent {
     community: Community;

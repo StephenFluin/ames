@@ -23,8 +23,6 @@ import { FirebaseService } from './shared/firebase.service';
     
     
     `,
-    directives: [PickerComponent],
-
 })
 export class AdminComponent {
     available: Observable<any>;
