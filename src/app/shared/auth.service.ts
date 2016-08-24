@@ -16,7 +16,6 @@ export class AuthService {
     
     constructor(public af: AngularFire, private zone: NgZone, private router : Router) {
         
-        console.debug("is there a problem with zone patching!",Zone.current.name);
         this.userData = this.af.auth.flatMap( authState => {
             // Overcome angularfire's zone smashing
             return zone.run((): Observable<any> => {

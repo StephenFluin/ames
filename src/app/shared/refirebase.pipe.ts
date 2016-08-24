@@ -31,7 +31,7 @@ export class RefirebasePipe implements PipeTransform {
                     let newItem = {$key:''};
                     (<any>Object).assign(newItem, arrayItem);
                     newItem.$key = key;
-                    output.push(arrayItem);
+                    output.push(newItem);
                 }
             });
             return output;
