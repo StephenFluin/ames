@@ -12,7 +12,7 @@ import { FirebaseService } from './shared/firebase.service';
     moduleId: module.id,
     selector: 'login',
     template: `
-    <h2>Manage Administrators</h2>
+    <h2 i18n>Manage Administrators</h2>
     <form *ngIf="auth.isAdmin | async">
         <picker
             [list]="'/users'"
@@ -34,7 +34,6 @@ export class AdminComponent {
     }
 
     update(adminList) {
-        console.log("new Admin list", adminList);
         if (adminList) {
             delete adminList.$key;
             console.log("saving on admin page", adminList);

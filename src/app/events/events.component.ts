@@ -10,8 +10,8 @@ import { FirebaseService } from '../shared/firebase.service';
     template: `<h2>Events</h2>
     <div style="clear:both;"></div>
     <div style="clear:both;" class="content">
-        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()"><span class="adminIcon"></span>New Event</button>
-        <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/events/submit'])">Submit Event</button>
+        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()" i18n><span class="adminIcon"></span>New Event</button>
+        <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/events/submit'])" i18n>Submit Event</button>
     </div>
     
     <md-card *ngFor="let event of events | async" class="pretty-card" [routerLink]="['/events/',event.$key]">
@@ -23,7 +23,7 @@ import { FirebaseService } from '../shared/firebase.service';
                 <div>{{event.location}}</div>
                 <md-card-subtitle *ngIf="event.twitterID">@{{event.twitterID}}</md-card-subtitle>
                 <div *ngIf="event.communities">
-                    <h4>Communities</h4>
+                    <h4 i18n>Communities</h4>
                     <div *ngFor="let community of event.communities | refirebase" >
                         <div>{{ (community | fireJoin:'/communities/' | async)?.name }}</div>
                     </div>

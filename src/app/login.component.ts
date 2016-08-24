@@ -7,12 +7,12 @@ import { AuthService } from './shared/auth.service';
     template: `
     <h2>Login</h2>
     <form>
-        <label><input #username placeholder="username"></label>
-        <label><input type="password" #password placeholder="password"></label>
+        <label><input #username i18n-placeholder placeholder="username"></label>
+        <label><input type="password" i18n-placeholder placeholder="password"></label>
         <div>
-            <button (click)="loginPassword(username.value, password.value);">Login</button>
-            <button (click)="loginGoogle()">Login With Google</button>
-            <button (click)="loginAnonymous()">Login Anonymously</button>
+            <button (click)="loginPassword(username.value, password.value);" i18n>Login</button>
+            <button (click)="loginGoogle()" i18n>Login With Google</button>
+            <button (click)="loginAnonymous()" i18n>Login Anonymously</button>
         </div>
         
     </form>

@@ -1,6 +1,6 @@
 <md-toolbar color="primary">
     <a routerLink="/" style="color:white;text-decoration:none;">
-        <img src="https://angular.io/resources/images/logos/standard/logo-nav.png" style="margin-right:16px;" /> <span i18n>Community</span>
+        <img src="https://angular.io/resources/images/logos/standard/logo-nav.png" style="margin-right:16px;" /> <span i18n="navigation-title">Community</span>
     </a>
     <div>
         <user-login></user-login>
@@ -8,12 +8,12 @@
 
 </md-toolbar>
 <nav>
-    <a [routerLink]="['/communities']" i18n>Communities</a>
-    <a [routerLink]="['/events']" i18n>Events</a>
-    <a [routerLink]="['/missions']" i18n>Missions</a>
-    <a [routerLink]="['/experts']" i18n>Experts</a>
-    <a [routerLink]="['/resources']" i18n>Resources</a>
+    <a [routerLink]="['/communities']" i18n="navigation-title">Communities</a>
+    <a [routerLink]="['/events']" i18n="navigation-title">Events</a>
+    <a [routerLink]="['/missions']" i18n="navigation-title">Missions</a>
+    <a [routerLink]="['/experts']" i18n="navigation-title">Experts</a>
+    <a [routerLink]="['/resources']" i18n="navigation-title">Resources</a>
 
-    <a *ngIf="auth.isAdmin | async" [routerLink]="['/admin']"><span class="adminIcon"></span><span i18n>Admin</span></a>
+    <a *ngIf="auth.isAdmin | async" [routerLink]="['/admin']"><span class="adminIcon"></span><span i18n="navigation-title">Admin</span></a>
 </nav>
 <router-outlet></router-outlet>

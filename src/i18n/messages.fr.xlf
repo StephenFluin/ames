@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="ng2.template" target-language="fr">
+        <body>
+            <trans-unit id="ec2d3a89b366d1ca80be056e9e71f0165ae75c7b" datatype="html">
+                <source>Community</source>
+                <target>Communauté</target>
+                <note priority="1" from="description">navigation-title</note>
+            </trans-unit>
+            <trans-unit id="6642147ee5ae8acb8b128faedfc7985d39637911" datatype="html">
+                <source>Communities</source>
+                <target>Communautés</target>
+            </trans-unit>
+            <trans-unit id="af88c1e95a1d16d3cdbb7210981e0bfb6dc1d137" datatype="html">
+                <source>Events</source>
+                <target>Événements</target>
+                <note priority="1" from="description">navigation-title</note>
+            </trans-unit>
+            <trans-unit id="e38c6d63094861fc42aede71c0c531a2d5f67c49" datatype="html">
+                <source>Missions</source>
+                <target>Missions</target>
+                <note priority="1" from="description">navigation-title</note>
+            </trans-unit>
+            <trans-unit id="ca312965b7b4896749515801e4911bc182dc5dde" datatype="html">
+                <source>Experts</source>
+                <target>Experts</target>
+                <note priority="1" from="description">navigation-title</note>
+            </trans-unit>
+            <trans-unit id="452ef1b96854fe05618303ee601f8fed3b866c9f" datatype="html">
+                <source>Resources</source>
+                <target>Ressources</target>
+                <note priority="1" from="description">navigation-title</note>
+            </trans-unit>
+            <trans-unit id="408cb6073e60c5d966296a3207fc596adca75e01" datatype="html">
+                <source>Admin</source>
+                <target>Administrateur</target>
+                <note priority="1" from="description">navigation-title</note>
+            </trans-unit>
+            <trans-unit id="702bd9500775b6cc906aa3b51519401f2875c7ee" datatype="html">
+                <source>New Event</source>
+                <target>Nouvel évènement</target>
+            </trans-unit>
+            <trans-unit id="9b6817a3ec25166cac30b6b821fefab0c9b95d1b" datatype="html">
+                <source>Submit Event</source>
+                <target>Soumettre l'événement</target>
+            </trans-unit>
+            <trans-unit id="4bebbae34f84157c0b5b852529f0bc2c39a5a38a" datatype="html">
+                <source>Location:</source>
+                <target>Emplacement:</target>
+            </trans-unit>
+            <trans-unit id="898db10a854e912c9a9e14a76667ecf407cc8279" datatype="html">
+                <source>Speakers:</source>
+                <target>Haut-parleurs:</target>
+            </trans-unit>
+            <trans-unit id="d76be1a564265a42c764e5583fad76a25e5277a8" datatype="html">
+                <source>Event not found.</source>
+                <target>Événement non trouvé.</target>
+            </trans-unit>
+            <trans-unit id="7195bf669e39ebfa7a11b72146b42a1c010846ef" datatype="html">
+                <source>username</source>
+                <target>Nom d'utilisateur</target>
+            </trans-unit>
+            <trans-unit id="d8b81951d25439864e92f750f7c99d7426d6517c" datatype="html">
+                <source>password</source>
+                <target>mot de passe</target>
+            </trans-unit>
+            <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+                <source>Login</source>
+                <target>S'identifier</target>
+            </trans-unit>
+            <trans-unit id="6f9044d2914701a7cd65046a9850991765840dc3" datatype="html">
+                <source>Login With Google</source>
+                <target>Connexion avec Google</target>
+            </trans-unit>
+            <trans-unit id="ddd1baf310ea5351f266d9cbde3154a2e636732e" datatype="html">
+                <source>Login Anonymously</source>
+                <target>Connexion Anonymously</target>
+            </trans-unit>
+            <trans-unit id="a19487ad64f306ce348fb248de7c693ef38471d5" datatype="html">
+                <source>Manage Administrators</source>
+                <target>Gérer les administrateurs</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
