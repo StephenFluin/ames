@@ -13,9 +13,9 @@ import { FirebaseObjectObservable } from 'angularfire2';
     <div style="font-size:18px;">
         <div *ngFor="let user of userData | async | array">
             <a [routerLink]="['/profile']"><span *ngIf="auth.isAdmin | async" class="adminIcon"></span>{{ user.name }}</a>
-            <div (click)="logout()" style="font-size:12px">Logout</div>
+            <div (click)="logout()" style="font-size:12px" i18n>Logout</div>
         </div>
-        <div *ngIf="!(userData | async)"><button (click)="login()">Login</button></div>   
+        <div *ngIf="!(userData | async)"><button (click)="login()" i18n>Login</button></div>   
              
     </div>
         `,
@@ -30,7 +30,6 @@ export class UserLoginComponent {
         this.auth.loginGoogle();
     }
     logout() {
-        console.log("Logging out.");
         this.auth.logout();
     }
 }

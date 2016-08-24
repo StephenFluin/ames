@@ -8,18 +8,18 @@ import { Event, Community } from '../shared/models';
     selector: 'event-form',
     template: `
     <form *ngIf="event" (submit)="save(event)" ngNoForm>
-        <label>Name <input name="name" [(ngModel)]="event.name" required #spy></label>
-        <label>Description <input [(ngModel)]="event.description"></label>
+        <label><span i18n>Name</span> <input name="name" [(ngModel)]="event.name" required #spy></label>
+        <label><span i18n>Description</span> <input [(ngModel)]="event.description"></label>
         
-        <label>URL <input [(ngModel)]="event.url"></label>
-        <label>Address/Location <input [(ngModel)]="event.location"></label>
+        <label><span i18n>URL</span> <input [(ngModel)]="event.url"></label>
+        <label><span i18n>Address/Location</span> <input [(ngModel)]="event.location"></label>
         
-        <label>Start Date<input [(ngModel)]="event.startDate" type="date"></label>
-        <label>End Date<input [(ngModel)]="event.endDate" type="date"></label>
-        <label>Logo URL <img *ngIf="event.logoUrl" [src]="event.logoUrl" style="max-height:1em;"> <input [(ngModel)]="event.logoUrl"></label>
-        <label>Leads
+        <label><span i18n>Start Date</span><input [(ngModel)]="event.startDate" type="date"></label>
+        <label><span i18n>End Date</span><input [(ngModel)]="event.endDate" type="date"></label>
+        <label><span i18n>Logo URL</span> <img *ngIf="event.logoUrl" [src]="event.logoUrl" style="max-height:1em;"> <input [(ngModel)]="event.logoUrl"></label>
+        <label><span i18n="header for list of people who lead the event">Leads</span>
         <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="event.leads" (update)="chooseLeads($event)"></picker></label>
-        <label>Speakers
+        <label><span i18n>Speakers</span>
         <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="event.speakers" (update)="chooseSpeakers($event)"></picker></label>
         <div class="options">
             <span (click)="deleteThis()" class="delete">delete</span>
@@ -40,7 +40,6 @@ export class EventFormComponent {
         
     }
     deleteThis() {
-        console.log("Trying to delete." ,this.event);
         if(window.confirm("Are you sure you want to delete this?")) {
             this.delete.emit(this.event);
         }
@@ -48,11 +47,9 @@ export class EventFormComponent {
     }
     // Take a new emitted list of keys
     chooseLeads(list : string[]) {
-        console.log("Lead List is now ",list);
         this.event.leads = list;
     }
      chooseSpeakers(list : string[]) {
-        console.log("Speakers List is now ",list);
         this.event.speakers = list;
     }
 }

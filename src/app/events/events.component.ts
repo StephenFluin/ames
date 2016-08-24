@@ -33,7 +33,7 @@ import { FirebaseService } from '../shared/firebase.service';
                 <div [style.background-image]="'url('+event.logoUrl+')'" *ngIf="event.logoUrl" class="background-side-picture contain"></div>
             </div>
             <div class="edit-button">
-                <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(event)">Edit</button>
+                <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(event)" i18n>Edit</button>
             </div>
         </div> 
     </md-card>
@@ -52,7 +52,7 @@ export class EventsComponent {
     }
 
     edit(event) {
-        this.router.navigate(['/events/', event.$key, '/edit']);
+        this.router.navigate(['/events', event.$key, 'edit']);
     }
 
     new() {

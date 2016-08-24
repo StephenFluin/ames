@@ -76,7 +76,6 @@ export class PickerComponent implements OnInit {
         //console.log("using selectedKeys");
         
         let keys = Object.keys(keySource);
-        console.log(keys);
 
         this.available.subscribe(list => {
             this.selected = [];
