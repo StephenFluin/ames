@@ -1,84 +1,135 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
     <file source-language="en" datatype="plaintext" original="ng2.template" target-language="fr">
         <body>
-            <trans-unit id="ec2d3a89b366d1ca80be056e9e71f0165ae75c7b" datatype="html">
+            <trans-unit id="ec2d3a89b366d1ca80be056e9e71f0165ae75c7b" datatype="html" approved="no">
                 <source>Community</source>
-                <target>Communauté</target>
+                <target state="needs-translation">Communauté</target>
                 <note priority="1" from="description">navigation-title</note>
+                <note>navigation-title</note>
             </trans-unit>
-            <trans-unit id="6642147ee5ae8acb8b128faedfc7985d39637911" datatype="html">
+            <trans-unit id="6642147ee5ae8acb8b128faedfc7985d39637911" datatype="html" approved="no">
                 <source>Communities</source>
-                <target>Communautés</target>
+                <target state="needs-translation">Communautés</target>
             </trans-unit>
-            <trans-unit id="af88c1e95a1d16d3cdbb7210981e0bfb6dc1d137" datatype="html">
+            <trans-unit id="af88c1e95a1d16d3cdbb7210981e0bfb6dc1d137" datatype="html" approved="no">
                 <source>Events</source>
-                <target>Événements</target>
+                <target state="needs-translation">Événements</target>
                 <note priority="1" from="description">navigation-title</note>
+                <note>navigation-title</note>
             </trans-unit>
-            <trans-unit id="e38c6d63094861fc42aede71c0c531a2d5f67c49" datatype="html">
+            <trans-unit id="e38c6d63094861fc42aede71c0c531a2d5f67c49" datatype="html" approved="no">
                 <source>Missions</source>
-                <target>Missions</target>
+                <target state="needs-translation">Missions</target>
                 <note priority="1" from="description">navigation-title</note>
+                <note>navigation-title</note>
             </trans-unit>
-            <trans-unit id="ca312965b7b4896749515801e4911bc182dc5dde" datatype="html">
+            <trans-unit id="ca312965b7b4896749515801e4911bc182dc5dde" datatype="html" approved="no">
                 <source>Experts</source>
-                <target>Experts</target>
+                <target state="needs-translation">Experts</target>
                 <note priority="1" from="description">navigation-title</note>
+                <note>navigation-title</note>
             </trans-unit>
-            <trans-unit id="452ef1b96854fe05618303ee601f8fed3b866c9f" datatype="html">
+            <trans-unit id="452ef1b96854fe05618303ee601f8fed3b866c9f" datatype="html" approved="no">
                 <source>Resources</source>
-                <target>Ressources</target>
+                <target state="needs-translation">Ressources</target>
                 <note priority="1" from="description">navigation-title</note>
+                <note>navigation-title</note>
             </trans-unit>
-            <trans-unit id="408cb6073e60c5d966296a3207fc596adca75e01" datatype="html">
+            <trans-unit id="408cb6073e60c5d966296a3207fc596adca75e01" datatype="html" approved="yes">
                 <source>Admin</source>
-                <target>Administrateur</target>
+                <target state="translated">Admin</target>
                 <note priority="1" from="description">navigation-title</note>
+                <note>navigation-title</note>
             </trans-unit>
-            <trans-unit id="702bd9500775b6cc906aa3b51519401f2875c7ee" datatype="html">
+            <trans-unit id="702bd9500775b6cc906aa3b51519401f2875c7ee" datatype="html" approved="no">
                 <source>New Event</source>
-                <target>Nouvel évènement</target>
+                <target state="needs-translation">Nouvel évènement</target>
             </trans-unit>
-            <trans-unit id="9b6817a3ec25166cac30b6b821fefab0c9b95d1b" datatype="html">
+            <trans-unit id="9b6817a3ec25166cac30b6b821fefab0c9b95d1b" datatype="html" approved="no">
                 <source>Submit Event</source>
-                <target>Soumettre l'événement</target>
+                <target state="needs-translation">Soumettre l'événement</target>
             </trans-unit>
-            <trans-unit id="4bebbae34f84157c0b5b852529f0bc2c39a5a38a" datatype="html">
+            <trans-unit id="28f86ffd419b869711aa13f5e5ff54be6d70731c" datatype="html">
+                <source>Edit</source>
+                <target>modifier</target>
+            </trans-unit>
+            <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+                <source>Name</source>
+                <target>prénom</target>
+            </trans-unit>
+            <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
+                <source>Description</source>
+                <target>La description</target>
+            </trans-unit>
+            <trans-unit id="801b98c6f02fe3b32f6afa3ee854c99ed83474e6" datatype="html">
+                <source>URL</source>
+                <target>URL</target>
+            </trans-unit>
+            <trans-unit id="413f2795cd28838ca9140a9a64d030353e5817bd" datatype="html">
+                <source>Address/Location</source>
+                <target>Adresse / Lieu</target>
+            </trans-unit>
+            <trans-unit id="3e6acd589d8b82cafd8546409da0a36469d297a0" datatype="html">
+                <source>Start Date</source>
+                <target>Date de début</target>
+            </trans-unit>
+            <trans-unit id="0f551576faafbd2806d4af653469655f1b35afe1" datatype="html">
+                <source>End Date</source>
+                <target>Date de fin</target>
+            </trans-unit>
+            <trans-unit id="20863f05cbbba236c936781412d253077a17595d" datatype="html">
+                <source>Logo URL</source>
+                <target>Logo URL</target>
+            </trans-unit>
+            <trans-unit id="d8a5bfa02b3ae5db52836e6533beaee4ff7bb0dc" datatype="html">
+                <source>Leads</source>
+                <target>Pistes</target>
+                <note priority="1" from="description">header for list of people who lead the event</note>
+            </trans-unit>
+            <trans-unit id="c6bd8d6efff3588e69dd2ef5eef061edd95ce2ed" datatype="html">
+                <source>Speakers</source>
+                <target>Haut-parleurs</target>
+            </trans-unit>
+            <trans-unit id="4bebbae34f84157c0b5b852529f0bc2c39a5a38a" datatype="html" approved="no">
                 <source>Location:</source>
-                <target>Emplacement:</target>
+                <target state="needs-translation">Emplacement:</target>
             </trans-unit>
-            <trans-unit id="898db10a854e912c9a9e14a76667ecf407cc8279" datatype="html">
+            <trans-unit id="898db10a854e912c9a9e14a76667ecf407cc8279" datatype="html" approved="no">
                 <source>Speakers:</source>
-                <target>Haut-parleurs:</target>
+                <target state="needs-translation">Haut-parleurs:</target>
             </trans-unit>
-            <trans-unit id="d76be1a564265a42c764e5583fad76a25e5277a8" datatype="html">
+            <trans-unit id="d76be1a564265a42c764e5583fad76a25e5277a8" datatype="html" approved="no">
                 <source>Event not found.</source>
-                <target>Événement non trouvé.</target>
+                <target state="needs-translation">Événement non trouvé.</target>
             </trans-unit>
-            <trans-unit id="7195bf669e39ebfa7a11b72146b42a1c010846ef" datatype="html">
+            <trans-unit id="7195bf669e39ebfa7a11b72146b42a1c010846ef" datatype="html" approved="no">
                 <source>username</source>
-                <target>Nom d'utilisateur</target>
+                <target state="needs-translation">Nom d'utilisateur</target>
             </trans-unit>
-            <trans-unit id="d8b81951d25439864e92f750f7c99d7426d6517c" datatype="html">
+            <trans-unit id="d8b81951d25439864e92f750f7c99d7426d6517c" datatype="html" approved="no">
                 <source>password</source>
-                <target>mot de passe</target>
+                <target state="needs-translation">mot de passe</target>
             </trans-unit>
-            <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+            <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html" approved="no">
                 <source>Login</source>
-                <target>S'identifier</target>
+                <target state="needs-translation">S'identifier</target>
             </trans-unit>
-            <trans-unit id="6f9044d2914701a7cd65046a9850991765840dc3" datatype="html">
+            <trans-unit id="6f9044d2914701a7cd65046a9850991765840dc3" datatype="html" approved="no">
                 <source>Login With Google</source>
-                <target>Connexion avec Google</target>
+                <target state="needs-translation">Connexion avec Google</target>
             </trans-unit>
-            <trans-unit id="ddd1baf310ea5351f266d9cbde3154a2e636732e" datatype="html">
+            <trans-unit id="ddd1baf310ea5351f266d9cbde3154a2e636732e" datatype="html" approved="no">
                 <source>Login Anonymously</source>
-                <target>Connexion Anonymously</target>
+                <target state="needs-translation">Connexion Anonymously</target>
             </trans-unit>
-            <trans-unit id="a19487ad64f306ce348fb248de7c693ef38471d5" datatype="html">
+            <trans-unit id="a19487ad64f306ce348fb248de7c693ef38471d5" datatype="html" approved="no">
                 <source>Manage Administrators</source>
-                <target>Gérer les administrateurs</target>
+                <target state="needs-translation">Gérer les administrateurs</target>
+            </trans-unit>
+            <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
+                <source>Logout</source>
+                <target>Se déconnecter</target>
             </trans-unit>
         </body>
     </file>
