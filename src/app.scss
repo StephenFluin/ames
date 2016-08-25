@@ -131,7 +131,9 @@ $nav-link-color: #fff;
 }
 
 // MENU MOBILE
-@media (max-width: 900px) {
+// TODO: Update max-width for mobile nav to 900px once flexbox nav sizing is solved
+
+@media (max-width: 1170px) {
 
   $nav-height: 54px;
 
@@ -278,6 +280,7 @@ $nav-link-color: #fff;
 .card-hero {
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   height: 130px;
   overflow: hidden;
@@ -331,7 +334,7 @@ $nav-link-color: #fff;
 
 // Internal Page View
 .view-page .card-hero {
-  height: 250px;
+  height: 320px;
 }
 
 .view-page .card-hero__content {
@@ -363,6 +366,12 @@ $nav-link-color: #fff;
   text-transform: uppercase;
 }
 
+.side-panel {
+  width: 25%;
+  display: flex;
+  margin: 13px 0;
+  padding: 0;
+}
 // More Styles
 
 .background-side-picture {
