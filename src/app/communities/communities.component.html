@@ -14,21 +14,17 @@
             <li>
 
               <div class="card-hero-wrapper">
-                <div class="card-hero-overlay">
-                  <img class="card-hero" src="images/card-placeholder.jpg"/>
-                </div>
-
-                <div class="card-overlay-text">
-                  <md-card-title>{{community.icon}} {{community.name}}</md-card-title>
-                  <md-card-subtitle>{{community.location}}</md-card-subtitle>
+                <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('images/card-placeholder.jpg')">
+                  <div class="card-hero__content">
+                    <md-card-title>{{community.icon}} {{community.name}}</md-card-title>
+                    <md-card-subtitle>{{community.location}}</md-card-subtitle>
+                  </div>
                 </div>
               </div>
 
               <div class="card-info">
-                <md-card-subtitle>{{community.size}}140 members</md-card-subtitle>
                 <md-card-subtitle>Organized by <span class="font-weight-bolder">{{ (community.organizer | fireJoin:'/users/' | async)?.name}}</span></md-card-subtitle>
               </div>
-
 
               <div class="card-action">
                   <a class="view-more" [routerLink]="['/communities/',community.$key]">View</a>
@@ -41,5 +37,4 @@
         </md-card>
     </ul>
   </section>
-
 </main>

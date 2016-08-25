@@ -3,18 +3,17 @@
     <h2 class="internal-header">Communities</h2>
   </header>
 
-  <main class="main-content">
+  <main class="main-content view-page">
 
     <div class="card-hero-wrapper">
-      <div class="card-hero-overlay">
-        <img class="card-hero" src="images/card-placeholder.jpg"/>
-      </div>
-
-      <div class="card-overlay-text">
-        <md-card-title>{{community.icon}} {{community.name}}</md-card-title>
+      <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('images/card-placeholder.jpg')">
+        <div class="card-hero__content">
+          <h2>{{community.icon}} {{community.name}}</h2>
+          <br>
+          <a class="join" [href]="community.url">Join</a>
+        </div>
       </div>
     </div>
-
 
 
     <p>{{community.description}}</p>

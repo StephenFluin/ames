@@ -273,58 +273,35 @@ $nav-link-color: #fff;
 
 .pretty-card:hover {
   background: linear-gradient(rgba(255,255,255,0), rgba(227,239,241,0.5));
-
-}
-
-.card-hero-wrapper {
-  height: 130px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.card-hero-overlay:after {
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8));
-  content: '\A';
-  height:100%;
-  position: absolute;
-  top:0; left:0;
-  width: 100%;
 }
 
 .card-hero {
-  width: 100%;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  height: 130px;
+  overflow: hidden;
 }
 
-.card-hero-wrapper .card-overlay-text {
-  bottom: 0;
-  padding-bottom: 10px;
-  position: absolute;
-  text-align: left;
+.card-hero__content {
+   align-self: flex-end;
+   width: 100%;
 }
 
-.card-overlay-text md-card-title {
+.card-hero md-card-title {
   color: #fff;
   font-size: 20px;
   line-height: 20px;
   margin-bottom: 10px;
   margin-left: 15px;
-}
-
-
-.card-overlay-text md-card-subtitle {
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 0;
-  margin-left: 15px;
   text-align: left;
 }
 
-md-card-subtitle .material-icons {
-  color: rgba(255,255,255,0.8);
-  display: inline-flex;
-  font-size: 18px;
-  margin-right: 3px;
-  vertical-align: middle;
+.card-hero md-card-subtitle {
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 15px;
+  margin-left: 15px;
+  text-align: left;
 }
 
 .card-info {
@@ -332,7 +309,6 @@ md-card-subtitle .material-icons {
 }
 
 .card-info md-card-subtitle {
-  margin-bottom: 0;
   margin-bottom: 5px;
   margin-left: 15px;
   margin-top: 15px;
@@ -353,6 +329,39 @@ md-card-subtitle .material-icons {
   text-transform: uppercase;
 }
 
+// Internal Page View
+.view-page .card-hero {
+  height: 250px;
+}
+
+.view-page .card-hero__content {
+  align-self: center;
+  text-align: center;
+}
+
+.view-page h2 {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.view-page .join {
+  background-color: rgb(255,255,255);
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+  color: $color-secondary;
+  display: inline-block;
+  font-size: 15px;
+  height: 45px;
+  line-height: 45px;
+  margin-top: 20px;
+  min-width: 140px;
+  padding: 0 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
 
 // More Styles
 
