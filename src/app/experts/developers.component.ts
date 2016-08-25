@@ -16,35 +16,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
 @Component({
     moduleId: module.id,
     selector: 'developers-list',
-    template: `
-    <div *ngIf="auth.isAdmin | async">
-        <h2><span class="adminIcon"></span>All Developers</h2>
-        <div style="clear:both;"></div>
-        
-        <md-card *ngFor="let expert of experts | async" class="pretty-card" [routerLink]="['/experts/',expert.$key]">
-            <div style="display:flex;">
-                <div style="flex-grow:1;">
-                
-                    <md-card-title>{{ expert.name}}</md-card-title>
-                    <div>{{exwebpage}}</div>
-                    <md-card-subtitle *ngIf="expert.twitterID">@{{expert.twitterID}}</md-card-subtitle>
-                    <div *ngIf="expert.communities">
-                        <h4>Communities</h4>
-                        <div *ngFor="let community of expert.communities | refirebase" >
-                            <div>{{ (community | fireJoin:'/communities/' | async)?.name }}</div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div [style.background-image]="'url('+expert.picUrl+')'" *ngIf="expert.picUrl" class="background-side-picture"></div>
-                </div>
-                <div class="edit-button">
-                    <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(expert)">Edit</button>
-                </div>
-            </div> 
-        </md-card>
-    </div>
-    `,
+    templateUrl: 'developers.component.html',
     directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES],
     pipes: [RefirebasePipe, FireJoinPipe],
 

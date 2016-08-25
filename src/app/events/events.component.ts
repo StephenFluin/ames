@@ -15,38 +15,7 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
 @Component({
     moduleId: module.id,
     selector: 'events-list',
-    template: `<h2>Events</h2>
-    <div style="clear:both;"></div>
-    <div style="clear:both;" class="content">
-        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()"><span class="adminIcon"></span>New Event</button>
-        <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/events/submit'])">Submit Event</button>
-    </div>
-    
-    <md-card *ngFor="let event of events | async" class="pretty-card" [routerLink]="['/events/',event.$key]">
-        <div style="display:flex;">
-            <div style="flex-grow:1;">
-            
-                <md-card-title>{{event.name}}</md-card-title>
-                <div>{{event.startDate | date:"MMM d"}} - {{event.endDate | date:"MMM d"}}</div>
-                <div>{{event.location}}</div>
-                <md-card-subtitle *ngIf="event.twitterID">@{{event.twitterID}}</md-card-subtitle>
-                <div *ngIf="event.communities">
-                    <h4>Communities</h4>
-                    <div *ngFor="let community of event.communities | refirebase" >
-                        <div>{{ (community | fireJoin:'/communities/' | async)?.name }}</div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div [style.background-image]="'url('+event.logoUrl+')'" *ngIf="event.logoUrl" class="background-side-picture contain"></div>
-            </div>
-            <div class="edit-button">
-                <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(event)">Edit</button>
-            </div>
-        </div> 
-    </md-card>
-    
-    `,
+    templateUrl: 'events.component.html',
     directives: [MD_CARD_DIRECTIVES, MD_BUTTON_DIRECTIVES, ROUTER_DIRECTIVES],
     pipes: [RefirebasePipe, FireJoinPipe],
 

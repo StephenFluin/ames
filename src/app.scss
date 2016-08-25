@@ -131,7 +131,7 @@ $nav-link-color: #fff;
 }
 
 // MENU MOBILE
-// TODO: Update max-width for mobile nav to 900px once flexbox nav sizing is solved
+// TODO: Update max-width for mobile nav to 900px once flexbox nav size is solved
 
 @media (max-width: 1170px) {
 
@@ -286,6 +286,10 @@ $nav-link-color: #fff;
   overflow: hidden;
 }
 
+.events-component .card-hero {
+  height: 160px;
+}
+
 .card-hero__content {
    align-self: flex-end;
    width: 100%;
@@ -312,10 +316,16 @@ $nav-link-color: #fff;
 }
 
 .card-info md-card-subtitle {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
   margin-bottom: 5px;
   margin-left: 15px;
+  margin-right: 15px;
   margin-top: 15px;
+  overflow: hidden;
   text-align: left;
+  text-overflow: ellipsis;
 }
 
 .card-action {
@@ -372,7 +382,8 @@ $nav-link-color: #fff;
   margin: 13px 0;
   padding: 0;
 }
-// More Styles
+
+// Card logo Styles
 
 .background-side-picture {
     width:80px;
@@ -380,7 +391,10 @@ $nav-link-color: #fff;
     background-size:cover;
     background-position:center center;
     background-repeat: no-repeat;
+    margin-bottom: 15px;
+    margin-left: 15px;
 }
+
 .background-side-picture.contain {
     background-size:contain;
 }

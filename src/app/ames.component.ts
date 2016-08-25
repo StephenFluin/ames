@@ -16,7 +16,7 @@ declare var ga: any;
 
 })
 export class AmesAppComponent {
-    title = 'Ames';
+    title = 'Community';
 
 
     constructor(public router: Router, public auth: AuthService) {

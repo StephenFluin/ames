@@ -29,7 +29,7 @@ import {AdminComponent} from './admin.component';
 export const routes: RouterConfig = [
     {
         path: '',
-        component: HomeComponent,
+        component: CommunitiesComponent,
     },
     {
         path: 'missions',

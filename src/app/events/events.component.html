@@ -1,0 +1,51 @@
+<header class="hero-background">
+  <h2 class="internal-header">Events</h2>
+</header>
+
+<main class="main-content">
+  <p style="clear:both;">
+    <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()"><span class="adminIcon"></span>New Event</button>
+    <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/events/submit'])">Submit Event</button>
+  </p>
+
+  <section class="card-container events-component">
+
+    <ul class="card-list">
+      <md-card class="pretty-card" *ngFor="let event of events | async" class="pretty-card" [routerLink]="['/events/',event.$key]">
+        <li>
+
+          <div class="card-hero-wrapper">
+            <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('images/card-placeholder.jpg')">
+              <div class="card-hero__content">
+                <div [style.background-image]="'url('+event.logoUrl+')'" *ngIf="event.logoUrl" class="background-side-picture contain"></div>
+                <md-card-title>{{event.name}}</md-card-title>
+                <md-card-subtitle>{{event.location}}</md-card-subtitle>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-info">
+            <md-card-subtitle>Event Date <span class="font-weight-bolder">{{event.startDate | date:"MMM d"}} - {{event.endDate | date:"MMM d"}}</span></md-card-subtitle>
+            <md-card-subtitle *ngIf="event.twitterID">@{{event.twitterID}}</md-card-subtitle>
+          </div>
+
+          <div *ngIf="event.communities">
+              <h4>Communities</h4>
+              <div *ngFor="let community of event.communities | refirebase" >
+                  <div>{{ (community | fireJoin:'/communities/' | async)?.name }}</div>
+              </div>
+          </div>
+
+          <div class="card-action">
+              <a class="view-more" [routerLink]="['/events/',event.$key]">View</a>
+          </div>
+
+          <div class="edit-button">
+              <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(event)">Edit</button>
+          </div>
+        </li>
+      </md-card>
+    </ul>
+
+  </section>
+</main>
