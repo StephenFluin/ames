@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Expert } from '../shared/models';
 import { ExpertFormComponent } from './expert-form.component';
 import { Observable } from 'rxjs/Rx'; // load the full rxjs
-import { ActivatedRoute, Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
 import { AngularFire } from 'angularfire2';
 

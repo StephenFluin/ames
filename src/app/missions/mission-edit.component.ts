@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MissionFormComponent } from './mission-form.component';
 import { Mission } from '../shared/models';
 import { FirebaseService } from '../shared/firebase.service';
