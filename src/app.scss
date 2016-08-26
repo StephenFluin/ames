@@ -418,14 +418,17 @@ input {
 
 picker {border:1px solid #CCC;}
 label input,label picker, label textarea, label select {
-    display:block;
-    margin-bottom:16px;
-    margin-top:4px;
-    width:100%;
-    font-weight:300;
-    padding:8px;
-    font-size:14px;
-    background-color: #FAFAFA;border:1px solid #CCC;
+  display:block;
+  margin-bottom:16px;
+  margin-top:4px;
+  width:100%;
+  font-weight:300;
+  padding:8px;
+  font-size:14px;
+  background-color: #FAFAFA;border:1px solid #CCC;
+}
+form md-input {
+  width:100%;
 }
 
 label input[type="checkbox"] {
