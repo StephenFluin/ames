@@ -2,28 +2,24 @@
     <div class="nav__header-row">
 
         <div>
-            <a routerLink="/">
+            <a routerLink="/" style="white-space: nowrap;">
                 <img class="nav-logo" src="images/angular-logo-with-text.svg" />
                 <span class="microsite-name font-weight-ligher">Community</span>
             </a>
         </div>
 
-        <input type="checkbox" id="site-nav-checkbox" class="visuallyhidden">
+        <input type="checkbox" id="site-nav-checkbox" class="visuallyhidden" [(ngModel)]="siteMenu">
 
         <div class="top-nav-wrapper">
             <label for="site-nav-checkbox"><a class="navigation__link" i18n>SITE MENU</a></label>
             <nav class="top-navigation">
-                <a class="navigation__link" routerLink="/events" i18n>Events</a>
-                <a class="navigation__link" routerLink="/missions" i18n>Missions</a>
-                <a class="navigation__link" routerLink="/developers" i18n>Developers</a>
-                <a class="navigation__link" routerLink="/resources" i18n>Resources</a>
+                <a class="navigation__link" routerLink="/events" i18n (click)="siteMenu = false">Events</a>
+                <a class="navigation__link" routerLink="/missions" i18n (click)="siteMenu = false">Missions</a>
+                <a class="navigation__link" routerLink="/developers" i18n (click)="siteMenu = false">Developers</a>
+                <a class="navigation__link" routerLink="/resources" i18n (click)="siteMenu = false">Resources</a>
 
                 <a class="navigation__link" *ngIf="auth.isAdmin | async" [routerLink]="['/admin']" style="width:150px;"><span class="adminIcon"></span><span i18n>Admin</span></a>
-            </nav>
-
-            <div class="layout-spacer"></div>
-
-            <nav class="top-navigation">
+                <div class="layout-spacer"></div>
                 <user-login></user-login>
             </nav>
         </div>
