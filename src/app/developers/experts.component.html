@@ -10,7 +10,7 @@
 
   <section class="card-container">
     <ul class="card-list">
-      <md-card *ngFor="let expert of experts | async" class="pretty-card" [routerLink]="['/experts/',expert.$key]">
+      <md-card *ngFor="let expert of experts | async" class="pretty-card" [routerLink]="['/developers/',expert.$key]">
         <li>
 
           <div class="card-hero-wrapper">
@@ -35,7 +35,7 @@
           </div>
 
           <div class="card-action">
-              <a class="view-more" [routerLink]="['/experts/',expert.$key]">View</a>
+              <a class="view-more" [routerLink]="['/developers',expert.$key]">View</a>
           </div>
 
           <div class="edit-button">
