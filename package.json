@@ -4,7 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng server",
+    "start": "node-sass --output-style compressed --recursive --output ./src/ ./src/ && ngc -p src/ && ng server",
     "postinstall": "typings install",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
@@ -50,6 +50,7 @@
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.3",
     "karma-jasmine": "^0.3.8",
+    "node-sass": "^3.8.0",
     "protractor": "^3.3.0",
     "ts-node": "^0.5.5",
     "tslint": "^3.6.0",

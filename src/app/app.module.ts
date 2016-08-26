@@ -55,36 +55,35 @@ import {ArrayPipe} from './shared/array.pipe';
 import {PickerComponent} from './shared/picker.component';
 import {CommunityFormComponent} from './communities/community-form.component';
 
-
-
-
-
 @NgModule({
     // Add RouterModule
-    declarations: [AmesAppComponent, 
-    HomeComponent, MissionsComponent, MissionListComponent, MissionDetailComponent, MissionEditComponent, DevelopersComponent, ExpertsComponent, ExpertViewComponent, ExpertEditComponent, EventsComponent, EventSubmitComponent, EventEditComponent, EventViewComponent, CommunitiesComponent, CommunitySubmitComponent, CommunityEditComponent, CommunityViewComponent, LoginComponent, ResourcesComponent, ResourceEditComponent, ResourceQueueComponent, ResourceSubmitComponent, UserProfileComponent, UserProfileShortComponent, AdminComponent,
-    UserLoginComponent, MissionFormComponent, ExpertFormComponent, EventFormComponent, ResourceFormComponent,
-    // Screens
-     
-    // Pipes
-    ExpertContentComponent,
-    RefirebasePipe,
-    FireJoinPipe,
-    ArrayPipe,
-    // Views
-    CommunityFormComponent,
-    PickerComponent,
+    declarations: [
+        AmesAppComponent,
+        HomeComponent, MissionsComponent, MissionListComponent, MissionDetailComponent, MissionEditComponent, DevelopersComponent, ExpertsComponent, ExpertViewComponent, ExpertEditComponent, EventsComponent, EventSubmitComponent, EventEditComponent, EventViewComponent, CommunitiesComponent, CommunitySubmitComponent, CommunityEditComponent, CommunityViewComponent, LoginComponent, ResourcesComponent, ResourceEditComponent, ResourceQueueComponent, ResourceSubmitComponent, UserProfileComponent, UserProfileShortComponent, AdminComponent,
+        UserLoginComponent, MissionFormComponent, ExpertFormComponent, EventFormComponent, ResourceFormComponent,
+
+        // Pipes
+        ExpertContentComponent,
+        RefirebasePipe,
+        FireJoinPipe,
+        ArrayPipe,
+        // Views
+        CommunityFormComponent,
+        PickerComponent,
     ],
-    imports: [BrowserModule, RouterModule.forRoot(routes), FormsModule, 
-      MdSlideToggleModule, MdButtonModule, MdToolbarModule, MdCardModule, MdInputModule,
-      AngularFireModule.initializeApp({apiKey: "AIzaSyCTOFGccvaEedz1Jykckni5T-WP7XixS_o",
-         authDomain: "project-4800661445983438923.firebaseapp.com",
-         databaseURL: "https://project-4800661445983438923.firebaseio.com/",
-         storageBucket: "project-4800661445983438923.appspot.com",}),
+    imports: [
+        BrowserModule, 
+        RouterModule.forRoot(routes), 
+        FormsModule,
+        MdSlideToggleModule, MdButtonModule, MdToolbarModule, MdCardModule, MdInputModule,
+        AngularFireModule.initializeApp({
+            apiKey: "AIzaSyCTOFGccvaEedz1Jykckni5T-WP7XixS_o",
+            authDomain: "project-4800661445983438923.firebaseapp.com",
+            databaseURL: "https://project-4800661445983438923.firebaseio.com/",
+            storageBucket: "project-4800661445983438923.appspot.com",
+        }),
     ],
     entryComponents: [AmesAppComponent],
-    providers: [
-    ],
-    bootstrap: [AmesAppComponent],  
-  })
+    bootstrap: [AmesAppComponent],
+})
 export class MyAppModule { }

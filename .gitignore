@@ -5,6 +5,8 @@
 /tmp
 *.ngfactory.ts
 /src/ngfactory
+*.css
+*.metadata.json
 
 # dependencies
 /node_modules

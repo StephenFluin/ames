@@ -9,23 +9,7 @@ import { FirebaseService } from '../shared/firebase.service';
 @Component({
     moduleId: module.id,
     selector: 'community-view',
-    template: `
-    <div *ngIf="community">
-        <h2>{{community.name }}</h2>
-        <p>{{community.description}}</p>
-        <p><strong>Location:</strong> {{community.location}}</p>
-        <p><strong>Organizer:</strong> {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
-        <p><a [href]="community.url">{{community.url}}</a></p>
-        <p>Members:</p>
-        <div *ngFor="let developer of community.members | refirebase" class="content" style="display:flex;align-items:center">
-            <img class="shield" *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" /> 
-            {{(developer | fireJoin:'/users/' | async)?.name}}
-        </div>
-    </div>
-    <div *ngIf="!community">
-        <p>Community not found.</p>
-    </div>
-    `,
+    templateUrl: 'community-view.component.html',
 })
 export class CommunityViewComponent {
     community: Community;
@@ -33,7 +17,7 @@ export class CommunityViewComponent {
     constructor(public route: ActivatedRoute, public communityService: FirebaseService<Community>) {
         communityService.setup('/communities/');
 
-        // This calls .subscribe so we don't rely on the template for unrolling 
+        // This calls .subscribe so we don't rely on the template for unrolling
         // the observable (which requires 2 components)
         route.params.subscribe(params =>
             communityService.get(params['id']).subscribe((community) => {

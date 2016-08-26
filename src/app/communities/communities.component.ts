@@ -6,26 +6,8 @@ import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
     moduleId: module.id,
-    template: `<h2>Communities</h2>
-    <p style="clear:both;">
-        <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()"><span class="adminIcon"></span>New Community</button>
-        <button *ngIf="auth.isUser | async" md-raised-button color="primary" [routerLink]="['/communities/submit']">Submit Community</button>
-    </p>
-    
-    <md-card *ngFor="let community of communities | async" class="pretty-card" [routerLink]="['/communities/',community.$key]">
-        <md-card-title>{{community.icon}} {{community.name}}</md-card-title>
-        <md-card-subtitle>{{community.location}}</md-card-subtitle>
- 
-        <div>Organizer:</div>
-        <div>{{ (community.organizer | fireJoin:'/users/' | async)?.name}}</div>
-        <div class="edit-button">
-            <button *ngIf="(auth.isAdmin | async) || (auth.uid | async)==community.organizer" md-raised-button (click)="edit(community)">Edit</button>
-        </div>
-
-    </md-card>
-    
-    `,
-
+    templateUrl: 'communities.component.html',
+    styleUrls: ['communities.component.css']
 })
 export class CommunitiesComponent {
     communities;

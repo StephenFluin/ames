@@ -11,20 +11,12 @@ declare var ga: any;
     selector: 'ames-app',
     templateUrl: 'ames.component.html',
     providers: [AuthService, FirebaseService],
-    
+
 })
 export class AmesAppComponent {
     constructor(public router: Router, public auth: AuthService) {
         router.events.filter(e => e instanceof NavigationEnd).subscribe((n: NavigationEnd) => {
-            // Log analytics here      
             ga('send', 'pageview', n.urlAfterRedirects);
         });
     }
-    // Remove if/when https://github.com/angular/angular/issues/8357 is fixed 
-    home() {
-        this.router.navigate(['/']);
-    }
-
-
-
 }

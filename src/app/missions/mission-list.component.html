@@ -1,0 +1,45 @@
+<header class="hero-background">
+  <h2 class="internal-header">Mission List</h2>
+</header>
+
+<main class="main-content">
+  <form *ngIf="auth.isAdmin | async" (submit)="createMission()" style="clear:both;">
+     <span class="adminIcon"></span> New Mission
+      <input placeholder="name" name="name" [(ngModel)]="newMission.name">
+      <button type="submit">Create</button>
+  </form>
+
+  <section class="card-container">
+
+    <ul class="card-list">
+      <md-card *ngFor="let mission of list | async" class="pretty-card" [routerLink]="['/missions/',mission.$key]">
+        <li>
+
+          <div class="card-hero-wrapper">
+            <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('images/card-placeholder.jpg')">
+              <div class="card-hero__content">
+                <md-card-title>{{mission.name}}</md-card-title>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-info">
+            <md-card-subtitle>Organized by <span class="font-weight-bolder">{{(mission.organizer |  fireJoin:'/users/' | async)?.name }}</span></md-card-subtitle>
+            <br>
+            <md-card-subtitle>{{mission.description}}</md-card-subtitle>
+          </div>
+
+          <div class="card-action">
+              <a class="view-more" [routerLink]="['/missions/',mission.$key]">View</a>
+          </div>
+
+          <div class="edit-button">
+            <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(mission)">Edit</button>
+          </div>
+
+        </li>
+      </md-card>
+    </ul>
+
+  </section>
+</main>
