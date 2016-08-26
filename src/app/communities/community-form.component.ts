@@ -9,16 +9,18 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
     selector: 'community-form',
     template: `
     <form *ngIf="community" (submit)="save()" ngNoForm>
-        <label>Name <input [(ngModel)]="community.name"></label>
-        <label>Description <input [(ngModel)]="community.description"></label>
-        <label>Location <input [(ngModel)]="community.location"></label>
+        <md-input placeholder="Name" [(ngModel)]="community.name"></md-input>
+        <md-input placeholder="Banner URL" [(ngModel)]="community.bannerUrl"></md-input>
+        <img [src]="community.bannerUrl" style="max-height:1em;"/>
+        <md-input placeholder="Description" [(ngModel)]="community.description"></md-input>
+        <md-input placeholder="Location" [(ngModel)]="community.location"></md-input>
         <label>Organizer 
         <select [(ngModel)]="community.organizer">
             <option *ngFor="let developer of developers | async" [value]="developer.$key">{{developer.name}}</option>
         </select>
         {{community.organizer}}
         </label>
-        <label>URL<input [(ngModel)]="community.url"></label>
+        <md-input placeholder="URL" [(ngModel)]="community.url"></md-input>
         <div>Participants</div>
         <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="community.members" (update)="chooseParticipants($event)"></picker>
         

@@ -8,15 +8,15 @@ import { Event, Community } from '../shared/models';
     selector: 'event-form',
     template: `
     <form *ngIf="event" (submit)="save(event)" ngNoForm>
-        <label><span i18n>Name</span> <input name="name" [(ngModel)]="event.name" required #spy></label>
-        <label><span i18n>Description</span> <input [(ngModel)]="event.description"></label>
+        <md-input i18n-placeholder placeholder="Name" [(ngModel)]="event.name" required #spy></md-input>
+        <md-input i18n-placeholder placeholder="Description" [(ngModel)]="event.description"></md-input>
         
-        <label><span i18n>URL</span> <input [(ngModel)]="event.url"></label>
-        <label><span i18n>Address/Location</span> <input [(ngModel)]="event.location"></label>
+        <md-input i18n-placeholder placeholder="URL" [(ngModel)]="event.url"></md-input>
+        <md-input i18n-placeholder placeholder="Address/Location" [(ngModel)]="event.location"></md-input>
         
-        <label><span i18n>Start Date</span><input [(ngModel)]="event.startDate" type="date"></label>
-        <label><span i18n>End Date</span><input [(ngModel)]="event.endDate" type="date"></label>
-        <label><span i18n>Logo URL</span> <img *ngIf="event.logoUrl" [src]="event.logoUrl" style="max-height:1em;"> <input [(ngModel)]="event.logoUrl"></label>
+        <md-input i18n-placeholder placeholder="Start Date" [(ngModel)]="event.startDate" type="date"></md-input>
+        <md-input i18n-placeholder placeholder="End Date" [(ngModel)]="event.endDate" type="date"></md-input>
+        <md-input i18n-placeholder placeholder="Logo URL" [(ngModel)]="event.logoUrl"></md-input><img *ngIf="event.logoUrl" [src]="event.logoUrl" style="max-height:1em;">
         <label><span i18n="header for list of people who lead the event">Leads</span>
         <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="event.leads" (update)="chooseLeads($event)"></picker></label>
         <label><span i18n>Speakers</span>

@@ -11,7 +11,7 @@ import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
     selector: 'mission-form',
     template: `
     <form *ngIf="mission" (submit)="save()" ngNoForm>
-        <label><input [(ngModel)]="mission.name" placeholder="name"></label>
+        <md-input placeholder="" [(ngModel)]="mission.name" placeholder="name"></md-input>
         <label><textarea [(ngModel)]="mission.description" placeholder="description"></textarea></label>
        <!-- <div *ngIf="mission.startDate && mission.endDate">
             {{ mission.startDate}} - {{ mission.endDate}}
