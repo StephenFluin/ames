@@ -1,33 +1,34 @@
 <header class="nav__header box-shadow">
-  <div class="nav__header-row">
+    <div class="nav__header-row">
 
-    <div routerLink="/">
-      <!-- [routerLink]="['/']" -->
-      <img class="nav-logo" src="images/angular-logo-with-text.svg" />
-      <span class="microsite-name font-weight-ligher">Community</span>
+        <div>
+            <a routerLink="/">
+                <img class="nav-logo" src="images/angular-logo-with-text.svg" />
+                <span class="microsite-name font-weight-ligher">Community</span>
+            </a>
+        </div>
+
+        <input type="checkbox" id="site-nav-checkbox" class="visuallyhidden">
+
+        <div class="top-nav-wrapper">
+            <label for="site-nav-checkbox"><a class="navigation__link" i18n>SITE MENU</a></label>
+            <nav class="top-navigation">
+                <a class="navigation__link" routerLink="/events" i18n>Events</a>
+                <a class="navigation__link" routerLink="/missions" i18n>Missions</a>
+                <a class="navigation__link" routerLink="/developers" i18n>Developers</a>
+                <a class="navigation__link" routerLink="/resources" i18n>Resources</a>
+
+                <a class="navigation__link" *ngIf="auth.isAdmin | async" [routerLink]="['/admin']" style="width:150px;"><span class="adminIcon"></span><span i18n>Admin</span></a>
+            </nav>
+
+            <div class="layout-spacer"></div>
+
+            <nav class="top-navigation">
+                <user-login></user-login>
+            </nav>
+        </div>
+
     </div>
-
-    <input type="checkbox" id="site-nav-checkbox" class="visuallyhidden">
-
-    <div class="top-nav-wrapper">
-      <label for="site-nav-checkbox"><a class="navigation__link" i18n>SITE MENU</a></label>
-      <nav class="top-navigation">
-        <a class="navigation__link" routerLink="/events" i18n>Events</a>
-        <a class="navigation__link" routerLink="/missions" i18n>Missions</a>
-        <a class="navigation__link" routerLink="/experts" i18n>Experts</a>
-        <a class="navigation__link" routerLink="/resources" i18n>Resources</a>
-
-        <a class="navigation__link" *ngIf="auth.isAdmin | async" [routerLink]="['/admin']"><span class="adminIcon"></span><span i18n>Admin</span></a>
-      </nav>
-
-      <div class="layout-spacer"></div>
-
-      <nav class="top-navigation">
-        <user-login></user-login>
-      </nav>
-    </div>
-
-  </div>
 </header>
 
 <router-outlet></router-outlet>

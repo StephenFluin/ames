@@ -41,6 +41,6 @@ export class ExpertsComponent {
     }
 
     edit(expert) {
-        this.router.navigate(['/experts/', expert.$key, '/edit']);
+        this.router.navigate(['developers',expert.$key, 'edit']);
     }
 }

@@ -10,7 +10,7 @@ import { AngularFire } from 'angularfire2';
     moduleId: module.id,
     selector: 'expert-edit',
     template: `
-    <h2> <a [routerLink]="['/experts']">Experts</a> &gt; <span *ngIf="(expert | async)?.$key=='new' && !(expert | async)?.firstName && !(expert | async)?.lastName">New Expert</span>{{(expert | async)?.firstName}} {{(expert | async)?.lastName}}</h2>
+    <h2> <a routerLink="/developers">Developers</a> &gt; <span *ngIf="(expert | async)?.$key=='new' && !(expert | async)?.firstName && !(expert | async)?.lastName">New Expert</span>{{(expert | async)?.firstName}} {{(expert | async)?.lastName}}</h2>
     <expert-form [expert]="expert | async" (update)="processUpdate($event)" (delete)="delete($event)"></expert-form>`,
 })
 export class ExpertEditComponent {
@@ -42,10 +42,10 @@ export class ExpertEditComponent {
             console.error(ex);
         }
 
-        this.router.navigate(['/experts']);
+        this.router.navigate(['/developers']);
     }
     delete(expert: Expert) {
         this.expertService.delete(expert);
-        this.router.navigate(['/experts']);
+        this.router.navigate(['/developers']);
     }
 }

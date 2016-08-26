@@ -21,11 +21,11 @@ import {MissionListComponent} from './missions/mission-list.component';
 import {MissionFormComponent} from './missions/mission-form.component';
 import {MissionDetailComponent} from './missions/mission-detail.component';
 import {MissionEditComponent} from './missions/mission-edit.component';
-import {DevelopersComponent} from './experts/developers.component';
-import {ExpertsComponent} from './experts/experts.component';
-import {ExpertViewComponent} from './experts/expert-view.component';
-import {ExpertFormComponent} from './experts/expert-form.component';
-import {ExpertEditComponent} from './experts/expert-edit.component';
+import {DevelopersComponent} from './developers/developers.component';
+import {ExpertsComponent} from './developers/experts.component';
+import {ExpertViewComponent} from './developers/expert-view.component';
+import {ExpertFormComponent} from './developers/expert-form.component';
+import {ExpertEditComponent} from './developers/expert-edit.component';
 import {EventsComponent} from './events/events.component';
 import {EventSubmitComponent} from './events/event-submit.component';
 import {EventEditComponent} from './events/event-edit.component';
@@ -48,7 +48,7 @@ import {AdminComponent} from './admin.component';
 import {UserLoginComponent} from './users/user-login.component';
 
 // Non Routed
-import {ExpertContentComponent} from './experts/expert-content.component';
+import {ExpertContentComponent} from './developers/expert-content.component';
 import {RefirebasePipe} from './shared/refirebase.pipe';
 import {FireJoinPipe} from './shared/fire-join.pipe';
 import {ArrayPipe} from './shared/array.pipe';

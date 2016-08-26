@@ -1,9 +1,3 @@
-/**
-https://coolors.co/app/1b3022-505a5b-f2e9e4-a67db8-7261a3
-Scheme:
-#3D3175
-*/
-
 // Global Variables
 $color-primary: #00838f;
 $color-secondary: #006064;
@@ -19,6 +13,7 @@ $box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
   padding:0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  text-decoration: none;
 }
 
 h2 { display: inline; margin-left:16px; }
@@ -133,7 +128,7 @@ $nav-link-color: #fff;
 // MENU MOBILE
 // TODO: Update max-width for mobile nav to 900px once flexbox nav size is solved
 
-@media (max-width: 1170px) {
+@media (max-width: 970px) {
 
   $nav-height: 54px;
 

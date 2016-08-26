@@ -4,10 +4,10 @@ import {MissionsComponent} from './missions/missions.component';
 import {MissionListComponent} from './missions/mission-list.component';
 import {MissionDetailComponent} from './missions/mission-detail.component';
 import {MissionEditComponent} from './missions/mission-edit.component';
-import {DevelopersComponent} from './experts/developers.component';
-import {ExpertsComponent} from './experts/experts.component';
-import {ExpertViewComponent} from './experts/expert-view.component';
-import {ExpertEditComponent} from './experts/expert-edit.component';
+import {DevelopersComponent} from './developers/developers.component';
+import {ExpertsComponent} from './developers/experts.component';
+import {ExpertViewComponent} from './developers/expert-view.component';
+import {ExpertEditComponent} from './developers/expert-edit.component';
 import {EventsComponent} from './events/events.component';
 import {EventSubmitComponent} from './events/event-submit.component';
 import {EventEditComponent} from './events/event-edit.component';
@@ -40,10 +40,10 @@ export const routes: Routes = [
             { path: ':id/edit', component: MissionEditComponent },
         ]
     },
-    { path: 'developers', component: DevelopersComponent },
-    { path: 'experts', component: ExpertsComponent },
-    { path: 'experts/:id', component: ExpertViewComponent },
-    { path: 'experts/:id/edit', component: ExpertEditComponent },
+    { path: 'all-developers', component: DevelopersComponent },
+    { path: 'developers', component: ExpertsComponent },
+    { path: 'developers/:id', component: ExpertViewComponent },
+    { path: 'developers/:id/edit', component: ExpertEditComponent },
     { path: 'events', component: EventsComponent },
     { path: 'events/submit', component: EventSubmitComponent },
     { path: 'events/:id', component: EventViewComponent },
