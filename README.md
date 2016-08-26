@@ -38,3 +38,5 @@ To switch to AOT:
 To switch to JIT:
 
     rm src/system-config.ts ; ln -s system-config.jit.ts src/system-config.ts
+
+To run while using JIT, use `ng serve` instead of `npm start` to skip the un-needed compilation steps.
