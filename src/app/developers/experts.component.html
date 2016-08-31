@@ -4,7 +4,7 @@
 
 <main class="main-content">
   <div style="clear:both;" class="content">
-      <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" [routerLink]="['/developers']"><span class="adminIcon"></span>All Developers</button>
+      <button *ngIf="auth.isAdmin | async" md-raised-button color="primary" [routerLink]="['/all-developers']"><span class="adminIcon"></span>All Developers</button>
       <button *ngIf="auth.isUser | async" md-raised-button color="primary" (click)="router.navigate(['/profile'])">My Profile</button>
   </div>
 
@@ -14,7 +14,7 @@
         <li>
 
           <div class="card-hero-wrapper">
-            <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('images/card-placeholder.jpg')">
+            <div class="card-hero">
               <div class="card-hero__content">
                 <div [style.background-image]="'url('+(expert.observable | async)?.picUrl+')'" *ngIf="(expert.observable | async)?.picUrl" class="background-side-picture"></div>
                 <md-card-title>{{ (expert.observable | async)?.name}}</md-card-title>
