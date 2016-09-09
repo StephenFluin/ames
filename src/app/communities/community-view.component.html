@@ -1,37 +1,42 @@
 <div *ngIf="community">
-  <div class="card-hero-wrapper view-page">
-    <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('images/card-placeholder.jpg')">
-      <div class="card-hero__content">
-        <h2>{{community.icon}} {{community.name}}</h2>
-        <br>
-        <a class="join" [href]="community.url">Join</a>
+  <header class="hero-background">
+    <h2 class="internal-header">Community</h2>
+  </header>
+
+  <main class="main-content">
+    <md-card class="profile-card">
+      <div class="card-hero-wrapper view-page">
+        <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('')">
+          <div class="card-hero__content">
+            <h2>{{community.icon}} {{community.name}}</h2>
+            <br>
+            <a class="join" [href]="community.url">Join</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <main class="main-content view-page">
-
-    <md-card class="side-panel">
       <p><strong>Location:</strong> {{community.location}}</p>
       <p><strong>Organizer:</strong> {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
-    </md-card>
 
-    <md-card class="pretty-cards">
+
       <p>{{community.description}}</p>
+
       <p>Members:</p>
       <div *ngFor="let developer of community.members | refirebase" class="content" style="display:flex;align-items:center">
           <img class="shield" *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" />
           {{(developer | fireJoin:'/users/' | async)?.name}}
       </div>
+
     </md-card>
-
-    <!-- <p><a [href]="community.url">{{community.url}}</a></p> -->
-
   </main>
 </div>
 
 <div *ngIf="!community">
   <header class="hero-background">
-    <h2 class="internal-header">Community not found</h2>
+      <h2 class="internal-header">Community</h2>
   </header>
+
+  <main class="main-content">
+    <p>Community not found.</p>
+  </main>
 </div>

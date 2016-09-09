@@ -1,0 +1,61 @@
+
+.two-column {
+  padding-bottom: 20px;
+}
+
+.expert-content {
+  margin-top: 20px;
+}
+
+expert-content {
+  background-color: rgba(0, 0, 0, 0.05);
+  display:block;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+expert-content:hover {
+  background-color: #DDD;
+  display:block;
+}
+
+@media (min-width: 720px) {
+  .form-layout {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  //Two Column Layout
+
+  .two-column {
+    width: 50%;
+  }
+
+  .two-column:nth-of-type(odd) {
+    padding-right:15px;
+  }
+
+  .two-column:nth-of-type(even) {
+    padding-left:15px;
+  }
+
+  //Three Column Layout
+
+  .three-column {
+    width: 33%;
+  }
+
+  .three-column:nth-of-type(odd) {
+    padding-right:15px;
+  }
+
+  .three-column:nth-of-type(even) {
+    padding-left:15px;
+    padding-right:15px;
+  }
+
+  expert-content {
+    width: 50%;
+  }
+}

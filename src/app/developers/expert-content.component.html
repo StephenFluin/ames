@@ -1,0 +1,21 @@
+<div class="developer-content">
+    <a [href]="content.url" target="_blank" class="content-title">
+
+      <span *ngIf="content.type=='Blog Post'">Blog:</span>
+      <span *ngIf="content.type=='Presentation'">Presentation:</span>
+      <span *ngIf="content.type=='Other'">Other:</span>
+        <!-- <svg *ngIf="content.type=='Presentation'" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="#000000" d="M2,3H10A2,2 0 0,1 12,1A2,2 0 0,1 14,3H22V5H21V16H15.25L17,22H15L13.25,16H10.75L9,22H7L8.75,16H3V5H2V3M5,5V14H19V5H5Z" />
+        </svg>
+        <svg *ngIf="content.type=='Blog Post'" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="#000000" d="M18,22A2,2 0 0,0 20,20V4C20,2.89 19.1,2 18,2H12V9L9.5,7.5L7,9V2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18Z" />
+        </svg>
+        <svg *ngIf="content.type=='Other'" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="#000000" d="M5,3C3.89,3 3,3.89 3,5V19C3,20.11 3.89,21 5,21H11V3M13,3V11H21V5C21,3.89 20.11,3 19,3M13,13V21H19C20.11,21 21,20.11 21,19V13" />
+        </svg> -->
+    </a>
+
+    <a  [href]="content.url" target="_blank" class="content-item">
+        {{content.title}}
+    </a>
+</div>
