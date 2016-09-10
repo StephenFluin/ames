@@ -7,30 +7,8 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 @Component({
     moduleId: module.id,
     selector: 'community-form',
-    template: `
-    <form *ngIf="community" (submit)="save()" ngNoForm>
-        <md-input placeholder="Name" [(ngModel)]="community.name"></md-input>
-        <md-input placeholder="Banner URL" [(ngModel)]="community.bannerUrl"></md-input>
-        <img [src]="community.bannerUrl" style="max-height:1em;"/>
-        <md-input placeholder="Description" [(ngModel)]="community.description"></md-input>
-        <md-input placeholder="Location" [(ngModel)]="community.location"></md-input>
-        <label>Organizer 
-        <select [(ngModel)]="community.organizer">
-            <option *ngFor="let developer of developers | async" [value]="developer.$key">{{developer.name}}</option>
-        </select>
-        {{community.organizer}}
-        </label>
-        <md-input placeholder="URL" [(ngModel)]="community.url"></md-input>
-        <div>Participants</div>
-        <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="community.members" (update)="chooseParticipants($event)"></picker>
-        
-        <div class="options">
-            <span (click)="deleteThis()" class="delete">delete</span>
-            <button md-raised-button color="primary" type="submit" >Save</button>
-        </div>
-    </form>
-        `,
-    styles: ['label input {display:block;margin-bottom:16px;}'],
+    templateUrl: 'community-form.component.html',
+    styleUrls: ['../developers/expert-form.component.css']
 
 })
 export class CommunityFormComponent {

@@ -3,10 +3,17 @@
 </header>
 
 <main class="main-content">
-  <form *ngIf="auth.isAdmin | async" (submit)="createMission()" style="clear:both;">
-     <span class="adminIcon"></span> New Mission
-      <input placeholder="name" name="name" [(ngModel)]="newMission.name">
-      <button type="submit">Create</button>
+  <form class="mission-form" *ngIf="auth.isAdmin | async" (submit)="createMission()">
+      <fieldset class="content">
+          <h2>New Mission</h2>
+          <div class="form-layout">
+            <md-input placeholder="Name" name="name" [(ngModel)]="newMission.name"></md-input>
+          </div>
+
+          <div class="options">
+            <button md-raised-button color="primary" type="submit">Create</button>
+          </div>
+      </fieldset>
   </form>
 
   <section class="card-container">

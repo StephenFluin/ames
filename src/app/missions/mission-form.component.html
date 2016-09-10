@@ -1,0 +1,28 @@
+<form *ngIf="mission" (submit)="save()" ngNoForm>
+
+  <div class="form-layout">
+    <div class="two-column"><md-input [(ngModel)]="mission.name" placeholder="Name"></md-input></div>
+    <div class="two-column ">
+      <label>
+        Organizer
+        <select [(ngModel)]="mission.organizer">
+            <option *ngFor="let developer of developers | async" [value]="developer.$key">{{developer.name}}</option>
+        </select>
+      </label>
+    </div>
+    <!-- <div class="two-column"><md-input placeholder="Start Date" [(ngModel)]="mission.startDate" type="date"></md-input></div>
+    <div class="two-column"><md-input placeholder="End Date" [(ngModel)]="mission.endDate" type="date"></md-input></div> -->
+  </div>
+
+  <div><md-input placeholder="Description" [(ngModel)]="mission.description"></md-input></div>
+
+  <fieldset class="content">
+      <h2>Participants</h2>
+      <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="mission.participants" (update)="chooseParticipants($event)"></picker>
+  </fieldset>
+
+  <div class="options">
+      <span (click)="deleteThis()" class="delete">Delete</span>
+      <button md-raised-button color="primary" type="submit" >Save</button>
+  </div>
+</form>

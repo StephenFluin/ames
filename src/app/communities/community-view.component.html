@@ -3,7 +3,7 @@
     <h2 class="internal-header">Community</h2>
   </header>
 
-  <main class="main-content">
+  <main class="main-content internal-view">
     <md-card class="profile-card">
       <div class="card-hero-wrapper view-page">
         <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('')">
@@ -15,18 +15,25 @@
         </div>
       </div>
 
-      <p><strong>Location:</strong> {{community.location}}</p>
-      <p><strong>Organizer:</strong> {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
-
-
-      <p>{{community.description}}</p>
-
-      <p>Members:</p>
-      <div *ngFor="let developer of community.members | refirebase" class="content" style="display:flex;align-items:center">
-          <img class="shield" *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" />
-          {{(developer | fireJoin:'/users/' | async)?.name}}
+    <div class="two-column">
+      <div class="left">
+        <p><i class="material-icons">location_on</i>{{community.location}}</p>
+        <p><i class="material-icons">person</i>Organizer: {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
       </div>
 
+      <div class="right">
+        <h3>Description</h3>
+        <p>{{community.description}}</p>
+      </div>
+    </div>
+
+    <h3>Members</h3>
+      <div class="two-column internal-members member-container">
+        <div *ngFor="let developer of community.members | refirebase" class="content">
+            <img class="shield" *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" />
+            <p> {{(developer | fireJoin:'/users/' | async)?.name}} </p>
+        </div>
+      </div>
     </md-card>
   </main>
 </div>

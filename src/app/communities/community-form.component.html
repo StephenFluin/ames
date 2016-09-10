@@ -1,0 +1,35 @@
+<form *ngIf="community" (submit)="save()" ngNoForm>
+
+  <div class="form-layout">
+    <div class="two-column "><md-input placeholder="Name" [(ngModel)]="community.name"></md-input></div>
+    <div class="two-column "><md-input placeholder="Location" [(ngModel)]="community.location"></md-input></div>
+
+    <div class="two-column "><md-input placeholder="URL" [(ngModel)]="community.url"></md-input></div>
+    <div class="two-column "><md-input placeholder="Banner URL" [(ngModel)]="community.bannerUrl"></md-input></div>
+
+    <div *ngIf="community.bannerUrl" class="two-column "></div>
+    <div *ngIf="community.bannerUrl" class="two-column  pic-url-image"><img [src]="community.bannerUrl" style="max-height:2em;"></div>
+
+    <div class="two-column "><md-input placeholder="Description" [(ngModel)]="community.description"></md-input></div>
+    <div class="two-column ">
+      <label>
+        Organizer
+        <select [(ngModel)]="community.organizer">
+          <option *ngFor="let developer of developers | async" [value]="developer.$key">{{developer.name}}</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <fieldset class="content">
+      <h2>Participants</h2>
+      <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="community.members" (update)="chooseParticipants($event)"></picker>
+  </fieldset>
+
+
+    <div class="options">
+        <span (click)="deleteThis()" class="delete">Delete</span>
+        <button md-raised-button color="primary" type="submit" >Save</button>
+    </div>
+
+</form>

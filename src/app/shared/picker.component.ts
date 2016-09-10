@@ -10,27 +10,16 @@ interface HasKey {
 /**
  * I'm going to try to make this an opinionated picker
  * It requires that you give it an observable of options
- * and an array of selected items or selected item keys. 
- * These keys are compared against the $key property of 
+ * and an array of selected items or selected item keys.
+ * These keys are compared against the $key property of
  * each option.
  */
 @Component({
     moduleId: module.id,
     selector: 'picker',
-    template: `
-    <div *ngIf="selected" style="margin:16px;">
-        <div><strong>Current:</strong></div>
-        <div *ngFor="let item of selected" style="margin:0 16px;">{{item.name}}  (<span (click)="delete(item)">x</span>)</div>
-        <div *ngIf="selected.length == 0">(None currently selected)</div>
-    </div>
-    <div style="text-align:right;">
-        <button *ngIf="!showAvailable && available && (!singleMode || selected.length < 1 )" (click)="showAdd()" type="button" md-raised-button>Add</button>
-    </div>
-    <div *ngIf="showAvailable" style="margin:16px;">
-        <div><strong>Choose From:</strong></div>
-        <div *ngFor="let item of available | async" (click)="select(item)" style="margin:0 16px;">{{item.name}}</div>
-    </div>
-    `,
+    templateUrl: 'picker.component.html',
+    styleUrls: ['picker.component.css' '../developers/expert-form.component.css']
+
 })
 export class PickerComponent implements OnInit {
     // Send back a firebase style object with {key=>true,key2=>true}
@@ -74,7 +63,7 @@ export class PickerComponent implements OnInit {
     }
     processSelectedKeys(keySource: any) {
         //console.log("using selectedKeys");
-        
+
         let keys = Object.keys(keySource);
 
         this.available.subscribe(list => {

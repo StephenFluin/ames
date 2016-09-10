@@ -8,9 +8,8 @@ import { FirebaseService } from '../shared/firebase.service';
 @Component({
     moduleId: module.id,
     selector: 'community-edit',
-    template: `
-    <community-form [community]="community | async" (update)="processUpdate($event)" (delete)="delete($event)"></community-form>
-    `,
+    templateUrl: 'community-edit.component.html',
+    styleUrls: ['../developers/expert-form.component.css']
 })
 export class CommunityEditComponent {
     community: Observable<Community>;

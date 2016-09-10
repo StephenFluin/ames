@@ -8,8 +8,8 @@ import { FirebaseService } from '../shared/firebase.service';
 @Component({
     moduleId: module.id,
     selector: 'event-edit',
-    template: `
-    <event-form [event]="event | async" (update)="processUpdate($event)" (delete)="delete($event)"></event-form>`,
+    templateUrl: 'event-edit.component.html',
+    styleUrls: ['../developers/expert-form.component.css']
 })
 export class EventEditComponent {
     event: Observable<Event>;
