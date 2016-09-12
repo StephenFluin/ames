@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Component({
     moduleId: module.id,
     templateUrl: 'mission-list.component.html',
-    styleUrls: ['mission-list.component.css' '../developers/expert-form.component.css']
+    styleUrls: ['mission-list.component.css', '../developers/expert-form.component.css']
 })
 export class MissionListComponent implements OnInit {
     list: Observable<Mission[]>;
