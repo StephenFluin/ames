@@ -9,28 +9,8 @@ import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
 @Component({
     moduleId: module.id,
     selector: 'mission-form',
-    template: `
-    <form *ngIf="mission" (submit)="save()" ngNoForm>
-        <md-input placeholder="" [(ngModel)]="mission.name" placeholder="name"></md-input>
-        <label><textarea [(ngModel)]="mission.description" placeholder="description"></textarea></label>
-       <!-- <div *ngIf="mission.startDate && mission.endDate">
-            {{ mission.startDate}} - {{ mission.endDate}}
-        </div>-->
-        <label>Organizer 
-        <select [(ngModel)]="mission.organizer">
-            <option *ngFor="let developer of developers | async" [value]="developer.$key">{{developer.name}}</option>
-        </select>
-        </label>
-        <div>Participants</div>
-        <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="mission.participants" (update)="chooseParticipants($event)"></picker>
-        
-        <div class="options">
-            <span (click)="deleteThis()" class="delete">delete</span>
-            <button md-raised-button color="primary" type="submit" >Save</button>
-        </div>
-    </form>
-        `,
-    styles: ['label input {display:block;margin-bottom:16px;}'],
+    templateUrl: 'mission-form.component.html',
+    styleUrls: ['../developers/expert-form.component.css']
 })
 export class MissionFormComponent {
     @Output() update = new EventEmitter<Mission>();

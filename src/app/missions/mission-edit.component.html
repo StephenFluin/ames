@@ -1,0 +1,11 @@
+<header class="hero-background">
+     <h2 class="internal-header">Mission</h2>
+ </header>
+
+ <main class="main-content">
+   <md-card class="profile-card">
+     <br>
+     <h3 class="form-title">New/Edit Mission</h3>
+     <mission-form [mission]="mission | async" (update)="save($event)" (delete)="delete($event)"></mission-form>
+   </md-card>
+ </main>

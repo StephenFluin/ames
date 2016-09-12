@@ -4,10 +4,8 @@ $color-secondary: #006064;
 $box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
 
 *.md-primary  {
-  /*background-color: #645a92 !important;*/
   background-color: $color-primary !important;
 }
-
 
 * {
   margin:0;
@@ -17,7 +15,7 @@ $box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
   text-decoration: none;
 }
 
-h2 { display: inline; margin-left:16px; }
+h2 { display: inline; }
 label { display: block;}
 p, form, .grid, .content { padding:16px; }
 
@@ -334,7 +332,7 @@ $nav-link-color: #fff;
 
 // Internal Page View
 .view-page .card-hero {
-  height: 320px;
+  height: 250px;
 }
 
 .view-page .card-hero__content {
@@ -344,9 +342,9 @@ $nav-link-color: #fff;
 
 .view-page h2 {
   color: white;
-  font-size: 30px;
+  font-size: 28px;
   text-align: center;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 40px;
 }
 
@@ -360,17 +358,77 @@ $nav-link-color: #fff;
   height: 45px;
   line-height: 45px;
   margin-top: 20px;
-  min-width: 140px;
+  min-width: 150px;
   padding: 0 30px;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.side-panel {
-  width: 25%;
-  display: flex;
-  margin: 13px 0;
+@media (min-width: 720px) {
+  .internal-view .two-column {
+    display: flex;
+    margin: 40px 0;
+  }
+
+  .member-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .internal-view .left {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 4px;
+    padding: 20px;
+    min-width: 400px;
+  }
+
+  .internal-view  .right {
+    margin-left: 45px;
+  }
+}
+
+.internal-view h3 {
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.54);
+  margin-bottom: 16px;
+}
+
+.internal-view p {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.54);
+  padding-left: 0;
+  text-align: left;
+}
+
+.internal-view .material-icons {
+  color: $color-primary;
+  display: inline-flex;
+  font-size: 25px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.internal-memebers p {
   padding: 0;
+  text-align: center;
+}
+
+.internal-members .content {
+  text-align: center;
+}
+
+.internal-members img.shield {
+  max-width: 120px;
+  max-height: 120px;
+  min-width: 120px;
+  min-height: 120px;
+}
+
+.internal-view .internal-members p{
+  text-align: center;
 }
 
 // Card logo Styles
@@ -446,7 +504,6 @@ input {
   padding: 6px;
 }
 
-picker {border:1px solid #CCC;}
 label input,label picker, label textarea, label select {
   display:block;
   margin-bottom:16px;
@@ -520,7 +577,12 @@ img.shield {
     }
 }
 
-//Delete Button
+// Button Styles
+.md-primary[md-raised-button], .md-primary[md-fab], .md-primary[md-mini-fab] {
+  font-weight: 300;
+}
+
+// Delete Button
 .delete {
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 3px;
@@ -536,6 +598,7 @@ img.shield {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
+// Toggle
 .md-checked {
   .md-slide-toggle-thumb {
     background-color: $color-primary !important;
@@ -546,6 +609,13 @@ img.shield {
   }
 }
 
-.md-primary[md-raised-button], .md-primary[md-fab], .md-primary[md-mini-fab] {
-  font-weight: 300;
+.md-slide-toggle-focused {
+  &.md-checked .md-ink-ripple {
+    background-color: rgba(0, 150, 136, 0.5) !important;
+  }
+}
+
+.event-logo {
+  max-width: 120px;
+  max-height: 120px;
 }

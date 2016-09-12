@@ -6,10 +6,8 @@ import { AngularFire } from 'angularfire2';
 @Component({
     moduleId: module.id,
     selector: 'community-submit',
-    template: `
-    <h2>Submit New Community</h2>
-    <p>Thanks for submitting a community. If it meets our quality guidelines, we'd be happy to add it!</p>
-    <community-form [community]="community" (update)="processUpdate($event)"></community-form>`,
+    templateUrl: 'community-submit.component.html',
+    styleUrls: ['../developers/expert-form.component.css']
 })
 export class CommunitySubmitComponent {
     community: Community;

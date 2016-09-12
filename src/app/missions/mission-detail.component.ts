@@ -11,27 +11,7 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
     moduleId: module.id,
-    template: `
-    <div *ngIf="mission" >
-        <h2>{{ mission.name}}</h2> 
-        
-        <a *ngIf="auth.isAdmin | async" [routerLink]="['/missions/',mission.$key,'/edit']">Edit</a>  
-        
-        <div class="content">
-            <div *ngIf="mission.description">{{ mission.description}}</div>
-            <div *ngIf="!mission.description"><em>No mission details are currently available.</em></div>
-            <div *ngIf="mission.startDate && mission.endDate">
-                {{ mission.startDate}} - {{ mission.endDate}}
-            </div>
-            <div>Organizer: {{(mission.organizer |  fireJoin:'/users/' | async)?.name }}</div>
-            Participants:
-            <div *ngFor="let developer of mission.participants | refirebase">
-                {{(developer | fireJoin:'/users/' | async)?.name}}
-            </div>
-            
-        </div>
-    </div>
-    `,
+    templateUrl: 'mission-detail.component.html',
 })
 export class MissionDetailComponent {
     mission: Mission;

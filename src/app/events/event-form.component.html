@@ -1,0 +1,33 @@
+<form *ngIf="event" (submit)="save(event)" ngNoForm>
+
+  <div class="form-layout">
+    <div class="two-column"><md-input i18n-placeholder placeholder="Name" [(ngModel)]="event.name" required ></md-input></div>
+    <div class="two-column"><md-input i18n-placeholder placeholder="Address/Location" [(ngModel)]="event.location"></md-input></div>
+
+    <div class="two-column"><md-input i18n-placeholder placeholder="Start Date" [(ngModel)]="event.startDate" type="date"></md-input></div>
+    <div class="two-column"><md-input i18n-placeholder placeholder="End Date" [(ngModel)]="event.endDate" type="date"></md-input></div>
+
+    <div class="two-column"><md-input i18n-placeholder placeholder="URL" [(ngModel)]="event.url"></md-input></div>
+    <div class="two-column"><md-input i18n-placeholder placeholder="Logo URL" [(ngModel)]="event.logoUrl"></md-input></div>
+
+    <div  *ngIf="event.logoUrl" class="two-column"></div>
+    <div  *ngIf="event.logoUrl" class="two-column  pic-url-image"><img [src]="event.logoUrl" style="max-height:2em;"></div>
+
+    <md-input i18n-placeholder placeholder="Description" [(ngModel)]="event.description"></md-input>
+  </div>
+
+  <fieldset class="content">
+    <h2>Event Leads</h2>
+    <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="event.leads" (update)="chooseLeads($event)"></picker>
+  </fieldset>
+
+  <fieldset class="content">
+    <h2>Event Speakers</h2>
+    <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="event.speakers" (update)="chooseSpeakers($event)"></picker>
+  </fieldset>
+
+  <div class="options">
+      <span (click)="deleteThis()" class="delete">Delete</span>
+      <button md-raised-button color="primary" type="submit" >Save</button>
+  </div>
+</form>

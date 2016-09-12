@@ -1,0 +1,52 @@
+<div *ngIf="event">
+  <header class="hero-background">
+    <h2 class="internal-header">Event</h2>
+  </header>
+
+  <main class="main-content internal-view">
+    <md-card class="profile-card">
+      <div class="card-hero-wrapper view-page">
+        <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('')">
+          <div class="card-hero__content">
+            <img [src]="event.logoUrl" class="event-logo">
+            <br>
+            <h2>{{ event.name }}</h2>
+            <br>
+            <a class="join">Join</a>
+          </div>
+        </div>
+      </div>
+
+    <div class="two-column">
+      <div class="left">
+        <p><i class="material-icons">location_on</i>{{event.location}}</p>
+        <p><i class="material-icons">date_range</i>{{event.startDate | date:"MMM d"}} - {{event.endDate | date:"MMM d"}}</p>
+        <p><i class="material-icons">person</i>Lead:</p>
+      </div>
+
+      <div class="right">
+        <h3>Description</h3>
+        <p>{{event.description}}</p>
+      </div>
+    </div>
+
+    <h3>Speakers</h3>
+      <div class="two-column internal-members">
+        <div *ngFor="let developer of event.speakers | refirebase" class="content">
+            <img class="shield" *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl"/>
+            <p>{{(developer | fireJoin:'/users/' | async)?.name}}</p>
+        </div>
+      </div>
+    </md-card>
+  </main>
+</div>
+
+<div *ngIf="!event">
+  <header class="hero-background">
+      <h2 class="internal-header">Event</h2>
+  </header>
+
+  <main class="main-content">
+    <p>Event not found.</p>
+  </main>
+</div>

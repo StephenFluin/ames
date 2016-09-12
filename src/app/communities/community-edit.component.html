@@ -1,0 +1,11 @@
+<header class="hero-background">
+    <h2 class="internal-header">Community</h2>
+</header>
+
+<main class="main-content">
+  <md-card class="profile-card">
+    <br>
+    <h3 class="form-title">New/Edit Community</h3>
+    <community-form [community]="community | async" (update)="processUpdate($event)" (delete)="delete($event)"></community-form>
+  </md-card>
+</main>

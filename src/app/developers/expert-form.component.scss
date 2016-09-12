@@ -1,6 +1,9 @@
-
 .two-column {
   padding-bottom: 20px;
+}
+
+.two-column label {
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .expert-content {
@@ -58,4 +61,21 @@ expert-content:hover {
   expert-content {
     width: 50%;
   }
+}
+
+
+.form-title {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 16px;
+}
+
+.main-content p {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.ng-valid[required],
+.ng-invalid {
+  border: none !important;
 }

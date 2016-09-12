@@ -7,9 +7,8 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
     moduleId: module.id,
-    template: `<h2>Edit <a [routerLink]="['/missions/',id]">{{ (mission | async)?.name }}</a></h2>
-     <mission-form [mission]="mission | async" (update)="save($event)" (delete)="delete($event)"></mission-form>
-    `,
+    templateUrl: 'mission-edit.component.html',
+    styleUrls: ['../developers/expert-form.component.css']
 })
 export class MissionEditComponent {
     id: string;

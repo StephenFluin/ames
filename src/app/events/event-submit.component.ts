@@ -6,10 +6,8 @@ import { AngularFire } from 'angularfire2';
 @Component({
     moduleId: module.id,
     selector: 'event-submit',
-    template: `
-    <h2>Submit New Event</h2>
-    <p>Thanks for submitting an event. If it meets our quality guidelines, we'd be happy to add it!</p>
-    <event-form [event]="event" (update)="processUpdate($event)"></event-form>`,
+    templateUrl: 'event-submit.component.html',
+    styleUrls: ['../developers/expert-form.component.css']
 })
 export class EventSubmitComponent {
     event: Event;
