@@ -12,7 +12,7 @@ import { Resource } from '../shared/models';
   moduleId: module.id,
   selector: 'resource-form',
   templateUrl: 'resource-form.component.html',
-  styleUrls: ['resource-form.component.css']
+  styleUrls: ['resource-form.component.css', '../developers/expert-form.component.css']
 })
 export class ResourceFormComponent {
   @Output() update = new EventEmitter<Resource>();
