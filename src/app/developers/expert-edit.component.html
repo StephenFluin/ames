@@ -1,0 +1,16 @@
+<header class="hero-background">
+    <h2 class="internal-header">Developer</h2>
+</header>
+
+<main class="main-content">
+  <md-card class="profile-card">
+    <p class="site-breadcrumb">
+      <a class="site-breadcrumb" routerLink="/developers">Developers</a> &gt;
+      <span *ngIf="(expert | async)?.$key=='new' && !(expert | async)?.firstName && !(expert | async)?.lastName">
+        New Expert
+      </span>
+      {{(expert | async)?.firstName}} {{(expert | async)?.lastName}}
+    </p>
+    <expert-form [expert]="expert | async" (update)="processUpdate($event)" (delete)="delete($event)"></expert-form>
+  </md-card>
+</main>

@@ -15,7 +15,7 @@
         <li>
 
           <div class="card-hero-wrapper">
-            <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('images/card-placeholder.jpg')">
+            <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('')">
               <div class="card-hero__content">
                 <div [style.background-image]="'url('+event.logoUrl+')'" *ngIf="event.logoUrl" class="background-side-picture contain"></div>
                 <md-card-title>{{event.name}}</md-card-title>
@@ -40,8 +40,8 @@
               <a class="view-more" [routerLink]="['/events/',event.$key]">View</a>
           </div>
 
-          <div class="edit-button">
-              <button *ngIf="auth.isAdmin | async" md-raised-button (click)="edit(event)">Edit</button>
+          <div class="edit-button secondary-button">
+            <a *ngIf="auth.isAdmin | async" (click)="edit(event)">Edit</a>
           </div>
         </li>
       </md-card>

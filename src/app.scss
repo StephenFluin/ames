@@ -8,6 +8,7 @@ $box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
   background-color: $color-primary !important;
 }
 
+
 * {
   margin:0;
   padding:0;
@@ -70,8 +71,6 @@ $nav-link-color: #fff;
 
   }
 }
-
-
 
 @media screen and (max-width: 1024px) {
   .navigation__link {
@@ -144,7 +143,7 @@ $nav-link-color: #fff;
     position: absolute;
     right: 0;
     top: 0;
-    width: calc( 100% - 300px );
+    width: calc(100%);
     z-index: 2;
 
     label {
@@ -197,7 +196,7 @@ $nav-link-color: #fff;
 .hero-background {
   background: linear-gradient($color-secondary,$color-primary);
   color: #fff;
-  margin-bottom: 60px;
+  margin-bottom: 45px;
   padding: 40px 0;
 }
 
@@ -303,6 +302,7 @@ $nav-link-color: #fff;
 
 .card-info {
   margin-bottom: 30px;
+  min-height: 50px;
 }
 
 .card-info md-card-subtitle {
@@ -374,27 +374,42 @@ $nav-link-color: #fff;
 }
 
 // Card logo Styles
-
 .background-side-picture {
-    width:80px;
-    height:80px;
-    background-size:cover;
-    background-position:center center;
-    background-repeat: no-repeat;
-    margin-bottom: 15px;
-    margin-left: 15px;
+  width:80px;
+  height:80px;
+  background-size:cover;
+  background-position:center center;
+  background-repeat: no-repeat;
+  margin-bottom: 15px;
+  margin-left: 15px;
 }
 
 .background-side-picture.contain {
-    background-size:contain;
+  background-size:contain;
 }
 
 .edit-button {
-    position:absolute;
-    bottom:16px;
-    right:16px;
+  position:absolute;
+  bottom:20px;
+  right:20px;
 }
 
+.secondary-button a {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  font-size: 14px;
+  height: 36px;
+  padding: 6px 23px;
+  text-transform: none;
+}
+
+.secondary-button a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+// Form Styles
 .ng-valid[required] {
   border-left: 5px solid #42A948; /* green */
 }
@@ -405,6 +420,26 @@ $nav-link-color: #fff;
 
 fieldset {
   border-radius:18px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.02);
+  margin-bottom: 30px;
+}
+
+fieldset h2,
+fieldset h3 {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 16px 0;
+}
+
+fieldset h3 {
+  font-size: 16px;
+  margin-top: 40px;
+}
+
+fieldset label {
+  color: rgba(0, 0, 0, 0.4);
 }
 
 input {
@@ -447,16 +482,21 @@ form .options .delete {cursor: pointer;}
     margin-right:.1em;
 }
 
-user-login a {
-    color:white;
-    text-decoration: none;
+form input {
+  color: #37474F;
 }
-user-login button {
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
+
+//
+// user-login a {
+//     color:white;
+//     text-decoration: none;
+// }
+// user-login button {
+//     color: white;
+//     background: none;
+//     border: none;
+//     cursor: pointer;
+// }
 img.shield {
     max-height:64px;
     max-width:64px;
@@ -478,4 +518,34 @@ img.shield {
         margin:4px;
         width: calc( 100% - 8px);
     }
+}
+
+//Delete Button
+.delete {
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  font-size: 14px;
+  height: 36px;
+  padding: 10px 23px;
+  text-transform: none;
+}
+
+.delete:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.md-checked {
+  .md-slide-toggle-thumb {
+    background-color: $color-primary !important;
+  }
+
+  .md-slide-toggle-bar {
+    background-color: rgba(0, 150, 136, 0.5) !important;
+  }
+}
+
+.md-primary[md-raised-button], .md-primary[md-fab], .md-primary[md-mini-fab] {
+  font-weight: 300;
 }

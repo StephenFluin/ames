@@ -18,6 +18,8 @@ import { SortPipe } from '../shared/utility-pipes.pipe';
     moduleId: module.id,
     selector: 'experts-list',
     templateUrl: 'experts.component.html',
+    styleUrls: ['experts.component.css']
+
 })
 export class ExpertsComponent {
     experts;

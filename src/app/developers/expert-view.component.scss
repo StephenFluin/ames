@@ -1,0 +1,120 @@
+// Profile info Layout
+
+.developer-links .left .card-hero {
+  height: 100%;
+  min-height: 250px;
+}
+
+@media (min-width: 720px) {
+  .two-column {
+    display: flex;
+  }
+
+  .developer-links .left {
+    width: 30%;
+  }
+
+  .developer-links  .right {
+    margin-left: 45px;
+    flex-grow: 1;
+  }
+
+  // Profile Content Layout
+  .developer-content {
+    margin-top: 40px;
+  }
+
+  .developer-content .left {
+    width: 60%;
+    padding-right: 60px;
+  }
+  .developer-content  .right {
+    flex-grow: 1;
+  }
+}
+
+// Card Title Styles
+.profile-card md-card-title {
+  text-transform: uppercase;
+  color: #37474F;
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 8px;
+  margin-top: 10px;
+}
+
+.profile-card md-card-subtitle {
+  font-size: 18px;
+}
+
+// Expert Link Styles
+
+.expertLinks {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 350px;
+  height: 80px;
+}
+
+.expertLinks > a {
+  flex-basis: calc(50% - 40px);
+  justify-content: center;
+  flex-direction: column;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.expertLinks svg {
+  vertical-align:middle;
+  margin-right: 15px;
+}
+
+.expertLinks a {
+  color:  #00838f;
+}
+
+.expertLinks a:hover {
+  text-decoration: underline;
+}
+
+.expertLinks {
+  margin-top: 35px;
+}
+
+.developer-profile .developer-icon {
+  fill: #00838f;
+  width: 15px;
+  height: 24px;
+}
+
+// Expert Location
+.developer-location {
+  margin-top: 25px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.developer-location .material-icons {
+   display: inline-flex;
+   font-size: 25px;
+   margin-right: 8px;
+   vertical-align: middle;
+}
+
+// Developer Extended Info
+h3 {
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 16px 0;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.54);
+  padding-left: 0;
+}

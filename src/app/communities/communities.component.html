@@ -30,8 +30,8 @@
                         <a class="view-more" [routerLink]="['/communities/',community.$key]">View</a>
                     </div>
 
-                    <div class="edit-button">
-                        <button *ngIf="(auth.isAdmin | async) || (auth.uid | async)==community.organizer" md-raised-button (click)="edit(community)">Edit</button>
+                    <div class="edit-button secondary-button">
+                      <a *ngIf="(auth.isAdmin | async) || (auth.uid | async)==community.organizer" (click)="edit(community)">Edit</a>
                     </div>
                 </li>
             </md-card>
