@@ -18,7 +18,7 @@ interface HasKey {
     moduleId: module.id,
     selector: 'picker',
     templateUrl: 'picker.component.html',
-    styleUrls: ['picker.component.css', '../developers/expert-form.component.css']
+    styleUrls: ['picker.component.css' '../developers/expert-form.component.css']
 
 })
 export class PickerComponent implements OnInit {

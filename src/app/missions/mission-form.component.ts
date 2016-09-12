@@ -4,8 +4,6 @@ import { Mission, Expert } from '../shared/models';
 import { PickerComponent } from '../shared/picker.component';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
-import { MD_SLIDE_TOGGLE_DIRECTIVES } from '@angular2-material/slide-toggle';
-
 @Component({
     moduleId: module.id,
     selector: 'mission-form',

@@ -1,7 +1,4 @@
 import { Component, Pipe, PipeTransform } from '@angular/core';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
-import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Rx';
