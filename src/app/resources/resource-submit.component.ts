@@ -11,20 +11,8 @@ import { ResourceFormComponent } from './resource-form.component'
 @Component({
     moduleId: module.id,
     selector: 'resource-new',
-    template: `
-  
-  <style>
-  md-input { display:block;margin:32px 0;}
-  select {
-    height:32px;
-    margin: 16px 0;
-  }
- </style>
- <h2>Submit a New Resource</h2>
- <p>Want to add a resource to our Angular 2 listings?  Submit your information here, we'll review and give you a head's up when we add it to the list.</p>
- <resource-form [resource]="resource" (update)="save($event)"></resource-form>
-  
-  `,
+    templateUrl: 'resource-submit.component.html',
+    styleUrls: ['../developers/expert-form.component.css']
 })
 export class ResourceSubmitComponent {
     resource: Resource = new Resource();
