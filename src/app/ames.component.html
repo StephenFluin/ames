@@ -18,7 +18,7 @@
                 <a class="navigation__link" routerLink="/developers" i18n (click)="siteMenu = false">Developers</a>
                 <a class="navigation__link" routerLink="/resources" i18n (click)="siteMenu = false">Resources</a>
 
-                <a class="navigation__link" *ngIf="auth.isAdmin | async" [routerLink]="['/admin']" style="width:150px;"><span class="adminIcon"></span><span i18n>Admin</span></a>
+                <a class="navigation__link" *ngIf="auth.isAdmin | async" [routerLink]="['/admin']"><span class="adminIcon"></span><span i18n>Admin</span></a>
                 <div class="layout-spacer"></div>
                 <user-login></user-login>
             </nav>
