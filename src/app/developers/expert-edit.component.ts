@@ -7,10 +7,10 @@ import { FirebaseService } from '../shared/firebase.service';
 import { AngularFire } from 'angularfire2';
 
 @Component({
-    moduleId: module.id,
+
     selector: 'expert-edit',
     templateUrl: 'expert-edit.component.html',
-    styleUrls: ['expert-edit.component.css']
+    styleUrls: ['expert-edit.component.scss']
 })
 export class ExpertEditComponent {
     expert: Observable<Expert>;

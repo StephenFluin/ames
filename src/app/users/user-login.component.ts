@@ -7,7 +7,7 @@ import { FirebaseObjectObservable } from 'angularfire2';
 
 
 @Component({
-    moduleId: module.id,
+
     selector: 'user-login',
     templateUrl: 'user-login.component.html',
 })

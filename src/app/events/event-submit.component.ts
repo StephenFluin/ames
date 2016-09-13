@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 import { AngularFire } from 'angularfire2';
 
 @Component({
-    moduleId: module.id,
+
     selector: 'event-submit',
     templateUrl: 'event-submit.component.html',
-    styleUrls: ['../developers/expert-form.component.css']
+    styleUrls: ['../developers/expert-form.component.scss']
 })
 export class EventSubmitComponent {
     event: Event;

@@ -13,7 +13,7 @@
             <md-card class="pretty-card" *ngFor="let community of communities | async" [routerLink]="['/communities/',community.$key]">
                 <li>
                     <div class="card-hero-wrapper">
-                        <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8))" [style.background-image]="'url('+(community.bannerUrl?community.bannerUrl:'images/card-placeholder.jpg')+')'">
+                        <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8))" [style.background-image]="'url('+(community.bannerUrl?community.bannerUrl:'/assets/images/card-placeholder.jpg')+')'">
                             <div class="card-hero__content">
                                 <md-card-title>{{community.icon}} {{community.name}}</md-card-title>
                                 <md-card-subtitle>{{community.location}}</md-card-subtitle>

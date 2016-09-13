@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Rx';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
-    moduleId: module.id,
+
     template: `<h2>Edit Resource</h2>
      <resource-form [resource]="resource | async" (update)="save($event)" (delete)="delete($event)"></resource-form>
     `,

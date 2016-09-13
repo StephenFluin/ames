@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import { AuthService } from '../shared/auth.service';
 
 @Component({
-    moduleId: module.id,
+
     selector: "user",
     templateUrl: 'user-profile.component.html',
 })

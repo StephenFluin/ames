@@ -15,10 +15,10 @@ interface HasKey {
  * each option.
  */
 @Component({
-    moduleId: module.id,
+
     selector: 'picker',
     templateUrl: 'picker.component.html',
-    styleUrls: ['picker.component.css' '../developers/expert-form.component.css']
+    styleUrls: ['picker.component.scss', '../developers/expert-form.component.scss']
 
 })
 export class PickerComponent implements OnInit {

@@ -7,8 +7,8 @@ import { AuthService } from './shared/auth.service';
 declare var ga: any;
 
 @Component({
-    moduleId: module.id,
-    selector: 'ames-app',
+
+    selector: 'app-root',
     templateUrl: 'ames.component.html',
     providers: [AuthService, FirebaseService],
 

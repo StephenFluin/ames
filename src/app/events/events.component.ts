@@ -5,7 +5,7 @@ import { AuthService } from '../shared/auth.service';
 import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
-    moduleId: module.id,
+
     selector: 'events-list',
     templateUrl: 'events.component.html',
 })

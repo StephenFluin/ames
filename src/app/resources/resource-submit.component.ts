@@ -7,10 +7,10 @@ import { Resource } from '../shared/models';
 import { ResourceFormComponent } from './resource-form.component'
 
 @Component({
-    moduleId: module.id,
+
     selector: 'resource-new',
     templateUrl: 'resource-submit.component.html',
-    styleUrls: ['../developers/expert-form.component.css']
+    styleUrls: ['../developers/expert-form.component.scss']
 })
 export class ResourceSubmitComponent {
     resource: Resource = new Resource();

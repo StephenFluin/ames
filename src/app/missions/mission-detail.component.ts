@@ -10,7 +10,7 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
-    moduleId: module.id,
+
     templateUrl: 'mission-detail.component.html',
 })
 export class MissionDetailComponent {

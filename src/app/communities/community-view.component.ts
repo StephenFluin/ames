@@ -7,7 +7,7 @@ import { FirebaseService } from '../shared/firebase.service';
  * Render a view of a community here
  */
 @Component({
-    moduleId: module.id,
+
     selector: 'community-view',
     templateUrl: 'community-view.component.html',
 })

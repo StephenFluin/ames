@@ -9,10 +9,9 @@ import { PickerComponent } from './shared/picker.component';
 import { FirebaseService } from './shared/firebase.service';
 
 @Component({
-    moduleId: module.id,
     selector: 'login',
     templateUrl: 'admin.component.html',
-    styleUrls: ['developers/expert-form.component.css']
+    styleUrls: ['developers/expert-form.component.scss']
 })
 export class AdminComponent {
     available: Observable<any>;

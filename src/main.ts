@@ -1,8 +1,12 @@
+import './polyfills.ts';
+
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core';
+import { environment } from './environments/environment';
 import { MyAppModule } from './app/app.module';
 
-platformBrowserDynamic().bootstrapModule(MyAppModule);
+if (environment.production) {
+  enableProdMode();
+}
 
-// platform browser dynamic - jit compilation (dynamic compilation in the browser)
-// platform browser - ahead of time compilation (also used by platform-browser-dynamic) in browser
-// platform server - run angular without DOM
+platformBrowserDynamic().bootstrapModule(MyAppModule);

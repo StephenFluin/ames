@@ -7,7 +7,7 @@ import { FirebaseService } from '../shared/firebase.service';
  * Render a view of a event here
  */
 @Component({
-    moduleId: module.id,
+
     selector: 'event-view',
     templateUrl: 'event-view.component.html',
 })

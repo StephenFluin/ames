@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import { RefirebasePipe } from '../shared/refirebase.pipe';
 
 @Component({
-    moduleId: module.id,
+
     selector: 'resource-queue',
     template: `<h2>Resource Queue</h2>
     <div class="content">

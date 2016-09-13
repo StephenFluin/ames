@@ -3,18 +3,17 @@
 # compiled output
 /dist
 /tmp
-*.ngfactory.ts
-/src/ngfactory
-*.css
-*.metadata.json
 
 # dependencies
 /node_modules
-src/node_modules
 /bower_components
 
 # IDEs and editors
 /.idea
+.project
+.classpath
+*.launch
+.settings/
 
 # misc
 /.sass-cache

@@ -9,10 +9,10 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
  * Render a view of a expert here
  */
 @Component({
-    moduleId: module.id,
+
     selector: 'expert-detail',
     templateUrl: 'expert-view.component.html',
-    styleUrls: ['expert-view.component.css']
+    styleUrls: ['expert-view.component.scss']
 
 })
 export class ExpertViewComponent {

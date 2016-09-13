@@ -5,10 +5,10 @@ import { FirebaseService } from '../shared/firebase.service';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
-    moduleId: module.id,
+
     selector: 'community-form',
     templateUrl: 'community-form.component.html',
-    styleUrls: ['../developers/expert-form.component.css']
+    styleUrls: ['../developers/expert-form.component.scss']
 
 })
 export class CommunityFormComponent {

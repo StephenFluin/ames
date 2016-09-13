@@ -11,10 +11,10 @@ import { FirebaseService } from '../shared/firebase.service';
 import { FireJoinPipe } from '../shared/fire-join.pipe';
 
 @Component({
-    moduleId: module.id,
+
     selector: 'developers-list',
     templateUrl: 'developers.component.html',
-    styleUrls: ['experts.component.css']
+    styleUrls: ['experts.component.scss']
 })
 export class DevelopersComponent {
     experts;

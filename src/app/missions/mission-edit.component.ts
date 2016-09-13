@@ -6,9 +6,9 @@ import { FirebaseService } from '../shared/firebase.service';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
-    moduleId: module.id,
+
     templateUrl: 'mission-edit.component.html',
-    styleUrls: ['../developers/expert-form.component.css']
+    styleUrls: ['../developers/expert-form.component.scss']
 })
 export class MissionEditComponent {
     id: string;

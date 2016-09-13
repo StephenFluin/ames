@@ -6,10 +6,10 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 
 @Component({
-    moduleId: module.id,
+
     selector: "user",
     templateUrl: 'user-profile-short.component.html',
-    styleUrls: ['user-profile-short.component.css', '../developers/expert-form.component.css']
+    styleUrls: ['user-profile-short.component.scss', '../developers/expert-form.component.scss']
 })
 export class UserProfileShortComponent {
     user: Observable<any>;

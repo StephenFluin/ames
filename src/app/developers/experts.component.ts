@@ -12,10 +12,10 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
 import { SortPipe } from '../shared/utility-pipes.pipe';
 
 @Component({
-    moduleId: module.id,
+
     selector: 'experts-list',
     templateUrl: 'experts.component.html',
-    styleUrls: ['experts.component.css']
+    styleUrls: ['experts.component.scss']
 
 })
 export class ExpertsComponent {

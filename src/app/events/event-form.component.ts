@@ -4,10 +4,10 @@ import { Event, Community } from '../shared/models';
 
 
 @Component({
-    moduleId: module.id,
+
     selector: 'event-form',
     templateUrl: 'event-form.component.html',
-    styleUrls: ['../developers/expert-form.component.css']
+    styleUrls: ['../developers/expert-form.component.scss']
 })
 export class EventFormComponent {
     @Output() update = new EventEmitter<Event>();

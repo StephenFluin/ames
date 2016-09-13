@@ -6,10 +6,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
-    moduleId: module.id,
+
     selector: 'event-edit',
     templateUrl: 'event-edit.component.html',
-    styleUrls: ['../developers/expert-form.component.css']
+    styleUrls: ['../developers/expert-form.component.scss']
 })
 export class EventEditComponent {
     event: Observable<Event>;

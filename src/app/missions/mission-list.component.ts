@@ -6,9 +6,9 @@ import { Mission } from '../shared/models';
 import { Observable } from 'rxjs';
 
 @Component({
-    moduleId: module.id,
+
     templateUrl: 'mission-list.component.html',
-    styleUrls: ['mission-list.component.css', '../developers/expert-form.component.css']
+    styleUrls: ['mission-list.component.scss', '../developers/expert-form.component.scss']
 })
 export class MissionListComponent implements OnInit {
     list: Observable<Mission[]>;

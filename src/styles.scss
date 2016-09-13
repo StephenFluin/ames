@@ -1,5 +1,3 @@
-@import '../users/user-login.component.css';
-
 // Global Variables
 $color-primary: #00838f;
 $color-secondary: #006064;
@@ -595,7 +593,7 @@ form .options {text-align:right;margin:16px 0}
 form .options button {margin-left:16px;}
 form .options .delete {cursor: pointer;}
 .adminIcon {
-    background-image: url('images/angular-shield.svg');
+    background-image: url('/assets/images/angular-shield.svg');
     width:1.5em;
     height: 0.9em;
     display:inline-block;

@@ -5,10 +5,10 @@ import { PickerComponent } from '../shared/picker.component';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
-    moduleId: module.id,
+
     selector: 'mission-form',
     templateUrl: 'mission-form.component.html',
-    styleUrls: ['../developers/expert-form.component.css']
+    styleUrls: ['../developers/expert-form.component.scss']
 })
 export class MissionFormComponent {
     @Output() update = new EventEmitter<Mission>();
