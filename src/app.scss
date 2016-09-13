@@ -40,6 +40,7 @@ $nav-link-color: #fff;
 
 .nav__header {
   background-color: $color-primary;
+  position: fixed;
   width: 100%;
   z-index: $nav-zindex;
 
@@ -95,9 +96,10 @@ $nav-link-color: #fff;
 }
 
 .top-nav-wrapper {
-  flex-grow: 1;
   display: flex;
   flex-direction: row;
+  flex-grow: 1;
+  overflow: scroll;
 
   label {
     display: none;
@@ -117,8 +119,6 @@ $nav-link-color: #fff;
 }
 
 // MENU MOBILE
-// TODO: Update max-width for mobile nav to 900px once flexbox nav size is solved
-
 @media (max-width: 970px) {
 
   $nav-height: 54px;
@@ -195,7 +195,7 @@ $nav-link-color: #fff;
   background: linear-gradient($color-secondary,$color-primary);
   color: #fff;
   margin-bottom: 45px;
-  padding: 40px 0;
+  padding: 110px 0 40px 0;
 }
 
 .hero-background h2 {

@@ -1,0 +1,19 @@
+<header class="hero-background">
+  <h2 (click)="showId=!(showId)">Your Profile</h2>
+  <span *ngIf="showId">My ID is: {{(auth | async)?.uid}} </span>
+</header>
+
+<main class="main-content">
+  <md-card class="profile-card">
+    <p *ngIf="user">What's your name?</p>
+    <form *ngIf="user" (submit)="next(user)" class="user-form" ngNoForm>
+      <div class="form-layout">
+          <md-input placeholder="Name" [(ngModel)]="user.name"></md-input>
+      </div>
+      <div class="options">
+        <button md-raised-button color="primary" (click)="next(user)">Next</button>
+      </div>
+    </form>
+    <p *ngIf="!user">We don't yet have any data for your user.</p>
+  </md-card>
+</main>

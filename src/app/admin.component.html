@@ -1,0 +1,19 @@
+<header class="hero-background">
+  <h2 i18n class="internal-header">Administrators</h2>
+</header>
+
+<main class="main-content">
+  <md-card class="profile-card">
+    <h3 class="form-title">Manage Administrators</h3>
+    <form *ngIf="auth.isAdmin | async">
+      <fieldset class="content">
+        <picker
+          [list]="'/users'"
+          [selectedObservable]="admins"
+          [order]="name"
+          (update)="update($event)">
+        </picker>
+      </fieldset>
+    </form>
+  </md-card>
+</main>

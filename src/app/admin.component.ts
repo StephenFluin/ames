@@ -11,18 +11,8 @@ import { FirebaseService } from './shared/firebase.service';
 @Component({
     moduleId: module.id,
     selector: 'login',
-    template: `
-    <h2 i18n>Manage Administrators</h2>
-    <form *ngIf="auth.isAdmin | async">
-        <picker
-            [list]="'/users'"
-            [selectedObservable]="admins"
-            [order]="name"
-            (update)="update($event)"></picker>
-    </form>
-    
-    
-    `,
+    templateUrl: 'admin.component.html',
+    styleUrls: ['developers/expert-form.component.css']
 })
 export class AdminComponent {
     available: Observable<any>;
