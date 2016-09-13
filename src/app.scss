@@ -1,3 +1,5 @@
+@import '../users/user-login.component.css';
+
 // Global Variables
 $color-primary: #00838f;
 $color-secondary: #006064;
@@ -37,7 +39,6 @@ $nav-zindex: 5;
 $nav-row-height: 64px;
 $nav-link-color: #fff;
 
-
 .nav__header {
   background-color: $color-primary;
   position: fixed;
@@ -71,9 +72,70 @@ $nav-link-color: #fff;
   }
 }
 
-@media screen and (max-width: 1024px) {
+// Responsive Developer Name
+.nav-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 961px) {
+  .navigation__link {
+    padding: 0 10px;
+  }
+
+  .nav-name {
+    max-width: 60px;
+  }
+}
+
+@media (min-width: 980px) {
+  .nav-name {
+    max-width: 80px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .nav-name {
+    max-width: 85px;
+  }
+
+  .navigation__link {
+    padding: 0 12px;
+  }
+}
+
+@media (min-width: 1070px) {
+  .nav-name {
+    max-width: 108px;
+  }
+
   .navigation__link {
     padding: 0 16px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .nav-name {
+    max-width: 135px;
+  }
+}
+
+@media (min-width: 1150px) {
+  .nav-name {
+    max-width: 190px;
+  }
+}
+
+@media (min-width: 1180px) {
+  .nav-name {
+    max-width: 235px;
+  }
+}
+
+@media (min-width: 1222px) {
+  .nav-name {
+    max-width: 250px;
   }
 }
 
@@ -99,7 +161,6 @@ $nav-link-color: #fff;
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  overflow: scroll;
 
   label {
     display: none;
@@ -119,7 +180,7 @@ $nav-link-color: #fff;
 }
 
 // MENU MOBILE
-@media (max-width: 970px) {
+@media (max-width: 960px) {
 
   $nav-height: 54px;
 
