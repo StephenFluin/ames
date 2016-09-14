@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Community } from '../shared/models';
+
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
 
@@ -14,7 +16,7 @@ import { FirebaseService } from '../shared/firebase.service';
 export class CommunityViewComponent {
     community: Community;
 
-    constructor(public route: ActivatedRoute, public communityService: FirebaseService<Community>) {
+    constructor(public route: ActivatedRoute, public communityService: FirebaseService<Community>, title: Title) {
         communityService.setup('/communities/');
 
         // This calls .subscribe so we don't rely on the template for unrolling
@@ -22,6 +24,7 @@ export class CommunityViewComponent {
         route.params.subscribe(params =>
             communityService.get(params['id']).subscribe((community) => {
                 this.community = community;
+                title.setTitle(community.name);
             })
         );
     }

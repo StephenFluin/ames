@@ -27,8 +27,7 @@ export class Expert {
     $key: string = "new";
     bio: string;
     email: string;
-    firstName: string;
-    lastName: string;
+    name: string;
     pictureUrl: string;
     webpageUrl: string;
     resumeUrl: string;
