@@ -15,11 +15,13 @@
         <li>
 
           <div class="card-hero-wrapper">
-            <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('')">
-              <div class="card-hero__content">
-                <div [style.background-image]="'url('+event.logoUrl+')'" *ngIf="event.logoUrl" class="background-side-picture contain"></div>
-                <md-card-title>{{event.name}}</md-card-title>
-                <md-card-subtitle>{{event.location}}</md-card-subtitle>
+            <div class="card-hero" [style.background-image]="'url('+(event.bannerUrl?community.bannerUrl:'/assets/images/card-placeholder.jpg')+')'">
+              <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8))">
+                <div class="card-hero__content">
+                  <div [style.background-image]="'url('+event.logoUrl+')'" *ngIf="event.logoUrl" class="background-side-picture contain"></div>
+                  <md-card-title>{{event.name}}</md-card-title>
+                  <md-card-subtitle>{{event.location}}</md-card-subtitle>
+                </div>
               </div>
             </div>
           </div>
