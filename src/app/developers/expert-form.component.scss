@@ -1,3 +1,12 @@
+// Import Main global variables
+// ------------------------------------------------------------
+@import '../../assets/scss/variables.scss';
+
+// Expert Component
+//
+// Styles for Forms
+// ------------------------------------------------------------
+// Two Column Grid
 .two-column {
   padding-bottom: 20px;
 }
@@ -6,31 +15,14 @@
   color: rgba(0, 0, 0, 0.4);
 }
 
-.expert-content {
-  margin-top: 20px;
-}
-
-expert-content {
-  background-color: rgba(0, 0, 0, 0.05);
-  display:block;
-  padding: 10px;
-  margin-bottom: 5px;
-}
-
-expert-content:hover {
-  background-color: #DDD;
-  display:block;
-}
-
 @media (min-width: 720px) {
   .form-layout {
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
   }
 
   //Two Column Layout
-
   .two-column {
     width: 50%;
   }
@@ -44,7 +36,6 @@ expert-content:hover {
   }
 
   //Three Column Layout
-
   .three-column {
     width: 33%;
   }
@@ -63,19 +54,35 @@ expert-content:hover {
   }
 }
 
-
 .form-title {
+  color: $grey;
   font-size: 18px;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.54);
+  font-weight: $font-medium;
   margin: 16px;
 }
 
 .main-content p {
-  color: rgba(0, 0, 0, 0.54);
+  color: $grey;
 }
 
 .ng-valid[required],
 .ng-invalid {
   border: none !important;
+}
+
+// Develoepr Expert Content
+expert-content {
+  margin-top: 20px;
+}
+
+expert-content {
+  background-color: rgba(0, 0, 0, 0.05);
+  display:block;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+expert-content:hover {
+  background-color: #DDD;
+  display:block;
 }

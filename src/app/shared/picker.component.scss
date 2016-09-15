@@ -1,19 +1,27 @@
+// Import Main global variables
+// ------------------------------------------------------------
+@import '../../assets/scss/variables.scss';
+
+// Picker Component
+//
+// Styles for picker
+// ------------------------------------------------------------
 .participant-name {
-  color: rgba(0, 0, 0, 0.54);
+  color: $grey;
 }
 
 .participant-name:hover {
-  color: #00838f;
+  color: $color-primary;
 }
 
 .delete-item {
-  color: #00838f;
-  margin-right: 8px;
+  color: $color-primary;
   font-size: 18px;
+  margin-right: 8px;
 }
 
 h4 {
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.54);
+  font-weight: $font-medium;
+  color: $grey;
   margin: 16px 0;
 }

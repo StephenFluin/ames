@@ -5,9 +5,8 @@ import { AuthService } from '../shared/auth.service';
 import { FirebaseService } from '../shared/firebase.service';
 
 @Component({
-
     templateUrl: 'communities.component.html',
-    styleUrls: ['communities.component.scss']
+    styleUrls: ['communities.component.scss'],
 })
 export class CommunitiesComponent {
     communities;

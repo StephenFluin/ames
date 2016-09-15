@@ -1,3 +1,11 @@
+// Import Main global variables
+// ------------------------------------------------------------
+@import '../../assets/scss/variables.scss';
+
+// Experts Component
+//
+// Styles for developer pages
+// ------------------------------------------------------------
 // Developer Card Styles
 .developer-card .card-hero {
   height: 200px;
@@ -5,14 +13,16 @@
 }
 
 .developer-icon {
-  fill: rgba(0, 0, 0, 0.50);
+  $dev-icon-size: 20px;
+
+  fill: $grey;
+  height: $dev-icon-size;
   margin-right: 5px;
-  width: 20px;
-  height: 20px;
+  width: $dev-icon-size;
 }
 
 .expert-links .icon-container svg {
-  vertical-align: middle;
+  vertical-align: $vertical-middle;
 }
 
 .icon-container {
