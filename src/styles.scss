@@ -1,26 +1,6 @@
-// Global Variables
-//
-// Main global variables
+// Import Main global variables
 // ------------------------------------------------------------
-
-// Colors
-$color-primary: #00838F; //Base Green
-$color-secondary: #006064; //Base Green + Dark
-$white: #FFFFFF; //Neutral Light
-$black: #000000; //Neutral Dark
-$grey: #929292; //Neutral Medium
-// Shadow
-$box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
-// Border
-$border-radius: 2px;
-// Font & Text
-$font-family: 'Roboto', sans-serif;
-$font-ligher: 300;
-$font-medium: 400;
-$font-bolder: 600;
-$text-upper: uppercase;
-$vertical-middle: middle;
-$text-center: center;
+@import '/variables';
 
 
 // Main App Styles
