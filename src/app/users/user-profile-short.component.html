@@ -1,5 +1,5 @@
 <header class="hero-background">
-  <h2 (click)="showId=!(showId)">Your Profile</h2>
+  <h2 class="internal-header" (click)="showId=!(showId)">Your Profile</h2>
   <span *ngIf="showId">My ID is: {{(auth | async)?.uid}} </span>
 </header>
 
