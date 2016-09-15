@@ -1,3 +1,11 @@
+// Import Main global variables
+// ------------------------------------------------------------
+@import '../../assets/scss/variables.scss';
+
+// User Component
+//
+// Styles for user profile form
+// ------------------------------------------------------------
 @media (min-width: 720px) {
   .user-form {
     width: 40%;
