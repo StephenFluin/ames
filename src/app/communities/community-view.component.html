@@ -1,6 +1,6 @@
 <div *ngIf="community">
   <header class="hero-background">
-    <h2 class="internal-header">Community</h2>
+    <h2 i18n class="internal-header">Community</h2>
   </header>
 
   <main class="main-content internal-view">
@@ -11,7 +11,7 @@
             <div class="card-hero__content">
               <h2>{{community.icon}} {{community.name}}</h2>
               <br>
-              <a class="join" [href]="community.url">Join</a>
+              <a i18n class="join" [href]="community.url">Join</a>
             </div>
           </div>
         </div>
@@ -19,17 +19,17 @@
 
     <div class="two-column">
       <div class="left">
-        <p><i class="material-icons">location_on</i>{{community.location}}</p>
-        <p><i class="material-icons">person</i>Organizer: {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
+        <p i18n><i class="material-icons">location_on</i>{{community.location}}</p>
+        <p i18n><i class="material-icons">person</i>Organizer: {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
       </div>
 
       <div class="right">
-        <h3>Description</h3>
+        <h3 i18n>Description</h3>
         <p>{{community.description}}</p>
       </div>
     </div>
 
-    <h3>Members</h3>
+    <h3 i18n>Members</h3>
       <div class="two-column internal-members member-container">
         <div *ngFor="let developer of community.members | refirebase" class="content">
             <img class="shield" *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" />
@@ -42,10 +42,10 @@
 
 <div *ngIf="!community">
   <header class="hero-background">
-      <h2 class="internal-header">Community</h2>
+      <h2 i18n class="internal-header">Community</h2>
   </header>
 
   <main class="main-content">
-    <p>Community not found.</p>
+    <p i18n>Community not found.</p>
   </main>
 </div>

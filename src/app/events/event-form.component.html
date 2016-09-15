@@ -17,17 +17,17 @@
   </div>
 
   <fieldset class="content">
-    <h2>Event Leads</h2>
+    <h2 i18n>Event Leads</h2>
     <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="event.leads" (update)="chooseLeads($event)"></picker>
   </fieldset>
 
   <fieldset class="content">
-    <h2>Event Speakers</h2>
+    <h2 i18n>Event Speakers</h2>
     <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="event.speakers" (update)="chooseSpeakers($event)"></picker>
   </fieldset>
 
   <div class="options">
-      <span (click)="deleteThis()" class="delete">Delete</span>
-      <button md-raised-button color="primary" type="submit" >Save</button>
+      <span i18n (click)="deleteThis()" class="delete">Delete</span>
+      <button i18n md-raised-button color="primary" type="submit" >Save</button>
   </div>
 </form>

@@ -1,17 +1,17 @@
 <header class="hero-background">
-  <h2 class="internal-header">Missions</h2>
+  <h2 i18n class="internal-header">Missions</h2>
 </header>
 
 <main class="main-content">
   <form class="mission-form" *ngIf="auth.isAdmin | async" (submit)="createMission()">
       <fieldset class="content">
-          <h2>New Mission</h2>
+          <h2 i18n>New Mission</h2>
           <div class="form-layout">
             <md-input placeholder="Name" name="name" [(ngModel)]="newMission.name"></md-input>
           </div>
 
           <div class="options">
-            <button md-raised-button color="primary" type="submit">Create</button>
+            <button i18n md-raised-button color="primary" type="submit">Create</button>
           </div>
       </fieldset>
   </form>
@@ -39,11 +39,11 @@
           </div>
 
           <div class="card-action">
-              <a class="view-more" [routerLink]="['/missions/',mission.$key]">View</a>
+              <a i18n class="view-more" [routerLink]="['/missions/',mission.$key]">View</a>
           </div>
 
           <div class="edit-button secondary-button">
-            <a *ngIf="auth.isAdmin | async" (click)="edit(mission)">Edit</a>
+            <a i18n *ngIf="auth.isAdmin | async" (click)="edit(mission)">Edit</a>
           </div>
 
         </li>

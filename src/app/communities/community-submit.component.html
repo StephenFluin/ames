@@ -1,12 +1,12 @@
 <header class="hero-background">
-    <h2 class="internal-header">Community</h2>
+    <h2 i18n class="internal-header">Community</h2>
 </header>
 
 <main class="main-content">
   <md-card class="profile-card">
     <br>
-    <h3 class="form-title">Submit New Community</h3>
-    <p>Thanks for submitting a community. If it meets our quality guidelines, we'd be happy to add it!</p>
+    <h3 i18n class="form-title">Submit New Community</h3>
+    <p i18n>Thanks for submitting a community. If it meets our quality guidelines, we'd be happy to add it!</p>
     <community-form [community]="community" (update)="processUpdate($event)"></community-form>
   </md-card>
 </main>

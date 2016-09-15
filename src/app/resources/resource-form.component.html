@@ -4,7 +4,7 @@
     <div class="two-column"><md-input [(ngModel)]="resource.url" placeholder=" URL" type="url"></md-input></div>
 
     <div class="two-column">
-      <label>Select a Category
+      <label i18n>Select a Category
         <select (change)="selectCategory($event.target.value)" [ngModel]="resource.category">
           <option
             *ngFor="let category of categories | async"
@@ -27,7 +27,7 @@
   </div>
 
   <div class="options">
-      <span *ngIf="resource && resource.$key && resource.$key != 'new'" (click)="deleteThis()" class="delete">delete</span>
-      <button md-raised-button color="primary" type="submit" >Save</button>
+      <span i18n *ngIf="resource && resource.$key && resource.$key != 'new'" (click)="deleteThis()" class="delete">delete</span>
+      <button i18n md-raised-button color="primary" type="submit" >Save</button>
   </div>
 </form>

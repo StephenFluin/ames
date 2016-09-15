@@ -1,13 +1,13 @@
 <div *ngIf="selected">
-  <h3>Current</h3>
+  <h3 i18n>Current</h3>
   <div class="participant-name" *ngFor="let item of selected" (click)="delete(item)"><span class="delete-item">x</span> {{item.name}}</div>
-  <div class="participant-name" *ngIf="selected.length == 0">(None currently selected)</div>
+  <div i18n class="participant-name" *ngIf="selected.length == 0">(None currently selected)</div>
 </div>
 
 <div style="text-align:right;">
-    <button *ngIf="!showAvailable && available && (!singleMode || selected.length < 1 )" (click)="showAdd()" type="button" color="primary" md-raised-button>Add</button>
+    <button i18n *ngIf="!showAvailable && available && (!singleMode || selected.length < 1 )" (click)="showAdd()" type="button" color="primary" md-raised-button>Add</button>
 </div>
 <div *ngIf="showAvailable">
-  <h4>Choose From:</h4>
+  <h4 i18n>Choose From:</h4>
     <div class="participant-name" *ngFor="let item of available | async" (click)="select(item)">{{item.name}}</div>
 </div>

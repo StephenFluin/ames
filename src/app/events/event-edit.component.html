@@ -1,11 +1,11 @@
 <header class="hero-background">
-    <h2 class="internal-header">Event</h2>
+    <h2 i18n class="internal-header">Event</h2>
 </header>
 
 <main class="main-content">
   <md-card class="profile-card">
     <br>
-    <h3 class="form-title">New/Edit Event</h3>
+    <h3 i18n class="form-title">New/Edit Event</h3>
     <event-form [event]="event | async" (update)="processUpdate($event)" (delete)="delete($event)"></event-form>
   </md-card>
 </main>
