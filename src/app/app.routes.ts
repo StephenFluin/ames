@@ -24,8 +24,6 @@ import { ResourceSubmitComponent } from './resources/resource-submit.component';
 import { UserProfileComponent } from './users/user-profile.component';
 import { UserProfileShortComponent } from './users/user-profile-short.component';
 import { AdminComponent } from './admin.component';
-import { ResourcesPageComponent } from './resources-page/resources-page.component';
-
 
 export const routes: Routes = [
     { path: '', component: CommunitiesComponent },
@@ -53,7 +51,6 @@ export const routes: Routes = [
     { path: 'communities/:id/edit', component: CommunityEditComponent },
     { path: 'login', component: LoginComponent, data: { title: 'Login' } },
     { path: 'resources', component: ResourcesComponent, data: { title: 'Resources' } },
-
     { path: 'resources/submit', component: ResourceSubmitComponent, data: { title: 'Submit Resource' } },
     { path: 'resources/queue', component: ResourceQueueComponent, data: { title: 'Resource Submission Queue' } },
     { path: 'resources/:category/:subcategory/:id', component: ResourceEditComponent },
