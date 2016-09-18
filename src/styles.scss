@@ -303,10 +303,12 @@ $nav-name-media8: 1222px;
   height: 36px;
   padding: 10px 23px;
   text-transform: none;
+  transition: all .3s;
 }
 
 .delete:hover {
   background-color: rgba(0, 0, 0, 0.2);
+  color: $white;
 }
 
 // Secondary Button

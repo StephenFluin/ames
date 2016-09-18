@@ -8,9 +8,8 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
 
-    template: `<h2>Edit Resource</h2>
-     <resource-form [resource]="resource | async" (update)="save($event)" (delete)="delete($event)"></resource-form>
-    `,
+  templateUrl: 'resource-edit.component.html',
+  styleUrls: ['../developers/expert-form.component.scss']
 })
 export class ResourceEditComponent {
     id: string;
