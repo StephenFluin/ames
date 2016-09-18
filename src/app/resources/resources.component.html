@@ -3,38 +3,67 @@
 </header>
 
 <main class="main-content">
-  <md-card class="profile-card">
+  <button i18n [routerLink]="['/resources/submit']" md-raised-button color="primary"><span class="adminIcon"></span>Submit a New Resource</button>
 
-    <p><a i18n [routerLink]="['/resources/submit']">Submit a New Resource</a></p>
+  <fieldset *ngIf="auth.isAdmin | async" class="content">
+    <h2 i18n>Admin Properties</h2>
 
-    <div class="content">
-      <fieldset *ngIf="auth.isAdmin | async" class="content">
-        <legend i18n><span class="adminIcon"></span>Admin</legend>
-        <div><a i18n [routerLink]="['/resources/queue']">Manage the Queue</a></div>
-        <label><input i18n type="checkbox" [(ngModel)]="priorityMode">Priority Management Mode</label>
-      </fieldset>
-    </div>
+    <div><a i18n [routerLink]="['/resources/queue']">Manage the Queue</a></div>
+    <label>
+      <input i18n type="checkbox" [(ngModel)]="priorityMode">
+      Priority Management Mode
+    </label>
+  </fieldset>
 
-    <!-- NOTE: Development, Education, Community -->
-    <div *ngFor="let category of data | async" class="category">
-      <h3>{{category.$key}}</h3>
-      <div *ngIf="priorityMode && (auth.isAdmin | async)"> <button (click)="setCategoryPriority(category.$key,priority)">SetPriority</button><input [(ngModel)]="priority"/></div>
-
-      <!-- NOTE: IDEs, Libraries..., Books, Workshops, ...Groups, Podcasts  -->
-      <div class="subcategory-list">
-        <div *ngFor="let sub of category | refirebase" class="subcategory">
-          <h4>{{sub.$key}}</h4>
-          <h4 *ngIf="priorityMode && (auth.isAdmin | async)"><button i18n (click)="setSubcategoryPriority(category.$key, sub.$key,subPriority)">SetPriority</button><input [(ngModel)]="subPriority"></h4>
-
-          <!--  NOTE: Augury, ngrx, ... ReactNative, Ionic, ...Learning Angular 2-->
-          <div *ngFor="let resource of sub.resources | refirebase" style="margin-left:16px;">
-            <a target="_blank" [href]="resource.url">{{resource.title}}</a> <a [routerLink]="['/resources',category.$key,sub.$key,resource.$key]" *ngIf="auth.isAdmin | async"><svg style="width:12px;height:12px" viewBox="0 0 24 24">
-              <path fill="#000000" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
-            </a>
-            <span *ngIf="!resource.rev">(Awaiting Approval!)</span>
-          </div>
+  <div class="resources-layout">
+    <div class="resources js-resources-ctrl grid-fixed left">
+      <div *ngFor="let category of data | async" class="category">
+        <h2>{{category.$key}}</h2>
+        <div i18n *ngIf="priorityMode && (auth.isAdmin | async)" class="priority">
+          <md-input placeholder="Priority" [(ngModel)]="priority"></md-input>
+          <button md-raised-button color="primary" (click)="setCategoryPriority(category.$key,priority)">Set Priority</button>
         </div>
+
+        <md-card>
+          <section class="category shadow-1" *ngFor="let sub of category | refirebase">
+            <div class="category__sub">
+              <h3>{{sub.$key}}</h3>
+              <div i18n *ngIf="priorityMode && (auth.isAdmin | async)" class="priority">
+                <md-input placeholder="Priority" [(ngModel)]="subPriority"></md-input>
+                <button md-raised-button color="primary" (click)="setCategoryPriority(category.$key,subPriority)">Set Priority</button>
+              </div>
+
+              <div class="sub__resource" *ngFor="let resource of sub.resources | refirebase">
+                <div ngFor="let resource of sub.resources | refirebase">
+                  <a class="resource" target="_blank" [href]="resource.url">
+                    <div [routerLink]="['/resources',category.$key,sub.$key,resource.$key]" *ngIf="auth.isAdmin | async" class="edit-button secondary-button">
+                      <a i18n>Edit</a>
+                    </div>
+                    <h4 class="title">{{resource.title}}</h4>
+                    <p class="details">{{resource.desc}}</p>
+                    <span i18n *ngIf="!resource.rev">(Awaiting Approval!)</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </md-card>
       </div>
     </div>
-  </md-card>
+
+    <div class="right jumpnav">
+      <md-card class="jumpnav--affix-top">
+        <div *ngFor="let category of data | async">
+
+          <div class="jumpnav__title">
+            <a >{{category.$key}} </a>
+          </div>
+
+          <div class="jumpnav__category">
+            <a *ngFor="let sub of category | refirebase">{{sub.$key}}</a>
+          </div>
+        </div>
+      </md-card>
+    </div>
+  </div>
 </main>

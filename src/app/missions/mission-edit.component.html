@@ -4,7 +4,6 @@
 
  <main class="main-content">
    <md-card class="profile-card">
-     <br>
      <h3 i18n class="form-title">New/Edit Mission</h3>
      <mission-form [mission]="mission | async" (update)="save($event)" (delete)="delete($event)"></mission-form>
    </md-card>

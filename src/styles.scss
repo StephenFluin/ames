@@ -19,7 +19,6 @@
   text-decoration: none;
 }
 
-h2 { display: inline; }
 label { display: block;}
 p, form, .grid, .content { padding:16px; }
 
@@ -312,17 +311,21 @@ $nav-name-media8: 1222px;
 
 // Secondary Button
 .secondary-button a {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: transparent;
   border-radius: $border-radius;
+  border: 2px solid rgba(0, 0, 0, 0.05);
   color: $grey;
   cursor: pointer;
   font-size: 14px;
   height: 36px;
   padding: 6px 23px;
+  text-transform: $text-upper;
+  transition: all .3s;
 }
 
 .secondary-button a:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
 }
 
 .edit-button {
@@ -356,7 +359,7 @@ $nav-name-media8: 1222px;
 }
 
 fieldset {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.03);
   border-radius: 18px;
   border: none;
   margin-bottom: 30px;
@@ -422,6 +425,15 @@ form input {
   color: #37474F;
 }
 
+form a {
+  color: $color-primary;
+  word-wrap:break-word;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 // Toggle
 .md-checked {
   .md-slide-toggle-thumb {
@@ -467,6 +479,7 @@ img.shield {
 }
 
 .internal-header {
+  display: inline;
   font-size: 24px;
   font-weight: $font-ligher;
   margin: 40px 0;
@@ -544,12 +557,15 @@ $card-media4: 10224px;
 
 .pretty-card .md-card {
   margin: 0 auto;
+  transition: all .3s;
   width: 100%;
 }
 
 .pretty-card:hover {
-  $card-hover: linear-gradient(rgba(255,255,255,0), rgba(227,239,241,0.5));
-  background: $card-hover;
+  -webkit-transform: translate3d(0,-2px,0);
+  box-shadow: 0 8px 8px rgba(0,131,143,0.24),0 0 8px rgba(0,131,143,0.12),0 6px 18px rgba(0,131,143,0.12);
+  text-decoration: none;
+  transform: translate3d(0,-2px,0);
 }
 
 // MD-card Styles
@@ -596,7 +612,7 @@ $card-media4: 10224px;
   text-align: left;
   margin-left: 15px;
   margin-bottom: 15px;
-  color: $grey;
+  color: $grey !important;
 }
 
 // Card Information
@@ -608,11 +624,12 @@ $card-media4: 10224px;
 .card-info md-card-subtitle {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  color: $grey !important;
   display: -webkit-box;
   margin-bottom: 5px;
   margin-left: 15px;
   margin-right: 15px;
-  margin-top: 15px;
+  margin-top: 20px;
   overflow: hidden;
   text-align: left;
   text-overflow: ellipsis;
@@ -641,6 +658,12 @@ $card-media4: 10224px;
 // Hero Styles
 .view-page .card-hero {
   $internal-hero-height: 250px;
+
+  height: $internal-hero-height;
+}
+
+.logo-hero .card-hero {
+  $internal-hero-height: 300px;
 
   height: $internal-hero-height;
 }
@@ -702,6 +725,10 @@ $card-media4: 10224px;
   .internal-view  .right {
     margin-left: 45px;
   }
+}
+
+.two-column .left p {
+  padding: 5px 0;
 }
 
 .internal-view h3 {
