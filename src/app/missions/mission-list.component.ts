@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FirebaseService } from '../shared/firebase.service';
 import { AuthService } from '../shared/auth.service';
 import { Mission } from '../shared/models';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,21 +12,21 @@ import { Observable } from 'rxjs';
     styleUrls: ['mission-list.component.scss', '../developers/expert-form.component.scss']
 })
 export class MissionListComponent implements OnInit {
-    list: Observable<Mission[]>;
+    list: FirebaseListObservable<Mission[]>;
     newMission: Mission;
-    constructor(public missionService: FirebaseService<Mission>, public auth: AuthService, public route: ActivatedRoute, public router: Router) {
+    constructor(public af: AngularFire, public auth: AuthService, public route: ActivatedRoute, public router: Router) {
     }
     ngOnInit() {
-        this.missionService.setup('/missions/');
-        this.list = this.missionService.list;
+        this.list = this.af.database.list('/missions/');
         this.newMission = new Mission();
     }
     createMission() {
-        this.missionService.new(this.newMission);
+        let result = this.list.push(this.newMission);
         this.newMission = new Mission();
 
+
         // Take the user to their mission
-        this.router.navigate(['./'], { relativeTo: this.route });
+        this.router.navigate(['/missions', result.key, "edit"]);
     }
 
     edit(mission) {

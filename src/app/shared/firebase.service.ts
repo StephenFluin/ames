@@ -40,7 +40,7 @@ export class FirebaseService<T extends HasKey> {
     new(item: T): any {
         let result = this.firebaseList.push(item);
         console.log(result);
-        result.then(success => console.log("success", success), failure => console.log("failure", failure));
+        result.then(success => console.log("successfully added new item to " + this.endpoint, success), failure => console.log("failure", failure));
         return result;
 
     }
