@@ -25,18 +25,19 @@ export class ResourcesComponent implements OnInit{
     }
 
     ngOnInit() {
-    window.addEventListener('scroll', this.changeScrollPos.bind(this), false);
-  }
+        window.addEventListener('scroll', this.changeScrollPos.bind(this), false);
+    }
 
-  ngOnDestroy() {
-    window.removeEventListener('scroll', this.changeScrollPos.bind(this), false);
-  }
+    ngOnDestroy() {
+        window.removeEventListener('scroll', this.changeScrollPos.bind(this), false);
+    }
 
     setCategoryPriority(category, priority: number) {
         firebase.database().ref('/resources/' + category).setPriority(priority);
         this.priority = null;
 
     }
+
     setSubcategoryPriority(category, subcategory, priority: number) {
         firebase.database().ref('/resources/' + category + '/' + subcategory).setPriority(priority);
         this.priority = null;
@@ -44,10 +45,10 @@ export class ResourcesComponent implements OnInit{
     }
 
     changeScrollPos() {
-      if (window.scrollY > 250) {
-        this.adjustJumpnav = true;
-      } else {
-        this.adjustJumpnav = false;
-      }
+        if (window.scrollY > 250) {
+            this.adjustJumpnav = true;
+        } else {
+            this.adjustJumpnav = false;
+        }
     }
 }
