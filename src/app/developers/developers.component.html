@@ -11,7 +11,7 @@
           <li>
 
             <div class="card-hero-wrapper">
-              <div [style.background-image]="expert.picUrl?'url('+expert.picUrl+')':''" class="card-hero">
+              <div [style.background-image]="'url('+(expert.picUrl?expert.picUrl:'/assets/images/card-placeholder.jpg')+')'" class="card-hero">
                 <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7))">
                   <div class="card-hero__content">
                     <md-card-title>{{ expert.name}}</md-card-title>

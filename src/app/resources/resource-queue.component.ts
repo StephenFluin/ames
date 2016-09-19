@@ -8,17 +8,8 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
 @Component({
 
     selector: 'resource-queue',
-    template: `<h2>Resource Queue</h2>
-    <div class="content">
-        <div *ngFor="let submission of submissions | async">
-            <h3>{{submission.title}} ({{submission.category}} / {{submission.subcategory}})</h3>
-            <p><a [href]="submission.url">{{submission.url}}</a></p>
-            <p>{{submission.desc}}</p>
-            <button (click)="accept(submission)">accept</button> <button (click)="reject(submission)">reject</button>
-        </div>
-    </div>
-    
-    `
+    templateUrl: 'resource-queue.component.html',
+    styleUrls: ['../developers/expert-form.component.scss']
 })
 export class ResourceQueueComponent implements OnInit {
     submissions: FirebaseListObservable<any[]>;

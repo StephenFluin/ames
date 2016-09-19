@@ -4,8 +4,8 @@
     <div class="two-column"><md-input i18n-placeholder placeholder="Name" [(ngModel)]="event.name" required ></md-input></div>
     <div class="two-column"><md-input i18n-placeholder placeholder="Address/Location" [(ngModel)]="event.location"></md-input></div>
 
-    <div class="two-column"><md-input i18n-placeholder placeholder="Start Date" [(ngModel)]="event.startDate" type="date"></md-input></div>
-    <div class="two-column"><md-input i18n-placeholder placeholder="End Date" [(ngModel)]="event.endDate" type="date"></md-input></div>
+    <div class="two-column"><label i18n>Start Date<md-input [(ngModel)]="event.startDate" type="date"></md-input></label></div>
+    <div class="two-column"><label i18n>End Date<md-input [(ngModel)]="event.endDate" type="date"></md-input></label></div>
 
     <div class="two-column"><md-input i18n-placeholder placeholder="URL" [(ngModel)]="event.url"></md-input></div>
     <div class="two-column"><md-input i18n-placeholder placeholder="Logo URL" [(ngModel)]="event.logoUrl"></md-input></div>

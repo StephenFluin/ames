@@ -4,7 +4,6 @@
 
 <main class="main-content">
   <md-card class="profile-card">
-    <br>
     <h3 i18n class="form-title">New/Edit Community</h3>
     <community-form [community]="community | async" (update)="processUpdate($event)" (delete)="delete($event)"></community-form>
   </md-card>

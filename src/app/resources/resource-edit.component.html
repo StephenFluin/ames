@@ -1,0 +1,10 @@
+<header class="hero-background">
+    <h2 i18n class="internal-header">Resource</h2>
+</header>
+
+<main class="main-content">
+  <md-card class="profile-card">
+    <h3 i18n class="form-title">Edit Resource</h3>
+    <resource-form [resource]="resource | async" (update)="save($event)" (delete)="delete($event)"></resource-form>
+  </md-card>
+</main>
