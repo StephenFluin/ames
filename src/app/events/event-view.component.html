@@ -11,7 +11,7 @@
             <div class="card-hero__content">
               <img [src]="event.logoUrl" class="event-logo">
               <h2>{{ event.name }}</h2>
-              <a i18n class="join">Join</a>
+              <a i18n class="join" [href]="event.url">Join</a>
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
       <div class="left">
         <p><i class="material-icons">location_on</i>{{event.location}}</p>
         <p><i class="material-icons">date_range</i>{{event.startDate | date:"MMM d"}} - {{event.endDate | date:"MMM d"}}</p>
-        <p i18n><i class="material-icons">person</i>Lead:</p>
+        <p i18n><i class="material-icons">person</i>Leads: <span *ngFor="let lead of event.leads | refirebase">{{(lead | fireJoin:'/users/' | async)?.name}} </span></p>
       </div>
 
       <div class="right">
