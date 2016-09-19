@@ -17,12 +17,12 @@
   <div><md-input placeholder="Description" [(ngModel)]="mission.description"></md-input></div>
 
   <fieldset class="content">
-      <h2>Participants</h2>
+      <h2 i18n>Participants</h2>
       <picker [list]="'/users/'" [order]="'name'" [selectedKeys]="mission.participants" (update)="chooseParticipants($event)"></picker>
   </fieldset>
 
   <div class="options">
-      <span (click)="deleteThis()" class="delete">Delete</span>
-      <button md-raised-button color="primary" type="submit" >Save</button>
+      <span i18n (click)="deleteThis()" class="delete">Delete</span>
+      <button i18n md-raised-button color="primary" type="submit" >Save</button>
   </div>
 </form>

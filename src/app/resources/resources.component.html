@@ -1,17 +1,17 @@
 <header class="hero-background">
-  <h2 class="internal-header">Resources</h2>
+  <h2 i18n class="internal-header">Resources</h2>
 </header>
 
 <main class="main-content">
   <md-card class="profile-card">
 
-    <p><a [routerLink]="['/resources/submit']">Submit a New Resource</a></p>
+    <p><a i18n [routerLink]="['/resources/submit']">Submit a New Resource</a></p>
 
     <div class="content">
       <fieldset *ngIf="auth.isAdmin | async" class="content">
-        <legend><span class="adminIcon"></span>Admin</legend>
-        <div><a [routerLink]="['/resources/queue']">Manage the Queue</a></div>
-        <label><input type="checkbox" [(ngModel)]="priorityMode">Priority Management Mode</label>
+        <legend i18n><span class="adminIcon"></span>Admin</legend>
+        <div><a i18n [routerLink]="['/resources/queue']">Manage the Queue</a></div>
+        <label><input i18n type="checkbox" [(ngModel)]="priorityMode">Priority Management Mode</label>
       </fieldset>
     </div>
 
@@ -24,7 +24,7 @@
       <div class="subcategory-list">
         <div *ngFor="let sub of category | refirebase" class="subcategory">
           <h4>{{sub.$key}}</h4>
-          <h4 *ngIf="priorityMode && (auth.isAdmin | async)"><button (click)="setSubcategoryPriority(category.$key, sub.$key,subPriority)">SetPriority</button><input [(ngModel)]="subPriority"></h4>
+          <h4 *ngIf="priorityMode && (auth.isAdmin | async)"><button i18n (click)="setSubcategoryPriority(category.$key, sub.$key,subPriority)">SetPriority</button><input [(ngModel)]="subPriority"></h4>
 
           <!--  NOTE: Augury, ngrx, ... ReactNative, Ionic, ...Learning Angular 2-->
           <div *ngFor="let resource of sub.resources | refirebase" style="margin-left:16px;">

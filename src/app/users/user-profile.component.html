@@ -1,11 +1,11 @@
 <header class="hero-background">
-  <h2 class="internal-header" (click)="showId=!(showId)">Your Profile</h2>
+  <h2 i18n class="internal-header" (click)="showId=!(showId)">Your Profile</h2>
   <span *ngIf="showId">My ID is: {{(auth | async)?.uid}} </span>
 </header>
 
 <main class="main-content">
   <md-card class="profile-card">
-    <p *ngIf="!(userData | async)">We don't yet have any data for your user.</p>
+    <p i18n *ngIf="!(userData | async)">We don't yet have any data for your user.</p>
     <expert-form [expert]="userData | async" (update)="updateUser($event)" class="contents"></expert-form>
   </md-card>
 </main>

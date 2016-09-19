@@ -1,6 +1,6 @@
 <div *ngIf="expert">
   <header class="hero-background">
-      <h2 class="internal-header">Developer</h2>
+      <h2 i18n class="internal-header">Developer</h2>
   </header>
 
   <main class="main-content developer-profile">
@@ -14,9 +14,9 @@
         <div class="right">
           <md-card-title>{{expert.name }}</md-card-title>
           <md-card-subtitle>
-            <span *ngIf="expert.isGDE">Angular GDE</span>
-            <span *ngIf="expert.isExpert">Angular Expert</span>
-            <span *ngIf="expert.isConsultant">- Available for Consulting</span>
+            <span i18n *ngIf="expert.isGDE">Angular GDE</span>
+            <span i18n *ngIf="expert.isExpert">Angular Expert</span>
+            <span i18n *ngIf="expert.isConsultant">- Available for Consulting</span>
           </md-card-subtitle>
           <div *ngIf="expert.location" class="developer-location"><i class="material-icons">location_on</i>{{expert.location}}</div>
 
@@ -50,14 +50,14 @@
 
       <div class="developer-content two-column">
         <div class="left">
-          <h3>Biography</h3>
-          <p *ngIf="!expert.bio">This developer has not yet provided a bio.</p>
-          <p>{{expert.bio}}</p>
+          <h3 i18n>Biography</h3>
+          <p i18n *ngIf="!expert.bio">This developer has not yet provided a bio.</p>
+          <p i18n>{{expert.bio}}</p>
         </div>
 
         <div class="right">
-          <h3>Content</h3>
-          <p *ngIf="!expert.content">This developer has not yet provided any content.</p>
+          <h3 i18n>Content</h3>
+          <p i18n *ngIf="!expert.content">This developer has not yet provided any content.</p>
           <p><expert-content *ngFor="let content of expert.content | refirebase" [content]="content"></expert-content></p>
         </div>
 
@@ -71,10 +71,10 @@
 
 <div *ngIf="!expert">
   <header class="hero-background">
-      <h2 class="internal-header">Developer</h2>
+      <h2 i18n class="internal-header">Developer</h2>
   </header>
 
   <main class="main-content developer-profile">
-    <p>Expert not found.</p>
+    <p i18n>Expert not found.</p>
   </main>
 </div>

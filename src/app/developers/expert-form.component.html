@@ -20,53 +20,53 @@
     <picker [list]="'/communities/'" [order]="'name'" [selectedKeys]="expert.communities" (update)="chooseCommunities($event)"></picker>
     -->
     <fieldset class="content">
-        <h2>Content: Share your work</h2>
+        <h2 i18n>Content: Share your work</h2>
 
         <div class="expert-content">
           <expert-content *ngFor="let content of expert.content | refirebase" [content]="content" (click)="editContent(content)"></expert-content>
         </div>
 
-        <h3>New/Edit Content</h3>
+        <h3 i18n>New/Edit Content</h3>
         <div class="form-layout">
           <div class="three-column"><md-input placeholder="Title" placeholder="Content Title" [(ngModel)]="newContent.title"></md-input></div>
           <div class="three-column"><md-input placeholder="URL" placeholder="URL" [(ngModel)]="newContent.url"></md-input></div>
           <div class="three-column">
-            <label>
+            <label i18n>
                 Type
                 <select [(ngModel)]="newContent.type">
-                    <option>Presentation</option>
-                    <option>Blog Post</option>
-                    <option>Other</option>
+                    <option i18n>Presentation</option>
+                    <option i18n>Blog Post</option>
+                    <option i18n>Other</option>
                 </select>
             </label>
           </div>
         </div>
 
         <div class="options">
-            <button md-raised-button color="primary" type="button" (click)="createContent();">Create</button>
+            <button i18n md-raised-button color="primary" type="button" (click)="createContent();">Create</button>
         </div>
     </fieldset>
 
     <fieldset class="content" *ngIf="auth.isAdmin | async">
-      <h2>Admin Properties</h2>
+      <h2 i18n>Admin Properties</h2>
 
       <h3></h3>
 
       <div class="form-layout">
         <div class="three-column">
-          <label>GDE
+          <label i18n>GDE
             <md-slide-toggle name="isGDE" [(ngModel)]="expert.isGDE"></md-slide-toggle>
           </label>
         </div>
 
         <div class="three-column">
-          <label>Consultant
+          <label i18n>Consultant
             <md-slide-toggle [(ngModel)]="expert.isConsultant"></md-slide-toggle>
           </label>
         </div>
 
         <div class="three-column">
-          <label>Expert
+          <label i18n>Expert
             <md-slide-toggle [(ngModel)]="expert.isExpert"></md-slide-toggle>
         </label>
         </div>
@@ -74,7 +74,7 @@
     </fieldset>
 
     <div class="options">
-        <span (click)="deleteThis()" class="delete">Delete</span>
-        <button md-raised-button color="primary" type="submit">Save</button>
+        <span i18n (click)="deleteThis()" class="delete">Delete</span>
+        <button i18n md-raised-button color="primary" type="submit">Save</button>
     </div>
 </form>
