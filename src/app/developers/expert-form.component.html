@@ -53,6 +53,12 @@
       <h3></h3>
 
       <div class="form-layout">
+
+        <div class="three-column">
+          <label i18n>Show on Developers Tab
+            <md-slide-toggle [(ngModel)]="expert.isExpert"></md-slide-toggle>
+        </label>
+        </div>
         <div class="three-column">
           <label i18n>GDE
             <md-slide-toggle name="isGDE" [(ngModel)]="expert.isGDE"></md-slide-toggle>
@@ -66,9 +72,9 @@
         </div>
 
         <div class="three-column">
-          <label i18n>Expert
-            <md-slide-toggle [(ngModel)]="expert.isExpert"></md-slide-toggle>
-        </label>
+          <label i18n>Googler
+            <md-slide-toggle [(ngModel)]="expert.isGoogler"></md-slide-toggle>
+          </label>
         </div>
       </div>
     </fieldset>
