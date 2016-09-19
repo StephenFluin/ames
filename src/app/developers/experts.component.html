@@ -20,7 +20,7 @@
                   <md-card-title>{{ (expert.observable | async)?.name}}</md-card-title>
                   <md-card-subtitle>
                     <span i18n *ngIf="(expert.observable | async)?.isGDE">GDE</span>
-                    <span i18n *ngIf="(expert.observable | async)?.isExpert">Expert</span>
+                    <span i18n *ngIf="(expert.observable | async)?.isGoogler">Google</span>
                     <span i18n *ngIf="(expert.observable | async)?.isConsultant">- Available for Consulting</span>
                   </md-card-subtitle>
                 </div>

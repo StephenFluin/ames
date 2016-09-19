@@ -5,7 +5,7 @@
 <main class="main-content">
   <form class="mission-form" *ngIf="auth.isAdmin | async" (submit)="createMission()">
       <fieldset class="content">
-          <h2 i18n>New Mission</h2>
+          <h2 i18n><span class="adminIcon"></span> New Mission</h2>
           <div class="form-layout">
             <md-input placeholder="Name" name="name" [(ngModel)]="newMission.name"></md-input>
           </div>
@@ -23,7 +23,7 @@
         <li>
 
           <div class="card-hero-wrapper">
-            <div class="card-hero" [style.background-image]="'url('+(mission.bannerUrl?community.bannerUrl:'/assets/images/card-placeholder.jpg')+')'">
+            <div class="card-hero" [style.background-image]="'url('+(mission.bannerUrl?mission.bannerUrl:'/assets/images/card-placeholder.jpg')+')'">
               <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8))">
                 <div class="card-hero__content">
                   <md-card-title>{{mission.name}}</md-card-title>
