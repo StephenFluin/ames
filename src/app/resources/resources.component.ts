@@ -1,4 +1,4 @@
-import { Component, Pipe, PipeTransform } from '@angular/core';
+import { Component, Pipe, PipeTransform, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Rx';
@@ -13,7 +13,9 @@ declare var prompt;
     templateUrl: 'resources.component.html',
     styleUrls: [ '../developers/expert-form.component.scss', 'resources.component.scss'],
 })
-export class ResourcesComponent {
+export class ResourcesComponent implements OnInit{
+    adjustJumpnav: boolean = false;
+
     data: Observable<any[]>;
     priority: number;
 
@@ -21,6 +23,15 @@ export class ResourcesComponent {
         this.data = af.database.list('/resources').share();
 
     }
+
+    ngOnInit() {
+    window.addEventListener('scroll', this.changeScrollPos.bind(this), false);
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('scroll', this.changeScrollPos.bind(this), false);
+  }
+
     setCategoryPriority(category, priority: number) {
         firebase.database().ref('/resources/' + category).setPriority(priority);
         this.priority = null;
@@ -32,5 +43,11 @@ export class ResourcesComponent {
 
     }
 
-
+    changeScrollPos() {
+      if (window.scrollY > 250) {
+        this.adjustJumpnav = true;
+      } else {
+        this.adjustJumpnav = false;
+      }
+    }
 }

@@ -18,6 +18,7 @@
   <div class="resources-layout">
     <div class="resources js-resources-ctrl grid-fixed left">
       <div *ngFor="let category of data | async" class="category">
+        <a class="invisible" name="{{category.$key}}"></a>
         <h2>{{category.$key}}</h2>
         <div i18n *ngIf="priorityMode && (auth.isAdmin | async)" class="priority">
           <md-input placeholder="Priority" [(ngModel)]="priority"></md-input>
@@ -27,6 +28,7 @@
         <md-card>
           <section class="category shadow-1" *ngFor="let sub of category | refirebase">
             <div class="category__sub">
+              <a class="invisible" name="{{sub.$key}}"></a>
               <h3>{{sub.$key}}</h3>
               <div i18n *ngIf="priorityMode && (auth.isAdmin | async)" class="priority">
                 <md-input placeholder="Priority" [(ngModel)]="subPriority"></md-input>
@@ -52,15 +54,15 @@
     </div>
 
     <div class="right jumpnav">
-      <md-card class="jumpnav--affix-top">
+      <md-card class="jumpnav--affix-top" [ngClass]="{'jumpnav--adjust': adjustJumpnav}">
         <div *ngFor="let category of data | async">
 
           <div class="jumpnav__title">
-            <a >{{category.$key}} </a>
+            <a href="resources#{{category.$key}}">{{category.$key}}</a>
           </div>
 
           <div class="jumpnav__category">
-            <a *ngFor="let sub of category | refirebase">{{sub.$key}}</a>
+            <a href="resources#{{sub.$key}}" *ngFor="let sub of category | refirebase">{{sub.$key}}</a>
           </div>
         </div>
       </md-card>

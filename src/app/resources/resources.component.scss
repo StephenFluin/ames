@@ -113,15 +113,16 @@ p {
 }
 
 .jumpnav {
-  width: 160px;
 }
 
 .jumpnav md-card {
+  width: 160px;
   padding: 1px 0;
+  margin-top: 64px;
 }
 
 .jumpnav--affix-top {
-  // position: fixed;
+  position: fixed;
 }
 
 .jumpnav__category a,
@@ -136,6 +137,7 @@ p {
 }
 
 .jumpnav__title a {
+  color: $grey-dark;
   font-size: 18px;
   font-weight: $font-medium;
   margin-top: 20px;
@@ -153,13 +155,14 @@ p {
 }
 
 .jumpnav--adjust {
-  top: 64px;
+  top: 10px;
+  margin: 0;
 }
 
 .invisible {
   display: block;
   position: relative;
-  top: -250px;
+  top: -70px;
   visibility: hidden;
 }
 
