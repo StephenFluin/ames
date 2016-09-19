@@ -35,6 +35,7 @@ export class PickerComponent implements OnInit {
     @Input() selectedObservable: Observable<any>;
 
     @Input() singleMode: boolean = false;
+    @Input() confirmDelete: boolean = false;
 
     showAvailable: boolean = false;
 
@@ -92,9 +93,15 @@ export class PickerComponent implements OnInit {
         this.showAvailable = false;
     }
     delete(item) {
-        let pos = this.selected.indexOf(item);
-        this.selected.splice(pos, 1);
-        this.update.emit(this.convertToMap(this.selected));
+        let result = true;
+        if(this.confirmDelete) {
+            result = confirm("Are you sure you would like to delete this?");
+        }
+        if(result) {
+            let pos = this.selected.indexOf(item);
+            this.selected.splice(pos, 1);
+            this.update.emit(this.convertToMap(this.selected));
+        }
 
     }
     convertToMap(list: any[]) {

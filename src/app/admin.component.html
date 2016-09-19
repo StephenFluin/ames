@@ -11,6 +11,7 @@
           [list]="'/users'"
           [selectedObservable]="admins"
           [order]="name"
+          [confirmDelete]="true"
           (update)="update($event)">
         </picker>
       </fieldset>
