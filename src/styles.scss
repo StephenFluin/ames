@@ -1,8 +1,12 @@
-// Global Variables
-$color-primary: #00838f;
-$color-secondary: #006064;
-$box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+// Import Main global variables
+// ------------------------------------------------------------
+@import '/variables';
 
+
+// Main App Styles
+//
+// Main default styles
+// ------------------------------------------------------------
 *.md-primary  {
   background-color: $color-primary !important;
 }
@@ -19,6 +23,8 @@ h2 { display: inline; }
 label { display: block;}
 p, form, .grid, .content { padding:16px; }
 
+
+// Utility Classes
 .font-weight-ligher {
   font-weight: 300;
 }
@@ -31,9 +37,13 @@ p, form, .grid, .content { padding:16px; }
   box-shadow: $box-shadow;
 }
 
-// Global Navigation Styles
-// Nav Variables
-$nav-zindex: 5;
+// Gloval Navigation
+//
+// Gobal styles for top navigation
+// ------------------------------------------------------------
+
+// Navigation Variables
+$nav-zindex: 5; // Used to raise navigation on top of md-cards
 $nav-row-height: 64px;
 $nav-link-color: #fff;
 
@@ -44,7 +54,7 @@ $nav-link-color: #fff;
   z-index: $nav-zindex;
 
   & img {
-    vertical-align: middle;
+    vertical-align: $vertical-middle;
   }
 }
 
@@ -55,102 +65,44 @@ $nav-link-color: #fff;
 
 .navigation__link {
   color: $nav-link-color;
-  font-size: 16px;
-  font-weight: 400;
+  font-weight: $font-medium;
   line-height: $nav-row-height;
   opacity: .87;
-  padding: 0 24px;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: $text-upper;
   white-space: nowrap;
 
   &:hover {
     background-color: $color-secondary;
-
   }
 }
 
-// Responsive Developer Name
-.nav-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@media (min-width: 961px) {
-  .navigation__link {
-    padding: 0 10px;
-  }
-
-  .nav-name {
-    max-width: 60px;
-  }
-}
-
-@media (min-width: 980px) {
-  .nav-name {
-    max-width: 80px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .nav-name {
-    max-width: 85px;
-  }
-
-  .navigation__link {
-    padding: 0 12px;
-  }
-}
-
-@media (min-width: 1070px) {
-  .nav-name {
-    max-width: 108px;
-  }
-
+@media screen and (max-width: 1024px) {
   .navigation__link {
     padding: 0 16px;
   }
 }
 
-@media (min-width: 1100px) {
-  .nav-name {
-    max-width: 135px;
-  }
-}
-
-@media (min-width: 1150px) {
-  .nav-name {
-    max-width: 190px;
-  }
-}
-
-@media (min-width: 1180px) {
-  .nav-name {
-    max-width: 235px;
-  }
-}
-
-@media (min-width: 1222px) {
-  .nav-name {
-    max-width: 250px;
-  }
-}
-
 .nav-logo {
-  margin-top: -8px;
-  padding-left: 25px;
+  $logo-margin: -8px; // Align logo to microsite name
+  $logo-padding: 25px;
+
+  margin-top: $logo-margin;
+  padding-left: $logo-padding;
 }
 
 .microsite-name {
+  $nav-font-size: 20px;
+
   color: $nav-link-color;
-  font-size: 20px;
+  font-size: $nav-font-size;
   line-height: $nav-row-height;
   margin-left: 8px;
   margin-right: 30px;
-  text-transform: uppercase;
+  text-transform: $text-upper;
 }
 
+// Navigation spacer between main app link items and user items
 .layout-spacer {
   flex-grow: 1;
 }
@@ -168,6 +120,7 @@ $nav-link-color: #fff;
     }
   }
 }
+
 .top-navigation {
   flex-grow: 1;
   display:flex;
@@ -177,9 +130,95 @@ $nav-link-color: #fff;
   }
 }
 
-// MENU MOBILE
-@media (max-width: 960px) {
+// Responsive Username
+//
+// Navigation styles for responsive usernamme
+// ------------------------------------------------------------
+$nav-name-media1: 961px;
+$nav-name-media2: 980px;
+$nav-name-media3: 1000px;
+$nav-name-media4: 1070px;
+$nav-name-media5: 1100px;
+$nav-name-media6: 1150px;
+$nav-name-media7: 1180px;
+$nav-name-media8: 1222px;
 
+
+.nav-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: $nav-name-media1) {
+  .navigation__link {
+    padding: 0 10px;
+  }
+
+  .nav-name {
+    max-width: 60px;
+  }
+}
+@media (min-width: $nav-name-media2) {
+  .nav-name {
+    max-width: 80px;
+  }
+}
+@media (min-width: $nav-name-media3) {
+  .nav-name {
+    max-width: 85px;
+  }
+
+  .navigation__link {
+    padding: 0 12px;
+  }
+}
+@media (min-width: $nav-name-media4) {
+  .nav-name {
+    max-width: 108px;
+  }
+
+  .navigation__link {
+    padding: 0 16px;
+  }
+}
+@media (min-width: $nav-name-media5) {
+  .nav-name {
+    max-width: 135px;
+  }
+}
+@media (min-width: $nav-name-media6) {
+  .nav-name {
+    max-width: 190px;
+  }
+}
+@media (min-width: $nav-name-media7) {
+  .nav-name {
+    max-width: 235px;
+  }
+}
+@media (min-width: $nav-name-media8) {
+  .nav-name {
+    max-width: 250px;
+  }
+}
+
+// Responsive Navigation Styles
+//
+// Tablet & Mobile Responsive Navigation
+// ------------------------------------------------------------
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@media (max-width: 960px) {
   $nav-height: 54px;
 
   .top-navigation .navigation__link {
@@ -206,8 +245,8 @@ $nav-link-color: #fff;
     label {
       cursor: pointer;
       display: block;
-      float: right;
       display: flex;
+      float: right;
     }
 
     nav {
@@ -238,44 +277,212 @@ $nav-link-color: #fff;
   }
 }
 
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+@media only screen and (max-device-width : 480px) {
+  nav a {
+    margin:4px;
+    padding:4px;
+    display:block;
+  }
 }
 
-// Internal Hero Styles
-.hero-background {
-  background: linear-gradient($color-secondary,$color-primary);
-  color: #fff;
-  margin-bottom: 45px;
-  padding: 110px 0 40px 0;
-}
-
-.hero-background h2 {
+// Button Styles
+//
+// Styles for buttons
+// ------------------------------------------------------------
+// Primary Button
+.md-primary[md-raised-button], .md-primary[md-fab], .md-primary[md-mini-fab] {
   font-weight: 300;
-  margin: 40px 0;
-  padding-left: 48px;
 }
 
-.internal-header {
-  font-size: 24px;
-  text-transform: uppercase;
+// Delete Button
+.delete {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: $border-radius;
+  color: $grey;
+  cursor: pointer;
+  font-size: 14px;
+  height: 36px;
+  padding: 10px 23px;
+  text-transform: none;
 }
 
-// Content Wrapper
+.delete:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+// Secondary Button
+.secondary-button a {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: $border-radius;
+  color: $grey;
+  cursor: pointer;
+  font-size: 14px;
+  height: 36px;
+  padding: 6px 23px;
+}
+
+.secondary-button a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.edit-button {
+  $edit-size: 20px;
+
+  bottom: $edit-size;
+  position: absolute;
+  right: $edit-size;
+}
+
+// Main Layout
+//
+// Styles main content
+// ------------------------------------------------------------
 .main-content {
   margin: 0 auto;
   max-width: 1200px;
   padding: 10px;
 }
 
-// Card Styles
+// Form Styles
+//
+// Styles for forms
+// ------------------------------------------------------------
+.ng-valid[required] {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+}
+
+fieldset {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 18px;
+  border: none;
+  margin-bottom: 30px;
+}
+
+fieldset h2,
+fieldset h3 {
+  color: $grey;
+  font-size: 18px;
+  font-weight: $font-medium;
+  margin: 16px 0;
+}
+
+fieldset h3 {
+  font-size: 16px;
+  margin-top: 40px;
+}
+
+fieldset label {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+input {
+  padding: 6px;
+}
+
+label input,label picker, label textarea, label select {
+  background-color: #FAFAFA;border:1px solid #CCC;
+  display:block;
+  font-size:14px;
+  font-weight:300;
+  margin-bottom:16px;
+  margin-top:4px;
+  padding:8px;
+  width:100%;
+}
+form md-input {
+  width:100%;
+}
+
+label input[type="checkbox"] {
+  display: inline;
+  margin-right:16px;
+  width: auto;
+}
+
+form {max-width:800px;}
+form .options {text-align:right;margin:16px 0}
+form .options button {margin-left:16px;}
+form .options .delete {cursor: pointer;}
+.adminIcon {
+    background-image: url('/assets/images/angular-shield.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    display:inline-block;
+    height: 0.9em;
+    margin-right:.1em;
+    width:1.5em;
+}
+
+form input {
+  color: #37474F;
+}
+
+// Toggle
+.md-checked {
+  .md-slide-toggle-thumb {
+    background-color: $color-primary !important;
+  }
+
+  .md-slide-toggle-bar {
+    background-color: rgba(0, 150, 136, 0.5) !important;
+  }
+}
+
+.md-slide-toggle-focused {
+  &.md-checked .md-ink-ripple {
+    background-color: rgba(0, 150, 136, 0.5) !important;
+  }
+}
+
+// Sheild
+//
+// Styles image angular shield
+// ------------------------------------------------------------
+img.shield {
+  max-height:64px;
+  max-width:64px;
+  -webkit-clip-path: polygon(50% 0%, 100% 16.6%, 92.37379% 78.15%, 50% 100%, 7.62621% 78.15%, 0% 16.6%);
+  clip-path: polygon(50% 0%, 100% 16.6%, 92.37379% 78.15%, 50% 100%, 7.62621% 78.15%, 0% 16.6%);
+}
+
+// Hero Background
+//
+// Styles for main hero background
+// ------------------------------------------------------------
+.hero-background {
+  $hero-margin: 45px;
+  $hero-padding-top: 110px;
+  $hero-padding-bottom: 40px;
+  $hero-padding: $hero-padding-top 0 $hero-padding-bottom 0;
+
+  background: linear-gradient($color-secondary,$color-primary);
+  color: $white;
+  margin-bottom: $hero-margin;
+  padding: $hero-padding;
+}
+
+.internal-header {
+  font-size: 24px;
+  font-weight: $font-ligher;
+  margin: 40px 0;
+  padding-left: 48px;
+  text-transform: $text-upper;
+}
+
+.event-logo {
+  max-width: 120px;
+  max-height: 120px;
+}
+
+// MD-card Styles
+//
+// Styles for material cards
+// ------------------------------------------------------------
 .card-container ul {
   display:flex;
   flex-wrap: wrap;
@@ -284,8 +491,8 @@ $nav-link-color: #fff;
 
 .card-container li {
   display: inline;
-  margin:0 auto;
-  text-align: center;
+  margin: 0 auto;
+  text-align: $text-center;
 }
 
 .card-list li {
@@ -294,28 +501,44 @@ $nav-link-color: #fff;
 }
 
 .pretty-card {
+  $card-width: 250px;
+  $card-margin: 13px 1%;
+
   display: flex;
-  margin: 13px 1%;
+  margin: $card-margin;
   padding: 0;
-  width: 250px;
+  width: $card-width;
   z-index: 0;
 }
 
-@media screen and (max-width: 10224px) {
+// Responsive card styles
+$card-media1: 480px;
+$card-media2: 720px;
+$card-media3: 800px;
+$card-media4: 10224px;
+
+@media screen and (max-width: $card-media4) {
   .pretty-card {
     width: 23%;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: $card-media3) {
   .pretty-card {
     width: 48%;
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: $card-media2) {
   .pretty-card {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: $card-media1) {
+  .pretty-card {
+    margin:4px;
+    width: calc( 100% - 8px);
   }
 }
 
@@ -325,21 +548,30 @@ $nav-link-color: #fff;
 }
 
 .pretty-card:hover {
-  background: linear-gradient(rgba(255,255,255,0), rgba(227,239,241,0.5));
+  $card-hover: linear-gradient(rgba(255,255,255,0), rgba(227,239,241,0.5));
+  background: $card-hover;
 }
 
+// MD-card Styles
+//
+// Styles for material cards
+// ------------------------------------------------------------
 .card-hero {
+  $card-height: 130px;
+
   background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
-  height: 130px;
+  height: $card-height;
   overflow: hidden;
   width: 100%;
 }
 
 .events-component .card-hero {
-  height: 160px;
+  $card-height: 160px;
+
+  height: $card-height;
 }
 
 .card-hero__content {
@@ -348,21 +580,26 @@ $nav-link-color: #fff;
 }
 
 .card-hero md-card-title {
-  color: #fff;
-  font-size: 20px;
-  line-height: 20px;
+  $card-title-color: $white;
+  $card-font: 20px;
+  $card-line-height: $card-font;
+
+  color: $card-title-color;
+  font-size: $card-font;
+  line-height: $card-line-height;
   margin-bottom: 10px;
   margin-left: 15px;
   text-align: left;
 }
 
 .card-hero md-card-subtitle {
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 15px;
-  margin-left: 15px;
   text-align: left;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  color: $grey;
 }
 
+// Card Information
 .card-info {
   margin-bottom: 30px;
   min-height: 50px;
@@ -388,47 +625,60 @@ $nav-link-color: #fff;
   text-align: left;
 }
 
+// View Button
 .view-more {
   color: $color-primary;
   font-size: 14px;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: $text-upper;
 }
 
-// Internal Page View
+// Internal Page
+//
+// Styles for internal view page
+// ------------------------------------------------------------
+
+// Hero Styles
 .view-page .card-hero {
-  height: 250px;
+  $internal-hero-height: 250px;
+
+  height: $internal-hero-height;
 }
 
 .view-page .card-hero__content {
   align-self: center;
-  text-align: center;
+  text-align: $text-center;
 }
 
 .view-page h2 {
-  color: white;
+  color: $white;
   font-size: 28px;
-  text-align: center;
-  font-weight: 300;
+  font-weight: $font-ligher;
   line-height: 40px;
+  text-align: $text-center;
 }
 
+// Button Styles
 .view-page .join {
-  background-color: rgb(255,255,255);
-  border-radius: 2px;
+  $join-height: 45px;
+  $join-width: 150px;
+
+  background-color: $white;
+  border-radius: $border-radius;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
   color: $color-secondary;
   display: inline-block;
   font-size: 15px;
-  height: 45px;
-  line-height: 45px;
+  height: $join-height;
+  line-height: $join-height;
   margin-top: 20px;
-  min-width: 150px;
+  min-width: $join-width;
   padding: 0 30px;
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: $text-upper;
 }
 
+// Layout Styles
 @media (min-width: 720px) {
   .internal-view .two-column {
     display: flex;
@@ -441,10 +691,12 @@ $nav-link-color: #fff;
   }
 
   .internal-view .left {
+    $left-width: 400px;
+
     background-color: rgba(0, 0, 0, 0.02);
-    border-radius: 4px;
+    border-radius: $border-radius +2;
+    min-width: $left-width;
     padding: 20px;
-    min-width: 400px;
   }
 
   .internal-view  .right {
@@ -453,17 +705,17 @@ $nav-link-color: #fff;
 }
 
 .internal-view h3 {
+  color: $grey;
   font-size: 24px;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.54);
+  font-weight: $font-medium;
   margin-bottom: 16px;
 }
 
 .internal-view p {
+  color: $grey;
   font-size: 16px;
+  font-weight: $font-ligher;
   line-height: 1.5;
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.54);
   padding-left: 0;
   text-align: left;
 }
@@ -478,209 +730,39 @@ $nav-link-color: #fff;
 
 .internal-memebers p {
   padding: 0;
-  text-align: center;
+  text-align: $text-center;
 }
 
 .internal-members .content {
-  text-align: center;
+  text-align: $text-center;
 }
 
 .internal-members img.shield {
-  max-width: 120px;
-  max-height: 120px;
-  min-width: 120px;
-  min-height: 120px;
+  $sheild-size: 120px;
+
+  max-height: $sheild-size;
+  max-width: $sheild-size;
+  min-height: $sheild-size;
+  min-width: $sheild-size;
 }
 
 .internal-view .internal-members p{
-  text-align: center;
-}
-
-// Card logo Styles
-.background-side-picture {
-  width:80px;
-  height:80px;
-  background-size:cover;
-  background-position:center center;
-  background-repeat: no-repeat;
-  margin-bottom: 15px;
-  margin-left: 15px;
+  text-align: $text-center;
 }
 
 .background-side-picture.contain {
   background-size:contain;
 }
 
-.edit-button {
-  position:absolute;
-  bottom:20px;
-  right:20px;
-}
+.background-side-picture {
+  $pic-size: 80px;
+  $pic-margin: 15px;
 
-.secondary-button a {
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 3px;
-  color: rgba(0, 0, 0, 0.54);
-  cursor: pointer;
-  font-size: 14px;
-  height: 36px;
-  padding: 6px 23px;
-  text-transform: none;
-}
-
-.secondary-button a:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-// Form Styles
-.ng-valid[required] {
-  border-left: 5px solid #42A948; /* green */
-}
-
-.ng-invalid {
-  border-left: 5px solid #a94442; /* red */
-}
-
-fieldset {
-  border-radius:18px;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.02);
-  margin-bottom: 30px;
-}
-
-fieldset h2,
-fieldset h3 {
-  font-size: 18px;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.54);
-  margin: 16px 0;
-}
-
-fieldset h3 {
-  font-size: 16px;
-  margin-top: 40px;
-}
-
-fieldset label {
-  color: rgba(0, 0, 0, 0.4);
-}
-
-input {
-  padding: 6px;
-}
-
-label input,label picker, label textarea, label select {
-  display:block;
-  margin-bottom:16px;
-  margin-top:4px;
-  width:100%;
-  font-weight:300;
-  padding:8px;
-  font-size:14px;
-  background-color: #FAFAFA;border:1px solid #CCC;
-}
-form md-input {
-  width:100%;
-}
-
-label input[type="checkbox"] {
-    display: inline;
-    width: auto;
-    margin-right:16px;
-}
-
-form {max-width:800px;}
-form .options {text-align:right;margin:16px 0}
-form .options button {margin-left:16px;}
-form .options .delete {cursor: pointer;}
-.adminIcon {
-    background-image: url('/assets/images/angular-shield.svg');
-    width:1.5em;
-    height: 0.9em;
-    display:inline-block;
-    background-size:contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    margin-right:.1em;
-}
-
-form input {
-  color: #37474F;
-}
-
-//
-// user-login a {
-//     color:white;
-//     text-decoration: none;
-// }
-// user-login button {
-//     color: white;
-//     background: none;
-//     border: none;
-//     cursor: pointer;
-// }
-img.shield {
-    max-height:64px;
-    max-width:64px;
-    margin-right:8px;
-    /*
-    50% 0%, 100% 16.6%, 92.37379% 78.15%, 50% 100%, 7.62621% 78.15%, 0% 16.6%
-    */
-    -webkit-clip-path: polygon(50% 0%, 100% 16.6%, 92.37379% 78.15%, 50% 100%, 7.62621% 78.15%, 0% 16.6%);
-    clip-path: polygon(50% 0%, 100% 16.6%, 92.37379% 78.15%, 50% 100%, 7.62621% 78.15%, 0% 16.6%);
-}
-
-@media only screen and (max-device-width : 480px) {
-    nav a {
-        margin:4px;
-        padding:4px;
-        display:block;
-    }
-    .pretty-card {
-        margin:4px;
-        width: calc( 100% - 8px);
-    }
-}
-
-// Button Styles
-.md-primary[md-raised-button], .md-primary[md-fab], .md-primary[md-mini-fab] {
-  font-weight: 300;
-}
-
-// Delete Button
-.delete {
-  background-color: rgba(0, 0, 0, 0.08);
-  border-radius: 3px;
-  color: rgba(0, 0, 0, 0.54);
-  cursor: pointer;
-  font-size: 14px;
-  height: 36px;
-  padding: 10px 23px;
-  text-transform: none;
-}
-
-.delete:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-// Toggle
-.md-checked {
-  .md-slide-toggle-thumb {
-    background-color: $color-primary !important;
-  }
-
-  .md-slide-toggle-bar {
-    background-color: rgba(0, 150, 136, 0.5) !important;
-  }
-}
-
-.md-slide-toggle-focused {
-  &.md-checked .md-ink-ripple {
-    background-color: rgba(0, 150, 136, 0.5) !important;
-  }
-}
-
-.event-logo {
-  max-width: 120px;
-  max-height: 120px;
+  background-position:center center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  height: $pic-size;
+  margin-bottom: $pic-margin;
+  margin-left: $pic-margin;
+  width: $pic-size;
 }

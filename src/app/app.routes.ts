@@ -25,7 +25,6 @@ import { UserProfileComponent } from './users/user-profile.component';
 import { UserProfileShortComponent } from './users/user-profile-short.component';
 import { AdminComponent } from './admin.component';
 
-
 export const routes: Routes = [
     { path: '', component: CommunitiesComponent },
     {

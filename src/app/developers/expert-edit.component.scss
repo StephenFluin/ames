@@ -1,4 +1,12 @@
+// Import Main global variables
+// ------------------------------------------------------------
+@import '../../assets/scss/variables.scss';
+
+// Expert Component
+//
+// Styles for edit expert
+// ------------------------------------------------------------
 .site-breadcrumb,
 .site-breadcrumb a {
-  color: rgba(0, 0, 0, 0.54);
+  color: $grey;
 }

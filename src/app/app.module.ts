@@ -32,6 +32,7 @@ import {EventEditComponent} from './events/event-edit.component';
 import {EventViewComponent} from './events/event-view.component';
 import {EventFormComponent} from './events/event-form.component';
 
+
 import {CommunitiesComponent} from './communities/communities.component';
 import {CommunitySubmitComponent} from './communities/community-submit.component';
 import {CommunityEditComponent} from './communities/community-edit.component';
@@ -67,13 +68,14 @@ import {CommunityFormComponent} from './communities/community-form.component';
         RefirebasePipe,
         FireJoinPipe,
         ArrayPipe,
+
         // Views
         CommunityFormComponent,
         PickerComponent,
     ],
     imports: [
-        BrowserModule, 
-        RouterModule.forRoot(routes), 
+        BrowserModule,
+        RouterModule.forRoot(routes),
         FormsModule,
         MdSlideToggleModule, MdButtonModule, MdToolbarModule, MdCardModule, MdInputModule,
         AngularFireModule.initializeApp({

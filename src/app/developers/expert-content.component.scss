@@ -1,15 +1,23 @@
+// Import Main global variables
+// ------------------------------------------------------------
+@import '../../assets/scss/variables.scss';
+
+// Expert Component
+//
+// Styles for edit content
+// ------------------------------------------------------------
 .developer-content {
   font-size: 16px;
+  font-weight: $font-ligher;
   line-height: 1.5;
-  font-weight: 300;
 }
 
 .developer-content .content-title{
-  color: rgba(0, 0, 0, 0.54);
+  color: $grey;
 }
 
 .developer-content .content-item {
-  color:  #00838f;
+  color: $color-primary;
 }
 
 .content-item:hover {
