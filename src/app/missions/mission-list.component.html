@@ -1,5 +1,5 @@
 <header class="hero-background">
-  <h2 class="internal-header">Mission List</h2>
+  <h2 class="internal-header">Missions</h2>
 </header>
 
 <main class="main-content">
@@ -23,9 +23,11 @@
         <li>
 
           <div class="card-hero-wrapper">
-            <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('')">
-              <div class="card-hero__content">
-                <md-card-title>{{mission.name}}</md-card-title>
+            <div class="card-hero" [style.background-image]="'url('+(mission.bannerUrl?community.bannerUrl:'/assets/images/card-placeholder.jpg')+')'">
+              <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8))">
+                <div class="card-hero__content">
+                  <md-card-title>{{mission.name}}</md-card-title>
+                </div>
               </div>
             </div>
           </div>
