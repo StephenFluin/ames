@@ -10,5 +10,12 @@
         "destination": "/index.html"
       }
     ]
+    /*"headers": [
+      {
+        "source": "/",
+        "headers": [{"key": "Link", "value":
+          "</inline.js>;rel=preload;as=script"}]
+      }
+    ]*/
   }
 }

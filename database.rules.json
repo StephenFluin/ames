@@ -1,37 +1,51 @@
-{"rules":{
-  // Anyone can read, admins can write
-  "experts": {".read":true,".write":"root.child('admin/'+auth.uid).exists()"},
-  "events": {".read":true,".write":"root.child('admin/'+auth.uid).exists()"},
-  "communities": {
-    ".read": true,
-    "$community": {
-      ".write":"root.child('admin/'+auth.uid).exists() || data.child('organizer').val() === auth.uid"
-    }
-  },
-  "missions": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
-  "resources": {".read": true,".write":"root.child('admin/'+auth.uid).exists()"},
-  "users": {
-    // All user information is public!
-  	".read":true,
-    "$user_id": {
-      // grants write access to the owner of this user account
-      // whose uid must exactly match the key ($user_id)
-      // or any admin
-      ".write": "$user_id === auth.uid || root.child('admin/'+auth.uid).exists()"
-    }
-  },
-  "admin": {
-    // only let admins see or modify admins
-  	".read":"root.child('admin/'+auth.uid).exists()",
-    ".write":"root.child('admin/'+auth.uid).exists()"
-  },
-  "queues": {
-    // Anyone can write to a new queue item, only admins can read or modify
-    ".read": "root.child('admin/'+auth.uid).exists()",
-    "$queueType": {
-       "$post": {
-         ".write": "!data.exists() || root.child('admin/'+auth.uid).exists() "
-       }
+{
+  "rules": {
+    // Anyone can read, admins and owners can write
+    "experts": {
+      ".read": true,
+      ".write": "root.child('admin/'+auth.uid).exists()"
+    },
+    "events": {
+      ".read": true,
+      ".write": "root.child('admin/'+auth.uid).exists() || data.child('leads/'+auth.uid).exists()"
+    },
+    "communities": {
+      ".read": true,
+      "$community": {
+        ".write": "root.child('admin/'+auth.uid).exists() || data.child('organizer').val() === auth.uid"
+      }
+    },
+    "missions": {
+      ".read": true,
+      ".write": "root.child('admin/'+auth.uid).exists() || data.child('organizer').val() === auth.uid"
+    },
+    "resources": {
+      ".read": true,
+      ".write": "root.child('admin/'+auth.uid).exists()"
+    },
+    "users": {
+      // All user information is public!
+      ".read": true,
+      "$user_id": {
+        // grants write access to the owner of this user account
+        // whose uid must exactly match the key ($user_id)
+        // or any admin
+        ".write": "$user_id === auth.uid || root.child('admin/'+auth.uid).exists()"
+      }
+    },
+    "admin": {
+      // only let admins see or modify admins
+      ".read": "root.child('admin/'+auth.uid).exists()",
+      ".write": "root.child('admin/'+auth.uid).exists()"
+    },
+    "queues": {
+      // Anyone can write to a new queue item, only admins can read or modify
+      ".read": "root.child('admin/'+auth.uid).exists()",
+      "$queueType": {
+        "$post": {
+          ".write": "!data.exists() || root.child('admin/'+auth.uid).exists() "
+        }
+      }
     }
   }
-}}
+}
