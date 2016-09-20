@@ -31,7 +31,7 @@
     <h3 i18n>Members</h3>
       <div class="two-column internal-members member-container">
         <div *ngFor="let developer of community.members | refirebase" class="content">
-            <img class="shield" *ngIf="(developer | fireJoin:'/users/' | async)?.picUrl" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" />
+            <img class="shield" [src]="(developer | fireJoin:'/users/' | async)?.picUrl" />
             <p> {{(developer | fireJoin:'/users/' | async)?.name}} </p>
         </div>
       </div>
