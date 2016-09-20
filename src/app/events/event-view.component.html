@@ -33,7 +33,7 @@
     <h3 i18n>Speakers</h3>
       <div class="two-column internal-members">
         <div *ngFor="let developer of event.speakers | refirebase" class="content">
-            <img class="shield" [src]="(developer | fireJoin:'/users/' | async)?.picUrl"/>
+            <div class="shield" [style.background-image]="'url('+((developer | fireJoin:'/users/' | async)?.picUrl?(developer | fireJoin:'/users/' | async)?.picUrl:'/assets/images/card-placeholder.jpg')+')'"> </div>
             <p>{{(developer | fireJoin:'/users/' | async)?.name}}</p>
         </div>
       </div>

@@ -31,8 +31,8 @@
     <h3>Participants</h3>
       <div class="two-column internal-members">
         <div *ngFor="let developer of mission.participants | refirebase" class="content">
-            <img class="shield" [src]="(developer | fireJoin:'/users/' | async)?.picUrl"/>
-            <p>{{(developer | fireJoin:'/users/' | async)?.name}}</p>
+          <div class="shield" [style.background-image]="'url('+((developer | fireJoin:'/users/' | async)?.picUrl?(developer | fireJoin:'/users/' | async)?.picUrl:'/assets/images/card-placeholder.jpg')+')'"> </div>
+          <p>{{(developer | fireJoin:'/users/' | async)?.name}}</p>
         </div>
       </div>
     </md-card>

@@ -14,7 +14,7 @@
         <li>
 
           <div class="card-hero-wrapper developer-card">
-            <div [style.background-image]="'url('+(expert.observable | async)?.picUrl+')'" class="card-hero">
+            <div [style.background-image]="'url('+((expert.observable | async)?.picUrl?( expert.observable | async)?.picUrl:'/assets/images/card-placeholder.jpg')+')'" class="card-hero">
               <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7))">
                 <div class="card-hero__content">
                   <md-card-title>{{ (expert.observable | async)?.name}}</md-card-title>

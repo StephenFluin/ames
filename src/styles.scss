@@ -457,9 +457,17 @@ form a {
 //
 // Styles image angular shield
 // ------------------------------------------------------------
-img.shield {
-  max-height:64px;
-  max-width:64px;
+.shield {
+  $card-height: 130px;
+  $card-width: $card-height;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: $card-height;
+  width: $card-width;
+  overflow: hidden;
   -webkit-clip-path: polygon(50% 0%, 100% 16.6%, 92.37379% 78.15%, 50% 100%, 7.62621% 78.15%, 0% 16.6%);
   clip-path: polygon(50% 0%, 100% 16.6%, 92.37379% 78.15%, 50% 100%, 7.62621% 78.15%, 0% 16.6%);
 }
