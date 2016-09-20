@@ -25,3 +25,35 @@ $font-bolder: 600;
 $text-upper: uppercase;
 $vertical-middle: middle;
 $text-center: center;
+
+
+// Description Styles
+//
+// Main styles for Community Description
+// ------------------------------------------------------------
+.app-description {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: $border-radius;
+  margin-bottom: 30px;
+  padding: 25px 16px;
+
+  h1 {
+    color: $grey-dark;
+    font-size: 24px;
+    font-weight: $font-medium;
+    padding:0 16px;
+  }
+
+  p {
+    color: $grey;
+  }
+
+  a {
+    color: $color-primary;
+    word-wrap:break-word;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
