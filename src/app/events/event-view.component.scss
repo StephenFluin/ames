@@ -1,0 +1,7 @@
+.lead-list:after {
+  content: ", ";
+}
+
+.lead-list:last-child:after {
+  content: "";
+}

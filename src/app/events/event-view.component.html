@@ -5,8 +5,8 @@
 
   <main class="main-content internal-view">
     <md-card class="profile-card">
-      <div class="edit-button--internal secondary-button" *ngIf="(auth.isAdmin | async) || (event.leads && event.leads[(auth.uid | async)])" >
-        <a i18n routerLink="./edit">Edit</a>
+      <div class="edit-button--internal secondary-button">
+        <a i18n (click)="edit(event)">Edit</a>
       </div>
       <div class="card-hero-wrapper logo-hero view-page">
         <div class="card-hero" [style.background-image]="'url('+(event.bannerUrl?community.bannerUrl:'/assets/images/card-placeholder.jpg')+')'">
@@ -24,7 +24,9 @@
       <div class="left">
         <p><i class="material-icons">location_on</i>{{event.location}}</p>
         <p><i class="material-icons">date_range</i>{{event.startDate | date:"MMM d"}} - {{event.endDate | date:"MMM d"}}</p>
-        <p i18n><i class="material-icons">person</i>Leads: <span *ngFor="let lead of event.leads | refirebase">{{(lead | fireJoin:'/users/' | async)?.name}} </span></p>
+        <p i18n><i class="material-icons">person</i>Leads:
+          <span class="lead-list" *ngFor="let lead of event.leads | refirebase">{{(lead | fireJoin:'/users/' | async)?.name}}</span>
+        </p>
       </div>
 
       <div class="right">
