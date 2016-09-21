@@ -1,13 +1,15 @@
 {
   "rules": {
-    // Anyone can read, admins and owners can write
+    // Anyone can read, admins can write
     "experts": {
       ".read": true,
       ".write": "root.child('admin/'+auth.uid).exists()"
     },
     "events": {
       ".read": true,
-      ".write": "root.child('admin/'+auth.uid).exists() || data.child('leads/'+auth.uid).exists()"
+      "$event": {
+        ".write": "root.child('admin/'+auth.uid).exists() || data.child('leads/'+auth.uid).exists()"
+      }
     },
     "communities": {
       ".read": true,
@@ -17,7 +19,9 @@
     },
     "missions": {
       ".read": true,
-      ".write": "root.child('admin/'+auth.uid).exists() || data.child('organizer').val() === auth.uid"
+      "$mission": {
+      	".write": "root.child('admin/'+auth.uid).exists() || data.child('organizer').val() === auth.uid"
+      }
     },
     "resources": {
       ".read": true,

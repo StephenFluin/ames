@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
-class HasKey {
-    $key: string;
+interface HasKey {
+    $key?: string;
+    $exists?: string;
 }
 
 @Injectable()
@@ -49,14 +50,18 @@ export class FirebaseService<T extends HasKey> {
     // I manually remove the key (which I need so I know where to write to),
     // and then add it back
     save(item: T): T {
-        let key = item.$key;
+        let key, exists;
+        key = item.$key;
         delete item.$key;
+        exists = item.$exists;
+        delete item.$exists;
         if (key === 'new') {
             key = this.new(item).key;
         } else {
             this.af.database.object(this.endpoint + key).update(item);
         }
         item.$key = key;
+        item.$exists = exists;
         return item;
     }
 

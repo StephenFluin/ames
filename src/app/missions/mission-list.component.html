@@ -43,7 +43,7 @@
           </div>
 
           <div class="edit-button secondary-button">
-            <a i18n *ngIf="auth.isAdmin | async" (click)="edit(mission)">Edit</a>
+            <a i18n *ngIf="(auth.isAdmin | async) || (auth.uid | async)==mission.organizer" (click)="edit(mission)">Edit</a>
           </div>
 
         </li>
