@@ -29,4 +29,7 @@ export class MissionDetailComponent {
         });
     }
 
+    edit(mission) {
+        this.router.navigate(["/missions", mission.$key, 'edit'])
+    }
 }

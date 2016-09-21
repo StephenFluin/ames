@@ -336,6 +336,11 @@ $nav-name-media8: 1222px;
   bottom: $edit-size;
   position: absolute;
   right: $edit-size;
+
+  &--internal {
+    float: right;
+    margin-bottom: 20px;
+  }
 }
 
 // Main Layout
