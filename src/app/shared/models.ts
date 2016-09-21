@@ -1,7 +1,6 @@
-/**
- * @TODO should this be a class or interface?
+/** 
+ * Missions are community-led collaborations
  */
-
 export class Mission {
     $key: string;
     name: string;
@@ -9,6 +8,7 @@ export class Mission {
     startDate: number;
     endDate: number;
     participants: string[];
+    organizer: string;
 
     constructor(rawSource?) {
         if (rawSource) {
@@ -23,6 +23,10 @@ export class Mission {
 
 }
 
+/**
+ * An Expert represents all developers who sign up or are listed on the site, 
+ * not only those who are marked as experts
+ */
 export class Expert {
     $key: string = "new";
     bio: string;
@@ -40,6 +44,7 @@ export class Expert {
     isConsultant: boolean;
     isEducator: boolean;
     isExpert: boolean;
+    isGoogler: boolean;
 
     languages: string[];
     missions: string[];
@@ -64,15 +69,11 @@ export class Community {
 
 export class Resource {
     $key: string = "new";
-    /*name : string;*/
     category: string;
     subcategory: string;
-    /*email : string;
-    companyName : string;*/
     title: string;
     url: string;
     desc: string;
-    /*notes : string;*/
     rev: boolean = true;
 
     validate(): boolean {

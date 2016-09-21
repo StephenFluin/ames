@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { Observable } from 'rxjs/Rx';
 
 import { AuthService } from '../shared/auth.service';
 import { Mission } from '../shared/models';
 import { FirebaseService } from '../shared/firebase.service';
-
-import { FireJoinPipe } from '../shared/fire-join.pipe';
-import { RefirebasePipe } from '../shared/refirebase.pipe';
-import { Observable } from 'rxjs/Rx';
 
 @Component({
 
@@ -27,9 +24,5 @@ export class MissionDetailComponent {
                 title.setTitle(this.mission.name);
             });
         });
-    }
-
-    edit(mission) {
-        this.router.navigate(["/missions", mission.$key, 'edit'])
     }
 }

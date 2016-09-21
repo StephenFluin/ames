@@ -6,8 +6,8 @@
   <main class="main-content internal-view">
     <md-card class="profile-card">
       <div class="card-hero-wrapper view-page">
-        <div class="edit-button--internal secondary-button">
-          <a i18n (click)="edit(community)">Edit</a>
+        <div class="edit-button--internal secondary-button" *ngIf="(auth.isAdmin | async) || (auth.uid | async)==community.organizer" >
+          <a i18n routerLink="./edit">Edit</a>
         </div>
         <div class="card-hero" [style.background-image]="'url('+(community.bannerUrl?community.bannerUrl:'/assets/images/card-placeholder.jpg')+')'">
           <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8))">

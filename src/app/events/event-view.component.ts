@@ -1,21 +1,19 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Event } from '../shared/models';
 import { ActivatedRoute } from '@angular/router';
+
+import { Event } from '../shared/models';
 import { FirebaseService } from '../shared/firebase.service';
+import { AuthService } from '../shared/auth.service';
 
-/**
- * Render a view of a event here
- */
 @Component({
-
     selector: 'event-view',
     templateUrl: 'event-view.component.html',
 })
 export class EventViewComponent {
     event: Event;
 
-    constructor(private route: ActivatedRoute, private eventService: FirebaseService<Event>, title: Title) {
+    constructor(private route: ActivatedRoute, private eventService: FirebaseService<Event>, title: Title, public auth: AuthService) {
         eventService.setup('/events/');
 
         // This calls .subscribe so we don't rely on the template for unrolling
