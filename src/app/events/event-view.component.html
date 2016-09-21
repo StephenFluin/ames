@@ -5,8 +5,8 @@
 
   <main class="main-content internal-view">
     <md-card class="profile-card">
-      <div class="edit-button--internal secondary-button">
-        <a i18n (click)="edit(event)">Edit</a>
+      <div class="edit-button--internal secondary-button" *ngIf="(auth.isAdmin | async) || (event.leads && event.leads[(auth.uid | async)])" >
+        <a i18n routerLink="./edit">Edit</a>
       </div>
       <div class="card-hero-wrapper logo-hero view-page">
         <div class="card-hero" [style.background-image]="'url('+(event.bannerUrl?community.bannerUrl:'/assets/images/card-placeholder.jpg')+')'">
