@@ -107,12 +107,14 @@ export class AuthService {
      * Take a firebase user (with $key) and use angularfire to update
      */
     updateUser(user) {
-        console.log("Propagating update back to fb",user);
         let key = user.$key;
         let value = user.$value;
+        let exists = user.$exists
         delete user.$key;
         delete user.$value;
+        delete user.$exists;
         this.updatableUser.update(user);
         user.$key = key;
+        user.$exists = exists;
     }
 }

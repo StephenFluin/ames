@@ -70,6 +70,7 @@ $nav-link-color: #fff;
   text-decoration: none;
   text-transform: $text-upper;
   white-space: nowrap;
+  cursor: pointer;
 
   &:hover {
     background-color: $color-secondary;
