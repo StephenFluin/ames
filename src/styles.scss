@@ -299,6 +299,7 @@ $nav-name-media8: 1222px;
   border-radius: $border-radius;
   color: $grey;
   cursor: pointer;
+  float: left;
   font-size: 14px;
   height: 36px;
   padding: 10px 23px;
@@ -363,6 +364,28 @@ $nav-name-media8: 1222px;
 
 .ng-invalid {
   border-left: 5px solid #a94442; /* red */
+}
+
+.prefix {
+  color: $grey;
+
+  &--web .md-input-prefix {
+    width: 50px;
+  }
+
+  &--twitter .md-input-prefix {
+    width: 20px;
+  }
+}
+
+.prefix-label--twitter .md-input-placeholder {
+  margin-left: -20px;
+  transition: all .3s;
+}
+
+.prefix-label--web .md-input-placeholder {
+  margin-left: -50px;
+  transition: all .3s;
 }
 
 fieldset {
@@ -690,7 +713,7 @@ $card-media4: 10224px;
 
 .view-page h2 {
   color: $white;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: $font-ligher;
   line-height: 40px;
   text-align: $text-center;
@@ -709,7 +732,7 @@ $card-media4: 10224px;
   font-size: 15px;
   height: $join-height;
   line-height: $join-height;
-  margin-top: 20px;
+  margin-top: 25px;
   min-width: $join-width;
   padding: 0 30px;
   text-decoration: none;

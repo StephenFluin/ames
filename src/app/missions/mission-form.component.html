@@ -13,8 +13,10 @@
       </label>
     </div>
 
-    <div class="two-column">
-      <md-input i18n-placeholder placeholder="Logo URL" [(ngModel)]="mission.bannerUrl"></md-input>
+    <div class="two-column prefix--web">
+      <md-input [ngClass]="{'prefix-label--web': mission.bannerUrl}" i18n-placeholder placeholder="Logo URL" [(ngModel)]="mission.bannerUrl">
+        <span class="prefix" md-prefix>http://</span>
+      </md-input>
       <div *ngIf="mission.bannerUrl"></div>
       <div *ngIf="mission.bannerUrl" class="pic-url-image"><img [src]="mission.bannerUrl" style="max-height:2em;"></div>
     </div>
