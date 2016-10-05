@@ -5,10 +5,11 @@
 
 <main class="main-content">
   <md-card class="profile-card">
-    <p i18n *ngIf="user">What's your name?</p>
+    
+    <p i18n *ngIf="user">Let's get started setting up your profile. What's your full name?</p>
     <form *ngIf="user" (submit)="next(user)" class="user-form" ngNoForm>
       <div class="form-layout">
-          <md-input placeholder="Name" [(ngModel)]="user.name"></md-input>
+          <md-input placeholder="Full Name" [(ngModel)]="user.name"></md-input>
       </div>
       <div class="options">
         <button i18n md-raised-button color="primary" (click)="next(user)">Next</button>
