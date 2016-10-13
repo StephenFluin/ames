@@ -15,10 +15,10 @@
 
     <div class="two-column prefix--web">
       <md-input [ngClass]="{'prefix-label--web': mission.bannerUrl}" i18n-placeholder placeholder="Logo URL" [(ngModel)]="mission.bannerUrl">
-        <span class="prefix" md-prefix>http://</span>
+        <span class="prefix" md-prefix>https://</span>
       </md-input>
       <div *ngIf="mission.bannerUrl"></div>
-      <div *ngIf="mission.bannerUrl" class="pic-url-image"><img [src]="mission.bannerUrl" style="max-height:2em;"></div>
+      <div *ngIf="mission.bannerUrl" class="pic-url-image"><img [src]="mission.bannerUrl|url" style="max-height:2em;"></div>
     </div>
     <!-- <div class="two-column"><md-input placeholder="Start Date" [(ngModel)]="mission.startDate" type="date"></md-input></div>
     <div class="two-column"><md-input placeholder="End Date" [(ngModel)]="mission.endDate" type="date"></md-input></div> -->

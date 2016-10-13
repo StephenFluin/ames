@@ -8,7 +8,7 @@
 
       <div class="developer-links two-column">
         <div class="left">
-          <div class="card-hero" [style.background-image]="'url('+(expert.picUrl?expert.picUrl:'/assets/images/card-placeholder.jpg')+')'"> </div>
+          <div class="card-hero" [style.background-image]="'url('+((expert.picUrl|url)||'/assets/images/card-placeholder.jpg')+')'"> </div>
         </div>
 
         <div class="right">

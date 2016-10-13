@@ -23,6 +23,7 @@ export class EventViewComponent {
             eventService.get(params['id']).subscribe((event) => {
                 this.event = event;
                 title.setTitle(this.event.name);
+                
             })
         );
     }

@@ -9,17 +9,17 @@
 
     <div class="two-column prefix--web">
       <md-input [ngClass]="{'prefix-label--web': event.url}" i18n-placeholder placeholder="URL" [(ngModel)]="event.url">
-        <span class="prefix" md-prefix>http://</span>
+        <span class="prefix" md-prefix>https://</span>
       </md-input>
     </div>
     <div class="two-column prefix--web">
       <md-input [ngClass]="{'prefix-label--web': event.logoUrl}" i18n-placeholder placeholder="Logo URL" [(ngModel)]="event.logoUrl">
-        <span class="prefix" md-prefix>http://</span>
+        <span class="prefix" md-prefix>https://</span>
       </md-input>
     </div>
 
     <div  *ngIf="event.logoUrl" class="two-column"></div>
-    <div  *ngIf="event.logoUrl" class="two-column  pic-url-image"><img [src]="event.logoUrl" style="max-height:2em;"></div>
+    <div  *ngIf="event.logoUrl" class="two-column  pic-url-image"><img [src]="event.logoUrl|url" style="max-height:2em;"></div>
 
     <md-input i18n-placeholder placeholder="Description" [(ngModel)]="event.description"></md-input>
   </div>

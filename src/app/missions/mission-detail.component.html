@@ -9,7 +9,7 @@
         <a i18n routerLink="./edit">Edit</a>
       </div>
       <div class="card-hero-wrapper view-page">
-        <div class="card-hero" [style.background-image]="'url('+(mission.bannerUrl?mission.bannerUrl:'/assets/images/card-placeholder.jpg')+')'">
+        <div class="card-hero" [style.background-image]="'url('+((mission.bannerUrl|url)||'/assets/images/card-placeholder.jpg')+')'">
           <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8))">
             <div class="card-hero__content">
               <h2>{{ mission.name}}</h2>

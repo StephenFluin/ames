@@ -49,6 +49,7 @@ import {ExpertContentComponent} from './developers/expert-content.component';
 import {RefirebasePipe} from './shared/refirebase.pipe';
 import {FireJoinPipe} from './shared/fire-join.pipe';
 import {ArrayPipe} from './shared/array.pipe';
+import {UrlPipe} from './shared/url.pipe';
 import {PickerComponent} from './shared/picker.component';
 import {CommunityFormComponent} from './communities/community-form.component';
 
@@ -64,6 +65,7 @@ import {CommunityFormComponent} from './communities/community-form.component';
         RefirebasePipe,
         FireJoinPipe,
         ArrayPipe,
+        UrlPipe,
 
         // Views
         CommunityFormComponent,

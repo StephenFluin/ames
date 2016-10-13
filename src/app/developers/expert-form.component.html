@@ -6,17 +6,17 @@
 
     <div class="two-column prefix--web">
       <md-input [ngClass]="{'prefix-label--web': expert.website}" placeholder="Website" [(ngModel)]="expert.website">
-        <span class="prefix" md-prefix>http://</span>
+        <span class="prefix" md-prefix>https://</span>
       </md-input>
     </div>
     <div class="two-column prefix--web">
       <md-input [ngClass]="{'prefix-label--web': expert.picUrl}" placeholder="Pic URL" [(ngModel)]="expert.picUrl">
-        <span class="prefix" md-prefix>http://</span>
+        <span class="prefix" md-prefix>https://</span>
       </md-input>
     </div>
 
     <div class="two-column"></div>
-    <div class="two-column  pic-url-image"><img *ngIf="expert.picUrl" [src]="expert.picUrl" style="max-height:2em;"></div>
+    <div class="two-column  pic-url-image"><img *ngIf="expert.picUrl" [src]="expert.picUrl|url" style="max-height:2em;"></div>
 
     <div class="two-column prefix--twitter">
       <md-input [ngClass]="{'prefix-label--twitter': expert.twitter}" placeholder="Twitter" [(ngModel)]="expert.twitter">
