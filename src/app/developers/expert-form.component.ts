@@ -22,6 +22,20 @@ export class ExpertFormComponent {
     constructor(public auth : AuthService, public af : AngularFire) { }
 
     save(savedValue: Expert) {
+        // Normalize urls and values
+        if(savedValue.twitter.startsWith("https://twitter.com/")) {
+            savedValue.twitter = savedValue.twitter.substr(20);
+        }
+        if(savedValue.twitter.startsWith("@")) {
+            savedValue.twitter = savedValue.twitter.substr(1);
+        }
+        // We allow other protocols, but https is prefered, default, and not needed to be specified
+        if(savedValue.picUrl.startsWith("https://")) {
+            savedValue.picUrl = savedValue.picUrl.substr(8);
+        }
+        if(savedValue.website.startsWith("https://")) {
+            savedValue.website = savedValue.website.substr(8);
+        }
         event.preventDefault();
         this.update.emit(savedValue);
     }

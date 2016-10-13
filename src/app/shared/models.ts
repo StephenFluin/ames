@@ -32,8 +32,8 @@ export class Expert {
     bio: string;
     email: string;
     name: string;
-    pictureUrl: string;
-    webpageUrl: string;
+    picUrl: string;
+    website: string;
     resumeUrl: string;
     twitter: string;
     linkedin: string;
