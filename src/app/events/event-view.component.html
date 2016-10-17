@@ -10,7 +10,7 @@
       </div>
       <div class="card-hero-wrapper logo-hero view-page">
         <div class="card-hero" [style.background-image]="'url('+((event.bannerUrl|url)||'/assets/images/card-placeholder.jpg')+')'">
-          <div class="card-hero" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8))">
+          <div class="card-hero" [ngClass]="{'linear-gradient': event.bannerUrl}">
             <div class="card-hero__content">
               <img [src]="event.logoUrl | url" class="event-logo">
               <h2>{{ event.name }}</h2>

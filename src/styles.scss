@@ -36,6 +36,9 @@ p, form, .grid, .content { padding:16px; }
   box-shadow: $box-shadow;
 }
 
+.linear-gradient {
+  background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8));
+}
 // Gloval Navigation
 //
 // Gobal styles for top navigation
@@ -292,6 +295,7 @@ $nav-name-media8: 1222px;
 // Primary Button
 .md-primary[md-raised-button], .md-primary[md-fab], .md-primary[md-mini-fab] {
   font-weight: 300;
+  color: $white;
 }
 
 // Delete Button
@@ -651,7 +655,7 @@ $card-media4: 10224px;
   text-align: left;
   margin-left: 15px;
   margin-bottom: 15px;
-  color: $grey !important;
+  color: #CFD8DC !important;
 }
 
 // Card Information
