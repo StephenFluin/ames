@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Rx';
 import { Expert } from '../shared/models';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
-interface HasKey {
+export interface HasKey {
     $key: string;
 }
 

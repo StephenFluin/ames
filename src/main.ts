@@ -8,7 +8,7 @@ if (environment.production) {
 }
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { MyAppModule } from './app/app.module';
+import { MyAppModule } from './app/';
 
 platformBrowserDynamic().bootstrapModule(MyAppModule);
 
