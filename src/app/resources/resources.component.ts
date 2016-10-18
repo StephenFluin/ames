@@ -20,7 +20,7 @@ export class ResourcesComponent implements OnInit{
     priority: number;
 
     constructor(public af: AngularFire, public auth: AuthService) {
-        this.data = af.database.list('/resources').share();
+        this.data = af.database.list('/resources').cache(1);
 
     }
 

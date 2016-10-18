@@ -27,7 +27,7 @@ export class RefirebasePipe implements PipeTransform {
                 // Support firebase "true" key arrays
                 if (arrayItem == true) {
                     output.push(key);
-                } else if (key != "$key") {
+                } else if (key != "$key" && key != "$exists") {
                     let newItem = {$key:''};
                     (<any>Object).assign(newItem, arrayItem);
                     newItem.$key = key;
