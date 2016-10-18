@@ -1,13 +1,9 @@
 <header class="hero-background">
-    <h2 i18n class="internal-header">Communities</h2>
+    <h2 i18n class="internal-header">Angular Community Hub</h2>
+    <p i18n class="internal-sub-header">The Angular Community hub can help you find an <a routerLink="/developers">expert</a>, join a <a routerLink="/">community</a>, learn about <a routerLink="/events">events</a>, or take on a <a routerLink="/missions">mission</a> to help Angular.</p>
 </header>
 
 <main class="main-content">
-  <div class="app-description">
-    <h1>Angular Community Hub</h1>
-    <p>The Angular Community hub can help you find an <a routerLink="/developers">expert</a>, join a <a routerLink="/">community</a>, learn about <a routerLink="/events">events</a>, or take on a <a routerLink="/missions">mission</a> to help Angular.</p>
-  </div>
-
   <p style="clear:both;">
     <button i18n *ngIf="auth.isAdmin | async" md-raised-button color="primary" (click)="new()"><span class="adminIcon"></span>New Community</button>
     <button i18n *ngIf="auth.isUser | async" md-raised-button color="primary" [routerLink]="['/communities/submit']">Submit Community</button>

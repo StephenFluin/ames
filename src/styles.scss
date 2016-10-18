@@ -519,6 +519,7 @@ form a {
   color: $white;
   margin-bottom: $hero-margin;
   padding: $hero-padding;
+  padding-left: 48px;
 }
 
 .internal-header {
@@ -526,8 +527,21 @@ form a {
   font-size: 24px;
   font-weight: $font-ligher;
   margin: 40px 0;
-  padding-left: 48px;
   text-transform: $text-upper;
+}
+
+.internal-sub-header {
+  font-weight: $font-ligher;
+  padding-left: 0;
+
+  a {
+    color: $white;
+    font-weight: $font-medium;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .event-logo {
@@ -609,6 +623,7 @@ $card-media4: 10224px;
   box-shadow: 0 8px 8px rgba(0,131,143,0.24),0 0 8px rgba(0,131,143,0.12),0 6px 18px rgba(0,131,143,0.12);
   text-decoration: none;
   transform: translate3d(0,-2px,0);
+  transition: all .3s;
 }
 
 // MD-card Styles
