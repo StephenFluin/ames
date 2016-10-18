@@ -37,6 +37,7 @@ export class Expert {
     resumeUrl: string;
     twitter: string;
     linkedin: string;
+    github: string;
     city: string;
     country: string;
 
