@@ -12,7 +12,7 @@
 }
 
 .two-column label {
-  color: rgba(0, 0, 0, 0.4);
+  color: #607D8B;
 }
 
 @media (min-width: 720px) {
@@ -54,14 +54,14 @@
 }
 
 .form-title {
-  color: $grey;
+  color: $grey-dark;
   font-size: 18px;
   font-weight: $font-medium;
   margin: 16px;
 }
 
 .main-content p {
-  color: $grey;
+  color: $grey-dark;
 }
 
 .ng-valid[required],
