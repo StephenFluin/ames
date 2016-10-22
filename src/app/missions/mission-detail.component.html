@@ -22,12 +22,13 @@
     <div class="two-column">
       <div class="left">
         <p *ngIf="mission.startDate && mission.endDate" ><i class="material-icons">date_range</i>{{ mission.startDate}} - {{ mission.endDate}}</p>
-        <p><i class="material-icons">person</i>Organizer: {{(mission.organizer |  fireJoin:'/users/' | async)?.name }}</p>
+        <p *ngIf="mission.organizer"><i class="material-icons">person</i>Organizer: {{(mission.organizer |  fireJoin:'/users/' | async)?.name }}</p>
       </div>
 
       <div class="right">
         <h3>Description</h3>
         <p *ngIf="mission.description">{{ mission.description}}</p>
+        <p *ngIf="!mission.description">No details have been added for {{mission.name}}.</p>
       </div>
     </div>
 
@@ -37,6 +38,8 @@
           <div class="shield" [style.background-image]="'url('+((developer | fireJoin:'/users/' | async)?.picUrl?(developer | fireJoin:'/users/' | async)?.picUrl:'/assets/images/card-placeholder.jpg')+')'"> </div>
           <p>{{(developer | fireJoin:'/users/' | async)?.name}}</p>
         </div>
+
+        <p *ngIf="!mission.participants"> There are currently no participants added to {{mission.name}}. </p>
       </div>
     </md-card>
   </main>

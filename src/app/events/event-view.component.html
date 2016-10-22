@@ -22,9 +22,9 @@
 
     <div class="two-column">
       <div class="left">
-        <p><i class="material-icons">location_on</i>{{event.location}}</p>
-        <p><i class="material-icons">date_range</i>{{event.startDate | date:"MMM d"}} - {{event.endDate | date:"MMM d"}}</p>
-        <p i18n><i class="material-icons">person</i>Leads:
+        <p i18n *ngIf="event.location"><i class="material-icons">location_on</i>{{event.location}}</p>
+        <p i18n *ngIf="event.startDate && event.endDate"><i class="material-icons">date_range</i>{{event.startDate | date:"MMM d"}} - {{event.endDate | date:"MMM d"}}</p>
+        <p i18n *ngIf="event.leads"><i class="material-icons">person</i>Leads:
           <span class="lead-list" *ngFor="let lead of event.leads | refirebase">{{(lead | fireJoin:'/users/' | async)?.name}}</span>
         </p>
       </div>
@@ -32,6 +32,7 @@
       <div class="right">
         <h3 i18n >Description</h3>
         <p>{{event.description}}</p>
+        <p *ngIf="!event.description">No details have been added for {{event.name}}.</p>
       </div>
     </div>
 
@@ -41,6 +42,8 @@
             <div class="shield" [style.background-image]="'url('+((developer | fireJoin:'/users/' | async)?.picUrl?(developer | fireJoin:'/users/' | async)?.picUrl:'/assets/images/card-placeholder.jpg')+')'"> </div>
             <p>{{(developer | fireJoin:'/users/' | async)?.name}}</p>
         </div>
+
+        <p *ngIf="!event.speakers"> There are currently no speakers added to {{event.name}}. </p>
       </div>
     </md-card>
   </main>
