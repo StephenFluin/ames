@@ -12,7 +12,7 @@ import { Event, Community } from '../shared/models';
 export class EventFormComponent {
     @Output() update = new EventEmitter<Event>();
     @Output() delete = new EventEmitter<Event>();
-    @Input() event : Event;
+    @Input() event: Event;
 
     save(savedValue: Event) {
         event.preventDefault();
@@ -21,16 +21,16 @@ export class EventFormComponent {
 
     }
     deleteThis() {
-        if(window.confirm("Are you sure you want to delete this?")) {
+        if (window.confirm("Are you sure you want to delete this?")) {
             this.delete.emit(this.event);
         }
 
     }
     // Take a new emitted list of keys
-    chooseLeads(list : string[]) {
+    chooseLeads(list: string[]) {
         this.event.leads = list;
     }
-     chooseSpeakers(list : string[]) {
+    chooseSpeakers(list: string[]) {
         this.event.speakers = list;
     }
 }

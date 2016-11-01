@@ -9,6 +9,7 @@ export class Mission {
     endDate: number;
     participants: string[];
     organizer: string;
+    bannerUrl: string;
 
     constructor(rawSource?) {
         if (rawSource) {
@@ -36,7 +37,7 @@ export class Expert {
     website: string;
     resumeUrl: string;
     twitter: string;
-    linkedin: string;
+    linkedIn: string;
     github: string;
     city: string;
     country: string;
@@ -93,6 +94,12 @@ export class Event {
     end: number;
     author: string;
     community: string;
+    endDate: Date;
+    startDate: Date;
+    logoUrl: string;
+    url: string;
+    description: string;
+    location: string;
 
     leads: string[];
     speakers: string[];

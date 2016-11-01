@@ -10,7 +10,7 @@
         <picker
           [list]="'/users'"
           [selectedObservable]="admins"
-          [order]="name"
+          [order]="'name'"
           [confirmDelete]="true"
           (update)="update($event)">
         </picker>

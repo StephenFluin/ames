@@ -12,11 +12,12 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
     styleUrls: ['user-profile-short.component.scss', '../developers/expert-form.component.scss']
 })
 export class UserProfileShortComponent {
-    user: Observable<any>;
-
-    constructor(private auth : AuthService, private router : Router, angularFire : AngularFire ) {
-        auth.userData.subscribe( userObject => {
-            console.log('Rendering',userObject);
+    user: {name: string};
+    showId: boolean;
+    
+    constructor(private auth: AuthService, private router: Router, angularFire: AngularFire) {
+        auth.userData.subscribe(userObject => {
+            console.log('Rendering', userObject);
             this.user = userObject;
         });
 

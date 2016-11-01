@@ -18,6 +18,8 @@ export class ResourcesComponent implements OnInit{
 
     data: Observable<any[]>;
     priority: number;
+    subPriority: number;
+    priorityMode: boolean;
 
     constructor(public af: AngularFire, public auth: AuthService) {
         this.data = af.database.list('/resources').cache(1);
