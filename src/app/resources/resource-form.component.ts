@@ -1,4 +1,4 @@
-import { Component, Output, Input, EventEmitter } from '@angular/core';
+import { Component, Output, Input, EventEmitter, OnChanges } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Rx';
@@ -10,7 +10,7 @@ import { Resource } from '../shared/models';
     templateUrl: 'resource-form.component.html',
     styleUrls: ['resource-form.component.scss', '../developers/expert-form.component.scss']
 })
-export class ResourceFormComponent {
+export class ResourceFormComponent implements OnChanges {
     @Output() update = new EventEmitter<Resource>();
     @Output() delete = new EventEmitter<Resource>();
     @Input() resource: Resource;
@@ -30,7 +30,7 @@ export class ResourceFormComponent {
         });
     }
 
-    ngOnChanges() {
+    ngOnChanges(changes: any) {
         if (!this.resource) {
             console.log("no resource. making one up!");
             this.resource = new Resource();

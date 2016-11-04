@@ -28,6 +28,4 @@ export class ResourceSubmitComponent {
             console.warn('Invalid submission');
         }
     }
-
-
 }

@@ -8,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ArrayPipe implements PipeTransform {
     constructor() { }
 
-    transform(value: any, destination: string): any {
+    transform(value: any, ...args: any[]): any {
         if (value) {
             return [value];
         } else {
