@@ -7,10 +7,8 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['expert-content.component.scss']
 })
 export class ExpertContentComponent {
-    @Input() content : {type: string,title: string,url: string};
+    @Input() content: { type: string, title: string, url: string };
 
     constructor() { }
-
-
 
 }

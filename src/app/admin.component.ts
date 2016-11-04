@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Rx';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 import { PickerComponent } from './shared/picker.component';
-import { FirebaseService } from './shared/firebase.service';
 
 @Component({
     selector: 'login',
@@ -18,7 +17,7 @@ export class AdminComponent {
     admins: FirebaseObjectObservable<any>;
     newData;
 
-    constructor(public auth: AuthService, public adminService: FirebaseService<any>, public af: AngularFire) {
+    constructor(public auth: AuthService, public af: AngularFire) {
         this.admins = af.database.object('/admin/');
     }
 

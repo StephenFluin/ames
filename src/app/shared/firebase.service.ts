@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
@@ -7,33 +7,20 @@ export interface HasKey {
     $exists?: string;
 }
 
-@Injectable()
-export class FirebaseService<T extends HasKey> {
-    public list: Observable<T[]>;
+export class FirebaseTypedService<T extends HasKey> {
+    endpoint: string;
+    firebaseList: FirebaseListObservable<T[]>;
+    list: Observable<T[]>;
 
-    private firebaseList: FirebaseListObservable<T[]>;
-    public endpoint: string;
+    constructor(private af: AngularFire) { }
 
-
-
-    constructor(private af: AngularFire) {
-
-    }
-
-    setup(endpoint: string, query?): Observable<T[]> {
-        this.endpoint = endpoint;
-        this.firebaseList = this.af.database.list(endpoint, query);
-        this.list = this.firebaseList.map(rawTSet =>
-            rawTSet.map(rawTData =>
-                rawTData
-            )
-        );
-        return this.list;
-    }
     get(key): Observable<T> {
+        if (key == 'new') {
+            let empty: T;
+            return Observable.of(empty);
+        }
         let observer: FirebaseObjectObservable<T> = this.af.database.object(this.endpoint + key);
         return observer.map(item => {
-
             item.$key = key;
             return item
         });
@@ -72,4 +59,20 @@ export class FirebaseService<T extends HasKey> {
         }
 
     }
+}
+
+@Injectable()
+export class FirebaseService {
+    constructor(private af: AngularFire) {
+    }
+
+    // Factory that returns little generic FirebaseTypedService
+    attach<V extends HasKey>(endpoint: string, query?): FirebaseTypedService<V> {
+        let service = new FirebaseTypedService<V>(this.af);
+        service.endpoint = endpoint;
+        service.firebaseList = this.af.database.list(endpoint, query);
+        service.list = service.firebaseList;
+        return service;
+    }
+
 }

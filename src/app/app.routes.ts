@@ -16,7 +16,6 @@ import { CommunitiesComponent } from './communities/communities.component';
 import { CommunitySubmitComponent } from './communities/community-submit.component';
 import { CommunityEditComponent } from './communities/community-edit.component';
 import { CommunityViewComponent } from './communities/community-view.component';
-import { LoginComponent } from './login.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { ResourceEditComponent } from './resources/resource-edit.component';
 import { ResourceQueueComponent } from './resources/resource-queue.component';
@@ -49,7 +48,6 @@ export const routes: Routes = [
     { path: 'communities/submit', component: CommunitySubmitComponent, data: { title: 'Submit Community' } },
     { path: 'communities/:id', component: CommunityViewComponent },
     { path: 'communities/:id/edit', component: CommunityEditComponent },
-    { path: 'login', component: LoginComponent, data: { title: 'Login' } },
     { path: 'resources', component: ResourcesComponent, data: { title: 'Resources' } },
     { path: 'resources/submit', component: ResourceSubmitComponent, data: { title: 'Submit Resource' } },
     { path: 'resources/queue', component: ResourceQueueComponent, data: { title: 'Resource Submission Queue' } },

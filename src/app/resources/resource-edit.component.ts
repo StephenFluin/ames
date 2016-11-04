@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ResourceFormComponent } from './resource-form.component';
 import { Resource } from '../shared/models';
-import { FirebaseService } from '../shared/firebase.service';
+import { FirebaseService, FirebaseTypedService } from '../shared/firebase.service';
 import { Observable } from 'rxjs/Rx';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
@@ -14,21 +14,22 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 export class ResourceEditComponent {
     id: string;
     resource: Observable<any>;
+    resourceService: FirebaseTypedService<Resource>;
 
     // Needs these to move / delete nodes appropriately between categories
     originalCategory: string;
     originalSubcategory: string;
 
-    constructor(private route: ActivatedRoute, private router: Router, private resourceService: FirebaseService<Resource>, private af: AngularFire) {
+    constructor(private route: ActivatedRoute, private router: Router, private fs: FirebaseService, private af: AngularFire) {
 
 
-        this.resource = route.params.flatMap(params => {
+        this.resource = route.params.switchMap(params => {
             if (params['id'] === "new") {
                 return Observable.of({});
             }
-            resourceService.setup('/resources/' + params["category"] + '/' + params["subcategory"] + '/resources/');
+            this.resourceService = fs.attach<Resource>('/resources/' + params["category"] + '/' + params["subcategory"] + '/resources/');
             console.log("bound to", '/resources/' + params["category"] + '/' + params["subcategory"] + '/resources/');
-            return resourceService.get(params['id']).map(resource => {
+            return this.resourceService.get(params['id']).map(resource => {
                 this.originalCategory = resource.category = params['category'];
                 this.originalSubcategory = resource.subcategory = params['subcategory'];
                 return resource;

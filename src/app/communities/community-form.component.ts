@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Community, Expert } from '../shared/models';
-import { FirebaseService } from '../shared/firebase.service';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
@@ -19,11 +18,11 @@ export class CommunityFormComponent {
 
     developers: Observable<Expert[]>;
 
-    constructor(public expertService: FirebaseService<Expert>, public af: AngularFire) {
+    constructor(public af: AngularFire) {
         this.developers = this.af.database.list('/users/', { query: { orderByChild: 'name' } });
     }
-    save() {
-        event.preventDefault();
+    save(domEvent) {
+        domEvent.preventDefault();
         this.update.emit(this.community);
 
     }

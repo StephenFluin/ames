@@ -65,6 +65,8 @@ export class Community {
     organizer: string;
     members: string[];
     span: string;
+    url: string;
+    bannerUrl: string;
 }
 
 

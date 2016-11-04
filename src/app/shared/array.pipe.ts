@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { FirebaseService } from './firebase.service';
 
 
 /**
@@ -7,7 +6,7 @@ import { FirebaseService } from './firebase.service';
  */
 @Pipe({ name: 'array' })
 export class ArrayPipe implements PipeTransform {
-    constructor(private firebase: FirebaseService<any>) { }
+    constructor() { }
 
     transform(value: any, destination: string): any {
         if (value) {

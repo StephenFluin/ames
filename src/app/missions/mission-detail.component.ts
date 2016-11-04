@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 
 import { AuthService } from '../shared/auth.service';
 import { Mission } from '../shared/models';
-import { FirebaseService } from '../shared/firebase.service';
+import { FirebaseService, FirebaseTypedService } from '../shared/firebase.service';
 
 @Component({
 
@@ -13,12 +13,13 @@ import { FirebaseService } from '../shared/firebase.service';
 })
 export class MissionDetailComponent {
     mission: Mission;
+    missionService: FirebaseTypedService<Mission>;
 
-    constructor(private route: ActivatedRoute, private missionService: FirebaseService<Mission>, private auth: AuthService, title: Title) {
-        missionService.setup('/missions/');
+    constructor(private route: ActivatedRoute, private fs: FirebaseService, private auth: AuthService, title: Title) {
+        this.missionService = fs.attach<Mission>('/missions/');
 
         route.params.subscribe(params => {
-            missionService.get(params['id'])
+            this.missionService.get(params['id'])
             .subscribe(next => {
                 this.mission = next;
                 title.setTitle(this.mission.name);

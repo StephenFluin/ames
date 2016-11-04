@@ -3,10 +3,9 @@ import { Event } from '../shared/models';
 import { EventFormComponent } from './event-form.component';
 import { Observable } from 'rxjs/Rx'; // load the full rxjs
 import { ActivatedRoute, Router } from '@angular/router';
-import { FirebaseService } from '../shared/firebase.service';
+import { FirebaseService, FirebaseTypedService } from '../shared/firebase.service';
 
 @Component({
-
     selector: 'event-edit',
     templateUrl: 'event-edit.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
@@ -14,15 +13,11 @@ import { FirebaseService } from '../shared/firebase.service';
 export class EventEditComponent {
     event: Observable<Event>;
     id: string;
+    eventService: FirebaseTypedService<Event>
 
-    constructor(public route: ActivatedRoute, public router: Router, public eventService: FirebaseService<Event>) {
-        eventService.setup('/events/');
-        this.event = route.params.flatMap(params => {
-            if (params['id'] == "new") {
-                return Observable.of(new Event());
-            }
-            return eventService.get(params['id'])
-        });
+    constructor(public route: ActivatedRoute, public router: Router, public fs: FirebaseService) {
+        this.eventService = fs.attach<Event>('/events/');
+        this.event = <Observable<Event>>route.params.switchMap(params => this.eventService.get(params['id']));
     }
 
     processUpdate(eventUpdate: Event) {

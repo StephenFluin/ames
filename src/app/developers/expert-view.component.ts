@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Expert } from '../shared/models';
 import { ActivatedRoute } from '@angular/router';
-import { FirebaseService } from '../shared/firebase.service';
+import { FirebaseService, FirebaseTypedService } from '../shared/firebase.service';
 import { FireJoinPipe } from '../shared/fire-join.pipe';
 
 
@@ -18,15 +18,15 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
 })
 export class ExpertViewComponent {
     expert: Expert;
+    expertService: FirebaseTypedService<Expert>;
 
-
-    constructor(private route: ActivatedRoute, private expertService: FirebaseService<Expert>, title: Title) {
-        expertService.setup('/users/');
+    constructor(private route: ActivatedRoute, private fs: FirebaseService, title: Title) {
+        this.expertService = fs.attach<Expert>('/users/');
 
         // This calls .subscribe so we don't rely on the template for unrolling
         // the observable (which requires 2 components)
         route.params.subscribe(params =>
-            expertService.get(params['id']).subscribe((expert) => {
+            this.expertService.get(params['id']).subscribe((expert) => {
                 this.expert = expert;
                 title.setTitle(this.expert.name);
             })

@@ -1,4 +1,4 @@
-<form *ngIf="event" (submit)="save(event)" ngNoForm>
+<form *ngIf="event" (submit)="save($event, event)" ngNoForm>
 
   <div class="form-layout">
     <div class="two-column"><md-input i18n-placeholder placeholder="Name" [(ngModel)]="event.name" required ></md-input></div>

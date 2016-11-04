@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Rx';
 import { AuthService } from '../shared/auth.service';
 import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
-
 @Component({
 
     selector: "user",

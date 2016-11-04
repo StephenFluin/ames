@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MissionFormComponent } from './mission-form.component';
 import { Mission } from '../shared/models';
-import { FirebaseService } from '../shared/firebase.service';
+import { FirebaseService, FirebaseTypedService } from '../shared/firebase.service';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
@@ -14,15 +14,13 @@ export class MissionEditComponent {
     id: string;
     // Note that this doesn't match the detail component
     mission: Observable<Mission>;
+    missionService: FirebaseTypedService<Mission>;
 
-    constructor(public route: ActivatedRoute, public router: Router, public missionService: FirebaseService<Mission>) {
-        missionService.setup('/missions/');
+    constructor(public route: ActivatedRoute, public router: Router, public fs: FirebaseService) {
+        this.missionService = fs.attach<Mission>('/missions/');
 
         this.mission = route.params.flatMap(params => {
-            if (params['id'] == "new") {
-                return Observable.of(new Mission());
-            }
-            return missionService.get(params['id']);
+            return this.missionService.get(params['id']);
         });
         route.params.subscribe(next => this.id = next['id'], error => console.error(error), () => console.log('finished'));
     }

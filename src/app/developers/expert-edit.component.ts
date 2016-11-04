@@ -3,7 +3,7 @@ import { Expert } from '../shared/models';
 import { ExpertFormComponent } from './expert-form.component';
 import { Observable } from 'rxjs/Rx'; // load the full rxjs
 import { ActivatedRoute, Router } from '@angular/router';
-import { FirebaseService } from '../shared/firebase.service';
+import { FirebaseService, FirebaseTypedService } from '../shared/firebase.service';
 import { AngularFire } from 'angularfire2';
 
 @Component({
@@ -15,14 +15,12 @@ import { AngularFire } from 'angularfire2';
 export class ExpertEditComponent {
     expert: Observable<Expert>;
     id: string;
+    expertService: FirebaseTypedService<Expert>;
 
-    constructor(private route: ActivatedRoute, private router: Router, private expertService: FirebaseService<Expert>, private af: AngularFire) {
-        expertService.setup('/users/');
-        this.expert = route.params.flatMap(params => {
-            if (params['id'] == "new") {
-                return Observable.of(new Expert());
-            }
-            return expertService.get(params['id']);
+    constructor(private route: ActivatedRoute, private router: Router, private fs: FirebaseService, private af: AngularFire) {
+        this.expertService = fs.attach<Expert>('/users/');
+        this.expert = <Observable<Expert>>route.params.switchMap(params => {
+            return this.expertService.get(params['id']);
         });
     }
 
