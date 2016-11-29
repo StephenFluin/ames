@@ -21,13 +21,14 @@
 
     <div class="two-column">
       <div class="left">
-        <p i18n><i class="material-icons">location_on</i>{{community.location}}</p>
-        <p i18n><i class="material-icons">person</i>Organizer: {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
+        <p i18n *ngIf="community.location"><i class="material-icons">location_on</i>{{community.location}}</p>
+        <p i18n *ngIf="community.organizer"><i class="material-icons">person</i>Organizer: {{ (community.organizer | fireJoin:'/users/' | async)?.name}}</p>
       </div>
 
       <div class="right">
         <h3 i18n>Description</h3>
         <p>{{community.description}}</p>
+        <p *ngIf="!community.description">No details have been added for {{community.name}}.</p>
       </div>
     </div>
 
@@ -37,6 +38,8 @@
           <div class="shield" [style.background-image]="'url('+((developer | fireJoin:'/users/' | async)?.picUrl?(developer | fireJoin:'/users/' | async)?.picUrl:'/assets/images/card-placeholder.jpg')+')'"> </div>
           <p> {{(developer | fireJoin:'/users/' | async)?.name}} </p>
         </div>
+
+        <p *ngIf="!community.members"> There are currently no members added to {{community.name}}. </p>
       </div>
     </md-card>
   </main>
