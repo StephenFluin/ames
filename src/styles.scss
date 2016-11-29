@@ -307,6 +307,7 @@ $nav-name-media8: 1222px;
   float: left;
   font-size: 14px;
   height: 36px;
+  line-height: 13px;
   padding: 10px 23px;
   text-transform: none;
   transition: all .3s;
@@ -389,7 +390,7 @@ $nav-name-media8: 1222px;
 }
 
 .prefix-label--web .md-input-placeholder {
-  margin-left: -50px;
+  margin-left: -55px;
   transition: all .3s;
 }
 
@@ -402,7 +403,7 @@ fieldset {
 
 fieldset h2,
 fieldset h3 {
-  color: $grey;
+  color: $grey-dark;
   font-size: 18px;
   font-weight: $font-medium;
   margin: 16px 0;
