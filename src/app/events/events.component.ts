@@ -16,7 +16,13 @@ export class EventsComponent {
 
     constructor(private router: Router, private fs: FirebaseService, private authService: AuthService) {
         this.eventService = fs.attach<Event>('/events/', { query: { orderByChild: 'startDate' } });
-        this.events = this.eventService.list;
+        this.events = this.eventService.list.map(list => {
+            return list.filter(item => {
+                
+                console.log(item.endDate,new Date(item.endDate), new Date());
+                return new Date(item.endDate) > new Date();
+            }) 
+        });
         this.auth = authService;
     }
 

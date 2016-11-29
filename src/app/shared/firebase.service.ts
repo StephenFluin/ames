@@ -16,7 +16,8 @@ export class FirebaseTypedService<T extends HasKey> {
 
     get(key): Observable<T> {
         if (key == 'new') {
-            let empty: T;
+            
+            let empty = <T>{};
             return Observable.of(empty);
         }
         let observer: FirebaseObjectObservable<T> = this.af.database.object(this.endpoint + key);
