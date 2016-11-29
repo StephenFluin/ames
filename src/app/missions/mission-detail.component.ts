@@ -9,7 +9,7 @@ import { FirebaseService, FirebaseTypedService } from '../shared/firebase.servic
 
 @Component({
 
-    templateUrl: 'mission-detail.component.html',
+    templateUrl: './mission-detail.component.html',
 })
 export class MissionDetailComponent {
     mission: Mission;

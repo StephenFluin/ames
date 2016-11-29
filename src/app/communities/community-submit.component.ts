@@ -6,7 +6,7 @@ import { AngularFire } from 'angularfire2';
 @Component({
 
     selector: 'community-submit',
-    templateUrl: 'community-submit.component.html',
+    templateUrl: './community-submit.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
 })
 export class CommunitySubmitComponent {

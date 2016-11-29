@@ -17,8 +17,8 @@ export interface HasKey {
 @Component({
 
     selector: 'picker',
-    templateUrl: 'picker.component.html',
-    styleUrls: ['picker.component.scss', '../developers/expert-form.component.scss']
+    templateUrl: './picker.component.html',
+    styleUrls: ['./picker.component.scss', '../developers/expert-form.component.scss']
 
 })
 export class PickerComponent implements OnInit {

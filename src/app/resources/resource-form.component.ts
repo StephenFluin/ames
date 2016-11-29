@@ -7,8 +7,8 @@ import { Resource } from '../shared/models';
 
 @Component({
     selector: 'resource-form',
-    templateUrl: 'resource-form.component.html',
-    styleUrls: ['resource-form.component.scss', '../developers/expert-form.component.scss']
+    templateUrl: './resource-form.component.html',
+    styleUrls: ['./resource-form.component.scss', '../developers/expert-form.component.scss']
 })
 export class ResourceFormComponent implements OnChanges {
     @Output() update = new EventEmitter<Resource>();

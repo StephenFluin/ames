@@ -6,7 +6,7 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 @Component({
 
     selector: 'community-form',
-    templateUrl: 'community-form.component.html',
+    templateUrl: './community-form.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
 
 })

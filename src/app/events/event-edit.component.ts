@@ -7,7 +7,7 @@ import { FirebaseService, FirebaseTypedService } from '../shared/firebase.servic
 
 @Component({
     selector: 'event-edit',
-    templateUrl: 'event-edit.component.html',
+    templateUrl: './event-edit.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
 })
 export class EventEditComponent {

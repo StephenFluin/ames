@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
 
-    templateUrl: 'mission-edit.component.html',
+    templateUrl: './mission-edit.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
 })
 export class MissionEditComponent {

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "",
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -13,9 +14,5 @@
     "typeRoots": [
       "../node_modules/@types"
     ]
-  },
-  "angularCompilerOptions": {
-    "genDir": "./ngfactory",
-    "debug": false
   }
 }

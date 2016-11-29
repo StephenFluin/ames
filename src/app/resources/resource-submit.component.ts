@@ -9,7 +9,7 @@ import { ResourceFormComponent } from './resource-form.component'
 @Component({
 
     selector: 'resource-new',
-    templateUrl: 'resource-submit.component.html',
+    templateUrl: './resource-submit.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
 })
 export class ResourceSubmitComponent {

@@ -8,8 +8,8 @@ import { AuthService } from '../shared/auth.service';
 
 @Component({
     selector: 'event-view',
-    templateUrl: 'event-view.component.html',
-    styleUrls: ['event-view.component.scss']
+    templateUrl: './event-view.component.html',
+    styleUrls: ['./event-view.component.scss']
 })
 export class EventViewComponent {
     event: Event;

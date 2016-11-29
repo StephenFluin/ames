@@ -8,7 +8,7 @@ import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
 
 @Component({
 
-  templateUrl: 'resource-edit.component.html',
+  templateUrl: './resource-edit.component.html',
   styleUrls: ['../developers/expert-form.component.scss']
 })
 export class ResourceEditComponent {

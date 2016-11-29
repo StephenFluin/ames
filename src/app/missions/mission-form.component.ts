@@ -7,7 +7,7 @@ import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'a
 @Component({
 
     selector: 'mission-form',
-    templateUrl: 'mission-form.component.html',
+    templateUrl: './mission-form.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
 })
 export class MissionFormComponent {

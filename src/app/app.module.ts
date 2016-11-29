@@ -49,6 +49,8 @@ import { RefirebasePipe } from './shared/refirebase.pipe';
 import { FireJoinPipe } from './shared/fire-join.pipe';
 import { ArrayPipe } from './shared/array.pipe';
 import { UrlPipe } from './shared/url.pipe';
+import { FilterPipe } from './shared/utility-pipes.pipe';
+import { SortPipe } from './shared/utility-pipes.pipe';
 import { PickerComponent } from './shared/picker.component';
 import { CommunityFormComponent } from './communities/community-form.component';
 
@@ -65,6 +67,8 @@ import { CommunityFormComponent } from './communities/community-form.component';
         FireJoinPipe,
         ArrayPipe,
         UrlPipe,
+        FilterPipe,
+        SortPipe,
 
         // Views
         CommunityFormComponent,
@@ -85,4 +89,4 @@ import { CommunityFormComponent } from './communities/community-form.component';
     entryComponents: [AmesAppComponent],
     bootstrap: [AmesAppComponent],
 })
-export class MyAppModule { }
+export class AppModule { }

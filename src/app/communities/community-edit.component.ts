@@ -8,7 +8,7 @@ import { FirebaseService, FirebaseTypedService } from '../shared/firebase.servic
 @Component({
 
     selector: 'community-edit',
-    templateUrl: 'community-edit.component.html',
+    templateUrl: './community-edit.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
 })
 export class CommunityEditComponent {

@@ -11,7 +11,7 @@ import { AuthService } from '../shared/auth.service';
  */
 @Component({
     selector: 'community-view',
-    templateUrl: 'community-view.component.html',
+    templateUrl: './community-view.component.html',
 })
 export class CommunityViewComponent {
     community: Community;

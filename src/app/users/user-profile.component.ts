@@ -6,7 +6,7 @@ import { AuthService } from '../shared/auth.service';
 @Component({
 
     selector: "user",
-    templateUrl: 'user-profile.component.html',
+    templateUrl: './user-profile.component.html',
 })
 export class UserProfileComponent {
     auth: Observable<any>;

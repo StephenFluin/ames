@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 
 @Component({
 
-    templateUrl: 'mission-list.component.html',
-    styleUrls: ['mission-list.component.scss', '../developers/expert-form.component.scss']
+    templateUrl: './mission-list.component.html',
+    styleUrls: ['./mission-list.component.scss', '../developers/expert-form.component.scss']
 })
 export class MissionListComponent implements OnInit {
     list: FirebaseListObservable<Mission[]>;

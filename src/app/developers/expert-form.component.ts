@@ -9,8 +9,8 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 @Component({
 
     selector: 'expert-form',
-    templateUrl: 'expert-form.component.html',
-    styleUrls: ['expert-form.component.scss']
+    templateUrl: './expert-form.component.html',
+    styleUrls: ['./expert-form.component.scss']
 })
 export class ExpertFormComponent {
     @Output() update = new EventEmitter<Expert>();

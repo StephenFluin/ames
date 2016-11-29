@@ -7,7 +7,7 @@ import { FirebaseService, FirebaseTypedService } from '../shared/firebase.servic
 @Component({
 
     selector: 'events-list',
-    templateUrl: 'events.component.html',
+    templateUrl: './events.component.html',
 })
 export class EventsComponent {
     events;

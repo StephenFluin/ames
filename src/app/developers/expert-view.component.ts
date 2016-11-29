@@ -12,8 +12,8 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
 @Component({
 
     selector: 'expert-detail',
-    templateUrl: 'expert-view.component.html',
-    styleUrls: ['expert-view.component.scss']
+    templateUrl: './expert-view.component.html',
+    styleUrls: ['./expert-view.component.scss']
 
 })
 export class ExpertViewComponent {

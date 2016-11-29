@@ -12,8 +12,8 @@ import { FireJoinPipe } from '../shared/fire-join.pipe';
 @Component({
 
     selector: 'developers-list',
-    templateUrl: 'developers.component.html',
-    styleUrls: ['experts.component.scss']
+    templateUrl: './developers.component.html',
+    styleUrls: ['./experts.component.scss']
 })
 export class DevelopersComponent {
     experts;

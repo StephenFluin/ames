@@ -10,7 +10,7 @@ declare var ga: any;
 @Component({
 
     selector: 'app-root',
-    templateUrl: 'ames.component.html',
+    templateUrl: './ames.component.html',
     providers: [AuthService, FirebaseService, Title],
 
 })

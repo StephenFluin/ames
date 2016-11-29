@@ -8,13 +8,6 @@ if (environment.production) {
 }
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { MyAppModule } from './app/';
+import { AppModule } from './app/';
 
-platformBrowserDynamic().bootstrapModule(MyAppModule);
-
-// import { MyAppModuleNgFactory } from './ngfactory/app/app.module.ngfactory';
-// import { platformBrowser } from '@angular/platform-browser';
-
-// platformBrowser().bootstrapModuleFactory(MyAppModuleNgFactory);
-
-
+platformBrowserDynamic().bootstrapModule(AppModule);

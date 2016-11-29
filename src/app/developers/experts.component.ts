@@ -12,8 +12,8 @@ import { SortPipe } from '../shared/utility-pipes.pipe';
 
 @Component({
     selector: 'experts-list',
-    templateUrl: 'experts.component.html',
-    styleUrls: ['experts.component.scss']
+    templateUrl: './experts.component.html',
+    styleUrls: ['./experts.component.scss']
 
 })
 export class ExpertsComponent {

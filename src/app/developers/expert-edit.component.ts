@@ -9,8 +9,8 @@ import { AngularFire } from 'angularfire2';
 @Component({
 
     selector: 'expert-edit',
-    templateUrl: 'expert-edit.component.html',
-    styleUrls: ['expert-edit.component.scss']
+    templateUrl: './expert-edit.component.html',
+    styleUrls: ['./expert-edit.component.scss']
 })
 export class ExpertEditComponent {
     expert: Observable<Expert>;

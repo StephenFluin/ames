@@ -6,7 +6,7 @@ import { AngularFire } from 'angularfire2';
 @Component({
 
     selector: 'event-submit',
-    templateUrl: 'event-submit.component.html',
+    templateUrl: './event-submit.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
 })
 export class EventSubmitComponent {

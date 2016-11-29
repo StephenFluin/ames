@@ -8,7 +8,7 @@ import { RefirebasePipe } from '../shared/refirebase.pipe';
 @Component({
 
     selector: 'resource-queue',
-    templateUrl: 'resource-queue.component.html',
+    templateUrl: './resource-queue.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
 })
 export class ResourceQueueComponent implements OnInit {

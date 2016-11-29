@@ -9,8 +9,8 @@ import { PickerComponent } from './shared/picker.component';
 
 @Component({
     selector: 'login',
-    templateUrl: 'admin.component.html',
-    styleUrls: ['developers/expert-form.component.scss']
+    templateUrl: './admin.component.html',
+    styleUrls: ['./developers/expert-form.component.scss']
 })
 export class AdminComponent {
     available: Observable<any>;

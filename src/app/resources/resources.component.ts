@@ -10,8 +10,8 @@ declare var prompt;
 
 @Component({
     selector: 'resources',
-    templateUrl: 'resources.component.html',
-    styleUrls: [ '../developers/expert-form.component.scss', 'resources.component.scss'],
+    templateUrl: './resources.component.html',
+    styleUrls: [ '../developers/expert-form.component.scss', './resources.component.scss'],
 })
 export class ResourcesComponent implements OnInit{
     adjustJumpnav: boolean = false;

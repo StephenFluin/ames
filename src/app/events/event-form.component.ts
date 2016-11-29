@@ -6,7 +6,7 @@ import { Event, Community } from '../shared/models';
 @Component({
 
     selector: 'event-form',
-    templateUrl: 'event-form.component.html',
+    templateUrl: './event-form.component.html',
     styleUrls: ['../developers/expert-form.component.scss']
 })
 export class EventFormComponent {

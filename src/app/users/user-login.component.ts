@@ -9,7 +9,7 @@ import { FirebaseObjectObservable } from 'angularfire2';
 @Component({
 
     selector: 'user-login',
-    templateUrl: 'user-login.component.html',
+    templateUrl: './user-login.component.html',
 })
 export class UserLoginComponent {
     userData: Observable<any>;
