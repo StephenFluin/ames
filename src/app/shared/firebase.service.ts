@@ -43,7 +43,7 @@ export class FirebaseTypedService<T extends HasKey> {
         delete item.$key;
         exists = item.$exists;
         delete item.$exists;
-        if (key === 'new') {
+        if (key === 'new' || !key || key === 'undefined') {
             key = this.new(item).key;
         } else {
             this.af.database.object(this.endpoint + key).update(item);
