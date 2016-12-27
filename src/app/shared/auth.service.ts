@@ -4,6 +4,8 @@ import { Observable, ReplaySubject } from 'rxjs/Rx';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable, AuthProviders, AuthMethods } from 'angularfire2';
 import { Router } from '@angular/router';
 
+import "../shared/shareResults";
+
 declare var Zone;
 
 @Injectable()
@@ -30,7 +32,7 @@ export class AuthService {
                 
             });
             
-        }).cache(1);
+        }).shareResults();
 
         // Detect missing user data and forward to quick-profile
         this.userData.subscribe( authState => {
@@ -57,9 +59,9 @@ export class AuthService {
             });
         }).map( adminObject => 
              (adminObject && adminObject['$value'] === true)
-        ).cache(1);
+        ).shareResults();
         
-        this.isUser =  this.af.auth.map( authState => !!authState).cache(1);
+        this.isUser =  this.af.auth.map( authState => !!authState).shareResults();
         
         this.uid = this.af.auth.switchMap( authState => {
             if(!authState) {
@@ -67,7 +69,7 @@ export class AuthService {
             } else {
                 return Observable.of(authState.uid);
             }
-        }).cache(1);
+        }).shareResults();
 
         
         

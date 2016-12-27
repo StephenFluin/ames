@@ -3,6 +3,8 @@ import { Observable } from 'rxjs/Rx';
 import { Expert } from '../shared/models';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 
+import "./shareResults";
+
 export interface HasKey {
     $key: string;
 }
@@ -46,7 +48,7 @@ export class PickerComponent implements OnInit {
     }
     ngOnInit() {
         // retreive the configuration for available options and lookup in fb
-        this.available = this.af.database.list(this.list, { query: { orderByChild: this.order } }).cache(1);
+        this.available = this.af.database.list(this.list, { query: { orderByChild: this.order } }).shareResults();
         if (!this.selected) {
             this.selected = [];
         }

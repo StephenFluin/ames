@@ -1,9 +1,11 @@
 import { Component, Pipe, PipeTransform, OnInit } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import 'rxjs/Rx';
+
 import { Observable } from 'rxjs/Rx';
 import { RefirebasePipe } from '../shared/refirebase.pipe';
 import { AuthService } from '../shared/auth.service';
+
+import "../shared/shareResults";
 
 declare var firebase: any;
 declare var prompt;
@@ -22,7 +24,7 @@ export class ResourcesComponent implements OnInit{
     priorityMode: boolean;
 
     constructor(public af: AngularFire, public auth: AuthService) {
-        this.data = af.database.list('/resources').cache(1);
+        this.data = af.database.list('/resources').shareResults();
 
     }
 
