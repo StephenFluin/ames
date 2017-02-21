@@ -21,7 +21,7 @@
         <a class="invisible" name="{{category.$key}}"></a>
         <h2>{{category.$key}}</h2>
         <div i18n *ngIf="priorityMode && (auth.isAdmin | async)" class="priority">
-          <md-input placeholder="Priority" [(ngModel)]="priority"></md-input>
+          <md-input-container><input mdInput placeholder="Priority" [(ngModel)]="priority"></md-input-container>
           <button md-raised-button color="primary" (click)="setCategoryPriority(category.$key,priority)">Set Priority</button>
         </div>
 
@@ -31,7 +31,7 @@
               <a class="invisible" name="{{sub.$key}}"></a>
               <h3>{{sub.$key}}</h3>
               <div i18n *ngIf="priorityMode && (auth.isAdmin | async)" class="priority">
-                <md-input placeholder="Priority" [(ngModel)]="subPriority"></md-input>
+                <md-input-container><input mdInput placeholder="Priority" [(ngModel)]="subPriority"></md-input-container>
                 <button md-raised-button color="primary" (click)="setCategoryPriority(category.$key,subPriority)">Set Priority</button>
               </div>
 

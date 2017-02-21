@@ -1,27 +1,23 @@
 <form *ngIf="event" (submit)="save($event, event)" ngNoForm>
 
   <div class="form-layout">
-    <div class="two-column"><md-input i18n-placeholder placeholder="Name" [(ngModel)]="event.name" required ></md-input></div>
-    <div class="two-column"><md-input i18n-placeholder placeholder="Address/Location" [(ngModel)]="event.location"></md-input></div>
+    <div class="two-column"><md-input-container><input mdInput i18n-placeholder placeholder="Name" [(ngModel)]="event.name" required ></md-input-container></div>
+    <div class="two-column"><md-input-container><input mdInput i18n-placeholder placeholder="Address/Location" [(ngModel)]="event.location"></md-input-container></div>
 
-    <div class="two-column"><label i18n>Start Date<md-input [(ngModel)]="event.startDate" type="date"></md-input></label></div>
-    <div class="two-column"><label i18n>End Date<md-input [(ngModel)]="event.endDate" type="date"></md-input></label></div>
+    <div class="two-column"><label i18n>Start Date<md-input-container><input mdInput [(ngModel)]="event.startDate" type="date"></md-input-container></label></div>
+    <div class="two-column"><label i18n>End Date<md-input-container><input mdInput [(ngModel)]="event.endDate" type="date"></md-input-container></label></div>
 
     <div class="two-column prefix--web">
-      <md-input [ngClass]="{'prefix-label--web': event.url}" i18n-placeholder placeholder="URL" [(ngModel)]="event.url">
-        <span class="prefix" md-prefix>https://</span>
-      </md-input>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': event.url}" i18n-placeholder placeholder="URL" [(ngModel)]="event.url"><span class="prefix" md-prefix>https://</span></md-input-container>
     </div>
     <div class="two-column prefix--web">
-      <md-input [ngClass]="{'prefix-label--web': event.logoUrl}" i18n-placeholder placeholder="Logo URL" [(ngModel)]="event.logoUrl">
-        <span class="prefix" md-prefix>https://</span>
-      </md-input>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': event.logoUrl}" i18n-placeholder placeholder="Logo URL" [(ngModel)]="event.logoUrl"><span class="prefix" md-prefix>https://</span></md-input-container>
     </div>
 
     <div  *ngIf="event.logoUrl" class="two-column"></div>
     <div  *ngIf="event.logoUrl" class="two-column  pic-url-image"><img [src]="event.logoUrl|url" style="max-height:2em;"></div>
 
-    <md-input i18n-placeholder placeholder="Description" [(ngModel)]="event.description"></md-input>
+    <md-input-container><input mdInput i18n-placeholder placeholder="Description" [(ngModel)]="event.description"></md-input-container>
   </div>
 
   <fieldset class="content">
