@@ -6,7 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 
-import { MaterialRootModule } from '@angular/material';
+import { MdInputModule } from '@angular/material/input';
+import { MdCardModule } from '@angular/material/card';
+import { MdToolbarModule } from '@angular/material/toolbar';
+import { MdSlideToggleModule } from '@angular/material/slide-toggle';
+import { MdButtonModule } from '@angular/material/button';
 
 import { routes } from './app.routes';
 
@@ -78,7 +82,11 @@ import { CommunityFormComponent } from './communities/community-form.component';
         BrowserModule,
         RouterModule.forRoot(routes),
         FormsModule,
-        MaterialRootModule,
+        MdInputModule,
+        MdCardModule,
+        MdToolbarModule,
+        MdSlideToggleModule,
+        MdButtonModule,
         AngularFireModule.initializeApp({
             apiKey: "AIzaSyCTOFGccvaEedz1Jykckni5T-WP7XixS_o",
             authDomain: "project-4800661445983438923.firebaseapp.com",
