@@ -9,8 +9,8 @@
     <h2 i18n>Admin Properties</h2>
 
     <div><a i18n [routerLink]="['/resources/queue']">Manage the Queue</a></div>
-    <label>
-      <input i18n type="checkbox" [(ngModel)]="priorityMode">
+    <label i18n>
+      <input type="checkbox" [(ngModel)]="priorityMode">
       Priority Management Mode
     </label>
   </fieldset>
@@ -21,7 +21,7 @@
         <a class="invisible" name="{{category.$key}}"></a>
         <h2>{{category.$key}}</h2>
         <div i18n *ngIf="priorityMode && (auth.isAdmin | async)" class="priority">
-          <md-input-container><input mdInput placeholder="Priority" [(ngModel)]="priority"></md-input-container>
+          <md-input-container><input mdInput i18n-placeholder placeholder="Priority" [(ngModel)]="priority"></md-input-container>
           <button md-raised-button color="primary" (click)="setCategoryPriority(category.$key,priority)">Set Priority</button>
         </div>
 
@@ -30,9 +30,9 @@
             <div class="category__sub">
               <a class="invisible" name="{{sub.$key}}"></a>
               <h3>{{sub.$key}}</h3>
-              <div i18n *ngIf="priorityMode && (auth.isAdmin | async)" class="priority">
-                <md-input-container><input mdInput placeholder="Priority" [(ngModel)]="subPriority"></md-input-container>
-                <button md-raised-button color="primary" (click)="setCategoryPriority(category.$key,subPriority)">Set Priority</button>
+              <div *ngIf="priorityMode && (auth.isAdmin | async)" class="priority">
+                <md-input-container><input mdInput i18n-placeholder placeholder="Priority" [(ngModel)]="subPriority"></md-input-container>
+                <button i18n md-raised-button color="primary" (click)="setCategoryPriority(category.$key,subPriority)">Set Priority</button>
               </div>
 
               <div class="sub__resource" *ngFor="let resource of sub.resources | refirebase">

@@ -7,7 +7,7 @@
       <fieldset class="content">
           <h2 i18n><span class="adminIcon"></span> New Mission</h2>
           <div class="form-layout">
-            <md-input-container><input mdInput placeholder="Name" name="name" [(ngModel)]="newMission.name"></md-input-container>
+            <md-input-container><input mdInput i18n-placeholder placeholder="Name" name="name" [(ngModel)]="newMission.name"></md-input-container>
           </div>
 
           <div class="options">
@@ -33,7 +33,7 @@
           </div>
 
           <div class="card-info">
-            <md-card-subtitle>Organized by <span class="font-weight-bolder">{{(mission.organizer |  fireJoin:'/users/' | async)?.name }}</span></md-card-subtitle>
+            <md-card-subtitle i18n>Organized by <span class="font-weight-bolder">{{(mission.organizer |  fireJoin:'/users/' | async)?.name }}</span></md-card-subtitle>
             <br>
             <md-card-subtitle>{{mission.description}}</md-card-subtitle>
           </div>

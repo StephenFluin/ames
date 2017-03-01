@@ -6,7 +6,8 @@
   <md-card class="profile-card">
     <form>
       <div *ngFor="let submission of submissions | async">
-        <h3 i18n class="form-title">{{submission.title}} ({{submission.category}} / {{submission.subcategory}})</h3>
+        <!-- we need i18n ICU to translate this -->
+        <h3 class="form-title">{{submission.title}} ({{submission.category}} / {{submission.subcategory}})</h3>
         <p>
           <a [href]="submission.url">{{submission.url}}</a>
           <br>

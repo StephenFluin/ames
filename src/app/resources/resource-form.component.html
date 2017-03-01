@@ -1,7 +1,7 @@
 <form (submit)="submit()" ngNoForm>
   <div class="form-layout">
-    <div class="two-column"><md-input-container><input mdInput [(ngModel)]="resource.title" placeholder="Title"></md-input-container></div>
-    <div class="two-column"><md-input-container><input mdInput [(ngModel)]="resource.url" placeholder=" URL" type="url"></md-input-container></div>
+    <div class="two-column"><md-input-container><input mdInput [(ngModel)]="resource.title" i18n-placeholder placeholder="Title"></md-input-container></div>
+    <div class="two-column"><md-input-container><input mdInput [(ngModel)]="resource.url" i18n-placeholder placeholder=" URL" type="url"></md-input-container></div>
 
     <div class="two-column">
       <label i18n>Select a Category
@@ -23,7 +23,7 @@
       </label>
     </div>
 
-    <div class="two-column"><md-input-container><input mdInput [(ngModel)]="resource.desc" placeholder="Description"></md-input-container></div>
+    <div class="two-column"><md-input-container><input mdInput [(ngModel)]="resource.desc" i18n-placeholder placeholder="Description"></md-input-container></div>
   </div>
 
   <div class="options">
