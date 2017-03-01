@@ -8,7 +8,11 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "i18n": "ng xi18n --i18n-format xlf --output-path src/i18n",
+    "build": "ng build --aot",
+    "build:all": "npm run build && npm run build:fr",
+    "build:fr": "ng build --aot --output-path dist/fr --locale fr --i18n-format xlf --i18n-file src/i18n/messages.fr.xlf --bh fr"
   },
   "private": true,
   "dependencies": {

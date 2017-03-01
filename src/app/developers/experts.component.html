@@ -19,8 +19,8 @@
                 <div class="card-hero__content">
                   <md-card-title>{{ (expert.observable | async)?.name}}</md-card-title>
                   <md-card-subtitle>
-                    <span i18n *ngIf="(expert.observable | async)?.isGDE">GDE</span>
-                    <span i18n *ngIf="(expert.observable | async)?.isGoogler">Google</span>
+                    <span *ngIf="(expert.observable | async)?.isGDE">GDE</span>
+                    <span *ngIf="(expert.observable | async)?.isGoogler">Google</span>
                     <span i18n *ngIf="(expert.observable | async)?.isConsultant">- Available for Consulting</span>
                   </md-card-subtitle>
                 </div>
@@ -45,7 +45,7 @@
           </div>
 
           <div *ngIf="(expert.observable | async)?.communities">
-              <h4>Communities</h4>
+              <h4 i18n>Communities</h4>
               <div *ngFor="let community of (expert.observable | async)?.communities | refirebase" >
                   <div>{{ (community | fireJoin:'/communities/' | async)?.name }}</div>
               </div>

@@ -1,6 +1,6 @@
 <header class="hero-background">
   <h2 i18n class="internal-header" (click)="showId=!(showId)">Your Profile</h2>
-  <span *ngIf="showId">My ID is: {{(auth | async)?.uid}} </span>
+  <span *ngIf="showId" i18n>My ID is: {{(auth | async)?.uid}} </span>
 </header>
 
 <main class="main-content">
@@ -9,7 +9,7 @@
     <p i18n *ngIf="user">Let's get started setting up your profile. What's your full name?</p>
     <form *ngIf="user" (submit)="next(user)" class="user-form" ngNoForm>
       <div class="form-layout">
-          <md-input-container><input mdInput placeholder="Full Name" [(ngModel)]="user.name"></md-input-container>
+          <md-input-container><input mdInput i18n-placeholder placeholder="Full Name" [(ngModel)]="user.name"></md-input-container>
       </div>
       <div class="options">
         <button i18n md-raised-button color="primary" (click)="next(user)">Next</button>

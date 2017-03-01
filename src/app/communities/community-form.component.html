@@ -1,23 +1,23 @@
 <form *ngIf="community" (submit)="save($event)" ngNoForm>
 
   <div class="form-layout">
-    <div class="two-column "><md-input-container><input mdInput placeholder="Name" [(ngModel)]="community.name"></md-input-container></div>
-    <div class="two-column "><md-input-container><input mdInput placeholder="Location" [(ngModel)]="community.location"></md-input-container></div>
+    <div class="two-column "><md-input-container><input mdInput i18n-placeholder placeholder="Name" [(ngModel)]="community.name"></md-input-container></div>
+    <div class="two-column "><md-input-container><input mdInput i18n-placeholder placeholder="Location" [(ngModel)]="community.location"></md-input-container></div>
 
     <div class="two-column  prefix--web">
-      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': community.url}" placeholder="URL" [(ngModel)]="community.url"><span class="prefix" md-prefix>https://</span></md-input-container>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': community.url}" i18n-placeholder placeholder="URL" [(ngModel)]="community.url"><span class="prefix" md-prefix>https://</span></md-input-container>
     </div>
     <div class="two-column  prefix--web">
-      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': community.bannerUrl}" placeholder="Banner URL" [(ngModel)]="community.bannerUrl"><span class="prefix" md-prefix>https://</span></md-input-container>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': community.bannerUrl}" i18n-placeholder placeholder="Banner URL" [(ngModel)]="community.bannerUrl"><span class="prefix" md-prefix>https://</span></md-input-container>
     </div>
 
     <div *ngIf="community.bannerUrl" class="two-column "></div>
     <div *ngIf="community.bannerUrl" class="two-column  pic-url-image"><img [src]="community.bannerUrl|url" style="max-height:2em;"></div>
 
-    <div class="two-column "><md-input-container><input mdInput placeholder="Description" [(ngModel)]="community.description"></md-input-container></div>
+    <div class="two-column "><md-input-container><input mdInput i18n-placeholder placeholder="Description" [(ngModel)]="community.description"></md-input-container></div>
     <div class="two-column ">
       <label>
-        Organizer
+        <span i18n>Organizer</span>
         <select [(ngModel)]="community.organizer">
           <option *ngFor="let developer of developers | async" [value]="developer.$key">{{developer.name}}</option>
         </select>

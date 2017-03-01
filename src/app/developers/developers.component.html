@@ -42,7 +42,7 @@
             </div>
 
             <div *ngIf="expert.communities">
-                <h4>Communities</h4>
+                <h4 i18n>Communities</h4>
                 <div *ngFor="let community of expert.communities | refirebase" >
                     <div>{{ (community | fireJoin:'/communities/' | async)?.name }}</div>
                 </div>

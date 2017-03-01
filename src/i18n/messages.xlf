@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="ec2d3a89b366d1ca80be056e9e71f0165ae75c7b" datatype="html">
+        <source>Community</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="18623a73c8274b8c1b91fb0846f4b2cf5b5ce487" datatype="html">
+        <source>SITE MENU</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="af88c1e95a1d16d3cdbb7210981e0bfb6dc1d137" datatype="html">
+        <source>Events</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="0c7f255903e77d61fb2ed40959c63a42ab4b26e0" datatype="html">
+        <source>Developers</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="452ef1b96854fe05618303ee601f8fed3b866c9f" datatype="html">
+        <source>Resources</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="408cb6073e60c5d966296a3207fc596adca75e01" datatype="html">
+        <source>Admin</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="e38c6d63094861fc42aede71c0c531a2d5f67c49" datatype="html">
+        <source>Missions</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="5b8264d6890aa225fad0d82e26bc1e6ee5c30171" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/> New Mission</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="70a67e04629f6d412db0a12d51820b480788d795" datatype="html">
+        <source>Create</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="e3e2b350abe41c2b638a1fc3410c82e084b73522" datatype="html">
+        <source>Organized by <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="6829218544e108e152f5fa72cb79c4ccb82e0d06" datatype="html">
+        <source>View</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="28f86ffd419b869711aa13f5e5ff54be6d70731c" datatype="html">
+        <source>Edit</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="fd8fea6883aa5d60999b1ab27276b128d51441fa" datatype="html">
+        <source>Mission</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="db5cc0c8d9d80c653f1b78ce2bfb1b41bc84ceeb" datatype="html">
+        <source>Join</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="94ba884efb0daea36d3a12ea4edd08b0cb432430" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i"/>person<x id="CLOSE_ITALIC_TEXT" ctype="x-i"/>Organizer: <x id="INTERPOLATION"/></source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="eec715de352a6b114713b30b640d319fa78207a0" datatype="html">
+        <source>Description</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="5ed8dd053fafcb76c53a5eb7e87466c75c10b620" datatype="html">
+        <source>No details have been added for <x id="INTERPOLATION"/>.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="303cf04ca5c12a60d676b6a00ceaf852799c1af4" datatype="html">
+        <source>Participants</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ff3075fe6a049f8f428f73b186d992f677c486a8" datatype="html">
+        <source> There are currently no participants added to <x id="INTERPOLATION"/>. </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="a6c564b8e86e267f701e271e2e327353dec3fc64" datatype="html">
+        <source>Mission not found.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="bd5a3b1c5a3c185c7bbb0e09a061d4cdc88ce5ad" datatype="html">
+        <source>Current</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="2dd01679015a08c2bbe968c2a1dbe579ec66bfb3" datatype="html">
+        <source>(None currently selected)</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="f6755cff4957d5c3c89bafce5651f1b6fa2b1fd9" datatype="html">
+        <source>Add</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="71abe0f19de8b078c7457a51d9aadc51f31cca40" datatype="html">
+        <source>Choose From:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="20863f05cbbba236c936781412d253077a17595d" datatype="html">
+        <source>Logo URL</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="826b25211922a1b46436589233cb6f1a163d89b7" datatype="html">
+        <source>Delete</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="52c9a103b812f258bcddc3d90a6e3f46871d25fe" datatype="html">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="cf818359e8d5d4b989a1e3effc3a36e3ae39032d" datatype="html">
+        <source>New/Edit Mission</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="44e294b58c92102ac6657d48dc94e7b4934c5b03" datatype="html">
+        <source>All Developers</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="224fea885d4094f9d191622341d46d3815924286" datatype="html">
+        <source>GDE</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="307d4e56e2ca73694f5dd0325e5407326a01e2d6" datatype="html">
+        <source>Expert</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="7f9db1f23293cc171f60db6b97b6de70be25e417" datatype="html">
+        <source>- Available for Consulting</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="6642147ee5ae8acb8b128faedfc7985d39637911" datatype="html">
+        <source>Communities</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="de89f848737af0d4f930f4b6074d22454f0fc397" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/>All Developers</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="450e28e57284212c18cd3beb79b91cfea5a0d122" datatype="html">
+        <source>My Profile</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="18c764d0476eee6ef89686a85dbd6e682c9a0dac" datatype="html">
+        <source>View Profile</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="0dc4adbe3300d6c50650cfd063fb795cffc53da6" datatype="html">
+        <source>Developer</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="fb4812840b0942618efc8ab10460a56b1eb4716b" datatype="html">
+        <source>Angular GDE</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ae1dc900693cb0237e789d5b4d0b91a25e32714b" datatype="html">
+        <source>Angular Expert</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="604414a4711cb3e84258605b8fd2256b66d5ae99" datatype="html">
+        <source>Biography</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="7a2d1b731ac25dfbf57ba18d7487587e37a28423" datatype="html">
+        <source>This developer has not yet provided a bio.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="4ab4cb601522b9194922554d934c4c30bd93567d" datatype="html">
+        <source>Content</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="53618eb13a54f76ba187d07706d55241bea53479" datatype="html">
+        <source>This developer has not yet provided any content.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="536da86ffef1505190d83c4c9825cc17240ebdf9" datatype="html">
+        <source>Expert not found.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ed31c09fd77c36238c13d83635f3fe5294c733d2" datatype="html">
+        <source>Location</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="afb605e735bef0cdd46dbff3c3d2be15960cdc2b" datatype="html">
+        <source>Website</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="904e34c153145c24143eb49ffd62d99d64f5eba5" datatype="html">
+        <source>Pic URL</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="910ffefddab723cc1fe06842b4f1aa1e6cac383a" datatype="html">
+        <source>Github Username</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="858ea16bb5f45cfe1cfe75187183012ce368eeb7" datatype="html">
+        <source>LinkedIn Username</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="19991529f3b2827b8665b273580c9d52194df9e8" datatype="html">
+        <source>Bio</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="277070672688679521820b3599bf83ac550844c9" datatype="html">
+        <source>Content: Share your work</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="3da34c7eae9fed545497c872bc98aa4ef6d1cbc6" datatype="html">
+        <source>New/Edit Content</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="23b9e871d6b697a082f47e8780ece50f7d4dd7b0" datatype="html">
+        <source>Content Title</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="801b98c6f02fe3b32f6afa3ee854c99ed83474e6" datatype="html">
+        <source>URL</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="f61c6867295f3b53d23557021f2f4e0aa1d0b8fc" datatype="html">
+        <source>Type</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="426747b42c8abcfc34073fcd20754bc1f79ae9b5" datatype="html">
+        <source>Presentation</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="f3360c7ec3c83bc4fa725872f04576fc6eebf670" datatype="html">
+        <source>Blog Post</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="c2a9de3714f5767b174d0424bc8abe2dc37acc41" datatype="html">
+        <source>Other</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="0ea1a81b5bbb459187cdefed2a7db06534dd93f6" datatype="html">
+        <source>Admin Properties</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="883484247ba8d9ebad87e740264f5272d7272255" datatype="html">
+        <source>Show on Developers Tab
+            <x id="START_TAG_MD-SLIDE-TOGGLE" ctype="x-md-slide-toggle"/><x id="CLOSE_TAG_MD-SLIDE-TOGGLE" ctype="x-md-slide-toggle"/>
+        </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="6860b9d7c7c75da7a39296dccdff8238bdf095c7" datatype="html">
+        <source>Consultant
+            <x id="START_TAG_MD-SLIDE-TOGGLE" ctype="x-md-slide-toggle"/><x id="CLOSE_TAG_MD-SLIDE-TOGGLE" ctype="x-md-slide-toggle"/>
+          </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="885f0b1391b8635bd4b31d29c4fe859f94b4983c" datatype="html">
+        <source>Educator
+            <x id="START_TAG_MD-SLIDE-TOGGLE" ctype="x-md-slide-toggle"/><x id="CLOSE_TAG_MD-SLIDE-TOGGLE" ctype="x-md-slide-toggle"/>
+          </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="2a66780991703b9254eeb640320c5eb2d75b5ecd" datatype="html">
+        <source>
+        New Expert
+      </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="702bd9500775b6cc906aa3b51519401f2875c7ee" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/>New Event</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="9b6817a3ec25166cac30b6b821fefab0c9b95d1b" datatype="html">
+        <source>Submit Event</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="a6bdb7a5330d67381067e44a25b1c36723350e55" datatype="html">
+        <source>Event Date <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/> - <x id="INTERPOLATION_1"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="a20835f355331a7398ce79b54cff3c57e96b3c75" datatype="html">
+        <source>Event</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="85bd4d4bbf4fefeb8ca2bb36888f6916cae5d3ee" datatype="html">
+        <source>Submit New Event</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="f8f9ec408fb2e2ea6eb414d8fe88999f57f9641c" datatype="html">
+        <source>Thanks for submitting an event. If it meets our quality guidelines, we&apos;d be happy to add it!</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="413f2795cd28838ca9140a9a64d030353e5817bd" datatype="html">
+        <source>Address/Location</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="9348a92732161175dbd361a615e88f1ce102fa22" datatype="html">
+        <source>Start Date<x id="START_TAG_MD-INPUT-CONTAINER" ctype="x-md-input-container"/><x id="TAG_INPUT" ctype="x-input"/><x id="CLOSE_TAG_MD-INPUT-CONTAINER" ctype="x-md-input-container"/></source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="22d54460c1b1398830b292df9037bcca9325d00c" datatype="html">
+        <source>End Date<x id="START_TAG_MD-INPUT-CONTAINER" ctype="x-md-input-container"/><x id="TAG_INPUT" ctype="x-input"/><x id="CLOSE_TAG_MD-INPUT-CONTAINER" ctype="x-md-input-container"/></source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="f10e72df57be4476f5328b65f1e30fb9bfc3449b" datatype="html">
+        <source>Event Leads</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="e93958f1d15c35a07e8b04cc1a45dbb2cb74add3" datatype="html">
+        <source>Event Speakers</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="f6e03317639acb3ab671dea79b5216f0b1ba4a5b" datatype="html">
+        <source>New/Edit Event</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="9f76a6b594b2a7c74574266dd92bfddb506d84d8" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i"/>person<x id="CLOSE_ITALIC_TEXT" ctype="x-i"/>Leads:
+          <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/>
+        </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="c6bd8d6efff3588e69dd2ef5eef061edd95ce2ed" datatype="html">
+        <source>Speakers</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="70f218150cb10112963eefffe5bed03c0543ced6" datatype="html">
+        <source> There are currently no speakers added to <x id="INTERPOLATION"/>. </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="d76be1a564265a42c764e5583fad76a25e5277a8" datatype="html">
+        <source>Event not found.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="eafd72d15102f7c55b41fc3c30b3b41084120d87" datatype="html">
+        <source>Angular Community Hub</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="3521d8a127d905bd9ea45151c5c35d082b9c5876" datatype="html">
+        <source>The Angular Community hub can help you find an <x id="START_LINK" ctype="x-a"/>expert<x id="CLOSE_LINK" ctype="x-a"/>, join a <x id="START_LINK_1" ctype="x-a"/>community<x id="CLOSE_LINK" ctype="x-a"/>, learn about <x id="START_LINK_2" ctype="x-a"/>events<x id="CLOSE_LINK" ctype="x-a"/>, or take on a <x id="START_LINK_3" ctype="x-a"/>mission<x id="CLOSE_LINK" ctype="x-a"/> to help Angular.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="e1970f052c783ecd5b0d7c15773c49bf8bb2ab6f" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/>New Community</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="bb54df569344770fd1caf3b2a6ccbf8ce3b68c84" datatype="html">
+        <source>Submit Community</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="597301f5e6f406874d9fbc9f56d9ea022d5dd3d0" datatype="html">
+        <source>Organized by <x id="START_TAG_SPAN" ctype="x-span"/><x id="INTERPOLATION"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/></source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="5a9989c50e6554b2216b0c185a7ee0c8c98cf1da" datatype="html">
+        <source>Submit New Community</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="03303f86b3546a35c78eee44f99bf6b90bcd50d9" datatype="html">
+        <source>Thanks for submitting a community. If it meets our quality guidelines, we&apos;d be happy to add it!</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="7b1f77fc830ba87bd067b993e79410b5be40eb1a" datatype="html">
+        <source>New/Edit Community</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="0ede8c46e8e73e0dd3c4323ad470d95a8ea3ee70" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i"/>location_on<x id="CLOSE_ITALIC_TEXT" ctype="x-i"/><x id="INTERPOLATION"/></source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="4b335dbfebb5a3ab33ff199a857ec0bf183bdd0c" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i"/>person<x id="CLOSE_ITALIC_TEXT" ctype="x-i"/>Organizer: <x id="INTERPOLATION"/></source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="edf452322785a74bde26295e471b8487c11d96fb" datatype="html">
+        <source>No details have been added for <x id="INTERPOLATION"/>.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="80fa90ce67552f3f8a824f756a94327e41d3fc49" datatype="html">
+        <source>Members</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="54502ec201d565be7563d4b098a93978f552587b" datatype="html">
+        <source> There are currently no members added to <x id="INTERPOLATION"/>. </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="87ab736fd17d7593e7c018b0c2da8da6fb10962b" datatype="html">
+        <source>Community not found.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="d7b5f10fe718b79735a65ce170ba1b2040ba0f06" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span"/><x id="CLOSE_TAG_SPAN" ctype="x-span"/>Submit a New Resource</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="c0f4aaf44b6e6c58d1be71b3c6c99c65ea5b6c28" datatype="html">
+        <source>Manage the Queue</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="f10301b93c76919a6d5c2d7bcdf6e15eeb769a0f" datatype="html">
+        <source>
+      <x id="TAG_INPUT" ctype="x-input"/>
+      Priority Management Mode
+    </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="4a976594e421319b5fd3e0eab35dfee0bac85e7b" datatype="html">
+        <source>
+          <x id="START_TAG_MD-INPUT-CONTAINER" ctype="x-md-input-container"/><x id="TAG_INPUT" ctype="x-input"/><x id="CLOSE_TAG_MD-INPUT-CONTAINER" ctype="x-md-input-container"/>
+          <x id="START_TAG_BUTTON" ctype="x-button"/>Set Priority<x id="CLOSE_TAG_BUTTON" ctype="x-button"/>
+        </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="b74af38005e8a8914e45af2ec412e11ceafef8b6" datatype="html">
+        <source>Priority</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="4b916df315bd3283cb3de0e22409b02e72f8c45a" datatype="html">
+        <source>Set Priority</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="a24c713c9db5e2dbcc5d8896c77669073e1c3a6b" datatype="html">
+        <source>(Awaiting Approval!)</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="fdf7cbdc140d0aab0f0b6c06065a0fd448ed6a2e" datatype="html">
+        <source>Title</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="840575c701d81d53ddac8454fec8037f6246a2ae" datatype="html">
+        <source> URL</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="46fcfa0b6c47ce7170f99341eedf15eee94e426a" datatype="html">
+        <source>Select a Category
+        <x id="START_TAG_SELECT" ctype="x-select"/>
+          <x id="START_TAG_OPTION" ctype="x-option"/>
+            <x id="INTERPOLATION"/>
+          <x id="CLOSE_TAG_OPTION" ctype="x-option"/>
+        <x id="CLOSE_TAG_SELECT" ctype="x-select"/>
+
+        <x id="START_TAG_SELECT_1" ctype="x-select"/>
+          <x id="START_TAG_OPTION_1" ctype="x-option"/>
+            <x id="INTERPOLATION_1"/>
+          <x id="CLOSE_TAG_OPTION" ctype="x-option"/>
+        <x id="CLOSE_TAG_SELECT" ctype="x-select"/>
+      </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="ffde342dc48f0b074d3dbcbb2f665216a2dd3deb" datatype="html">
+        <source>Resource</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="1d7b5eb50a2ba3f271fa2dc23b61ab4e25860c84" datatype="html">
+        <source>Edit Resource</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="3a794332f664a984647f6251b689958cb1d750bd" datatype="html">
+        <source>Resource Queue</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="6fc5e65900ae1415d3170d5d2842f0dcae1b6645" datatype="html">
+        <source>Accept</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="20c3d69c0b67a74df0aa3920485016b2080578f6" datatype="html">
+        <source>Reject</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="04ed62cb80c29559a7d3895bec6483a9d9ac9ebc" datatype="html">
+        <source>Submit a New Resource</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="f4b5869b846b95a88fea80866d47612d6a0b2159" datatype="html">
+        <source>Want to add a resource to our Angular listings?
+    <x id="LINE_BREAK" ctype="lb"/>
+    Submit your information here, we&apos;ll review and give you a head&apos;s up when we add it to the list.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="42ff677ec14f111e88bd6cdd30145378e994d1bf" datatype="html">
+        <source>Your Profile</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="d98c83748521151f96ae9950ece9c8f5792d1364" datatype="html">
+        <source>My ID is: <x id="INTERPOLATION"/> </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="8697c3df0400cb7bf905f87b0ca9e9f531e46bc4" datatype="html">
+        <source>We don&apos;t yet have any data for your user.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="8bce979493d957ac94b517153e8e9c51e24fea3d" datatype="html">
+        <source>Let&apos;s get started setting up your profile. What&apos;s your full name?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="484b0e541230d60ddb5fbd771a34a5c8d90e7a57" datatype="html">
+        <source>Full Name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="f732c304c7433e5a83ffcd862c3dce709a0f4982" datatype="html">
+        <source>Next</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="d43eb9b38fd5b86ef9ee267653a4e6fd7530a2c1" datatype="html">
+        <source>Administrators</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="a19487ad64f306ce348fb248de7c693ef38471d5" datatype="html">
+        <source>Manage Administrators</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="40c9669711aab845a4e010378d218d315b6aceb6" datatype="html">
+        <source> Login </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="8f52f30a57cd3d8b2921fb18cdafde90afd2a147" datatype="html">
+        <source>
+      Logout
+    </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="a3e4851bb264ad5dbf04068785ee4e6e627d866d" datatype="html">
+        <source>Blog:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="8a73d8910c300d95da0449320a6d8210a80611ab" datatype="html">
+        <source>Presentation:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="fbad483368ab7e89c6005d1e30d03d49719ff871" datatype="html">
+        <source>Other:</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="2b348d640d71466efe6d913fdf8ca4dd2fdcf656" datatype="html">
+        <source>Banner URL</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="97f8d4904a720fb3f51aee0f25a40b902bd8770a" datatype="html">
+        <source>Organizer</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

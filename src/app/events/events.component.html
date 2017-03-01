@@ -27,12 +27,12 @@
           </div>
 
           <div class="card-info">
-            <md-card-subtitle>Event Date <span class="font-weight-bolder">{{event.startDate | date:"MMM d"}} - {{event.endDate | date:"MMM d"}}</span></md-card-subtitle>
+            <md-card-subtitle i18n>Event Date <span class="font-weight-bolder">{{event.startDate | date:"MMM d"}} - {{event.endDate | date:"MMM d"}}</span></md-card-subtitle>
             <md-card-subtitle *ngIf="event.twitterID">@{{event.twitterID}}</md-card-subtitle>
           </div>
 
           <div *ngIf="event.communities">
-              <h4>Communities</h4>
+              <h4 i18n>Communities</h4>
               <div *ngFor="let community of event.communities | refirebase" >
                   <div>{{ (community | fireJoin:'/communities/' | async)?.name }}</div>
               </div>

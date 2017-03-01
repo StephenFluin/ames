@@ -28,7 +28,7 @@
       <div class="right">
         <h3 i18n>Description</h3>
         <p>{{community.description}}</p>
-        <p *ngIf="!community.description">No details have been added for {{community.name}}.</p>
+        <p *ngIf="!community.description" i18n>No details have been added for {{community.name}}.</p>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
           <p> {{(developer | fireJoin:'/users/' | async)?.name}} </p>
         </div>
 
-        <p *ngIf="!community.members"> There are currently no members added to {{community.name}}. </p>
+        <p *ngIf="!community.members" i18n> There are currently no members added to {{community.name}}. </p>
       </div>
     </md-card>
   </main>

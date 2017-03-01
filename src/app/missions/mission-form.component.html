@@ -2,7 +2,7 @@
 
   <div class="form-layout">
     <div class="two-column">
-      <md-input-container><input mdInput [(ngModel)]="mission.name" placeholder="Name"></md-input-container>
+      <md-input-container><input mdInput [(ngModel)]="mission.name" i18n-placeholder placeholder="Name"></md-input-container>
     </div>
     <div class="two-column ">
       <label>
@@ -22,7 +22,7 @@
     <div class="two-column"><md-input-container><input mdInput placeholder="End Date" [(ngModel)]="mission.endDate" type="date"></md-input-container></div> -->
   </div>
 
-  <div> <md-input-container><input mdInput placeholder="Description" [(ngModel)]="mission.description"></md-input-container> </div>
+  <div> <md-input-container><input mdInput i18n-placeholder placeholder="Description" [(ngModel)]="mission.description"></md-input-container> </div>
 
   <fieldset class="content">
     <h2 i18n>Participants</h2>
