@@ -15,7 +15,7 @@
         <li>
 
           <div class="card-hero-wrapper">
-            <div class="card-hero" [style.background-image]="'url('+((event.bannerUrl|url)||'/assets/images/card-placeholder.jpg')+')'">
+            <div class="card-hero" md-card-image [style.background-image]="'url('+((event.bannerUrl|url)||'/assets/images/card-placeholder.jpg')+')'">
               <div class="card-hero" [ngClass]="{'linear-gradient': event.bannerUrl}">
                 <div class="card-hero__content">
                   <div [style.background-image]="'url('+(event.logoUrl|url)+')'" *ngIf="event.logoUrl" class="background-side-picture contain"></div>

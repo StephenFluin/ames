@@ -9,7 +9,7 @@
         <div class="edit-button--internal secondary-button" *ngIf="(auth.isAdmin | async) || (auth.uid | async)==community.organizer" >
           <a i18n routerLink="./edit">Edit</a>
         </div>
-        <div class="card-hero" [style.background-image]="'url('+((community.bannerUrl|url)||'/assets/images/card-placeholder.jpg')+')'">
+        <div class="card-hero" md-card-image [style.background-image]="'url('+((community.bannerUrl|url)||'/assets/images/card-placeholder.jpg')+')'">
           <div class="card-hero" [ngClass]="{'linear-gradient': community.bannerUrl}">
             <div class="card-hero__content">
               <h2>{{community.icon}} {{community.name}}</h2>

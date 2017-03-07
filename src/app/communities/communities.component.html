@@ -14,7 +14,7 @@
           <md-card class="pretty-card" *ngFor="let community of communities | async" [routerLink]="['/communities/',community.$key]">
               <li>
                   <div class="card-hero-wrapper">
-                      <div class="card-hero" [style.background-image]="'url('+((community.bannerUrl|url)||'/assets/images/card-placeholder.jpg')+')'">
+                      <div class="card-hero" md-card-image [style.background-image]="'url('+((community.bannerUrl|url)||'/assets/images/card-placeholder.jpg')+')'">
                         <div class="card-hero" [ngClass]="{'linear-gradient': community.bannerUrl}">
                           <div class="card-hero__content">
                               <md-card-title>{{community.icon}} {{community.name}}</md-card-title>
