@@ -1,8 +1,8 @@
-# Angular 2 Project
+# Angular Community
 
 This is an Angular project. It uses
 
-* Angular CLI (SystemJS)
+* Angular CLI
 * Internationalization
 * AngularFire
 * Material Design
@@ -25,6 +25,10 @@ The CLI will watch for changes in your directory.
 
 ## Build
 
-    ng build --prod
+    ng build -prod
 
 This will build the application and store the portable files in /dist/
+
+## Build French Site
+
+    ng build -prod --locale fr --i18n-file src/i18n/messages.fr.xlf
