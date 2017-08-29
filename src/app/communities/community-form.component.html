@@ -5,10 +5,10 @@
     <div class="two-column "><md-input-container><input mdInput i18n-placeholder placeholder="Location" [(ngModel)]="community.location"></md-input-container></div>
 
     <div class="two-column  prefix--web">
-      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': community.url}" i18n-placeholder placeholder="URL" [(ngModel)]="community.url"><span class="prefix" md-prefix>https://</span></md-input-container>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': community.url}" i18n-placeholder placeholder="URL" [(ngModel)]="community.url"><span class="prefix" mdPrefix>https://</span></md-input-container>
     </div>
     <div class="two-column  prefix--web">
-      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': community.bannerUrl}" i18n-placeholder placeholder="Banner URL" [(ngModel)]="community.bannerUrl"><span class="prefix" md-prefix>https://</span></md-input-container>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': community.bannerUrl}" i18n-placeholder placeholder="Banner URL" [(ngModel)]="community.bannerUrl"><span class="prefix" mdPrefix>https://</span></md-input-container>
     </div>
 
     <div *ngIf="community.bannerUrl" class="two-column "></div>

@@ -5,17 +5,17 @@
     <div class="two-column"><md-input-container><input mdInput i18n-placeholder placeholder="Location" [(ngModel)]="expert.location"></md-input-container></div>
 
     <div class="two-column prefix--web">
-      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': expert.website}" i18n-placeholder placeholder="Website" [(ngModel)]="expert.website"><span class="prefix" md-prefix>https://</span></md-input-container>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': expert.website}" i18n-placeholder placeholder="Website" [(ngModel)]="expert.website"><span class="prefix" mdPrefix>https://</span></md-input-container>
     </div>
     <div class="two-column prefix--web">
-      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': expert.picUrl}" i18n-placeholder placeholder="Pic URL" [(ngModel)]="expert.picUrl"><span class="prefix" md-prefix>https://</span></md-input-container>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': expert.picUrl}" i18n-placeholder placeholder="Pic URL" [(ngModel)]="expert.picUrl"><span class="prefix" mdPrefix>https://</span></md-input-container>
     </div>
 
     <div class="two-column"></div>
     <div class="two-column  pic-url-image"><img *ngIf="expert.picUrl" [src]="expert.picUrl|url" style="max-height:2em;"></div>
 
     <div class="two-column prefix--twitter">
-      <md-input-container><input mdInput [ngClass]="{'prefix-label--twitter': expert.twitter}" placeholder="Twitter" [(ngModel)]="expert.twitter"><span class="prefix" md-prefix>@&nbsp;</span></md-input-container>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--twitter': expert.twitter}" placeholder="Twitter" [(ngModel)]="expert.twitter"><span class="prefix" mdPrefix>@&nbsp;</span></md-input-container>
     </div>
     <div class="two-column">
       <md-input-container><input mdInput i18n-placeholder placeholder="Github Username" [(ngModel)]="expert.github"></md-input-container></div>

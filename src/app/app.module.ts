@@ -6,11 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 
-import { MdInputModule } from '@angular/material/input';
-import { MdCardModule } from '@angular/material/card';
-import { MdToolbarModule } from '@angular/material/toolbar';
-import { MdSlideToggleModule } from '@angular/material/slide-toggle';
-import { MdButtonModule } from '@angular/material/button';
+import { MdInputModule } from '@angular/material';
+import { MdCardModule } from '@angular/material';
+import { MdToolbarModule } from '@angular/material';
+import { MdSlideToggleModule } from '@angular/material';
+import { MdButtonModule } from '@angular/material';
 
 import { routes } from './app.routes';
 

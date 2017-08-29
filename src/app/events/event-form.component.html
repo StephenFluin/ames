@@ -8,10 +8,10 @@
     <div class="two-column"><label i18n>End Date<md-input-container><input mdInput [(ngModel)]="event.endDate" type="date"></md-input-container></label></div>
 
     <div class="two-column prefix--web">
-      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': event.url}" i18n-placeholder placeholder="URL" [(ngModel)]="event.url"><span class="prefix" md-prefix>https://</span></md-input-container>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': event.url}" i18n-placeholder placeholder="URL" [(ngModel)]="event.url"><span class="prefix" mdPrefix>https://</span></md-input-container>
     </div>
     <div class="two-column prefix--web">
-      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': event.logoUrl}" i18n-placeholder placeholder="Logo URL" [(ngModel)]="event.logoUrl"><span class="prefix" md-prefix>https://</span></md-input-container>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': event.logoUrl}" i18n-placeholder placeholder="Logo URL" [(ngModel)]="event.logoUrl"><span class="prefix" mdPrefix>https://</span></md-input-container>
     </div>
 
     <div  *ngIf="event.logoUrl" class="two-column"></div>

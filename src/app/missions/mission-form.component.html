@@ -14,7 +14,7 @@
     </div>
 
     <div class="two-column prefix--web">
-      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': mission.bannerUrl}" i18n-placeholder placeholder="Logo URL" [(ngModel)]="mission.bannerUrl"><span class="prefix" md-prefix>https://</span></md-input-container>
+      <md-input-container><input mdInput [ngClass]="{'prefix-label--web': mission.bannerUrl}" i18n-placeholder placeholder="Logo URL" [(ngModel)]="mission.bannerUrl"><span class="prefix" mdPrefix>https://</span></md-input-container>
       <div *ngIf="mission.bannerUrl"></div>
       <div *ngIf="mission.bannerUrl" class="pic-url-image"><img [src]="mission.bannerUrl|url" style="max-height:2em;"></div>
     </div>
