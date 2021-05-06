@@ -32,3 +32,5 @@ This will build the application and store the portable files in /dist/
 ## Build French Site
 
     ng build -prod --locale fr --i18n-file src/i18n/messages.fr.xlf
+    
+This is a test change
